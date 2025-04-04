@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Annita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Importing relevant styles from the original document */
+        :root {
+            --primary:  #FF7D06;
+            --secondary: #00c2ff;
+            --secondary-light: #33d0ff;
+            --white: #ffffff;
+            --light-gray: #f4f7fa;
+            --dark-gray: #4a4a4a;
+            --text: #333333;
+            --error: #ff3b30;
+            --border-color: #ddd;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light-gray);
+            color: var(--text);
+            line-height: 1.6;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        /* Navigation */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo-text {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--white);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-light);
+        }
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Login Section Styles */
+        .login-section {
+            padding: 8rem 0 0;
+            background-color: var(--white);
+            min-height: calc(100vh - 350px);
+            width: 100vw;
+            margin: 0;
+        }
+        .login-container {
+            width: 100%;
+            margin: 0;
+            background-color: var(--white);
+            padding: 2.5rem;
+            display: flex;
+            align-items: stretch;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .login-image-container {
+            flex: 0 0 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-right: 2.5rem;
+            border-right: 1px solid var(--border-color);
+        }
+        .login-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+        }
+        .login-image-text {
+            text-align: center;
+        }
+        .login-image-text h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .login-image-text p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        .login-form-container {
+            flex: 0 0 65%;
+            padding-left: 2.5rem;
+        }
+        .login-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .login-subtitle {
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .form-group {
+            position: relative;
+        }
+        .login-form input,
+        .login-form select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .login-form input:focus,
+        .login-form select:focus {
+            border-color: var(--secondary);
+        }
+        .account-type-select {
+            margin-bottom: 1rem;
+        }
+        .password-field {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--dark-gray);
+            cursor: pointer;
+            padding: 0;
+        }
+        .password-toggle:focus {
+            outline: none;
+        }
+        .password-toggle i {
+            font-size: 1.1rem;
+        }
+        .login-form button[type="submit"] {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .login-form button[type="submit"]:hover {
+            background-color: var(--secondary-light);
+        }
+        .forgot-password {
+            text-align: right;
+            margin-top: -0.5rem;
+        }
+        .forgot-password a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .forgot-password a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        .login-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--dark-gray);
+        }
+        .login-divider::before,
+        .login-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+        .login-divider span {
+            padding: 0 1rem;
+            font-size: 0.9rem;
+        }
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .social-login-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            border: 1px solid var(--border-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .social-login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .social-login-btn.google {
+            color: #DB4437;
+        }
+        .social-login-btn.linkedin {
+            color: #0077B5;
+        }
+        .social-login-btn.facebook {
+            color: #3b5998;
+        }
+        .social-login-btn.apple {
+            color: #000;
+        }
+        .create-account {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .create-account a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .create-account a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        .with-icon {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            width: 100vw;
+            margin: 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .footer-logo img {
+            height: 30px;
+            margin-right: 0.5rem;
+        }
+        .footer-about {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        .contact-info {
+            list-style: none;
+        }
+        .contact-info li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-info i {
+            width: 20px;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .footer-country-dropdown {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+        
+        /* Responsive styling */
+        @media (max-width: 900px) {
+            .login-container {
+                flex-direction: column;
+            }
+            .login-image-container {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 2rem;
+                margin-bottom: 2rem;
+                width: 100%;
+            }
+            .login-form-container {
+                padding-left: 0;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .auth-buttons {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            nav {
+                padding: 0 1rem;
+            }
+            .footer-grid {
+                padding: 0 1rem;
+            }
+            .copyright {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">AnnitaPay</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Personal</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="csrpage.html" aria-label="CSR">CSR</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-image-container">
+                <div class="login-image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+</svg>
+                        <!-- Background -->
+                        <circle cx="90" cy="90" r="90" fill="#001a57"/>
+                        
+                        <!-- AnnitaPay Logo -->
+                        <g fill="#00c2ff">
+                            <!-- Letter A stylized -->
+                            <path d="M50 120 L70 60 L90 120 M60 100 L80 100" stroke="#00c2ff" stroke-width="8" fill="none"/>
+                            
+                            <!-- Payment symbol -->
+                            <rect x="100" y="70" width="40" height="25" rx="5" ry="5"/>
+                            <rect x="105" y="80" width="30" height="5" fill="#001a57"/>
+                            <circle cx="120" cy="105" r="15"/>
+                            <path d="M113 105 L118 110 L127 100" stroke="#001a57" stroke-width="3" fill="none"/>
+                        </g>
+                        
+                        <!-- Financial graphic elements -->
+                        <g fill="#ffffff" opacity="0.2">
+                            <circle cx="40" cy="40" r="10"/>
+                            <circle cx="140" cy="40" r="10"/>
+                            <circle cx="40" cy="140" r="10"/>
+                            <circle cx="140" cy="140" r="10"/>
+                        </g>
+                        
+                        <!-- Abstract financial line -->
+                        <path d="M30 90 Q60 60, 90 90 Q120 120, 150 90" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="login-image-text">
+                    <h3>Secure Login</h3>
+                    <p>Access your account with confidence</p>
+                </div>
+            </div>
+            
+            <div class="login-form-container">
+                <h2 class="login-title">Welcome Back</h2>
+                <p class="login-subtitle">Login to access your AnnitaPay account</p>
+                
+                <form class="login-form" action="#" method="POST">
+                    <div class="form-group account-type-select">
+                        <select id="account-type" required>
+                            <option value="" disabled selected>Select Account Type</option>
+                            <option value="personal">Personal Account</option>
+                            <option value="business-freelancer">Business - Freelancer/Sole Trader</option>
+                            <option value="business-startup">Business - Startup</option>
+                            <option value="business-sme">Business - Small to Medium Enterprise</option>
+                            <option value="business-enterprise">Business - Enterprise</option>
+                            <option value="charity">Charity/Non-Profit</option>
+                            <option value="religious">Religious Institution</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-group password-field">
+                        <input type="password" id="password" placeholder="Password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword()">
+                            <i class="far fa-eye" id="password-icon"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="forgot-password">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+                
+                <div class="login-divider">
+                    <span>Or login with</span>
+                </div>
+                
+                <div class="social-login">
+                    <a href="#" class="social-login-btn google">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="social-login-btn linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-login-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-login-btn apple">
+                        <i class="fab fa-apple"></i>
+                    </a>
+                </div>
+                
+                <div class="create-account">
+                    <p>Don't have an account? <a href="#">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">
+                    AnnitaPay
+                </div>
+                <p class="footer-about">Revolutionizing payments across Africa with secure, accessible financial services for businesses and individuals.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"class="social-link"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-link"class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"class="social-link"><i class="fab fa-instagramy"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Products</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Digital Wallets</a></li>
+                    <li><a href="#">Payment Gateway</a></li>
+                    <li><a href="#">Money Transfer</a></li>
+                    <li><a href="#">Bill Payments</a></li>
+                    <li><a href="#">Business Analytics</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Vision</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">API Documentation</a></li>
+                    <li><a href="#">Developer Hub</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i>📍</i> Monrovia, Liberia</li>
+                    <li><i>📞</i> +31 88 621 3748</li>
+                    <li><i>✉️</i> annitapayllc@gmail.com</li>
+                </ul>
+                <div class="footer-country-selector">
+                    <label for="footer-country">Select Your Country:</label>
+                    <select id="footer-country" class="footer-country-dropdown">
+                        <option value="liberia">Liberia</option>
+                        <option value="nigeria">Nigeria</option>
+                        <option value="kenya">Kenya</option>
+                        <option value="south-africa">South Africa</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 AnnitaPay. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const passwordIcon = document.getElementById("password-icon");
+            
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordIcon.classList.remove("fa-eye");
+                passwordIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                passwordIcon.classList.remove("fa-eye-slash");
+                passwordIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>

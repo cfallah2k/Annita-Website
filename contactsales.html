@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Sales - Annita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Importing relevant styles from the original document */
+        :root {
+            --primary:  #FF7D06;
+            --secondary: #00c2ff;
+            --secondary-light: #33d0ff;
+            --white: #ffffff;
+            --light-gray: #f4f7fa;
+            --dark-gray: #4a4a4a;
+            --text: #333333;
+            --error: #ff3b30;
+            --border-color: #ddd;
+            --success: #34c759;
+            --accent: #4caf50;
+            --accent-light: #81c784;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light-gray);
+            color: var(--text);
+            line-height: 1.6;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+        /* Navigation */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo-text {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        .nav-links a[aria-label="Sales"] {
+            color: var(--secondary-light);
+            font-weight: 700;
+            position: relative;
+        }
+        .nav-links a[aria-label="Sales"]::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-light);
+            border-radius: 2px;
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--white);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-light);
+        }
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* Hero Section for Contact Sales */
+        .sales-hero {
+            background: linear-gradient(rgba(0, 26, 87, 0.8), rgba(0, 26, 87, 0.8)), url('https://via.placeholder.com/1920x600');
+            background-size: cover;
+            background-position: center;
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            color: var(--white);
+        }
+        .sales-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        .sales-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Contact Form Section */
+        .contact-section {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .contact-info {
+            padding: 2rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 10px;
+            height: fit-content;
+        }
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        .contact-text {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .contact-details p {
+            opacity: 0.8;
+        }
+        .form-container {
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        .form-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .form-select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px 12px;
+        }
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        .checkbox-group input {
+            margin-right: 0.5rem;
+            margin-top: 0.3rem;
+        }
+        .checkbox-group label {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        .submit-btn {
+            background-color: var(--secondary);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        .submit-btn:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-3px);
+        }
+        
+        /* Why Choose Us Section */
+        .why-choose-section {
+            background-color: var(--light-gray);
+            padding: 4rem 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 194, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+        .feature-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .feature-text {
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+        
+        /* Testimonials */
+        .testimonials-section {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .testimonial {
+            padding: 2rem;
+            background-color: var(--light-gray);
+            border-radius:.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--secondary);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .testimonial-position {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background-color: var(--light-gray);
+        }
+        .faqs-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background-color: var(--white);
+            padding: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .faq-answer {
+            background-color: var(--white);
+            padding: 0 1.2rem 1.2rem;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            width: 100vw;
+            margin: 0;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .footer-logo img {
+            height: 30px;
+            margin-right: 0.5rem;
+        }
+        .footer-about {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        .contact-info-footer {
+            list-style: none;
+        }
+        .contact-info-footer li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-info-footer i {
+            width: 20px;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .footer-country-dropdown {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        .back-to-top:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Styling */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .features-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            .sales-hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .auth-buttons {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            nav {
+                padding: 0 1rem;
+            }
+            .footer-grid {
+                padding: 0 1rem;
+            }
+            .copyright {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .sales-hero h1 {
+                font-size: 2.5rem;
+            }
+            .sales-hero p {
+                font-size: 1.1rem;
+            }
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">AnnitaPay</div>
+            </div>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+                <li><a href="#">Personal</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="csrpage.html">CSR</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="loginpage.html" class="btn btn-outline">Login</a>
+                <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="sales-hero">
+        <h1>Contact Our Sales Team</h1>
+        <p>With AnnitaPay you can Sell online, process payments, build financial products, or use business tools designed to grow your business.
+          <p>
+          Please complete the form to connect with a member of our team.</p>
+    </section>
+
+    <!-- Contact Form Section -->
+            <div class="form-container">
+                <h2 class="form-title">Request Information</h2>
+                <form action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name*</label>
+                            <input type="text" id="firstName" name="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name*</label>
+                            <input type="text" id="lastName" name="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="companyName" class="form-label">Company Name*</label>
+                        <input type="text" id="companyName" name="companyName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Business Email*</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number*</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="businessType" class="form-label">Business Type</label>
+                        <select id="businessType" name="businessType" class="form-select">
+                            <option value="" selected disabled>Select your business type</option>
+                            <option value="retail">Retail</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="saas">SaaS</option>
+                            <option value="finance">Financial Services</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="companySize" class="form-label">Company Size</label>
+                        <select id="companySize" name="companySize" class="form-select">
+                            <option value="" selected disabled>Select company size</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="501+">501+ employees</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest" class="form-label">I'm Interested In</label>
+                        <select id="interest" name="interest" class="form-select">
+                            <option value="" selected disabled>Select your area of interest</option>
+                            <option value="payment-processing">Payment Processing</option>
+                            <option value="international">International Transfers</option>
+                            <option value="api-integration">API Integration</option>
+                            <option value="pos-solutions">POS Solutions</option>
+                            <option value="subscription-billing">Subscription Billing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Tell us about your business needs..."></textarea>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">I would like to receive the AnnitaPay newsletter with product updates and industry news</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <span>AnnitaPay</span>
+                    </div>
+                    <p class="footer-about">
+                        Innovative payment solutions for businesses of all sizes. Trusted by thousands of merchants worldwide.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Payment Processing</a></li>
+                        <li><a href="#">Subscription Billing</a></li>
+                        <li><a href="#">Invoicing</a></li>
+                        <li><a href="#">POS Systems</a></li>
+                        <li><a href="#">Payment Links</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Knowledge Base</a></li>
+                        <li><a href="#">Status</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="contact-info-footer">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Payment Street, San Francisco, CA 94103</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (800) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@annitapay.com</li>
+                    </ul>
+                    <select class="footer-country-dropdown">
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="ca">Canada</option>
+                        <option value="au">Australia</option>
+                        <option value="eu">European Union</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 AnnitaPay, Inc. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JavaScript for FAQ Accordion -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    
+                    // Toggle answer visibility
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    } else {
+                        answer.style.display = 'block';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const authButtons = document.querySelector('.auth-buttons');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                authButtons.style.display = authButtons.style.display === 'flex' ? 'none' : 'flex';
+                
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.backgroundColor = 'var(--primary)';
+                    navLinks.style.padding = '1rem';
+                    
+                    authButtons.style.position = 'absolute';
+                    authButtons.style.flexDirection = 'column';
+                    authButtons.style.top = 'calc(100% + ' + navLinks.offsetHeight + 'px)';
+                    authButtons.style.left = '0';
+                    authButtons.style.width = '100%';
+                    authButtons.style.backgroundColor = 'var(--primary)';
+                    authButtons.style.padding = '1rem';
+                }
+            });
+            
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

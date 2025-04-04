@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Annita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Core styles from original document */
+        :root {
+            --primary:  #FF7D06;
+            --secondary: #00c2ff;
+            --secondary-light: #33d0ff;
+            --white: #ffffff;
+            --light-gray: #f4f7fa;
+            --dark-gray: #4a4a4a;
+            --text: #333333;
+            --error: #ff3b30;
+            --border-color: #ddd;
+            --success: #34c759;
+            --accent: #4caf50;
+            --accent-light: #81c784;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light-gray);
+            color: var(--text);
+            line-height: 1.6;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+        /* Navigation */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo-text {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--white);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-light);
+        }
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            width: 100vw;
+            margin: 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .footer-logo img {
+            height: 30px;
+            margin-right: 0.5rem;
+        }
+        .footer-about {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        .contact-info {
+            list-style: none;
+        }
+        .contact-info li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-info i {
+            width: 20px;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .footer-country-dropdown {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        .back-to-top:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .nav-links, .auth-buttons {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            nav {
+                padding: 0 1rem;
+            }
+            .footer-grid {
+                padding: 0 1rem;
+            }
+            .copyright {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Careers Page Specific Styles */
+        .careers-hero {
+            background: linear-gradient(rgba(0, 26, 87, 0.8), rgba(0, 26, 87, 0.8)), url('https://via.placeholder.com/1920x600');
+            background-size: cover;
+            background-position: center;
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            color: var(--white);
+        }
+        .careers-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        .careers-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Careers Search Section */
+        .careers-search {
+            background-color: var(--white);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .search-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .search-button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .search-button:hover {
+            background-color: var(--accent);
+        }
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .filter-select {
+            padding: 0.6rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            min-width: 150px;
+            max-width: 200px;
+            flex: 1;
+        }
+
+        /* Job Listings Section */
+        .job-listings {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+        .listings-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .job-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .job-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .job-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .job-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .job-department {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .job-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        .job-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: rgba(0, 194, 255, 0.1);
+            color: var(--secondary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        .job-remote {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--accent);
+        }
+        .job-hybrid {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+        .job-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        .job-description {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .job-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .job-posted {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+        .view-job {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .view-job:hover {
+            color: var(--accent);
+        }
+        .view-job i {
+            transition: transform 0.3s;
+        }
+        .view-job:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Featured Jobs Section */
+        .featured-jobs {
+            background-color: var(--white);
+            padding: 4rem 2rem;
+        }
+        .featured-label {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(to right, var(--primary), #003399);
+            color: var(--white);
+        }
+        .benefits-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .benefit-description {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Team Culture Section */
+        .team-culture {
+            padding: 4rem 2rem;
+            background-color: var(--light-gray);
+        }
+        .culture-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        .culture-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .culture-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        .culture-text {
+            margin-bottom: 2rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+        .culture-gallery {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* CTA Section */
+        .careers-cta {
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .cta-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .cta-btn-primary {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        .cta-btn-primary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        .cta-btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        .cta-btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--accent);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 2rem;
+            background-color: var(--white);
+        }
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .accordion {
+            margin-top: 2rem;
+        }
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .accordion-header {
+            padding: 1.2rem;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .accordion-header:hover {
+            background-color: #e8eef3;
+        }
+        .accordion-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .accordion-icon {
+            transition: transform 0.3s;
+        }
+        .accordion-content {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .accordion-item.active .accordion-content {
+            padding: 1.2rem;
+            max-height: 500px;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        .page-item {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background-color: var(--white);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .page-item:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        .page-item.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        .page-nav {
+            width: auto;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .job-cards {
+                grid-template-columns: 1fr;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .careers-hero h1 {
+                font-size: 2.5rem;
+            }
+            .search-box {
+                flex-direction: column;
+            }
+            .culture-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">AnnitaPay</div>
+            </div>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+                <li><a href="#">Personal</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="csrpage.html">CSR</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="loginpage.html" class="btn btn-outline">Login</a>
+                <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Careers Hero Section -->
+    <section class="careers-hero">
+        <h1>Join Our Global Team</h1>
+        <p>Build your career at AnnitaPay and be part of a forward-thinking team that's revolutionizing the world of digital payments and financial technology.</p>
+    </section>
+
+    <!-- Job Search Section -->
+    <section class="careers-search" id="search">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search jobs by title, skills or keywords">
+                <button class="search-button">Search Jobs</button>
+            </div>
+            <div class="filter-container">
+                <select class="filter-select">
+                    <option value="">All Departments</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="product">Product</option>
+                    <option value="design">Design</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="finance">Finance</option>
+                    <option value="hr">HR & Recruitment</option>
+                    <option value="customer">Customer Success</option>
+                    <option value="legal">Legal & Compliance</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">All Locations</option>
+                    <option value="newyork">New York</option>
+                    <option value="sanfrancisco">San Francisco</option>
+                    <option value="london">London</option>
+                    <option value="singapore">Singapore</option>
+                    <option value="sydney">Sydney</option>
+                    <option value="remote">Remote</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">Job Type</option>
+                    <option value="fulltime">Full-time</option>
+                    <option value="parttime">Part-time</option>
+                    <option value="contract">Contract</option>
+                    <option value="internship">Internship</option>
+                </select>
+                <select class="filter-select">
+                    <option value="">Experience Level</option>
+                    <option value="entry">Entry Level</option>
+                    <option value="mid">Mid-Level</option>
+                    <option value="senior">Senior</option>
+                    <option value="executive">Executive</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="featured-jobs">
+        <div class="listings-container">
+            <h2 class="section-title">Featured Opportunities</h2>
+            <div class="job-cards">
+                <!-- Featured Job 1 -->
+                <div class="job-card">
+                    <div class="job-header" style="position: relative;">
+                        <span class="featured-label">Featured</span>
+                        <h3 class="job-title">Senior Software Engineer</h3>
+                        <div class="job-department">
+                            <i class="fas fa-code"></i> Engineering
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> San Francisco
+                        </div>
+                        <span class="job-type">Full-time</span>
+                        <span class="job-type job-hybrid">Hybrid</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Join our Engineering team to build and scale our core payment processing infrastructure. You'll work on high-throughput, low-latency financial systems that handle millions of transactions daily.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 2 days ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Featured Job 2 -->
+                <div class="job-card">
+                    <div class="job-header" style="position: relative;">
+                        <span class="featured-label">Featured</span>
+                        <h3 class="job-title">Product Marketing Manager</h3>
+                        <div class="job-department">
+                            <i class="fas fa-bullhorn"></i> Marketing
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> New York
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Drive go-to-market strategies for our payment products. You'll work closely with Product, Design, and Sales teams to create compelling messaging and position our solutions in the market.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 5 days ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Featured Job 3 -->
+                <div class="job-card">
+                    <div class="job-header" style="position: relative;">
+                        <span class="featured-label">Featured</span>
+                        <h3 class="job-title">Compliance Officer</h3>
+                        <div class="job-department">
+                            <i class="fas fa-balance-scale"></i> Legal & Compliance
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> London
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Ensure our global payment operations meet regulatory requirements. You'll develop and implement compliance policies, conduct risk assessments, and stay ahead of evolving financial regulations.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 1 week ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Job Listings Section -->
+    <section class="job-listings" id="jobs">
+        <div class="listings-container">
+            <h2 class="section-title">All Open Positions</h2>
+            <div class="job-cards">
+                <!-- Job 1 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">Backend Developer</h3>
+                        <div class="job-department">
+                            <i class="fas fa-code"></i> Engineering
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-globe-americas"></i> Remote
+                        </div>
+                        <span class="job-type">Full-time</span>
+                        <span class="job-type job-remote">Remote</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Design and implement scalable backend services for our payment platform. You'll work with technologies like Node.js, Python, and cloud infrastructure to build robust and secure financial systems.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 3 days ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">UX/UI Designer</h3>
+                        <div class="job-department">
+                            <i class="fas fa-paint-brush"></i> Design
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> San Francisco
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Create intuitive and beautiful user experiences for our financial products. You'll collaborate with product managers and engineers to design user-centered interfaces that make complex financial tasks simple.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 1 week ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Job 3 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">Data Scientist</h3>
+                        <div class="job-department">
+                            <i class="fas fa-chart-line"></i> Analytics
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> Singapore
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Apply machine learning and statistical modeling to improve our fraud detection systems and personalize user experiences. You'll work with large datasets to derive insights that drive business decisions.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 2 weeks ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Job 4 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">Customer Success Manager</h3>
+                        <div class="job-department">
+                            <i class="fas fa-headset"></i> Customer Success
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> London
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Ensure our enterprise clients get maximum value from our payment solutions. You'll drive adoption, resolve issues, and build strong relationships with key accounts to foster long-term success.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 3 days ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Job 5 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">Financial Analyst</h3>
+                        <div class="job-department">
+                            <i class="fas fa-calculator"></i> Finance
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> New York
+                        </div>
+                        <span class="job-type">Full-time</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Perform financial planning, analysis, and reporting to support business decisions. You'll work with cross-functional teams to develop forecasts and track key performance indicators.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 1 week ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Job 6 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <h3 class="job-title">DevOps Engineer</h3>
+                        <div class="job-department">
+                            <i class="fas fa-server"></i> Engineering
+                        </div>
+                        <div class="job-location">
+                            <i class="fas fa-globe-americas"></i> Remote
+                        </div>
+                        <span class="job-type">Full-time</span>
+                        <span class="job-type job-remote">Remote</span>
+                    </div>
+                    <div class="job-content">
+                        <p class="job-description">Build and maintain our cloud infrastructure and deployment pipelines. You'll automate processes, improve system reliability, and ensure our payment platform is secure, scalable, and highly available.</p>
+                    </div>
+                    <div class="job-footer">
+                        <span class="job-posted">Posted 5 days ago</span>
+                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-item page-nav"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-item active">1</a>
+                <a href="#" class="page-item">2</a>
+                <a href="#" class="page-item">3</a>
+                <a href="#" class="page-item">4</a>
+                <a href="#" class="page-item">5</a>
+                <a href="#" class="page-item page-nav"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <h2 class="benefits-title">Benefits & Perks</h2>
+        <div class="benefits-grid">
+            <!-- Benefit 1 -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-heart-pulse"></i>
+                </div>
+                <h3 class="benefit-title">Comprehensive Healthcare</h3>
+                <p class="benefit-description">We offer top-tier medical, dental, and vision coverage for you and your dependents, because your health comes first.</p>
+            </div>
+            
+            <!-- Benefit 2 -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h3 class="benefit-title">Flexible Time Off</h3>
+                <p class="benefit-description">We trust you to manage your time. Take the time you need to rest, recharge, and bring your best self to work.</p>
+            </div>
+            
+            <!-- Benefit 3 -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3 class="benefit-title">Competitive Compensation</h3>
+                <p class="benefit-description">We offer competitive salaries, equity packages, and bonuses to ensure you share in our success.</p>
+            </div>
+            
+            <!-- Benefit 4 -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="benefit-title">Learning & Development</h3>
+                <p class="benefit-description">Continuous learning is in our DNA. Enjoy a dedicated budget for courses, conferences, and career growth.</p>
+            </div>
+            
+            <!-- Benefit 5 -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-piggy-bank"></i>
+                </div>
+                <h3 class="benefit-title">Retirement Planning</h3>
+                <p class="benefit-description">Plan for your future with our generous 401(k) matching program and financial wellness resources.</p>
+            </div>
+            
+            <!-- Benefit 6 -->
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-laptop-house"></i>
+                </div>
+                <h3 class="benefit-title">Flexible Work Options</h3>
+                <p class="benefit-description">Whether you prefer office, remote, or hybrid work, we provide the tools and flexibility to work your way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Culture Section -->
+    <section class="team-culture">
+        <div class="culture-container">
+            <div class="culture-content">
+                <h2 class="culture-title">Our Culture & Values</h2>
+                <p class="culture-text">At AnnitaPay, we're building a culture where innovation thrives and every voice matters. We believe in transparency, inclusion, and continuous learning. Our team is united by a shared mission to transform financial services and make them accessible to everyone.</p>
+                <p class="culture-text">We celebrate diverse perspectives and backgrounds, knowing that the best solutions come from teams with varied experiences. Whether you're collaborating in our offices or connecting remotely, you'll be part of a supportive community that values work-life balance and genuine connection.</p>
+                <a href="#" class="view-job">Learn more about our culture <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="culture-gallery">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Team collaboration">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Office space">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Team event">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200" alt="Remote work">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="careers-cta">
+        <h2 class="cta-title">Ready to Join Our Team?</h2>
+        <p class="cta-subtitle">Explore our open positions and take the next step in your career journey. Can't find the perfect role? We're always looking for exceptional talent.</p>
+        <div class="cta-buttons">
+            <a href="#jobs" class="cta-btn cta-btn-primary">View All Jobs</a>
+            <a href="#" class="cta-btn cta-btn-secondary">Join Talent Network</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What is the hiring process like at AnnitaPay?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Our hiring process typically includes an initial application review, a screening call with a recruiter, one or more technical or role-specific interviews, and a final interview with the hiring manager or team. We aim to move quickly and keep you informed at every step. The entire process usually takes 2-3 weeks.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">Do you offer relocation assistance?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Yes, for certain roles we offer relocation assistance to help you move to one of our office locations. The specifics depend on the role and location, but our talent team will discuss this with eligible candidates during the hiring process.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What is your remote work policy?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We embrace flexible work arrangements. Many roles are available as fully remote positions, while others follow a hybrid model with some days in the office. We believe in focusing on results rather than where the work happens, while also recognizing the value of in-person collaboration for certain teams and projects.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">What opportunities are there for career growth?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We're committed to helping our team members grow and develop their careers. We offer clear advancement paths, regular performance reviews, mentorship programs, and learning opportunities. Many of our leaders have been promoted from within, and we prioritize internal mobility across teams and departments.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3 class="accordion-title">I don't see a role that matches my skills. Can I still apply?</h3>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Absolutely! We're always looking for exceptional talent. Submit your resume to our talent pool, and our recruiters will reach out if a suitable position becomes available. You can also join our talent network to stay updated on new opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <div>AnnitaPay</div>
+                </div>
+                <p class="footer-about">Secure, seamless payment solutions for individuals and businesses worldwide.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Products</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Personal Payments</a></li>
+                    <li><a href="#">Business Solutions</a></li>
+                    <li><a href="#">Payment Gateway</a></li>
+                    <li><a href="#">Virtual Cards</a></li>
+                    <li><a href="#">International Transfers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Company</h3>
+                <ul class="footer-links">
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="csrpage.html">CSR</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community Forum</a></li>
+                    <li><a href="#">API Documentation</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Contact</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Finance Street, New York, NY</li>
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> support@annitapay.com</li>
+                </ul>
+                <select class="footer-country-dropdown">
+                    <option value="us">United States (English)</option>
+                    <option value="uk">United Kingdom (English)</option>
+                    <option value="ca">Canada (English)</option>
+                    <option value="au">Australia (English)</option>
+                    <option value="fr">France (Français)</option>
+                    <option value="de">Germany (Deutsch)</option>
+                </select>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 AnnitaPay Inc. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const authButtons = document.querySelector('.auth-buttons');
+            
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', function() {
+                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                    authButtons.style.display = authButtons.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+            
+            // Accordion functionality
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                
+                header.addEventListener('click', function() {
+                    // Toggle active class
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTop.style.display = 'flex';
+                    } else {
+                        backToTop.style.display = 'none';
+                    }
+                });
+                
+                backToTop.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

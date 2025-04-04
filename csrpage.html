@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Annita - Corporate Social Responsibility</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF7D06;
+      --secondary: #6C1D3A;
+      --accent: #FFC200;
+      --dark: #111111;
+      --light: #FFFFFF;
+      --grey: #F5F5F5;
+      --green: #2ECC71;
+      --blue: #3498DB;
+      --vh: 1vh; /* For mobile viewport height fix */
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+      background-color: var(--light);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--light);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      position: relative;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      font-family: 'Zen Dots', cursive;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 30px;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      margin-right: 15px;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e67000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    /* Premium Hamburger Menu Styles */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--dark);
+      position: absolute;
+      left: 5px;
+      border-radius: 3px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .hamburger-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .hamburger-icon:before {
+      top: -8px;
+    }
+    
+    .hamburger-icon:after {
+      top: 8px;
+    }
+    
+    /* Animated state when menu is open */
+    .hamburger-menu.active .hamburger-icon {
+      background-color: transparent;
+    }
+    
+    .hamburger-menu.active .hamburger-icon:before {
+      transform: translateY(8px) rotate(45deg);
+      background-color: var(--dark);
+    }
+    
+    .hamburger-menu.active .hamburger-icon:after {
+      transform: translateY(-8px) rotate(-45deg);
+      background-color: var(--dark);
+    }
+    
+    /* Premium Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
+      background-color: white;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-menu ul {
+      list-style: none;
+      width: 100%;
+    }
+    
+    .mobile-menu li {
+      margin-bottom: 25px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+    }
+    
+    .mobile-menu.active li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Staggered animation for menu items */
+    .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+    .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+    .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+    
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+    }
+    
+    .mobile-menu a i {
+      margin-right: 15px;
+      width: 24px;
+      text-align: center;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .mobile-menu a:hover i {
+      transform: scale(1.2);
+    }
+    
+    .mobile-menu .btn {
+      width: 100%;
+      text-align: center;
+      margin: 15px 0;
+      padding: 12px 20px;
+    }
+    
+    /* Menu Overlay */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* CSR Hero Section */
+    .csr-hero {
+      padding-top: 150px;
+      padding-bottom: 80px;
+      background: linear-gradient(135deg, rgba(255,125,6,0.1) 0%, rgba(255,255,255,1) 100%);
+      text-align: center;
+    }
+    
+    .csr-hero h1 {
+      font-size: 48px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    
+    .csr-hero p {
+      font-size: 20px;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    
+    .csr-hero-image {
+      max-width: 800px;
+      margin: 40px auto 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+    }
+    
+    .csr-hero-image img {
+      width: 100%;
+      display: block;
+    }
+    
+    /* CSR Pillars Section */
+    .csr-pillars {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .section-header p {
+      font-size: 18px;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    .pillar-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 40px 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+      border-top: 5px solid var(--primary);
+    }
+    
+    .pillar-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .pillar-icon {
+      width: 80px;
+      height: 80px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      color: white;
+      font-size: 30px;
+    }
+    
+    .pillar-card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .pillar-card p {
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    /* CSR Impact Section */
+    .csr-impact {
+      padding: 80px 0;
+      background-color: var(--grey);
+    }
+    
+    .impact-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .impact-content {
+      width: 50%;
+    }
+    
+    .impact-content h2 {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 30px;
+    }
+    
+    .impact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+    
+    .impact-number {
+      width: 50px;
+      height: 50px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    
+    .impact-text h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+    
+    .impact-text p {
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .impact-image {
+      width: 45%;
+    }
+    
+    .impact-image img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+    }
+    
+    /* CSR Programs Section */
+    .csr-programs {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+    
+    .programs-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .program-tab {
+      padding: 12px 25px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      margin: 0 10px 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    .program-tab.active {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .program-tab:hover:not(.active) {
+      background-color: var(--grey);
+    }
+    
+    .program-content {
+      display: none;
+    }
+    
+    .program-content.active {
+      display: block;
+    }
+    
+    .program-card {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    
+    .program-card-image {
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .program-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .program-card:hover .program-card-image img {
+      transform: scale(1.05);
+    }
+    
+    .program-card-content {
+      padding: 25px;
+    }
+    
+    .program-card h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .program-card p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .program-meta {
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 14px;
+    }
+    
+    .program-location {
+      display: flex;
+      align-items: center;
+    }
+    
+    .program-location i {
+      margin-right: 5px;
+    }
+    
+    /* CSR Stats Section */
+    .csr-stats {
+      padding: 80px 0;
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+    
+    .stat-item {
+      padding: 30px;
+    }
+    
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    
+    .stat-label {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+    
+    /* CSR Partners Section */
+    .csr-partners {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+    
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      align-items: center;
+    }
+    
+    .partner-item {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    
+    .partner-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .partner-item img {
+      max-width: 100%;
+      max-height: 60px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s;
+    }
+    
+    .partner-item:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+    
+    /* CSR CTA Section */
+    .csr-cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .csr-cta h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .csr-cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
+    }
+    
+    .csr-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .btn-white {
+      background-color: white;
+      color: var(--secondary);
+    }
+    
+    .btn-white:hover {
+      background-color: var(--accent);
+      color: var(--dark);
+    }
+    
+    .btn-transparent {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-transparent:hover {
+      background-color: white;
+      color: var(--secondary);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      padding: 80px 0 30px;
+      color: white;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-logo {
+      font-family: 'Zen Dots', cursive;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-about p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #aaa;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--primary);
+    }
+    
+    .footer-links h4 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: white;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 14px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .impact-container {
+        flex-direction: column;
+      }
+      
+      .impact-content, .impact-image {
+        width: 100%;
+      }
+      
+      .impact-image {
+        margin-top: 50px;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .csr-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .csr-cta-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      /* Mobile menu styles */
+      .nav-links, .nav-buttons {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .mobile-menu {
+        display: none;
+      }
+      
+      .mobile-menu.active {
+        display: block;
+      }
+    }
+
+    /* iOS and Android specific adjustments */
+    @supports (-webkit-touch-callout: none) {
+      /* iOS specific styles */
+      .mobile-menu {
+        padding-top: max(100px, constant(safe-area-inset-top));
+        padding-top: max(100px, env(safe-area-inset-top));
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    }
+
+    @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) {
+      /* Safari and Chrome specific styles */
+      .mobile-menu {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <div class="logo-icon">A</div>
+        Annita
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Personal</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="csrpage.html" class="active">CSR</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="loginpage.html" class="btn btn-outline">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <!-- Premium Hamburger Menu Button -->
+      <div class="hamburger-menu">
+        <span class="hamburger-icon"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
+      <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+      <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+    </ul>
+  </div>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay"></div>
+
+  <!-- CSR Hero Section -->
+  <section class="csr-hero">
+    <div class="container">
+      <h1>Corporate Social Responsibility</h1>
+      <p>At Annita, we believe in using our platform to create meaningful change across Africa. Our CSR initiatives focus on empowering communities, fostering digital inclusion, and driving sustainable development.</p>
+      <div class="csr-hero-image">
+        <img src="/images/group-diverse-colleagues-collaborating-project-conference-room_126745-3893.avif" alt="Annita CSR Initiatives">
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR Pillars Section -->
+  <section class="csr-pillars">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our CSR Pillars</h2>
+        <p>We've built our CSR strategy around four key pillars that align with our mission and Africa's development goals</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Digital Education</h3>
+          <p>Bridging the digital divide by providing access to technology education and digital skills training across African communities.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h3>Community Empowerment</h3>
+          <p>Supporting local entrepreneurs and small businesses through funding, mentorship, and access to our platform.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Environmental Sustainability</h3>
+          <p>Implementing eco-friendly practices and supporting initiatives that protect Africa's rich biodiversity.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3>Health & Wellbeing</h3>
+          <p>Improving access to healthcare information and services through our digital platform and partnerships.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-female"></i>
+          </div>
+          <h3>Gender Equality</h3>
+          <p>Promoting women's empowerment through targeted programs that address gender disparities in tech and business.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Innovation for Good</h3>
+          <p>Leveraging our technology to solve social challenges and support African innovators creating positive change.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR Impact Section -->
+  <section class="csr-impact">
+    <div class="container">
+      <div class="impact-container">
+        <div class="impact-content">
+          <h2>Our Impact Across Africa</h2>
+          <div class="impact-item">
+            <div class="impact-number">1</div>
+            <div class="impact-text">
+              <h3>Digital Skills Training</h3>
+              <p>We've trained over 25,000 youth and women in digital literacy and entrepreneurship skills through our Annita Academy program.</p>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-number">2</div>
+            <div class="impact-text">
+              <h3>Small Business Support</h3>
+              <p>More than 5,000 small businesses have grown their revenue by an average of 40% after joining our marketplace and receiving mentorship.</p>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-number">3</div>
+            <div class="impact-text">
+              <h3>Environmental Initiatives</h3>
+              <p>Our tree-planting campaigns have resulted in over 100,000 trees planted across 12 African countries to combat deforestation.</p>
+            </div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-number">4</div>
+            <div class="impact-text">
+              <h3>Healthcare Access</h3>
+              <p>Partnering with health organizations, we've provided telemedicine access to 50 rural communities serving over 200,000 people.</p>
+            </div>
+          </div>
+        </div>
+        <div class="impact-image">
+          <img src="/images/csr-impact.jpg" alt="Annita CSR Impact">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR Programs Section -->
+  <section class="csr-programs">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our CSR Programs</h2>
+        <p>Explore our flagship initiatives that are making a difference in communities across the continent</p>
+      </div>
+      
+      <div class="programs-tabs">
+        <div class="program-tab active" data-tab="education">Education</div>
+        <div class="program-tab" data-tab="entrepreneurship">Entrepreneurship</div>
+        <div class="program-tab" data-tab="environment">Environment</div>
+        <div class="program-tab" data-tab="health">Health</div>
+      </div>
+      
+      <div class="program-content active" id="education-content">
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/digital-academy.jpg" alt="Annita Digital Academy">
+            </div>
+            <div class="program-card-content">
+              <h3>Annita Digital Academy</h3>
+              <p>A free digital skills training program that equips youth with in-demand tech skills like coding, digital marketing, and data analysis. Operating in 8 countries with plans to expand continent-wide.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-users"></i> 12,000+ Graduates</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> 8 African Countries</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/schools-program.jpg" alt="Tech for Schools Initiative">
+            </div>
+            <div class="program-card-content">
+              <h3>Tech for Schools Initiative</h3>
+              <p>Providing digital infrastructure, devices, and training to underserved schools to prepare the next generation for the digital economy. Currently supporting 50 schools across Africa.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-child"></i> 15,000+ Students</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> 5 Countries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="program-content" id="entrepreneurship-content">
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/women-entrepreneurs.jpg" alt="Women in Tech Program">
+            </div>
+            <div class="program-card-content">
+              <h3>Women in Tech Program</h3>
+              <p>A 12-month incubation program providing funding, mentorship, and business development support to female-led tech startups across Africa.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-female"></i> 200+ Startups Supported</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> Pan-Africa</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/market-access.jpg" alt="Market Access Program">
+            </div>
+            <div class="program-card-content">
+              <h3>Market Access Program</h3>
+              <p>Helping small businesses and artisans gain access to regional and international markets through our e-commerce platform with reduced fees and logistics support.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-store"></i> 3,000+ Businesses</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> 15 Countries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="program-content" id="environment-content">
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/green-logistics.jpg" alt="Green Logistics Initiative">
+            </div>
+            <div class="program-card-content">
+              <h3>Green Logistics Initiative</h3>
+              <p>Reducing our carbon footprint through electric delivery vehicles, optimized routing, and sustainable packaging solutions across our logistics network.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-battery-three-quarters"></i> 30% Emissions Reduction</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> 6 Countries</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/tree-planting.jpg" alt="Annita Green Africa">
+            </div>
+            <div class="program-card-content">
+              <h3>Annita Green Africa</h3>
+              <p>A continent-wide tree planting initiative that engages local communities in reforestation efforts while creating sustainable livelihoods.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-tree"></i> 100,000+ Trees Planted</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> 12 Countries</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="program-content" id="health-content">
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/telemedicine.jpg" alt="Digital Health Access">
+            </div>
+            <div class="program-card-content">
+              <h3>Digital Health Access</h3>
+              <p>Partnering with healthcare providers to offer telemedicine services through our platform, especially in rural and underserved communities.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-user-md"></i> 200,000+ Consultations</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> 7 Countries</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="program-card">
+            <div class="program-card-image">
+              <img src="/images/health-education.jpg" alt="Health Education Hub">
+            </div>
+            <div class="program-card-content">
+              <h3>Health Education Hub</h3>
+              <p>Providing reliable health information and preventive care education through our platform in multiple local languages.</p>
+              <div class="program-meta">
+                <span><i class="fas fa-book"></i> 50+ Educational Modules</span>
+                <span class="program-location"><i class="fas fa-map-marker-alt"></i> Pan-Africa</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR Stats Section -->
+  <section class="csr-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">25K+</div>
+          <div class="stat-label">People Trained</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Countries Reached</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5K+</div>
+          <div class="stat-label">Businesses Supported</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100K+</div>
+          <div class="stat-label">Trees Planted</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR Partners Section -->
+  <section class="csr-partners">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our CSR Partners</h2>
+        <p>We collaborate with leading organizations to maximize our social impact across Africa</p>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-item">
+          <img src="/images/partner-african-union.png" alt="African Union">
+        </div>
+        <div class="partner-item">
+          <img src="/images/partner-undp.png" alt="UNDP">
+        </div>
+        <div class="partner-item">
+          <img src="/images/partner-unicef.png" alt="UNICEF">
+        </div>
+        <div class="partner-item">
+          <img src="/images/partner-afdb.png" alt="African Development Bank">
+        </div>
+        <div class="partner-item">
+          <img src="/images/partner-techstars.png" alt="Techstars">
+        </div>
+        <div class="partner-item">
+          <img src="/images/partner-gates-foundation.png" alt="Gates Foundation">
+        </div>
+        <div class="partner-item">
+          <img src="/images/partner-google.png" alt="Google">
+        </div>
+        <div class="partner-item">
+          <img src="/images/partner-mastercard.png" alt="Mastercard Foundation">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR CTA Section -->
+  <section class="csr-cta">
+    <div class="container">
+      <h2>Join Us in Making a Difference</h2>
+      <p>Whether you're an organization looking to partner with us or an individual wanting to contribute, there are many ways to get involved in our CSR initiatives.</p>
+      <div class="csr-cta-buttons">
+        <a href="#" class="btn btn-white">Partner With Us</a>
+        <a href="#" class="btn btn-transparent">Donate to a Cause</a>
+        <a href="#" class="btn btn-transparent">Volunteer Opportunities</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <div class="logo-icon">A</div>
+            Annita
+          </div>
+          <p>Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">E-Commerce</a></li>
+            <li><a href="#">Fintech Solutions</a></li>
+            <li><a href="#">AI Integration</a></li>
+            <li><a href="#">Social Networking</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Logistics</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="contactus.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AnnitaPay. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Enhanced Mobile Menu Toggle with Premium Animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.menu-overlay');
+      const body = document.body;
+      
+      // Toggle menu function
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        body.classList.toggle('no-scroll');
+        
+        if (mobileMenu.classList.contains('active')) {
+          // Disable scrolling when menu is open
+          body.style.overflow = 'hidden';
+          // Add iOS inertia scrolling to menu
+          mobileMenu.style.webkitOverflowScrolling = 'touch';
+        } else {
+          // Re-enable scrolling
+          body.style.overflow = '';
+          // Remove iOS inertia when menu is closed
+          mobileMenu.style.webkitOverflowScrolling = '';
+        }
+      }
+      
+      // Hamburger click event
+      hamburger.addEventListener('click', toggleMenu);
+      
+      // Overlay click event
+      overlay.addEventListener('click', toggleMenu);
+      
+      // Close menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (!link.classList.contains('btn')) {
+            e.preventDefault();
+            toggleMenu();
+            // Scroll to section after menu closes
+            setTimeout(() => {
+              const target = document.querySelector(link.getAttribute('href'));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 500);
+          }
+        });
+      });
+      
+      // Handle iOS viewport height changes
+      function handleViewportHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      // Initial call
+      handleViewportHeight();
+      
+      // Listen for resize events
+      window.addEventListener('resize', handleViewportHeight);
+      window.addEventListener('orientationchange', handleViewportHeight);
+      
+      // Prevent body scroll when menu is open
+      document.addEventListener('touchmove', function(e) {
+        if (mobileMenu.classList.contains('active')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Tab functionality for CSR programs
+      const tabs = document.querySelectorAll('.program-tab');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Remove active class from all tabs and content
+          document.querySelectorAll('.program-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.program-content').forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          this.classList.add('active');
+          
+          // Show corresponding content
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(`${tabId}-content`).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

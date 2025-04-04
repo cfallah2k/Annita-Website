@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Services - Annita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Core Variables */
+        :root {
+            --primary:  #FF7D06;
+            --secondary: #00c2ff;
+            --secondary-light: #33d0ff;
+            --white: #ffffff;
+            --light-gray: #f4f7fa;
+            --dark-gray: #4a4a4a;
+            --text: #333333;
+            --error: #ff3b30;
+            --border-color: #ddd;
+            --gradient-start: #001a57;
+            --gradient-end: #003399;
+            --card-shadow: 0 10px 30px rgba(0, 26, 87, 0.08);
+            --hover-shadow: 0 15px 35px rgba(0, 26, 87, 0.15);
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--text);
+            line-height: 1.6;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        html {
+            overflow-x: hidden;
+            width: 100%;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a.active {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--white);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            padding: 8rem 0 4rem;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            bottom: -200px;
+            right: -200px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero .btn {
+            margin: 0 0.5rem;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .feature-icon {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--white);
+            font-size: 3rem;
+        }
+        
+        .feature-content {
+            padding: 2rem;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .feature-content p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .benefits-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+        
+        .benefit-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .benefit-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .benefit-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .benefit-content {
+            flex: 1;
+        }
+        
+        .benefit-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .benefit-content p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .benefit-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .benefit-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .benefit-feature i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -100px;
+            right: 10%;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .app-button {
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .app-button:hover {
+            transform: translateY(-5px);
+        }
+        
+        .app-button i {
+            font-size: 2rem;
+            margin-right: 0.8rem;
+        }
+        
+        .app-button-text {
+            text-align: left;
+        }
+        
+        .app-button-text small {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .app-button-text span {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+        
+        .testimonial-slider {
+            margin-top: 3rem;
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0.5rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .testimonial-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+        
+        .testimonial-card {
+            flex: 0 0 400px;
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            scroll-snap-align: start;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-content::before {
+            content: '\201C';
+            font-size: 4rem;
+            position: absolute;
+            top: -1.5rem;
+            left: -0.5rem;
+            color: rgba(0, 26, 87, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 1rem;
+        }
+        
+        .testimonial-author-info h4 {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .testimonial-author-info p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Security Section */
+        .security {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+        
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .security-feature {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background-color: var(--light-gray);
+            transition: transform 0.3s;
+        }
+        
+        .security-feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .security-feature i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .security-feature h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-color: var(--white);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background-color: var(--white);
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .faq-question.active + .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            width: 100vw;
+            margin: 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-about {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-info i {
+            width: 20px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .footer-country-dropdown {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Floating Card Animation */
+        .float-card {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .benefit-row {
+                flex-direction: column !important;
+                gap: 2rem;
+            }
+            
+            .benefit-image {
+                height: 300px;
+                width: 100%;
+            }
+            
+            .security-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .auth-buttons {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .benefit-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .security-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                padding: 0 1rem;
+            }
+            
+            .copyright {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">Annita</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" class="active">Personal</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="csrpage.html">CSR</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">One Platform. Unlimited Possibilities.</h1>
+            <p class="slide-up">Send, receive, trade, exchange, and manage money effortlessly—online or offline. Blazing-fast, ultra-secure, and engineered for a limitless financial future.</p>
+            <div>
+                <a href="#features" class="btn btn-primary">Explore Features</a>
+                <a href="signuppage.html" class="btn btn-outline">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Personal Services</h2>
+                <p>Experience financial freedom with our comprehensive suite of personal services designed to make your money work for you.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1: Send App -->
+                <div class="feature-card float-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Send App</h3>
+                        <p>Safely, quickly and conveniently send money to the people who matter most to you. Instant transfers across Africa with the lowest fees.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Feature 2: Market -->
+                <div class="feature-card float-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Market</h3>
+                        <p>Discover, shop and get your items delivered to you from your favourite online businesses. Shop local and international with secure payments.</p>
+                        <a href="#" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+                
+                <!-- Feature 3: Swap -->
+                <div class="feature-card float-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Swap</h3>
+                        <p>Swap your LRD for Dollars, Euros and Pounds at competitive rates. Quick currency exchange without the hassle of visiting a physical bureau.</p>
+                        <a href="#" class="btn btn-primary">Exchange Now</a>
+                    </div>
+                </div>
+                
+                <!-- Feature 4: Buy Event Tickets -->
+                <div class="feature-card float-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Buy Event Tickets</h3>
+                        <p>Conveniently find events you love and buy your tickets. Skip the lines and secure your spot at concerts, sports, and cultural events.</p>
+                        <a href="#" class="btn btn-primary">Find Events</a>
+                    </div>
+                </div>
+                
+                <!-- Feature 5: Tuition -->
+                <div class="feature-card float-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Tuition</h3>
+                        <p>Quick and easy tuition fee payments to African and international schools. Secure transactions with instant confirmation and receipt.</p>
+                        <a href="#" class="btn btn-primary">Pay Tuition</a>
+                    </div>
+                </div>
+                
+                <!-- Feature 6: Bills -->
+                <div class="feature-card float-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Bill Payments</h3>
+                        <p>Pay your utility bills, subscriptions, and more in one convenient place. Schedule automatic payments to never miss a due date.</p>
+                        <a href="#" class="btn btn-primary">Pay Bills</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose AnnitaPay Personal</h2>
+                <p>Experience the future of personal finance with benefits designed for modern life.</p>
+            </div>
+            
+            <div class="benefits-container">
+                <!-- Benefit 1 -->
+                <div class="benefit-row">
+                    <div class="benefit-image" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="benefit-content">
+                        <h3>Seamless Money Management</h3>
+                        <p>Take control of your finances with our intuitive platform that lets you manage all your financial needs in one place.</p>
+                        <div class="benefit-features">
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Real-time transaction tracking</div>
+                            </div>
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Scheduled payments</div>
+                            </div>
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Expense categorization</div>
+                            </div>
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Financial insights</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="benefit-row">
+                    <div class="benefit-image" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="benefit-content">
+                        <h3>Lightning-Fast Transactions</h3>
+                        <p>Send and receive money instantly across Africa with our state-of-the-art payment infrastructure.</p>
+                        <div class="benefit-features">
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Instant transfers</div>
+                            </div>
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Low transaction fees</div>
+                            </div>
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Cross-border capabilities</div>
+                            </div>
+                            <div class="benefit-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>Transaction notifications</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="benefit-row">
+                    <div class="benefit-image" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="benefit-content">
+                      <h3>Unparalleled Security</h3>
+                      <p>Rest easy knowing your money and data are protected by industry-leading security protocols and advanced encryption.</p>
+                      <div class="benefit-features">
+                          <div class="benefit-feature">
+                              <i class="fas fa-check-circle"></i>
+                              <div>End-to-end encryption</div>
+                          </div>
+                          <div class="benefit-feature">
+                              <i class="fas fa-check-circle"></i>
+                              <div>Biometric authentication</div>
+                          </div>
+                          <div class="benefit-feature">
+                              <i class="fas fa-check-circle"></i>
+                              <div>Fraud detection systems</div>
+                          </div>
+                          <div class="benefit-feature">
+                              <i class="fas fa-check-circle"></i>
+                              <div>24/7 transaction monitoring</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+      <div class="cta-content">
+          <h2>Ready to Transform Your Financial Experience?</h2>
+          <p>Download the AnnitaPay app today and join millions of users enjoying seamless financial services.</p>
+          <div class="app-buttons">
+              <a href="#" class="app-button">
+                  <i class="fab fa-apple"></i>
+                  <div class="app-button-text">
+                      <small>Download on the</small>
+                      <span>App Store</span>
+                  </div>
+              </a>
+              <a href="#" class="app-button">
+                  <i class="fab fa-google-play"></i>
+                  <div class="app-button-text">
+                      <small>GET IT ON</small>
+                      <span>Google Play</span>
+                  </div>
+              </a>
+          </div>
+      </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+      <div class="container">
+          <div class="section-title">
+              <h2>What Our Customers Say</h2>
+              <p>Join thousands of satisfied customers who have transformed their financial experiences with AnnitaPay.</p>
+          </div>
+          
+          <div class="testimonial-slider">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card">
+                  <div class="testimonial-content">
+                      Using AnnitaPay has completely changed how I manage my finances. The instant transfers and low fees have saved me so much time and money. I can't imagine going back to traditional banking.
+                  </div>
+                  <div class="testimonial-author">
+                      <div class="testimonial-author-image" style="background-image: url('/api/placeholder/100/100');"></div>
+                      <div class="testimonial-author-info">
+                          <h4>Sarah Johnson</h4>
+                          <p>Small Business Owner</p>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card">
+                  <div class="testimonial-content">
+                      As a student studying abroad, AnnitaPay has been a lifesaver. I can receive money from my parents instantly and the currency exchange rates are much better than any bank I've used.
+                  </div>
+                  <div class="testimonial-author">
+                      <div class="testimonial-author-image" style="background-image: url('/api/placeholder/100/100');"></div>
+                      <div class="testimonial-author-info">
+                          <h4>David Mensah</h4>
+                          <p>International Student</p>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card">
+                  <div class="testimonial-content">
+                      I love how I can pay all my bills, shop online, and send money to family all in one app. The interface is intuitive and the customer support team is always helpful when I need assistance.
+                  </div>
+                  <div class="testimonial-author">
+                      <div class="testimonial-author-image" style="background-image: url('/api/placeholder/100/100');"></div>
+                      <div class="testimonial-author-info">
+                          <h4>Michelle Koroma</h4>
+                          <p>Healthcare Professional</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Security Section -->
+  <section class="security">
+      <div class="container">
+          <div class="section-title">
+              <h2>Your Security Is Our Priority</h2>
+              <p>We employ industry-leading security measures to ensure your money and data are always protected.</p>
+          </div>
+          
+          <div class="security-features">
+              <!-- Security Feature 1 -->
+              <div class="security-feature">
+                  <i class="fas fa-shield-alt"></i>
+                  <h3>Advanced Encryption</h3>
+                  <p>All your data and transactions are protected with bank-grade 256-bit encryption technology.</p>
+              </div>
+              
+              <!-- Security Feature 2 -->
+              <div class="security-feature">
+                  <i class="fas fa-fingerprint"></i>
+                  <h3>Biometric Authentication</h3>
+                  <p>Secure your account with fingerprint, face recognition, or PIN for enhanced protection.</p>
+              </div>
+              
+              <!-- Security Feature 3 -->
+              <div class="security-feature">
+                  <i class="fas fa-lock"></i>
+                  <h3>Fraud Detection</h3>
+                  <p>Our AI-powered system monitors transactions 24/7 to detect and prevent suspicious activities.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq">
+      <div class="container">
+          <div class="section-title">
+              <h2>Frequently Asked Questions</h2>
+              <p>Find answers to common questions about our personal services.</p>
+          </div>
+          
+          <div class="faq-container">
+              <!-- FAQ Item 1 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      How do I create an AnnitaPay account?
+                      <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                      Creating an AnnitaPay account is simple. Download our app from the App Store or Google Play, click on "Sign Up," and follow the instructions. You'll need to provide basic information and complete a quick verification process. The entire setup takes less than 5 minutes.
+                  </div>
+              </div>
+              
+              <!-- FAQ Item 2 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      What are the fees for sending money?
+                      <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                      Our fee structure is transparent and among the lowest in the industry. Domestic transfers start at just 0.5% with a cap of $5 for large transfers. International transfers range from 1-2% depending on the destination. We always show you the exact fee before you confirm any transaction.
+                  </div>
+              </div>
+              
+              <!-- FAQ Item 3 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      How long do transfers take?
+                      <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                      Most domestic transfers are instant. International transfers typically complete within 1-2 business days, depending on the destination country and banking system. Our platform provides real-time tracking so you can see exactly when your money arrives.
+                  </div>
+              </div>
+              
+              <!-- FAQ Item 4 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      Is my money safe with AnnitaPay?
+                      <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                      Absolutely. We use bank-grade security protocols, advanced encryption, and multiple authentication methods to protect your money and information. Additionally, we are fully licensed and regulated, with appropriate financial protection measures in place for our customers.
+                  </div>
+              </div>
+              
+              <!-- FAQ Item 5 -->
+              <div class="faq-item">
+                  <div class="faq-question">
+                      Which countries can I send money to?
+                      <i class="fas fa-chevron-down"></i>
+                  </div>
+                  <div class="faq-answer">
+                      AnnitaPay currently supports money transfers to over 100 countries worldwide, with a particular focus on African nations. We're continuously expanding our reach to provide more global coverage. Check the app for the most up-to-date list of supported countries.
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+      <div class="container">
+          <div class="footer-grid">
+              <div>
+                  <div class="footer-logo">
+                      <div>AnnitaPay</div>
+                  </div>
+                  <p class="footer-about">
+                      AnnitaPay is a leading financial technology company transforming how people and businesses transact across Africa and beyond.
+                  </p>
+                  <div class="social-links">
+                      <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                      <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                      <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+              
+              <div>
+                  <h3 class="footer-title">Products</h3>
+                  <ul class="footer-links">
+                      <li><a href="#">Send App</a></li>
+                      <li><a href="#">Market</a></li>
+                      <li><a href="#">Swap</a></li>
+                      <li><a href="#">Event Tickets</a></li>
+                      <li><a href="#">Tuition</a></li>
+                      <li><a href="#">Bill Payments</a></li>
+                  </ul>
+              </div>
+              
+              <div>
+                  <h3 class="footer-title">Company</h3>
+                  <ul class="footer-links">
+                      <li><a href="aboutus.html">About Us</a></li>
+                      <li><a href="csrpage.html">CSR & Impact</a></li>
+                      <li><a href="#">Careers</a></li>
+                      <li><a href="#">Press</a></li>
+                      <li><a href="#">Blog</a></li>
+                  </ul>
+              </div>
+              
+              <div>
+                  <h3 class="footer-title">Support</h3>
+                  <ul class="footer-links">
+                      <li><a href="contact.html">Contact Us</a></li>
+                      <li><a href="#">Help Center</a></li>
+                      <li><a href="#">FAQs</a></li>
+                      <li><a href="#">Community</a></li>
+                  </ul>
+              </div>
+              
+              <div>
+                  <h3 class="footer-title">Legal</h3>
+                  <ul class="footer-links">
+                      <li><a href="#">Terms of Service</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Security</a></li>
+                      <li><a href="#">Compliance</a></li>
+                  </ul>
+              </div>
+              
+              <div>
+                  <h3 class="footer-title">Contact Us</h3>
+                  <ul class="contact-info">
+                      <li><i class="fas fa-map-marker-alt"></i> 123 Financial District, Monrovia, Liberia</li>
+                      <li><i class="fas fa-phone"></i> +231 886 123 456</li>
+                      <li><i class="fas fa-envelope"></i> support@annitapay.com</li>
+                  </ul>
+                  <select class="footer-country-dropdown">
+                      <option>Liberia (English)</option>
+                      <option>Ghana (English)</option>
+                      <option>Nigeria (English)</option>
+                      <option>Kenya (English)</option>
+                      <option>South Africa (English)</option>
+                  </select>
+              </div>
+          </div>
+      </div>
+      
+      <div class="copyright">
+          © 2025 AnnitaPay. All rights reserved.
+      </div>
+  </footer>
+
+  <!-- JavaScript for FAQ functionality -->
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // FAQ accordion functionality
+          const faqQuestions = document.querySelectorAll('.faq-question');
+          
+          faqQuestions.forEach(question => {
+              question.addEventListener('click', () => {
+                  question.classList.toggle('active');
+              });
+          });
+          
+          // Mobile menu toggle
+          const mobileMenuButton = document.querySelector('.mobile-menu');
+          const navLinks = document.querySelector('.nav-links');
+          const authButtons = document.querySelector('.auth-buttons');
+          
+          mobileMenuButton.addEventListener('click', () => {
+              navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+              authButtons.style.display = authButtons.style.display === 'flex' ? 'none' : 'flex';
+          });
+      });
+  </script>
+</body>
+</html>

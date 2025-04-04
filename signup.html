@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Annita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Importing relevant styles from the original document */
+        :root {
+            --primary:  #FF7D06;
+            --secondary: #00c2ff;
+            --secondary-light: #33d0ff;
+            --white: #ffffff;
+            --light-gray: #f4f7fa;
+            --dark-gray: #4a4a4a;
+            --text: #333333;
+            --error: #ff3b30;
+            --border-color: #ddd;
+            --success: #34c759;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light-gray);
+            color: var(--text);
+            line-height: 1.6;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        /* Navigation */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo-text {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 0.5rem;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--white);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-light);
+        }
+        .mobile-menu {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Signup Section Styles */
+        .signup-section {
+            padding: 8rem 0 4rem;
+            background-color: var(--white);
+            min-height: calc(100vh - 350px);
+            width: 100vw;
+            margin: 0;
+        }
+        .signup-container {
+            width: 100%;
+            margin: 0;
+            background-color: var(--white);
+            padding: 2.5rem;
+            display: flex;
+            align-items: stretch;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .signup-image-container {
+            flex: 0 0 35%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-right: 2.5rem;
+            border-right: 1px solid var(--border-color);
+        }
+        .signup-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+        }
+        .signup-image-text {
+            text-align: center;
+        }
+        .signup-image-text h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .signup-image-text p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        .signup-form-container {
+            flex: 0 0 65%;
+            padding-left: 2.5rem;
+        }
+        .signup-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .signup-subtitle {
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .form-group {
+            position: relative;
+        }
+        .signup-form input,
+        .signup-form select,
+        .signup-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .signup-form input:focus,
+        .signup-form select:focus,
+        .signup-form textarea:focus {
+            border-color: var(--secondary);
+        }
+        .account-type-select {
+            margin-bottom: 1rem;
+        }
+        .password-field {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--dark-gray);
+            cursor: pointer;
+            padding: 0;
+        }
+        .password-toggle:focus {
+            outline: none;
+        }
+        .password-toggle i {
+            font-size: 1.1rem;
+        }
+        .signup-form button[type="submit"] {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        .signup-form button[type="submit"]:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        .login-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--dark-gray);
+        }
+        .login-divider::before,
+        .login-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+        .login-divider span {
+            padding: 0 1rem;
+            font-size: 0.9rem;
+        }
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .social-login-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            border: 1px solid var(--border-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .social-login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .social-login-btn.google {
+            color: #DB4437;
+        }
+        .social-login-btn.linkedin {
+            color: #0077B5;
+        }
+        .social-login-btn.facebook {
+            color: #3b5998;
+        }
+        .social-login-btn.apple {
+            color: #000;
+        }
+        .already-account {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        .already-account a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .already-account a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        .with-icon {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* KYC Specific Styles */
+        .kyc-section {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            background-color: var(--light-gray);
+        }
+        .kyc-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .kyc-section p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .kyc-requirements {
+            margin-bottom: 1.5rem;
+        }
+        .kyc-requirements-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+        .requirement-list {
+            list-style-type: none;
+        }
+        .requirement-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .requirement-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        .document-upload {
+            margin-top: 1rem;
+        }
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            color: var(--dark-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .upload-btn:hover {
+            border-color: var(--secondary);
+            color: var(--primary);
+        }
+        .upload-btn i {
+            color: var(--secondary);
+        }
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .checkbox-group input {
+            margin-top: 0.3rem;
+            width: auto;
+        }
+        
+        /* Progress Indicator */
+        .progress-container {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        .step {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+        .step.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .step.completed {
+            color: var(--success);
+        }
+        .progress-bar {
+            height: 5px;
+            width: 100%;
+            background-color: var(--border-color);
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+        .progress {
+            height: 100%;
+            border-radius: 5px;
+            background-color: var(--secondary);
+            width: 25%; /* Will be controlled by JS */
+            transition: width 0.3s;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            width: 100vw;
+            margin: 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .footer-logo img {
+            height: 30px;
+            margin-right: 0.5rem;
+        }
+        .footer-about {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .social-link:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        .contact-info {
+            list-style: none;
+        }
+        .contact-info li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-info i {
+            width: 20px;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            width: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .footer-country-dropdown {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+        
+        /* Navigation buttons */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .form-navigation button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .prev-btn {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+        .prev-btn:hover {
+            background-color: var(--border-color);
+        }
+        .next-btn {
+            background-color: var(--secondary);
+            color: var(--primary);
+        }
+        .next-btn:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        /* Responsive styling */
+        @media (max-width: 900px) {
+            .signup-container {
+                flex-direction: column;
+            }
+            .signup-image-container {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 2rem;
+                margin-bottom: 2rem;
+                width: 100%;
+            }
+            .signup-form-container {
+                padding-left: 0;
+                width: 100%;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .auth-buttons {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            nav {
+                padding: 0 1rem;
+            }
+            .signup-container {
+                padding: 1.5rem;
+            }
+            .footer-grid {
+                padding: 0 1rem;
+            }
+            .copyright {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-text">AnnitaPay</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Personal</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="csrpage.html" aria-label="CSR">CSR</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="mobile-menu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Signup Section -->
+    <section class="signup-section">
+        <div class="signup-container">
+            <div class="signup-image-container">
+                <div class="signup-image">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+                        <!-- Background -->
+                        <circle cx="90" cy="90" r="90" fill="#001a57"/>
+                        
+                        <!-- AnnitaPay Logo -->
+                        <g fill="#00c2ff">
+                            <!-- Letter A stylized -->
+                            <path d="M50 120 L70 60 L90 120 M60 100 L80 100" stroke="#00c2ff" stroke-width="8" fill="none"/>
+                            
+                            <!-- Payment symbol -->
+                            <rect x="100" y="70" width="40" height="25" rx="5" ry="5"/>
+                            <rect x="105" y="80" width="30" height="5" fill="#001a57"/>
+                            <circle cx="120" cy="105" r="15"/>
+                            <path d="M113 105 L118 110 L127 100" stroke="#001a57" stroke-width="3" fill="none"/>
+                        </g>
+                        
+                        <!-- Financial graphic elements -->
+                        <g fill="#ffffff" opacity="0.2">
+                            <circle cx="40" cy="40" r="10"/>
+                            <circle cx="140" cy="40" r="10"/>
+                            <circle cx="40" cy="140" r="10"/>
+                            <circle cx="140" cy="140" r="10"/>
+                        </g>
+                        
+                        <!-- Abstract financial line -->
+                        <path d="M30 90 Q60 60, 90 90 Q120 120, 150 90" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="signup-image-text">
+                    <h3>Create Your Account</h3>
+                    <p>Join AnnitaPay's secure financial network</p>
+                </div>
+            </div>
+            
+            <div class="signup-form-container">
+                <h2 class="signup-title">Get Started</h2>
+                <p class="signup-subtitle">Create your AnnitaPay account in just a few steps</p>
+                
+                <!-- Progress Indicator -->
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="step active">Account Type</div>
+                        <div class="step">Personal Info</div>
+                        <div class="step">Verification</div>
+                        <div class="step">Review</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="signup-progress"></div>
+                    </div>
+                </div>
+                
+                <form class="signup-form" id="signup-form" action="#" method="POST">
+                    <!-- Step 1: Account Type -->
+                    <div class="form-step" id="step-1">
+                        <div class="form-group account-type-select">
+                            <label for="account-type">Select Account Type</label>
+                            <select id="account-type" required onchange="showKycRequirements()">
+                                <option value="" disabled selected>Choose the type of account you need</option>
+                                <option value="personal">Personal Account</option>
+                                <option value="business-freelancer">Business - Freelancer/Sole Trader</option>
+                                <option value="business-startup">Business - Startup</option>
+                                <option value="business-sme">Business - Small to Medium Enterprise</option>
+                                <option value="business-enterprise">Business - Enterprise</option>
+                                <option value="charity">Charity/Non-Profit</option>
+                                <option value="religious">Religious Institution</option>
+                            </select>
+                        </div>
+                        
+                        <!-- KYC Requirements Section (dynamically shown based on selection) -->
+                        <div class="kyc-section" id="kyc-requirements">
+                            <h3>Account Verification Requirements</h3>
+                            <p>Please select an account type to see specific verification requirements.</p>
+                        </div>
+                        
+                        <!-- Personal Account KYC (Hidden by default) -->
+                        <div class="kyc-details" id="personal-kyc" style="display: none;">
+                            <h3>Personal Account Verification</h3>
+                            <p>Create a personal account to send money, make payments, and manage your finances securely.</p>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <ul class="requirement-list">
+                                    <li>Valid Government-issued ID (Passport, National ID, or Driver's License)</li>
+                                    <li>Proof of address (Utility bill or bank statement from the last 3 months)</li>
+                                    <li>Recent photo (taken within the last 6 months)</li>
+                                    <li>Phone number verification</li>
+                                    <li>Email verification</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <ul class="requirement-list">
+                                    <li>Basic identity verification (1-2 business days)</li>
+                                    <li>Transaction limits: Up to $3,000 per day after verification</li>
+                                    <li>Enhanced verification available for higher limits</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Freelancer KYC (Hidden by default) -->
+                        <div class="kyc-details" id="business-freelancer-kyc" style="display: none;">
+                            <h3>Freelancer/Sole Trader Verification</h3>
+                            <p>Perfect for freelancers, independent contractors, and sole proprietors looking to manage business transactions.</p>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <ul class="requirement-list">
+                                    <li>All personal account verification documents</li>
+                                    <li>Business registration certificate (if applicable)</li>
+                                    <li>Tax identification number</li>
+                                    <li>Portfolio or business website (recommended)</li>
+                                    <li>Proof of business activity (contracts or invoices)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <ul class="requirement-list">
+                                    <li>Business identity verification (2-3 business days)</li>
+                                    <li>Transaction limits: Up to $10,000 per day after verification</li>
+                                    <li>Access to payment links and basic invoice tools</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Startup KYC (Hidden by default) -->
+                        <div class="kyc-details" id="business-startup-kyc" style="display: none;">
+                            <h3>Startup Business Verification</h3>
+                            <p>Designed for early-stage companies needing financial services to support rapid growth.</p>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <ul class="requirement-list">
+                                    <li>Business registration certificate</li>
+                                    <li>Articles of incorporation</li>
+                                    <li>Tax identification number</li>
+                                    <li>Director ID (passport or national ID)</li>
+                                    <li>Proof of business address</li>
+                                    <li>Company bank statement (if available)</li>
+                                    <li>Shareholder information (for those with >25% ownership)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <ul class="requirement-list">
+                                    <li>Full business verification (3-5 business days)</li>
+                                    <li>Director/owner verification</li>
+                                    <li>Transaction limits: Up to $50,000 per day after verification</li>
+                                    <li>Access to multi-user accounts and business analytics</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- SME KYC (Hidden by default) -->
+                        <div class="kyc-details" id="business-sme-kyc" style="display: none;">
+                            <h3>Small to Medium Enterprise Verification</h3>
+                            <p>Comprehensive financial solutions for established businesses with multiple employees and regular transaction needs.</p>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <ul class="requirement-list">
+                                    <li>All startup verification documents</li>
+                                    <li>Business financial statements (last 2 years if available)</li>
+                                    <li>Business plan or company profile</li>
+                                    <li>Organizational structure</li>
+                                    <li>Proof of operational business (contracts, invoices)</li>
+                                    <li>Additional shareholder/director information</li>
+                                    <li>Business license or industry-specific permits</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <ul class="requirement-list">
+                                    <li>Enhanced business verification (5-7 business days)</li>
+                                    <li>Background checks for key personnel</li>
+                                    <li>Transaction limits: Up to $250,000 per day after full verification</li>
+                                    <li>Access to bulk payments, API integration, and advanced reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Enterprise KYC (Hidden by default) -->
+                        <div class="kyc-details" id="business-enterprise-kyc" style="display: none;">
+                            <h3>Enterprise Business Verification</h3>
+                            <p>Premium financial solutions for large corporations with complex transaction needs across multiple countries.</p>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <ul class="requirement-list">
+                                    <li>All SME verification documents</li>
+                                    <li>Audited financial statements (last 3 years)</li>
+                                    <li>Corporate governance documents</li>
+                                    <li>Ultimate Beneficial Owner (UBO) declaration</li>
+                                    <li>Board resolution approving account opening</li>
+                                    <li>Anti-Money Laundering (AML) policy</li>
+                                    <li>Know Your Customer (KYC) procedures</li>
+                                    <li>Parent/subsidiary structure
+                                        <li>Parent/subsidiary structure documentation</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="kyc-requirements">
+                                    <div class="kyc-requirements-title">Verification Process:</div>
+                                    <ul class="requirement-list">
+                                        <li>Comprehensive business verification (7-10 business days)</li>
+                                        <li>Enhanced due diligence</li>
+                                        <li>Custom transaction limits based on business needs</li>
+                                        <li>Access to dedicated account manager and custom solutions</li>
+                                        <li>Multi-currency accounts and global payment solutions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Charity KYC (Hidden by default) -->
+                            <div class="kyc-details" id="charity-kyc" style="display: none;">
+                                <h3>Charity/Non-Profit Verification</h3>
+                                <p>Specialized financial services for charities and non-profit organizations with reduced fees.</p>
+                                
+                                <div class="kyc-requirements">
+                                    <div class="kyc-requirements-title">Required Documents:</div>
+                                    <ul class="requirement-list">
+                                        <li>Charity registration certificate</li>
+                                        <li>Tax exemption documentation</li>
+                                        <li>Board members' identification</li>
+                                        <li>Proof of address for the organization</li>
+                                        <li>Latest annual report or financial statement</li>
+                                        <li>Constitution or governing documents</li>
+                                        <li>Minutes from latest board meeting</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="kyc-requirements">
+                                    <div class="kyc-requirements-title">Verification Process:</div>
+                                    <ul class="requirement-list">
+                                        <li>Charity verification (3-5 business days)</li>
+                                        <li>Verification of charitable status</li>
+                                        <li>Transaction limits: Based on organizational needs</li>
+                                        <li>Access to reduced-fee donation processing</li>
+                                        <li>Specialized reporting for supporters and stakeholders</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Religious Institution KYC (Hidden by default) -->
+                            <div class="kyc-details" id="religious-kyc" style="display: none;">
+                                <h3>Religious Institution Verification</h3>
+                                <p>Tailored financial services for churches, mosques, temples, and other religious organizations.</p>
+                                
+                                <div class="kyc-requirements">
+                                    <div class="kyc-requirements-title">Required Documents:</div>
+                                    <ul class="requirement-list">
+                                        <li>Religious institution registration certificate</li>
+                                        <li>Tax exemption documentation</li>
+                                        <li>Identification of religious leaders or officers</li>
+                                        <li>Proof of religious institution address</li>
+                                        <li>Constitution or governing documents</li>
+                                        <li>Financial statements or budget</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="kyc-requirements">
+                                    <div class="kyc-requirements-title">Verification Process:</div>
+                                    <ul class="requirement-list">
+                                        <li>Institution verification (3-5 business days)</li>
+                                        <li>Verification of religious organization status</li>
+                                        <li>Transaction limits: Based on organizational needs</li>
+                                        <li>Access to donation and contribution management tools</li>
+                                        <li>Specialized services for religious organization treasurers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="form-navigation">
+                                <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Personal Information -->
+                        <div class="form-step" id="step-2" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" required placeholder="Enter your first name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" required placeholder="Enter your last name">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="country">Country of Residence</label>
+                                    <select id="country" name="country" required>
+                                        <option value="" disabled selected>Select your country</option>
+                                        <option value="us">United States</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="ca">Canada</option>
+                                        <option value="au">Australia</option>
+                                        <option value="in">India</option>
+                                        <option value="ng">Nigeria</option>
+                                        <option value="za">South Africa</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" id="dob" name="dob" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address" name="address" required placeholder="Enter your street address">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" id="city" name="city" required placeholder="Enter your city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="postal-code">Postal/ZIP Code</label>
+                                    <input type="text" id="postal-code" name="postal-code" required placeholder="Enter your postal code">
+                                </div>
+                            </div>
+                            
+                            <div class="form-navigation">
+                                <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
+                                <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Security & Verification -->
+                        <div class="form-step" id="step-3" style="display: none;">
+                            <div class="form-group password-field">
+                                <label for="password">Create Password</label>
+                                <input type="password" id="password" name="password" required placeholder="Create a secure password">
+                                <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="form-group password-field">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+                                <button type="button" class="password-toggle" onclick="togglePassword('confirm-password')">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="security-question">Security Question</label>
+                                <select id="security-question" name="security-question" required>
+                                    <option value="" disabled selected>Select a security question</option>
+                                    <option value="pet">What was the name of your first pet?</option>
+                                    <option value="school">What was the name of your first school?</option>
+                                    <option value="mother">What is your mother's maiden name?</option>
+                                    <option value="city">In which city were you born?</option>
+                                    <option value="food">What is your favorite childhood food?</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="security-answer">Security Answer</label>
+                                <input type="text" id="security-answer" name="security-answer" required placeholder="Enter your answer">
+                            </div>
+                            
+                            <div class="document-upload">
+                                <h3>Identity Verification</h3>
+                                <p>Please upload the following documents to verify your identity:</p>
+                                
+                                <div class="form-group">
+                                    <label for="id-document">Government-issued ID</label>
+                                    <input type="file" id="id-document" name="id-document" accept="image/*, application/pdf" style="display: none;">
+                                    <label for="id-document" class="upload-btn">
+                                        <i class="fas fa-upload"></i> Upload ID (Passport/Driver's License)
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="address-proof">Proof of Address</label>
+                                    <input type="file" id="address-proof" name="address-proof" accept="image/*, application/pdf" style="display: none;">
+                                    <label for="address-proof" class="upload-btn">
+                                        <i class="fas fa-upload"></i> Upload Proof of Address
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-navigation">
+                                <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
+                                <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4: Review & Submit -->
+                        <div class="form-step" id="step-4" style="display: none;">
+                            <h3>Review Your Information</h3>
+                            <p>Please review your information before submitting your application.</p>
+                            
+                            <div class="kyc-section">
+                                <div id="review-content">
+                                    <!-- Will be filled with JavaScript -->
+                                    <p>Please complete all previous steps to review your information.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I agree to AnnitaPay's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                            </div>
+                            
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="marketing" name="marketing">
+                                <label for="marketing">I would like to receive updates, promotions, and news from AnnitaPay</label>
+                            </div>
+                            
+                            <div class="form-navigation">
+                                <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
+                                <button type="submit" class="next-btn">Submit Application <i class="fas fa-check"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <div class="login-divider">
+                        <span>Or sign up with</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button class="social-login-btn google"><i class="fab fa-google"></i></button>
+                        <button class="social-login-btn linkedin"><i class="fab fa-linkedin-in"></i></button>
+                        <button class="social-login-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                        <button class="social-login-btn apple"><i class="fab fa-apple"></i></button>
+                    </div>
+                    
+                    <div class="already-account">
+                        Already have an account? <a href="login.html">Log in here</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <div>AnnitaPay</div>
+                    </div>
+                    <p class="footer-about">
+                        AnnitaPay is a secure global payment platform helping individuals and businesses make seamless transactions worldwide.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Personal Banking</a></li>
+                        <li><a href="#">Business Accounts</a></li>
+                        <li><a href="#">International Transfers</a></li>
+                        <li><a href="#">Currency Exchange</a></li>
+                        <li><a href="#">Payment Gateway</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">CSR Initiatives</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Community Forum</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> support@annitapay.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (888) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Finance Street, Tech City, TC 10101</li>
+                    </ul>
+                    <select class="footer-country-dropdown">
+                        <option value="gl">Global - English</option>
+                        <option value="us">United States - English</option>
+                        <option value="uk">United Kingdom - English</option>
+                        <option value="ca">Canada - English</option>
+                        <option value="fr">France - Français</option>
+                        <option value="de">Germany - Deutsch</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 AnnitaPay. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a> | <a href="#" style="color: inherit;">Cookies Policy</a>
+            </div>
+        </footer>
+    
+        <script>
+            let currentStep = 1;
+            const totalSteps = 4;
+            
+            function nextStep() {
+                if (currentStep < totalSteps) {
+                    document.getElementById(`step-${currentStep}`).style.display = 'none';
+                    currentStep++;
+                    document.getElementById(`step-${currentStep}`).style.display = 'block';
+                    updateProgress();
+                    
+                    // If we're on the review step, populate the review content
+                    if (currentStep === 4) {
+                        populateReview();
+                    }
+                    
+                    // Scroll to top of form
+                    document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            function prevStep() {
+                if (currentStep > 1) {
+                    document.getElementById(`step-${currentStep}`).style.display = 'none';
+                    currentStep--;
+                    document.getElementById(`step-${currentStep}`).style.display = 'block';
+                    updateProgress();
+                    
+                    // Scroll to top of form
+                    document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            function updateProgress() {
+                const progressBar = document.getElementById('signup-progress');
+                const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                
+                // Update step indicators
+                const steps = document.querySelectorAll('.step');
+                steps.forEach((step, index) => {
+                    if (index + 1 < currentStep) {
+                        step.className = 'step completed';
+                    } else if (index + 1 === currentStep) {
+                        step.className = 'step active';
+                    } else {
+                        step.className = 'step';
+                    }
+                });
+            }
+            
+            function togglePassword(inputId) {
+                const passwordInput = document.getElementById(inputId);
+                const toggleBtn = passwordInput.nextElementSibling;
+                const toggleIcon = toggleBtn.querySelector('i');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    toggleIcon.classList.remove('fa-eye');
+                    toggleIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    toggleIcon.classList.remove('fa-eye-slash');
+                    toggleIcon.classList.add('fa-eye');
+                }
+            }
+            
+            function showKycRequirements() {
+                const accountType = document.getElementById('account-type').value;
+                
+                // Hide all KYC details first
+                document.querySelectorAll('.kyc-details').forEach(el => {
+                    el.style.display = 'none';
+                });
+                
+                // Show the selected one if it exists
+                const selectedKyc = document.getElementById(`${accountType}-kyc`);
+                if (selectedKyc) {
+                    selectedKyc.style.display = 'block';
+                }
+            }
+            
+            function populateReview() {
+                // Get values from the form
+                const accountType = document.getElementById('account-type').value;
+                const firstName = document.getElementById('first-name').value;
+                const lastName = document.getElementById('last-name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const country = document.getElementById('country').value;
+                const dob = document.getElementById('dob').value;
+                const address = document.getElementById('address').value;
+                const city = document.getElementById('city').value;
+                const postalCode = document.getElementById('postal-code').value;
+                
+                // Map account type value to display name
+                const accountTypeMap = {
+                    'personal': 'Personal Account',
+                    'business-freelancer': 'Business - Freelancer/Sole Trader',
+                    'business-startup': 'Business - Startup',
+                    'business-sme': 'Business - Small to Medium Enterprise',
+                    'business-enterprise': 'Business - Enterprise',
+                    'charity': 'Charity/Non-Profit',
+                    'religious': 'Religious Institution'
+                };
+                
+                // Create review HTML
+                let reviewHTML = `
+                    <h4>Account Type</h4>
+                    <p>${accountTypeMap[accountType] || 'Not selected'}</p>
+                    
+                    <h4>Personal Information</h4>
+                    <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Date of Birth:</strong> ${dob}</p>
+                    
+                    <h4>Address</h4>
+                    <p>${address}</p>
+                    <p>${city}, ${postalCode}</p>
+                    <p>${document.getElementById('country').options[document.getElementById('country').selectedIndex].text}</p>
+                    
+                    <h4>Documents Uploaded</h4>
+                    <p>ID Document: ${document.getElementById('id-document').files.length ? document.getElementById('id-document').files[0].name : 'Not uploaded'}</p>
+                    <p>Proof of Address: ${document.getElementById('address-proof').files.length ? document.getElementById('address-proof').files[0].name : 'Not uploaded'}</p>
+                    
+                    <p class="requirement-list" style="margin-top: 1rem;">Please ensure all information is correct before submitting. You'll receive a confirmation email with next steps.</p>
+                `;
+                
+                // Set the HTML content of the review section
+                document.getElementById('review-content').innerHTML = reviewHTML;
+            }
+            
+            // Mobile menu toggle functionality
+            document.querySelector('.mobile-menu').addEventListener('click', function() {
+                const navLinks = document.querySelector('.nav-links');
+                const authButtons = document.querySelector('.auth-buttons');
+                
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                    authButtons.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.width = '100%';
+                    navLinks.style.backgroundColor = 'var(--primary)';
+                    navLinks.style.padding = '1rem';
+                    
+                    authButtons.style.display = 'flex';
+                    authButtons.style.flexDirection = 'column';
+                    authButtons.style.width = '100%';
+                    authButtons.style.padding = '1rem';
+                    authButtons.style.backgroundColor = 'var(--primary)';
+                    authButtons.style.position = 'absolute';
+                    authButtons.style.top = 'calc(100% + ' + navLinks.offsetHeight + 'px)';
+                    authButtons.style.left = '0';
+                    authButtons.style.gap = '0.5rem';
+                }
+            });
+            
+            // Initialize the progress bar
+            updateProgress();
+        </script>
+    </body>
+    </html>
+                                    
