@@ -1,1307 +1,2148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers - Annita</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        /* Core styles from original document */
-        :root {
-            --primary:  #FF7D06;
-            --secondary: #00c2ff;
-            --secondary-light: #33d0ff;
-            --white: #ffffff;
-            --light-gray: #f4f7fa;
-            --dark-gray: #4a4a4a;
-            --text: #333333;
-            --error: #ff3b30;
-            --border-color: #ddd;
-            --success: #34c759;
-            --accent: #4caf50;
-            --accent-light: #81c784;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: var(--light-gray);
-            color: var(--text);
-            line-height: 1.6;
-            width: 100%;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        html {
-            overflow-x: hidden;
-            width: 100%;
-            scroll-behavior: smooth;
-        }
-        /* Navigation */
-        header {
-            background-color: var(--primary);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 0 2rem;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        .logo-text {
-            color: var(--white);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-left: 0.5rem;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-        .auth-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-        .btn {
-            padding: 0.6rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-outline {
-            border: 2px solid var(--secondary);
-            color: var(--white);
-            background: transparent;
-        }
-        .btn-outline:hover {
-            background-color: var(--secondary);
-            color: var(--primary);
-        }
-        .btn-primary {
-            background-color: var(--secondary);
-            color: var(--primary);
-        }
-        .btn-primary:hover {
-            background-color: var(--secondary-light);
-        }
-        .mobile-menu {
-            display: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            width: 100vw;
-            margin: 0;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            width: 100%;
-            padding: 0 2rem;
-        }
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        .footer-logo img {
-            height: 30px;
-            margin-right: 0.5rem;
-        }
-        .footer-about {
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-        }
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        .social-link {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .social-link:hover {
-            background-color: var(--secondary);
-            color: var(--primary);
-        }
-        .footer-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        .footer-links {
-            list-style: none;
-        }
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        .footer-links a {
-            color: var(--white);
-            opacity: 0.8;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        .footer-links a:hover {
-            opacity: 1;
-        }
-        .contact-info {
-            list-style: none;
-        }
-        .contact-info li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .contact-info i {
-            width: 20px;
-        }
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-            font-size: 0.9rem;
-            width: 100%;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-        .footer-country-dropdown {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.5rem;
-            border-radius: 5px;
-            margin-top: 0.5rem;
-            width: 100%;
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--accent);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            z-index: 99;
-        }
-        .back-to-top:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        /* Responsive Styling */
-        @media (max-width: 768px) {
-            .nav-links, .auth-buttons {
-                display: none;
-            }
-            .mobile-menu {
-                display: block;
-            }
-            nav {
-                padding: 0 1rem;
-            }
-            .footer-grid {
-                padding: 0 1rem;
-            }
-            .copyright {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Careers at Annita | Join Africa's Digital Revolution</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF7D06;
+      --secondary: #6C1D3A;
+      --accent: #FFC200;
+      --dark: #111111;
+      --light: #FFFFFF;
+      --grey: #F5F5F5;
+      --vh: 1vh; /* For mobile viewport height fix */
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+      background-color: var(--light);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--light);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      position: relative;
+    }
+    
+    /* Updated Logo Styles with larger size */
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
 
-        /* Careers Page Specific Styles */
-        .careers-hero {
-            background: linear-gradient(rgba(0, 26, 87, 0.8), rgba(0, 26, 87, 0.8)), url('https://via.placeholder.com/1920x600');
-            background-size: cover;
-            background-position: center;
-            padding: 10rem 2rem 5rem;
-            text-align: center;
-            color: var(--white);
-        }
-        .careers-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
-        .careers-hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1.2s ease-out;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .logo:hover {
+      opacity: 0.9;
+    }
 
-        /* Careers Search Section */
-        .careers-search {
-            background-color: var(--white);
-            padding: 3rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .search-box {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .search-input {
-            flex: 1;
-            min-width: 250px;
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .search-button {
-            padding: 0.8rem 1.5rem;
-            background-color: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        .search-button:hover {
-            background-color: var(--accent);
-        }
-        .filter-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .filter-select {
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            min-width: 150px;
-            max-width: 200px;
-            flex: 1;
-        }
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      margin-right: 12px;
+      object-fit: contain;
+      transition: all 0.3s ease;
+    }
 
-        /* Job Listings Section */
-        .job-listings {
-            padding: 4rem 2rem;
-            background-color: var(--light-gray);
-        }
-        .listings-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-title {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .job-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .job-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-        .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        .job-header {
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .job-title {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        .job-department {
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .job-location {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--dark-gray);
-            font-size: 0.9rem;
-        }
-        .job-type {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background-color: rgba(0, 194, 255, 0.1);
-            color: var(--secondary);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-        .job-remote {
-            background-color: rgba(76, 175, 80, 0.1);
-            color: var(--accent);
-        }
-        .job-hybrid {
-            background-color: rgba(255, 193, 7, 0.1);
-            color: #ffc107;
-        }
-        .job-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-        }
-        .job-description {
-            color: var(--dark-gray);
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .job-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .job-posted {
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-        }
-        .view-job {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .view-job:hover {
-            color: var(--accent);
-        }
-        .view-job i {
-            transition: transform 0.3s;
-        }
-        .view-job:hover i {
-            transform: translateX(5px);
-        }
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: all 0.3s ease;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 30px;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px; /* Consistent spacing between buttons */
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: #e67000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    /* Premium Hamburger Menu Styles */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--dark);
+      position: absolute;
+      left: 5px;
+      border-radius: 3px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .hamburger-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .hamburger-icon:before {
+      top: -8px;
+    }
+    
+    .hamburger-icon:after {
+      top: 8px;
+    }
+    
+    /* Animated state when menu is open */
+    .hamburger-menu.active .hamburger-icon {
+      background-color: transparent;
+    }
+    
+    .hamburger-menu.active .hamburger-icon:before {
+      transform: translateY(8px) rotate(45deg);
+      background-color: var(--dark);
+    }
+    
+    .hamburger-menu.active .hamburger-icon:after {
+      transform: translateY(-8px) rotate(-45deg);
+      background-color: var(--dark);
+    }
+    
+    /* Premium Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
+      background-color: white;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-menu ul {
+      list-style: none;
+      width: 100%;
+    }
+    
+    .mobile-menu li {
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+    }
+    
+    .mobile-menu.active li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Staggered animation for menu items */
+    .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+    .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+    .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+    .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; }
+    .mobile-menu.active li:nth-child(9) { transition-delay: 0.55s; }
+    .mobile-menu.active li:nth-child(10) { transition-delay: 0.6s; }
+    
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+    }
+    
+    .mobile-menu a i {
+      margin-right: 15px;
+      width: 24px;
+      text-align: center;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .mobile-menu a:hover i {
+      transform: scale(1.2);
+    }
+    
+    .mobile-menu .btn {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    /* Menu Overlay */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Careers Hero Section */
+    .careers-hero {
+      padding-top: 180px;
+      padding-bottom: 100px;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/careers-hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    
+    .careers-hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255,125,6,0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    .careers-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background-color: rgba(108,29,58,0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    .careers-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .careers-hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .careers-hero p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .careers-hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    /* Job Search Section */
+    .careers-search {
+      padding: 60px 0;
+      background-color: var(--light);
+      box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+    }
+    
+    .search-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .search-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .search-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 15px 20px;
+      border: 2px solid var(--grey);
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    .search-input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255,125,6,0.2);
+    }
+    
+    .search-button {
+      padding: 15px 30px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .search-button:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+    }
+    
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .filter-select {
+      padding: 12px 20px;
+      border: 2px solid var(--grey);
+      border-radius: 8px;
+      font-size: 14px;
+      flex: 1;
+      min-width: 180px;
+      max-width: 220px;
+      transition: all 0.3s;
+    }
+    
+    .filter-select:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255,125,6,0.2);
+    }
+    
+    /* Job Listings Section */
+    .job-listings {
+      padding: 80px 0;
+      background-color: var(--grey);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+    
+    .section-header p {
+      font-size: 18px;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .job-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .job-card {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .job-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .job-header {
+      padding: 25px;
+      border-bottom: 1px solid var(--grey);
+      position: relative;
+    }
+    
+    .featured-label {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .job-title {
+      font-size: 22px;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    
+    .job-department {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    
+    .job-location {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #555;
+      font-size: 14px;
+    }
+    
+    .job-type-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .job-type {
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .job-type-fulltime {
+      background-color: rgba(0,194,255,0.1);
+      color: var(--secondary);
+    }
+    
+    .job-type-remote {
+      background-color: rgba(76,175,80,0.1);
+      color: var(--accent);
+    }
+    
+    .job-type-hybrid {
+      background-color: rgba(255,193,7,0.1);
+      color: #ffc107;
+    }
+    
+    .job-content {
+      padding: 25px;
+      flex-grow: 1;
+    }
+    
+    .job-description {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .job-footer {
+      padding: 20px 25px;
+      border-top: 1px solid var(--grey);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .job-posted {
+      font-size: 14px;
+      color: #777;
+    }
+    
+    .view-job {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .view-job:hover {
+      color: var(--secondary);
+    }
+    
+    .view-job i {
+      transition: transform 0.3s;
+    }
+    
+    .view-job:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 50px;
+    }
+    
+    .page-item {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background-color: white;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .page-item:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .page-item.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .page-nav {
+      width: auto;
+      padding: 0 15px;
+    }
+    
+    /* Benefits Section */
+    .benefits-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--secondary), #4a154b);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .benefits-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    
+    .benefits-section::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .benefit-card {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 30px;
+      transition: transform 0.3s;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255,255,255,0.15);
+    }
+    
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--accent);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    
+    .benefit-title {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .benefit-description {
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    
+    /* Team Culture Section */
+    .team-culture {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+    
+    .culture-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .culture-content {
+      flex: 1;
+    }
+    
+    .culture-title {
+      font-size: 36px;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+    
+    .culture-text {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .culture-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .culture-link:hover {
+      color: var(--secondary);
+    }
+    
+    .culture-link i {
+      transition: transform 0.3s;
+    }
+    
+    .culture-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    .culture-gallery {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .gallery-item {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+      aspect-ratio: 1/1;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* CTA Section */
+    .careers-cta {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--primary), #ff9a3c);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .careers-cta::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    
+    .careers-cta::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .cta-subtitle {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .cta-btn-primary {
+      background-color: white;
+      color: var(--primary);
+    }
+    
+    .cta-btn-primary:hover {
+      background-color: var(--secondary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .cta-btn-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .cta-btn-secondary:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+    
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .accordion {
+      margin-top: 40px;
+    }
+    
+    .accordion-item {
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .accordion-header {
+      padding: 20px;
+      background-color: var(--grey);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+    
+    .accordion-header:hover {
+      background-color: #e8e8e8;
+    }
+    
+    .accordion-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    
+    .accordion-icon {
+      transition: transform 0.3s;
+    }
+    
+    .accordion-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+      background-color: white;
+    }
+    
+    .accordion-item.active .accordion-header {
+      background-color: var(--primary);
+    }
+    
+    .accordion-item.active .accordion-title {
+      color: white;
+    }
+    
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+      color: white;
+    }
+    
+    .accordion-item.active .accordion-content {
+      padding: 20px;
+      max-height: 500px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      padding: 80px 0 30px;
+      color: white;
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-logo {
+      font-family: 'Zen Dots', cursive;
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-about p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #aaa;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--primary);
+    }
+    
+    .footer-links h4 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: white;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 14px;
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: var(--secondary);
+      transform: translateY(-5px);
+    }
+    
+    /* Chatbot Styles */
+    .chatbot-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+    }
 
-        /* Featured Jobs Section */
-        .featured-jobs {
-            background-color: var(--white);
-            padding: 4rem 2rem;
-        }
-        .featured-label {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
+    .chatbot-button {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+      transition: all 0.3s ease;
+    }
 
-        /* Benefits Section */
-        .benefits-section {
-            padding: 4rem 2rem;
-            background: linear-gradient(to right, var(--primary), #003399);
-            color: var(--white);
-        }
-        .benefits-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-        }
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .benefit-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .benefit-card:hover {
-            transform: translateY(-10px);
-        }
-        .benefit-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-        .benefit-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-        .benefit-description {
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
+    .chatbot-button:hover {
+      transform: scale(1.1);
+    }
 
-        /* Team Culture Section */
-        .team-culture {
-            padding: 4rem 2rem;
-            background-color: var(--light-gray);
-        }
-        .culture-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 3rem;
-        }
-        .culture-content {
-            flex: 1;
-            min-width: 300px;
-        }
-        .culture-title {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        .culture-text {
-            margin-bottom: 2rem;
-            color: var(--dark-gray);
-            line-height: 1.8;
-        }
-        .culture-gallery {
-            flex: 1;
-            min-width: 300px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        .gallery-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
+    .chatbot-button i {
+      color: white;
+      font-size: 24px;
+    }
 
-        /* CTA Section */
-        .careers-cta {
-            background: linear-gradient(to right, var(--accent), var(--accent-light));
-            padding: 4rem 2rem;
-            text-align: center;
-            color: var(--white);
-        }
-        .cta-title {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-        .cta-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .cta-btn {
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .cta-btn-primary {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-        .cta-btn-primary:hover {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-        .cta-btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-        .cta-btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--accent);
-        }
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--secondary);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
 
-        /* FAQ Section */
-        .faq-section {
-            padding: 4rem 2rem;
-            background-color: var(--white);
-        }
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .accordion {
-            margin-top: 2rem;
-        }
-        .accordion-item {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-        .accordion-header {
-            padding: 1.2rem;
-            background-color: var(--light-gray);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s;
-        }
-        .accordion-header:hover {
-            background-color: #e8eef3;
-        }
-        .accordion-title {
-            font-weight: 600;
-            color: var(--primary);
-        }
-        .accordion-icon {
-            transition: transform 0.3s;
-        }
-        .accordion-content {
-            padding: 0 1.2rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-        }
-        .accordion-item.active .accordion-content {
-            padding: 1.2rem;
-            max-height: 500px;
-        }
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
+    .chatbot-tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--dark);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
 
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 3rem;
-        }
-        .page-item {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            background-color: var(--white);
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        .page-item:hover {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-        .page-item.active {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-        .page-nav {
-            width: auto;
-            padding: 0 1rem;
-        }
+    .chatbot-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--dark);
+    }
 
-        @media (max-width: 768px) {
-            .job-cards {
-                grid-template-columns: 1fr;
-            }
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-            .careers-hero h1 {
-                font-size: 2.5rem;
-            }
-            .search-box {
-                flex-direction: column;
-            }
-            .culture-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    .chatbot-button:hover .chatbot-tooltip {
+      opacity: 1;
+      visibility: visible;
+      right: 80px;
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-container.open .chatbot-window {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .chat-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .bot-message {
+      background-color: #e5e5ea;
+      color: black;
+      border-bottom-left-radius: 5px;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background-color: var(--primary);
+      color: white;
+      border-bottom-right-radius: 5px;
+      margin-left: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      background-color: white;
+      border-top: 1px solid #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .send-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .culture-container {
+        flex-direction: column;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .job-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .nav-links, .nav-buttons {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .job-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .careers-hero h1 {
+        font-size: 36px;
+      }
+      
+      .section-header h2 {
+        font-size: 30px;
+      }
+      
+      .culture-title {
+        font-size: 30px;
+      }
+      
+      .cta-title {
+        font-size: 30px;
+      }
+
+      /* Logo responsive adjustments */
+      .logo-image {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    /* iOS and Android specific adjustments */
+    @supports (-webkit-touch-callout: none) {
+      /* iOS specific styles */
+      .mobile-menu {
+        padding-top: max(100px, constant(safe-area-inset-top));
+        padding-top: max(100px, env(safe-area-inset-top));
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    }
+
+    @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) {
+      /* Safari and Chrome specific styles */
+      .mobile-menu {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">
-                <div class="logo-text">AnnitaPay</div>
-            </div>
-            <ul class="nav-links">
-              <li><a href="index.html">Home</a></li>
-                <li><a href="#">Personal</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="csrpage.html">CSR</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <a href="loginpage.html" class="btn btn-outline">Login</a>
-                <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
-            </div>
-            <div class="mobile-menu">☰</div>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo" loading="lazy">
+        <span class="logo-text">Annita</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Personal</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="csrpage.html">CSR</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="loginpage.html" class="btn btn-outline">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <!-- Premium Hamburger Menu Button -->
+      <div class="hamburger-menu">
+        <span class="hamburger-icon"></span>
+      </div>
+    </div>
+  </header>
 
-    <!-- Careers Hero Section -->
-    <section class="careers-hero">
-        <h1>Join Our Global Team</h1>
-        <p>Build your career at AnnitaPay and be part of a forward-thinking team that's revolutionizing the world of digital payments and financial technology.</p>
-    </section>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
+      <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+      <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+    </ul>
+  </div>
 
-    <!-- Job Search Section -->
-    <section class="careers-search" id="search">
-        <div class="search-container">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search jobs by title, skills or keywords">
-                <button class="search-button">Search Jobs</button>
+  <!-- Menu Overlay -->
+  <div class="menu-overlay"></div>
+
+  <!-- Careers Hero Section -->
+  <section class="careers-hero">
+    <div class="container careers-hero-content">
+      <h1>Build the Future of Africa with Us</h1>
+      <p>Join Annita's mission to create Africa's first all-in-one digital platform. We're looking for passionate innovators to help transform commerce, finance, and connectivity across the continent.</p>
+      <div class="careers-hero-buttons">
+        <a href="#jobs" class="btn btn-primary">Explore Open Roles</a>
+        <a href="#benefits" class="btn btn-outline">Why Join Annita?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Search Section -->
+  <section class="careers-search" id="search">
+    <div class="container search-container">
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="Search jobs by title, skills or keywords">
+        <button class="search-button">Search Jobs</button>
+      </div>
+      <div class="filter-container">
+        <select class="filter-select">
+          <option value="">All Departments</option>
+          <option value="engineering">Engineering</option>
+          <option value="product">Product</option>
+          <option value="design">Design</option>
+          <option value="marketing">Marketing</option>
+          <option value="finance">Finance</option>
+          <option value="hr">HR & Recruitment</option>
+          <option value="customer">Customer Success</option>
+          <option value="legal">Legal & Compliance</option>
+        </select>
+        <select class="filter-select">
+          <option value="">All Locations</option>
+          <option value="lagos">Lagos, Nigeria</option>
+          <option value="nairobi">Nairobi, Kenya</option>
+          <option value="capetown">Cape Town, South Africa</option>
+          <option value="accra">Accra, Ghana</option>
+          <option value="remote">Remote (Africa)</option>
+        </select>
+        <select class="filter-select">
+          <option value="">Job Type</option>
+          <option value="fulltime">Full-time</option>
+          <option value="parttime">Part-time</option>
+          <option value="contract">Contract</option>
+          <option value="internship">Internship</option>
+        </select>
+        <select class="filter-select">
+          <option value="">Experience Level</option>
+          <option value="entry">Entry Level</option>
+          <option value="mid">Mid-Level</option>
+          <option value="senior">Senior</option>
+          <option value="executive">Executive</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Jobs Section -->
+  <section class="job-listings">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Opportunities</h2>
+        <p>Discover exciting roles that are shaping Africa's digital future</p>
+      </div>
+      <div class="job-cards">
+        <!-- Featured Job 1 -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="featured-label">Featured</span>
+            <h3 class="job-title">Senior Software Engineer</h3>
+            <div class="job-department">
+              <i class="fas fa-code"></i> Engineering
             </div>
-            <div class="filter-container">
-                <select class="filter-select">
-                    <option value="">All Departments</option>
-                    <option value="engineering">Engineering</option>
-                    <option value="product">Product</option>
-                    <option value="design">Design</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="finance">Finance</option>
-                    <option value="hr">HR & Recruitment</option>
-                    <option value="customer">Customer Success</option>
-                    <option value="legal">Legal & Compliance</option>
-                </select>
-                <select class="filter-select">
-                    <option value="">All Locations</option>
-                    <option value="newyork">New York</option>
-                    <option value="sanfrancisco">San Francisco</option>
-                    <option value="london">London</option>
-                    <option value="singapore">Singapore</option>
-                    <option value="sydney">Sydney</option>
-                    <option value="remote">Remote</option>
-                </select>
-                <select class="filter-select">
-                    <option value="">Job Type</option>
-                    <option value="fulltime">Full-time</option>
-                    <option value="parttime">Part-time</option>
-                    <option value="contract">Contract</option>
-                    <option value="internship">Internship</option>
-                </select>
-                <select class="filter-select">
-                    <option value="">Experience Level</option>
-                    <option value="entry">Entry Level</option>
-                    <option value="mid">Mid-Level</option>
-                    <option value="senior">Senior</option>
-                    <option value="executive">Executive</option>
-                </select>
+            <div class="job-location">
+              <i class="fas fa-map-marker-alt"></i> Lagos, Nigeria
             </div>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+              <span class="job-type job-type-hybrid">Hybrid</span>
+            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Build and scale our core platform infrastructure. You'll work on high-throughput, low-latency systems that handle millions of transactions across Africa.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 2 days ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </section>
-
-    <!-- Featured Jobs Section -->
-    <section class="featured-jobs">
-        <div class="listings-container">
-            <h2 class="section-title">Featured Opportunities</h2>
-            <div class="job-cards">
-                <!-- Featured Job 1 -->
-                <div class="job-card">
-                    <div class="job-header" style="position: relative;">
-                        <span class="featured-label">Featured</span>
-                        <h3 class="job-title">Senior Software Engineer</h3>
-                        <div class="job-department">
-                            <i class="fas fa-code"></i> Engineering
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-map-marker-alt"></i> San Francisco
-                        </div>
-                        <span class="job-type">Full-time</span>
-                        <span class="job-type job-hybrid">Hybrid</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Join our Engineering team to build and scale our core payment processing infrastructure. You'll work on high-throughput, low-latency financial systems that handle millions of transactions daily.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 2 days ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Featured Job 2 -->
-                <div class="job-card">
-                    <div class="job-header" style="position: relative;">
-                        <span class="featured-label">Featured</span>
-                        <h3 class="job-title">Product Marketing Manager</h3>
-                        <div class="job-department">
-                            <i class="fas fa-bullhorn"></i> Marketing
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-map-marker-alt"></i> New York
-                        </div>
-                        <span class="job-type">Full-time</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Drive go-to-market strategies for our payment products. You'll work closely with Product, Design, and Sales teams to create compelling messaging and position our solutions in the market.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 5 days ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Featured Job 3 -->
-                <div class="job-card">
-                    <div class="job-header" style="position: relative;">
-                        <span class="featured-label">Featured</span>
-                        <h3 class="job-title">Compliance Officer</h3>
-                        <div class="job-department">
-                            <i class="fas fa-balance-scale"></i> Legal & Compliance
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-map-marker-alt"></i> London
-                        </div>
-                        <span class="job-type">Full-time</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Ensure our global payment operations meet regulatory requirements. You'll develop and implement compliance policies, conduct risk assessments, and stay ahead of evolving financial regulations.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 1 week ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+        
+        <!-- Featured Job 2 -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="featured-label">Featured</span>
+            <h3 class="job-title">Product Marketing Manager</h3>
+            <div class="job-department">
+              <i class="fas fa-bullhorn"></i> Marketing
             </div>
+            <div class="job-location">
+              <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya
+            </div>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Drive go-to-market strategies for our payment products. Create compelling messaging that resonates with African businesses and consumers.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 5 days ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </section>
-
-    <!-- All Job Listings Section -->
-    <section class="job-listings" id="jobs">
-        <div class="listings-container">
-            <h2 class="section-title">All Open Positions</h2>
-            <div class="job-cards">
-                <!-- Job 1 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">Backend Developer</h3>
-                        <div class="job-department">
-                            <i class="fas fa-code"></i> Engineering
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-globe-americas"></i> Remote
-                        </div>
-                        <span class="job-type">Full-time</span>
-                        <span class="job-type job-remote">Remote</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Design and implement scalable backend services for our payment platform. You'll work with technologies like Node.js, Python, and cloud infrastructure to build robust and secure financial systems.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 3 days ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Job 2 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">UX/UI Designer</h3>
-                        <div class="job-department">
-                            <i class="fas fa-paint-brush"></i> Design
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-map-marker-alt"></i> San Francisco
-                        </div>
-                        <span class="job-type">Full-time</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Create intuitive and beautiful user experiences for our financial products. You'll collaborate with product managers and engineers to design user-centered interfaces that make complex financial tasks simple.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 1 week ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Job 3 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">Data Scientist</h3>
-                        <div class="job-department">
-                            <i class="fas fa-chart-line"></i> Analytics
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-map-marker-alt"></i> Singapore
-                        </div>
-                        <span class="job-type">Full-time</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Apply machine learning and statistical modeling to improve our fraud detection systems and personalize user experiences. You'll work with large datasets to derive insights that drive business decisions.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 2 weeks ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Job 4 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">Customer Success Manager</h3>
-                        <div class="job-department">
-                            <i class="fas fa-headset"></i> Customer Success
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-map-marker-alt"></i> London
-                        </div>
-                        <span class="job-type">Full-time</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Ensure our enterprise clients get maximum value from our payment solutions. You'll drive adoption, resolve issues, and build strong relationships with key accounts to foster long-term success.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 3 days ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Job 5 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">Financial Analyst</h3>
-                        <div class="job-department">
-                            <i class="fas fa-calculator"></i> Finance
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-map-marker-alt"></i> New York
-                        </div>
-                        <span class="job-type">Full-time</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Perform financial planning, analysis, and reporting to support business decisions. You'll work with cross-functional teams to develop forecasts and track key performance indicators.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 1 week ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Job 6 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <h3 class="job-title">DevOps Engineer</h3>
-                        <div class="job-department">
-                            <i class="fas fa-server"></i> Engineering
-                        </div>
-                        <div class="job-location">
-                            <i class="fas fa-globe-americas"></i> Remote
-                        </div>
-                        <span class="job-type">Full-time</span>
-                        <span class="job-type job-remote">Remote</span>
-                    </div>
-                    <div class="job-content">
-                        <p class="job-description">Build and maintain our cloud infrastructure and deployment pipelines. You'll automate processes, improve system reliability, and ensure our payment platform is secure, scalable, and highly available.</p>
-                    </div>
-                    <div class="job-footer">
-                        <span class="job-posted">Posted 5 days ago</span>
-                        <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+        
+        <!-- Featured Job 3 -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="featured-label">Featured</span>
+            <h3 class="job-title">Compliance Officer</h3>
+            <div class="job-department">
+              <i class="fas fa-balance-scale"></i> Legal & Compliance
             </div>
-            
-            <!-- Pagination -->
-            <div class="pagination">
-                <a href="#" class="page-item page-nav"><i class="fas fa-chevron-left"></i></a>
-                <a href="#" class="page-item active">1</a>
-                <a href="#" class="page-item">2</a>
-                <a href="#" class="page-item">3</a>
-                <a href="#" class="page-item">4</a>
-                <a href="#" class="page-item">5</a>
-                <a href="#" class="page-item page-nav"><i class="fas fa-chevron-right"></i></a>
+            <div class="job-location">
+              <i class="fas fa-map-marker-alt"></i> Cape Town, South Africa
             </div>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Ensure our operations meet regulatory requirements across multiple African markets. Develop compliance policies and conduct risk assessments.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 1 week ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
-        <h2 class="benefits-title">Benefits & Perks</h2>
-        <div class="benefits-grid">
-            <!-- Benefit 1 -->
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-heart-pulse"></i>
-                </div>
-                <h3 class="benefit-title">Comprehensive Healthcare</h3>
-                <p class="benefit-description">We offer top-tier medical, dental, and vision coverage for you and your dependents, because your health comes first.</p>
+  <!-- All Job Listings Section -->
+  <section class="job-listings" id="jobs">
+    <div class="container">
+      <div class="section-header">
+        <h2>All Open Positions</h2>
+        <p>Find the perfect role to match your skills and passions</p>
+      </div>
+      <div class="job-cards">
+        <!-- Job 1 -->
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">Backend Developer</h3>
+            <div class="job-department">
+              <i class="fas fa-code"></i> Engineering
             </div>
-            
-            <!-- Benefit 2 -->
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-plane"></i>
-                </div>
-                <h3 class="benefit-title">Flexible Time Off</h3>
-                <p class="benefit-description">We trust you to manage your time. Take the time you need to rest, recharge, and bring your best self to work.</p>
+            <div class="job-location">
+              <i class="fas fa-globe-africa"></i> Remote (Africa)
             </div>
-            
-            <!-- Benefit 3 -->
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-coins"></i>
-                </div>
-                <h3 class="benefit-title">Competitive Compensation</h3>
-                <p class="benefit-description">We offer competitive salaries, equity packages, and bonuses to ensure you share in our success.</p>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+              <span class="job-type job-type-remote">Remote</span>
             </div>
-            
-            <!-- Benefit 4 -->
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3 class="benefit-title">Learning & Development</h3>
-                <p class="benefit-description">Continuous learning is in our DNA. Enjoy a dedicated budget for courses, conferences, and career growth.</p>
-            </div>
-            
-            <!-- Benefit 5 -->
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-piggy-bank"></i>
-                </div>
-                <h3 class="benefit-title">Retirement Planning</h3>
-                <p class="benefit-description">Plan for your future with our generous 401(k) matching program and financial wellness resources.</p>
-            </div>
-            
-            <!-- Benefit 6 -->
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-laptop-house"></i>
-                </div>
-                <h3 class="benefit-title">Flexible Work Options</h3>
-                <p class="benefit-description">Whether you prefer office, remote, or hybrid work, we provide the tools and flexibility to work your way.</p>
-            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Design and implement scalable backend services for our payment platform using Node.js, Python, and cloud infrastructure to build robust financial systems.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 3 days ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </section>
-
-    <!-- Team Culture Section -->
-    <section class="team-culture">
-        <div class="culture-container">
-            <div class="culture-content">
-                <h2 class="culture-title">Our Culture & Values</h2>
-                <p class="culture-text">At AnnitaPay, we're building a culture where innovation thrives and every voice matters. We believe in transparency, inclusion, and continuous learning. Our team is united by a shared mission to transform financial services and make them accessible to everyone.</p>
-                <p class="culture-text">We celebrate diverse perspectives and backgrounds, knowing that the best solutions come from teams with varied experiences. Whether you're collaborating in our offices or connecting remotely, you'll be part of a supportive community that values work-life balance and genuine connection.</p>
-                <a href="#" class="view-job">Learn more about our culture <i class="fas fa-arrow-right"></i></a>
+        
+        <!-- Job 2 -->
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">UX/UI Designer</h3>
+            <div class="job-department">
+              <i class="fas fa-paint-brush"></i> Design
             </div>
-            <div class="culture-gallery">
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Team collaboration">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Office space">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Team event">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Remote work">
-                </div>
+            <div class="job-location">
+              <i class="fas fa-map-marker-alt"></i> Accra, Ghana
             </div>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Create intuitive and beautiful user experiences for our financial products tailored to African users. Collaborate with product managers and engineers.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 1 week ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="careers-cta">
-        <h2 class="cta-title">Ready to Join Our Team?</h2>
-        <p class="cta-subtitle">Explore our open positions and take the next step in your career journey. Can't find the perfect role? We're always looking for exceptional talent.</p>
-        <div class="cta-buttons">
-            <a href="#jobs" class="cta-btn cta-btn-primary">View All Jobs</a>
-            <a href="#" class="cta-btn cta-btn-secondary">Join Talent Network</a>
+        
+        <!-- Job 3 -->
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">Data Scientist</h3>
+            <div class="job-department">
+              <i class="fas fa-chart-line"></i> Analytics
+            </div>
+            <div class="job-location">
+              <i class="fas fa-map-marker-alt"></i> Lagos, Nigeria
+            </div>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Apply machine learning to improve our fraud detection systems and personalize user experiences. Work with large datasets to derive insights for business decisions.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 2 weeks ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="faq-container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="accordion">
-                <!-- FAQ Item 1 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3 class="accordion-title">What is the hiring process like at AnnitaPay?</h3>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Our hiring process typically includes an initial application review, a screening call with a recruiter, one or more technical or role-specific interviews, and a final interview with the hiring manager or team. We aim to move quickly and keep you informed at every step. The entire process usually takes 2-3 weeks.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3 class="accordion-title">Do you offer relocation assistance?</h3>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Yes, for certain roles we offer relocation assistance to help you move to one of our office locations. The specifics depend on the role and location, but our talent team will discuss this with eligible candidates during the hiring process.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3 class="accordion-title">What is your remote work policy?</h3>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>We embrace flexible work arrangements. Many roles are available as fully remote positions, while others follow a hybrid model with some days in the office. We believe in focusing on results rather than where the work happens, while also recognizing the value of in-person collaboration for certain teams and projects.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 4 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3 class="accordion-title">What opportunities are there for career growth?</h3>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>We're committed to helping our team members grow and develop their careers. We offer clear advancement paths, regular performance reviews, mentorship programs, and learning opportunities. Many of our leaders have been promoted from within, and we prioritize internal mobility across teams and departments.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 5 -->
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3 class="accordion-title">I don't see a role that matches my skills. Can I still apply?</h3>
-                        <i class="fas fa-chevron-down accordion-icon"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Absolutely! We're always looking for exceptional talent. Submit your resume to our talent pool, and our recruiters will reach out if a suitable position becomes available. You can also join our talent network to stay updated on new opportunities.</p>
-                    </div>
-                </div>
+        
+        <!-- Job 4 -->
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">Customer Success Manager</h3>
+            <div class="job-department">
+              <i class="fas fa-headset"></i> Customer Success
             </div>
+            <div class="job-location">
+              <i class="fas fa-map-marker-alt"></i> Nairobi, Kenya
+            </div>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Ensure our enterprise clients get maximum value from our solutions. Drive adoption, resolve issues, and build strong relationships with key accounts.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 3 days ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="footer-logo">
-                    <div>AnnitaPay</div>
-                </div>
-                <p class="footer-about">Secure, seamless payment solutions for individuals and businesses worldwide.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                </div>
+        
+        <!-- Job 5 -->
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">Financial Analyst</h3>
+            <div class="job-department">
+              <i class="fas fa-calculator"></i> Finance
             </div>
-            <div>
-                <h3 class="footer-title">Products</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Personal Payments</a></li>
-                    <li><a href="#">Business Solutions</a></li>
-                    <li><a href="#">Payment Gateway</a></li>
-                    <li><a href="#">Virtual Cards</a></li>
-                    <li><a href="#">International Transfers</a></li>
-                </ul>
+            <div class="job-location">
+              <i class="fas fa-map-marker-alt"></i> Cape Town, South Africa
             </div>
-            <div>
-                <h3 class="footer-title">Company</h3>
-                <ul class="footer-links">
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">Partners</a></li>
-                    <li><a href="csrpage.html">CSR</a></li>
-                </ul>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
             </div>
-            <div>
-                <h3 class="footer-title">Support</h3>
-                <ul class="footer-links">
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Community Forum</a></li>
-                    <li><a href="#">API Documentation</a></li>
-                    <li><a href="#">Status</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="footer-title">Contact</h3>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Finance Street, New York, NY</li>
-                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                    <li><i class="fas fa-envelope"></i> support@annitapay.com</li>
-                </ul>
-                <select class="footer-country-dropdown">
-                    <option value="us">United States (English)</option>
-                    <option value="uk">United Kingdom (English)</option>
-                    <option value="ca">Canada (English)</option>
-                    <option value="au">Australia (English)</option>
-                    <option value="fr">France (Français)</option>
-                    <option value="de">Germany (Deutsch)</option>
-                </select>
-            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Perform financial planning, analysis, and reporting to support business decisions across our African markets. Develop forecasts and track KPIs.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 1 week ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-        <div class="copyright">
-            &copy; 2025 AnnitaPay Inc. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a>
+        
+        <!-- Job 6 -->
+        <div class="job-card">
+          <div class="job-header">
+            <h3 class="job-title">DevOps Engineer</h3>
+            <div class="job-department">
+              <i class="fas fa-server"></i> Engineering
+            </div>
+            <div class="job-location">
+              <i class="fas fa-globe-africa"></i> Remote (Africa)
+            </div>
+            <div class="job-type-container">
+              <span class="job-type job-type-fulltime">Full-time</span>
+              <span class="job-type job-type-remote">Remote</span>
+            </div>
+          </div>
+          <div class="job-content">
+            <p class="job-description">Build and maintain our cloud infrastructure and deployment pipelines. Automate processes and ensure our platform is secure, scalable, and highly available.</p>
+          </div>
+          <div class="job-footer">
+            <span class="job-posted">Posted 5 days ago</span>
+            <a href="#" class="view-job">View Job <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-    </footer>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" class="page-item page-nav"><i class="fas fa-chevron-left"></i></a>
+        <a href="#" class="page-item active">1</a>
+        <a href="#" class="page-item">2</a>
+        <a href="#" class="page-item">3</a>
+        <a href="#" class="page-item">4</a>
+        <a href="#" class="page-item">5</a>
+        <a href="#" class="page-item page-nav"><i class="fas fa-chevron-right"></i></a>
+      </div>
+    </div>
+  </section>
 
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+  <!-- Benefits Section -->
+  <section class="benefits-section" id="benefits">
+    <div class="container">
+      <h2 class="section-header">Benefits & Perks</h2>
+      <div class="benefits-grid">
+        <!-- Benefit 1 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3 class="benefit-title">Comprehensive Healthcare</h3>
+          <p class="benefit-description">Top-tier medical, dental, and vision coverage for you and your family across Africa.</p>
+        </div>
+        
+        <!-- Benefit 2 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-plane"></i>
+          </div>
+          <h3 class="benefit-title">Flexible Time Off</h3>
+          <p class="benefit-description">Unlimited vacation policy so you can rest, recharge, and bring your best self to work.</p>
+        </div>
+        
+        <!-- Benefit 3 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-money-bill-wave"></i>
+          </div>
+          <h3 class="benefit-title">Competitive Compensation</h3>
+          <p class="benefit-description">Attractive salaries, equity packages, and performance bonuses across all roles.</p>
+        </div>
+        
+        <!-- Benefit 4 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3 class="benefit-title">Learning & Development</h3>
+          <p class="benefit-description">Annual budget for courses, conferences, and continuous skill development.</p>
+        </div>
+        
+        <!-- Benefit 5 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-piggy-bank"></i>
+          </div>
+          <h3 class="benefit-title">Retirement Planning</h3>
+          <p class="benefit-description">Pension plans and financial wellness resources tailored for African markets.</p>
+        </div>
+        
+        <!-- Benefit 6 -->
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <i class="fas fa-laptop-house"></i>
+          </div>
+          <h3 class="benefit-title">Flexible Work Options</h3>
+          <p class="benefit-description">Office, remote, or hybrid - we provide the tools to work how you work best.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            const authButtons = document.querySelector('.auth-buttons');
-            
-            if (mobileMenu) {
-                mobileMenu.addEventListener('click', function() {
-                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                    authButtons.style.display = authButtons.style.display === 'flex' ? 'none' : 'flex';
-                });
-            }
-            
-            // Accordion functionality
-            const accordionItems = document.querySelectorAll('.accordion-item');
-            
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                
-                header.addEventListener('click', function() {
-                    // Toggle active class
-                    item.classList.toggle('active');
-                });
-            });
-            
-            // Back to top button
-            const backToTop = document.querySelector('.back-to-top');
-            
-            if (backToTop) {
-                window.addEventListener('scroll', function() {
-                    if (window.pageYOffset > 300) {
-                        backToTop.style.display = 'flex';
-                    } else {
-                        backToTop.style.display = 'none';
-                    }
-                });
-                
-                backToTop.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
+  <!-- Team Culture Section -->
+  <section class="team-culture">
+    <div class="container culture-container">
+      <div class="culture-content">
+        <h2 class="culture-title">Our Culture & Values</h2>
+        <p class="culture-text">At Annita, we're building more than a company - we're creating a movement to transform Africa's digital landscape. Our culture is rooted in innovation, collaboration, and a deep commitment to making an impact.</p>
+        <p class="culture-text">We celebrate diverse perspectives and backgrounds, knowing that the best solutions come from teams with varied experiences. Whether in our offices across Africa or connecting remotely, you'll join a supportive community that values work-life balance and genuine connection.</p>
+        <a href="aboutus.html" class="culture-link">Learn more about our culture <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="culture-gallery">
+        <div class="gallery-item">
+          <img src="/images/culture-1.jpg" alt="Team collaboration at Annita" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/culture-2.jpg" alt="Annita office space" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/culture-3.jpg" alt="Team event at Annita" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="/images/culture-4.jpg" alt="Remote work at Annita" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="careers-cta">
+    <div class="container cta-content">
+      <h2 class="cta-title">Ready to Join Our Mission?</h2>
+      <p class="cta-subtitle">Help us build Africa's first all-in-one digital platform. Whether you're starting your career or looking to make an impact, we have opportunities across the continent.</p>
+      <div class="cta-buttons">
+        <a href="#jobs" class="cta-btn cta-btn-primary">View All Jobs</a>
+        <a href="#" class="cta-btn cta-btn-secondary">Join Talent Network</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container faq-container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Get answers to common questions about careers at Annita</p>
+      </div>
+      <div class="accordion">
+        <!-- FAQ Item 1 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">What is the hiring process like at Annita?</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Our hiring process typically includes an initial application review, a screening call with a recruiter, one or more interviews with the hiring team, and a final interview with leadership. We aim to move quickly while ensuring a thorough evaluation. The entire process usually takes 2-4 weeks depending on the role.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">Do you offer relocation assistance?</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Yes, for certain roles we offer relocation assistance to help you move to one of our office locations across Africa. The specifics depend on the role and location, but our talent team will discuss options with eligible candidates during the hiring process.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">What is your remote work policy?</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <p>We embrace flexible work arrangements. Many roles are available as fully remote within Africa, while others follow a hybrid model with some days in the office. We believe in focusing on results rather than where the work happens, while also recognizing the value of in-person collaboration for certain teams.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">What opportunities are there for career growth?</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <p>We're committed to helping our team members grow and develop their careers. We offer clear advancement paths, regular performance reviews, mentorship programs, and learning opportunities. Many of our leaders have been promoted from within, and we prioritize internal mobility across teams and departments.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h3 class="accordion-title">I don't see a role that matches my skills. Can I still apply?</h3>
+            <i class="fas fa-chevron-down accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <p>Absolutely! We're always looking for exceptional talent. Submit your resume to our talent pool, and our recruiters will reach out if a suitable position becomes available. You can also join our talent network to stay updated on new opportunities that match your profile.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <div class="logo-icon">A</div>
+            Annita
+          </div>
+          <p>Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">E-Commerce</a></li>
+            <li><a href="#">Fintech Solutions</a></li>
+            <li><a href="#">AI Integration</a></li>
+            <li><a href="#">Social Networking</a></li>
+            <li><a href="#">Marketing</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="blogpage.html">Blog</a></li>
+            <li><a href="csrpage.html">CSR</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 AnnitaPay. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- Chatbot Widget -->
+  <div class="chatbot-container">
+    <div class="chatbot-button">
+      <i class="fa fa-bell"></i>
+      <div class="notification-badge">1</div>
+      <div class="chatbot-tooltip">Ask Annita AI?</div>
+    </div>
+    <div class="chatbot-window">
+      <div class="chat-header">
+        <h3>Annita AI Assistant</h3>
+        <button class="close-chat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages">
+        <div class="message bot-message">
+          Hello! I'm Annita AI. How can I help you today?
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message...">
+        <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Enhanced Mobile Menu Toggle with Premium Animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.menu-overlay');
+      const body = document.body;
+      
+      // Toggle menu function
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        body.classList.toggle('no-scroll');
+        
+        if (mobileMenu.classList.contains('active')) {
+          // Disable scrolling when menu is open
+          body.style.overflow = 'hidden';
+          // Add iOS inertia scrolling to menu
+          mobileMenu.style.webkitOverflowScrolling = 'touch';
+        } else {
+          // Re-enable scrolling
+          body.style.overflow = '';
+          // Remove iOS inertia when menu is closed
+          mobileMenu.style.webkitOverflowScrolling = '';
+        }
+      }
+      
+      // Hamburger click event
+      hamburger.addEventListener('click', toggleMenu);
+      
+      // Overlay click event
+      overlay.addEventListener('click', toggleMenu);
+      
+      // Close menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (!link.classList.contains('btn')) {
+            e.preventDefault();
+            toggleMenu();
+            // Scroll to section after menu closes
+            setTimeout(() => {
+              const target = document.querySelector(link.getAttribute('href'));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 500);
+          }
         });
-    </script>
+      });
+      
+      // Handle iOS viewport height changes
+      function handleViewportHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      // Initial call
+      handleViewportHeight();
+      
+      // Listen for resize events
+      window.addEventListener('resize', handleViewportHeight);
+      window.addEventListener('orientationchange', handleViewportHeight);
+      
+      // Prevent body scroll when menu is open
+      document.addEventListener('touchmove', function(e) {
+        if (mobileMenu.classList.contains('active')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Chatbot functionality
+      const chatbotButton = document.querySelector('.chatbot-button');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      const closeChat = document.querySelector('.close-chat');
+      const chatInput = document.querySelector('.chat-input input');
+      const sendButton = document.querySelector('.send-button');
+      const chatMessages = document.querySelector('.chat-messages');
+
+      // Toggle chat window
+      chatbotButton.addEventListener('click', function() {
+        chatbotContainer.classList.toggle('open');
+        // Remove notification badge when chat is opened
+        document.querySelector('.notification-badge').style.display = 'none';
+      });
+
+      // Close chat window
+      closeChat.addEventListener('click', function() {
+        chatbotContainer.classList.remove('open');
+      });
+
+      // Send message function
+      function sendMessage() {
+        const messageText = chatInput.value.trim();
+        if (messageText) {
+          // Add user message
+          const userMessage = document.createElement('div');
+          userMessage.className = 'message user-message';
+          userMessage.textContent = messageText;
+          chatMessages.appendChild(userMessage);
+
+          // Clear input
+          chatInput.value = '';
+
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          // Simulate bot response after a delay
+          setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.textContent = "Thanks for your message! Our team will get back to you soon with more information.";
+            chatMessages.appendChild(botMessage);
+            
+            // Scroll to bottom again after bot response
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+        }
+      }
+
+      // Send message on button click
+      sendButton.addEventListener('click', sendMessage);
+
+      // Send message on Enter key
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+
+      // FAQ accordion functionality
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        
+        header.addEventListener('click', function() {
+          // Close all other items
+          accordionItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          item.classList.toggle('active');
+        });
+      });
+      
+      // Back to top button
+      const backToTop = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+      
+      backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          if(this.getAttribute('href') === '#') return;
+          
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target) {
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

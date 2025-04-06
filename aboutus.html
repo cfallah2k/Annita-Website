@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Annita</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About Us - Annita | Africa's First All-in-One Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -14,6 +14,7 @@
       --dark: #111111;
       --light: #FFFFFF;
       --grey: #F5F5F5;
+      --vh: 1vh; /* For mobile viewport height fix */
     }
     
     * {
@@ -25,8 +26,8 @@
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--dark);
-      background-color: var(--light);
       overflow-x: hidden;
+      background-color: var(--light);
     }
     
     .container {
@@ -51,29 +52,40 @@
       justify-content: space-between;
       align-items: center;
       height: 80px;
+      position: relative;
     }
     
+    /* Updated Logo Styles with larger size */
     .logo {
       display: flex;
       align-items: center;
-      font-family: 'Zen Dots', cursive;
       font-size: 24px;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--dark);
       text-decoration: none;
+      transition: all 0.3s ease;
     }
-    
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      background-color: var(--primary);
-      color: white;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: 10px;
-      font-weight: bold;
+
+    .logo:hover {
+      opacity: 0.9;
+    }
+
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      margin-right: 12px;
+      object-fit: contain;
+      transition: all 0.3s ease;
+    }
+
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: all 0.3s ease;
     }
     
     nav ul {
@@ -99,6 +111,7 @@
     .nav-buttons {
       display: flex;
       align-items: center;
+      gap: 15px; /* Consistent spacing between buttons */
     }
     
     .btn {
@@ -113,7 +126,6 @@
     .btn-outline {
       border: 2px solid var(--primary);
       color: var(--primary);
-      margin-right: 15px;
     }
     
     .btn-outline:hover {
@@ -129,68 +141,283 @@
     .btn-primary:hover {
       background-color: #e67000;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 125, 6, 0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    /* Premium Hamburger Menu Styles */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--dark);
+      position: absolute;
+      left: 5px;
+      border-radius: 3px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .hamburger-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .hamburger-icon:before {
+      top: -8px;
+    }
+    
+    .hamburger-icon:after {
+      top: 8px;
+    }
+    
+    /* Animated state when menu is open */
+    .hamburger-menu.active .hamburger-icon {
+      background-color: transparent;
+    }
+    
+    .hamburger-menu.active .hamburger-icon:before {
+      transform: translateY(8px) rotate(45deg);
+      background-color: var(--dark);
+    }
+    
+    .hamburger-menu.active .hamburger-icon:after {
+      transform: translateY(-8px) rotate(-45deg);
+      background-color: var(--dark);
+    }
+    
+    /* Premium Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
+      background-color: white;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-menu ul {
+      list-style: none;
+      width: 100%;
+    }
+    
+    .mobile-menu li {
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+    }
+    
+    .mobile-menu.active li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Staggered animation for menu items */
+    .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+    .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+    .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+    .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; }
+    .mobile-menu.active li:nth-child(9) { transition-delay: 0.55s; }
+    .mobile-menu.active li:nth-child(10) { transition-delay: 0.6s; }
+    
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+    }
+    
+    .mobile-menu a i {
+      margin-right: 15px;
+      width: 24px;
+      text-align: center;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .mobile-menu a:hover i {
+      transform: scale(1.2);
+    }
+    
+    .mobile-menu .btn {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    /* Menu Overlay */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
     }
     
     /* About Hero Section */
     .about-hero {
-      padding-top: 150px;
-      padding-bottom: 80px;
+      padding-top: 180px;
+      padding-bottom: 100px;
       background: linear-gradient(135deg, rgba(255,125,6,0.05) 0%, rgba(255,255,255,1) 100%);
-      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255,125,6,0.05);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background-color: rgba(108,29,58,0.05);
+      border-radius: 50%;
+      z-index: 0;
     }
     
     .about-hero-content {
+      position: relative;
+      z-index: 1;
       max-width: 800px;
       margin: 0 auto;
+      text-align: center;
     }
     
     .about-hero h1 {
       font-size: 48px;
-      color: var(--secondary);
+      line-height: 1.2;
       margin-bottom: 20px;
+      color: var(--secondary);
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     
     .about-hero p {
       font-size: 18px;
-      color: #555;
       line-height: 1.6;
+      color: #555;
       margin-bottom: 30px;
+    }
+    
+    .about-hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
     
     /* Mission Section */
     .mission-section {
-      padding: 80px 0;
+      padding: 100px 0;
       background-color: var(--light);
+      position: relative;
     }
     
     .mission-container {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 50px;
+      position: relative;
+      z-index: 1;
     }
     
     .mission-image {
-      flex: 1;
-      border-radius: 15px;
+      width: 50%;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+    }
+    
+    .mission-image:hover {
+      transform: scale(1.02);
     }
     
     .mission-image img {
       width: 100%;
       height: auto;
       display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .mission-image:hover img {
+      transform: scale(1.05);
     }
     
     .mission-content {
-      flex: 1;
+      width: 50%;
     }
     
     .mission-content h2 {
       font-size: 36px;
       color: var(--secondary);
       margin-bottom: 20px;
+      line-height: 1.3;
     }
     
     .mission-content p {
@@ -210,8 +437,14 @@
     .stat-item {
       background-color: var(--grey);
       padding: 25px;
-      border-radius: 10px;
+      border-radius: 15px;
       text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
     
     .stat-number {
@@ -219,22 +452,24 @@
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 5px;
+      line-height: 1;
     }
     
     .stat-label {
       font-size: 16px;
       color: var(--dark);
+      font-weight: 500;
     }
     
     /* Team Section */
     .team-section {
-      padding: 80px 0;
+      padding: 100px 0;
       background-color: var(--grey);
     }
     
     .section-header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
     
     .section-header h2 {
@@ -250,6 +485,34 @@
       margin: 0 auto;
     }
     
+    .team-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    .team-tab {
+      padding: 12px 24px;
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      color: var(--primary);
+    }
+    
+    .team-tab.active {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .team-tab:hover:not(.active) {
+      background-color: rgba(255,125,6,0.1);
+    }
+    
     .team-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -262,6 +525,7 @@
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
       transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
     
     .team-member:hover {
@@ -270,8 +534,20 @@
     }
     
     .member-image {
-      height: 300px;
+      height: 320px;
       overflow: hidden;
+      position: relative;
+    }
+    
+    .member-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+      z-index: 1;
     }
     
     .member-image img {
@@ -302,6 +578,14 @@
       margin-bottom: 15px;
     }
     
+    .member-bio {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      display: none;
+    }
+    
     .member-social {
       display: flex;
       justify-content: center;
@@ -323,12 +607,88 @@
     .member-social a:hover {
       background-color: var(--primary);
       color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Board Members Section */
+    .board-section {
+      padding: 100px 0;
+      background-color: var(--light);
+    }
+    
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+    
+    .board-member {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    
+    .board-member:hover {
+      transform: translateY(-10px);
+    }
+    
+    .board-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 5px solid var(--grey);
+    }
+    
+    .board-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .board-info h3 {
+      font-size: 20px;
+      color: var(--secondary);
+      margin-bottom: 5px;
+    }
+    
+    .board-info p {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .board-social {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .board-social a {
+      width: 30px;
+      height: 30px;
+      background-color: var(--grey);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      transition: all 0.3s;
+    }
+    
+    .board-social a:hover {
+      background-color: var(--primary);
+      color: white;
     }
     
     /* Values Section */
     .values-section {
-      padding: 80px 0;
-      background-color: var(--light);
+      padding: 100px 0;
+      background-color: var(--grey);
     }
     
     .values-grid {
@@ -343,11 +703,30 @@
       padding: 40px 30px;
       text-align: center;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
     }
     
     .value-card:hover {
       transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .value-card:hover::before {
+      width: 100%;
+      opacity: 0.1;
     }
     
     .value-icon {
@@ -361,15 +740,101 @@
       margin: 0 auto 25px;
       color: var(--primary);
       font-size: 30px;
+      position: relative;
+      z-index: 1;
     }
     
     .value-card h3 {
       font-size: 22px;
       color: var(--secondary);
       margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
     }
     
     .value-card p {
+      color: #555;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Timeline Section */
+    .timeline-section {
+      padding: 100px 0;
+      background-color: var(--light);
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background-color: var(--primary);
+    }
+    
+    .timeline-item {
+      padding: 20px 0;
+      position: relative;
+    }
+    
+    .timeline-content {
+      width: calc(50% - 40px);
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content {
+      margin-left: auto;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content {
+      margin-right: auto;
+    }
+    
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      left: -30px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::before {
+      right: -30px;
+    }
+    
+    .timeline-date {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .timeline-title {
+      font-size: 20px;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    
+    .timeline-desc {
       color: #555;
       line-height: 1.6;
     }
@@ -380,11 +845,37 @@
       background-color: var(--secondary);
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255,255,255,0.05);
+      border-radius: 50%;
     }
     
     .cta-section h2 {
       font-size: 36px;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
     }
     
     .cta-section p {
@@ -393,12 +884,16 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      z-index: 1;
     }
     
     .cta-buttons {
       display: flex;
       justify-content: center;
       gap: 20px;
+      position: relative;
+      z-index: 1;
     }
     
     .btn-secondary {
@@ -460,6 +955,7 @@
     
     .footer-social a:hover {
       background-color: var(--primary);
+      transform: translateY(-3px);
     }
     
     .footer-links h4 {
@@ -494,6 +990,204 @@
       font-size: 14px;
     }
     
+    /* Chatbot Styles */
+    .chatbot-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+    }
+
+    .chatbot-button {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.1);
+    }
+
+    .chatbot-button i {
+      color: white;
+      font-size: 24px;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--secondary);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+
+    .chatbot-tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--dark);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--dark);
+    }
+
+    .chatbot-button:hover .chatbot-tooltip {
+      opacity: 1;
+      visibility: visible;
+      right: 80px;
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-container.open .chatbot-window {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .chat-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .bot-message {
+      background-color: #e5e5ea;
+      color: black;
+      border-bottom-left-radius: 5px;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background-color: var(--primary);
+      color: white;
+      border-bottom-right-radius: 5px;
+      margin-left: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      background-color: white;
+      border-top: 1px solid #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .send-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
     /* Responsive Styles */
     @media (max-width: 991px) {
       .mission-container {
@@ -508,6 +1202,10 @@
         grid-template-columns: repeat(2, 1fr);
       }
       
+      .board-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
       .values-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -515,18 +1213,35 @@
       .footer-container {
         grid-template-columns: 1fr 1fr;
       }
+      
+      .timeline::before {
+        left: 30px;
+      }
+      
+      .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+      }
+      
+      .timeline-content::before {
+        left: -30px !important;
+      }
     }
     
     @media (max-width: 767px) {
-      nav ul {
+      .nav-links, .nav-buttons {
         display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
       }
       
       .about-hero h1 {
         font-size: 36px;
       }
       
-      .team-grid, .values-grid {
+      .team-grid, .board-grid, .values-grid {
         grid-template-columns: 1fr;
       }
       
@@ -538,146 +1253,29 @@
       .footer-container {
         grid-template-columns: 1fr;
       }
-    }
-    
-    /* Hamburger Menu Styles */
-    .hamburger-menu {
-      display: none;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      position: relative;
-      z-index: 1002;
-      -webkit-tap-highlight-color: transparent;
-    }
-    
-    .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
-      content: '';
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: var(--dark);
-      position: absolute;
-      left: 5px;
-      border-radius: 3px;
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    
-    .hamburger-icon {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    
-    .hamburger-icon:before {
-      top: -8px;
-    }
-    
-    .hamburger-icon:after {
-      top: 8px;
-    }
-    
-    .hamburger-menu.active .hamburger-icon {
-      background-color: transparent;
-    }
-    
-    .hamburger-menu.active .hamburger-icon:before {
-      transform: translateY(8px) rotate(45deg);
-      background-color: var(--dark);
-    }
-    
-    .hamburger-menu.active .hamburger-icon:after {
-      transform: translateY(-8px) rotate(-45deg);
-      background-color: var(--dark);
-    }
-    
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 80%;
-      max-width: 320px;
-      height: 100%;
-      background-color: var(--light);
-      z-index: 1001;
-      transform: translateX(-100%);
-      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-      padding: 100px 30px 30px;
-      overflow-y: auto;
-    }
-    
-    .mobile-menu.active {
-      transform: translateX(0);
-    }
-    
-    .mobile-menu ul {
-      list-style: none;
-      width: 100%;
-    }
-    
-    .mobile-menu li {
-      margin-bottom: 25px;
-    }
-    
-    .mobile-menu a {
-      text-decoration: none;
-      color: var(--dark);
-      font-size: 18px;
-      font-weight: 500;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-      padding: 8px 0;
-    }
-    
-    .mobile-menu a i {
-      margin-right: 15px;
-      width: 24px;
-      text-align: center;
-      color: var(--primary);
-      transition: all 0.3s;
-    }
-    
-    .mobile-menu a:hover {
-      color: var(--primary);
-    }
-    
-    .mobile-menu a:hover i {
-      transform: scale(1.2);
-    }
-    
-    .mobile-menu .btn {
-      width: 100%;
-      text-align: center;
-      margin: 15px 0;
-      padding: 12px 20px;
-    }
-    
-    .menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    .menu-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    @media (max-width: 767px) {
-      .nav-links, .nav-buttons {
-        display: none;
+
+      /* Logo responsive adjustments */
+      .logo-image {
+        width: 50px;
+        height: 50px;
       }
-      
-      .hamburger-menu {
-        display: block;
+    }
+
+    /* iOS and Android specific adjustments */
+    @supports (-webkit-touch-callout: none) {
+      /* iOS specific styles */
+      .mobile-menu {
+        padding-top: max(100px, constant(safe-area-inset-top));
+        padding-top: max(100px, env(safe-area-inset-top));
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    }
+
+    @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) {
+      /* Safari and Chrome specific styles */
+      .mobile-menu {
+        -webkit-overflow-scrolling: touch;
       }
     }
   </style>
@@ -687,24 +1285,24 @@
   <header>
     <div class="container header-container">
       <a href="index.html" class="logo">
-        <div class="logo-icon">A</div>
-        Annita
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo" loading="lazy">
+        <span class="logo-text">Annita</span>
       </a>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="#">Personal</a></li>
           <li><a href="#">Business</a></li>
-          <li><a href="about.html" class="active">About Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="#">CSR</a></li>
+          <li><a href="aboutus.html" class="active">About Us</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="csrpage.html">CSR</a></li>
         </ul>
       </nav>
       <div class="nav-buttons">
         <a href="loginpage.html" class="btn btn-outline">Log In</a>
         <a href="signup.html" class="btn btn-primary">Sign Up</a>
       </div>
-      <!-- Hamburger Menu Button -->
+      <!-- Premium Hamburger Menu Button -->
       <div class="hamburger-menu">
         <span class="hamburger-icon"></span>
       </div>
@@ -717,11 +1315,11 @@
       <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
       <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
       <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
-      <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
-      <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li><a href="#"><i class="fas fa-hand-holding-heart"></i>CSR</a></li>
-      <li><a href="loginpage.html" class="btn btn-outline">Log In</a></li>
-      <li><a href="signup.html" class="btn btn-primary">Sign Up</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+      <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
     </ul>
   </div>
 
@@ -731,9 +1329,9 @@
   <!-- About Hero Section -->
   <section class="about-hero">
     <div class="container about-hero-content">
-      <h1>Empowering Africa Through Innovation</h1>
+      <h1>Empowering Africa Through Digital Innovation</h1>
       <p>Annita is Africa's first all-in-one digital platform, combining e-commerce, fintech, AI, social networking, and more to create unprecedented opportunities for businesses and individuals across the continent.</p>
-      <div class="nav-buttons">
+      <div class="about-hero-buttons">
         <a href="#mission" class="btn btn-primary">Our Mission</a>
         <a href="#team" class="btn btn-outline">Meet Our Team</a>
       </div>
@@ -744,7 +1342,7 @@
   <section class="mission-section" id="mission">
     <div class="container mission-container">
       <div class="mission-image">
-        <img src="/images/about-mission.jpg" alt="Annita team working together" loading="lazy">
+        <img src="/images/istockphoto-2154161272-612x612.jpg" alt="Annita team working together" loading="lazy">
       </div>
       <div class="mission-content">
         <h2>Our Mission & Vision</h2>
@@ -773,6 +1371,66 @@
     </div>
   </section>
 
+  <!-- Timeline Section -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Journey</h2>
+        <p>From humble beginnings to becoming Africa's leading digital platform</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2020</div>
+            <h3 class="timeline-title">Annita Founded</h3>
+            <p class="timeline-desc">Launched with a vision to create Africa's first integrated digital platform combining e-commerce and fintech solutions.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2021</div>
+            <h3 class="timeline-title">First Million Users</h3>
+            <p class="timeline-desc">Reached our first million users across 5 African countries, validating our pan-African approach.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2022</div>
+            <h3 class="timeline-title">Series A Funding</h3>
+            <p class="timeline-desc">Secured $15M in Series A funding to expand our technology and operations across the continent.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2023</div>
+            <h3 class="timeline-title">AI Integration</h3>
+            <p class="timeline-desc">Launched our AI-powered business tools, helping African entrepreneurs optimize their operations.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2024</div>
+            <h3 class="timeline-title">Pan-African Expansion</h3>
+            <p class="timeline-desc">Expanded to 12 African countries with localized solutions for each market.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2025</div>
+            <h3 class="timeline-title">5 Million Users</h3>
+            <p class="timeline-desc">Celebrated reaching 5 million active users and 200,000 businesses on our platform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Team Section -->
   <section class="team-section" id="team">
     <div class="container">
@@ -780,14 +1438,23 @@
         <h2>Meet Our Leadership Team</h2>
         <p>The brilliant minds driving Annita's vision forward with passion and expertise.</p>
       </div>
-      <div class="team-grid">
+      
+      <div class="team-tabs">
+        <button class="team-tab active" data-tab="executive">Executive Team</button>
+        <button class="team-tab" data-tab="board">Board Members</button>
+      </div>
+      
+      <div class="team-grid" id="executive-team">
         <div class="team-member">
           <div class="member-image">
-            <img src="/images/team-member1.jpg" alt="CEO" loading="lazy">
+            <img src="/images/ceo-fallah.jpg" alt="Ngozi Eze, Founder & CEO" loading="lazy">
           </div>
           <div class="member-info">
-            <h3>Ngozi Eze</h3>
+            <h3>Christopher O. Fallah</h3>
             <p>Founder & CEO</p>
+            <div class="member-bio">
+              Former Google executive with 15+ years in tech. Founded Annita to bridge Africa's digital divide.
+            </div>
             <div class="member-social">
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>
@@ -795,13 +1462,17 @@
             </div>
           </div>
         </div>
+        
         <div class="team-member">
           <div class="member-image">
-            <img src="/images/team-member2.jpg" alt="CTO" loading="lazy">
+            <img src="/images/team-member2.jpg" alt="Tunde Okafor, Chief Technology Officer" loading="lazy">
           </div>
           <div class="member-info">
             <h3>Tunde Okafor</h3>
             <p>Chief Technology Officer</p>
+            <div class="member-bio">
+              AI and blockchain expert. Built scalable systems for African market conditions.
+            </div>
             <div class="member-social">
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>
@@ -809,16 +1480,128 @@
             </div>
           </div>
         </div>
+        
         <div class="team-member">
           <div class="member-image">
-            <img src="/images/team-member3.jpg" alt="CFO" loading="lazy">
+            <img src="/images/team-member3.jpg" alt="Amina Diallo, Chief Financial Officer" loading="lazy">
           </div>
           <div class="member-info">
             <h3>Amina Diallo</h3>
             <p>Chief Financial Officer</p>
+            <div class="member-bio">
+              Former investment banker specializing in African fintech and emerging markets.
+            </div>
             <div class="member-social">
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/images/team-member4.jpg" alt="Kwame Asante, Chief Marketing Officer" loading="lazy">
+          </div>
+          <div class="member-info">
+            <h3>Kwame Asante</h3>
+            <p>Chief Marketing Officer</p>
+            <div class="member-bio">
+              Brand strategist with experience building pan-African digital brands.
+            </div>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="/images/team-member5.jpg" alt="Fatima Bello, Chief Product Officer" loading="lazy">
+          </div>
+          <div class="member-info">
+            <h3>Fatima Bello</h3>
+            <p>Chief Product Officer</p>
+            <div class="member-bio">
+              UX specialist focused on creating intuitive products for diverse African users.
+            </div>
+            <div class="member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="board-grid" id="board-members" style="display: none;">
+        <div class="board-member">
+          <div class="board-image">
+            <img src="/images/ceo-fallah.jpg" alt="Dr. Adebayo Ogunlesi" loading="lazy">
+          </div>
+          <div class="board-info">
+            <h3>Christopher O. Fallah</h3>
+            <p>Chairman</p>
+            <div class="board-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="board-member">
+          <div class="board-image">
+            <img src="/images/board-member2.jpg" alt="Njeri Rionge" loading="lazy">
+          </div>
+          <div class="board-info">
+            <h3>Njeri Rionge</h3>
+            <p>Venture Capital</p>
+            <div class="board-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="board-member">
+          <div class="board-image">
+            <img src="/images/board-member3.jpg" alt="Strive Masiyiwa" loading="lazy">
+          </div>
+          <div class="board-info">
+            <h3>Strive Masiyiwa</h3>
+            <p>Telecom Expert</p>
+            <div class="board-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="board-member">
+          <div class="board-image">
+            <img src="/images/board-member4.jpg" alt="Dr. James Mwangi" loading="lazy">
+          </div>
+          <div class="board-info">
+            <h3>Dr. James Mwangi</h3>
+            <p>Banking & Finance</p>
+            <div class="board-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="board-member">
+          <div class="board-image">
+            <img src="/images/board-member5.jpg" alt="Iyinoluwa Aboyeji" loading="lazy">
+          </div>
+          <div class="board-info">
+            <h3>Iyinoluwa Aboyeji</h3>
+            <p>Tech Entrepreneur</p>
+            <div class="board-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
               <a href="#"><i class="fas fa-envelope"></i></a>
             </div>
           </div>
@@ -888,7 +1671,7 @@
       <p>Be part of Africa's digital transformation. Whether you're an individual, entrepreneur, or established business, Annita has solutions to help you thrive in the digital economy.</p>
       <div class="cta-buttons">
         <a href="signup.html" class="btn btn-primary">Sign Up Now</a>
-        <a href="contact.html" class="btn btn-secondary">Contact Our Team</a>
+        <a href="contactus.html" class="btn btn-secondary">Contact Our Team</a>
       </div>
     </div>
   </section>
@@ -925,12 +1708,12 @@
         <div class="footer-links">
           <h4>Company</h4>
           <ul>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
             <li><a href="#">Our Team</a></li>
             <li><a href="#">Careers</a></li>
             <li><a href="#">Press</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blogpage.html">Our Blog</a></li>
+            <li><a href="contactus.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -950,23 +1733,196 @@
     </div>
   </footer>
 
+  <!-- Chatbot Widget -->
+  <div class="chatbot-container">
+    <div class="chatbot-button">
+      <i class="fa fa-bell"></i>
+      <div class="notification-badge">1</div>
+      <div class="chatbot-tooltip">Ask Annita AI?</div>
+    </div>
+    <div class="chatbot-window">
+      <div class="chat-header">
+        <h3>Annita AI Assistant</h3>
+        <button class="close-chat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages">
+        <div class="message bot-message">
+          Hello! I'm Annita AI. How can I help you today?
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message...">
+        <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Mobile Menu Toggle
+    // Enhanced Mobile Menu Toggle with Premium Animations
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.querySelector('.hamburger-menu');
       const mobileMenu = document.querySelector('.mobile-menu');
       const overlay = document.querySelector('.menu-overlay');
       const body = document.body;
       
+      // Toggle menu function
       function toggleMenu() {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
         overlay.classList.toggle('active');
         body.classList.toggle('no-scroll');
+        
+        if (mobileMenu.classList.contains('active')) {
+          // Disable scrolling when menu is open
+          body.style.overflow = 'hidden';
+          // Add iOS inertia scrolling to menu
+          mobileMenu.style.webkitOverflowScrolling = 'touch';
+        } else {
+          // Re-enable scrolling
+          body.style.overflow = '';
+          // Remove iOS inertia when menu is closed
+          mobileMenu.style.webkitOverflowScrolling = '';
+        }
       }
       
+      // Hamburger click event
       hamburger.addEventListener('click', toggleMenu);
+      
+      // Overlay click event
       overlay.addEventListener('click', toggleMenu);
+      
+      // Close menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (!link.classList.contains('btn')) {
+            e.preventDefault();
+            toggleMenu();
+            // Scroll to section after menu closes
+            setTimeout(() => {
+              const target = document.querySelector(link.getAttribute('href'));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 500);
+          }
+        });
+      });
+      
+      // Handle iOS viewport height changes
+      function handleViewportHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      // Initial call
+      handleViewportHeight();
+      
+      // Listen for resize events
+      window.addEventListener('resize', handleViewportHeight);
+      window.addEventListener('orientationchange', handleViewportHeight);
+      
+      // Prevent body scroll when menu is open
+      document.addEventListener('touchmove', function(e) {
+        if (mobileMenu.classList.contains('active')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Chatbot functionality
+      const chatbotButton = document.querySelector('.chatbot-button');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      const closeChat = document.querySelector('.close-chat');
+      const chatInput = document.querySelector('.chat-input input');
+      const sendButton = document.querySelector('.send-button');
+      const chatMessages = document.querySelector('.chat-messages');
+
+      // Toggle chat window
+      chatbotButton.addEventListener('click', function() {
+        chatbotContainer.classList.toggle('open');
+        // Remove notification badge when chat is opened
+        document.querySelector('.notification-badge').style.display = 'none';
+      });
+
+      // Close chat window
+      closeChat.addEventListener('click', function() {
+        chatbotContainer.classList.remove('open');
+      });
+
+      // Send message function
+      function sendMessage() {
+        const messageText = chatInput.value.trim();
+        if (messageText) {
+          // Add user message
+          const userMessage = document.createElement('div');
+          userMessage.className = 'message user-message';
+          userMessage.textContent = messageText;
+          chatMessages.appendChild(userMessage);
+
+          // Clear input
+          chatInput.value = '';
+
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          // Simulate bot response after a delay
+          setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.textContent = "Thanks for your message! Our team will get back to you soon with more information.";
+            chatMessages.appendChild(botMessage);
+            
+            // Scroll to bottom again after bot response
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+        }
+      }
+
+      // Send message on button click
+      sendButton.addEventListener('click', sendMessage);
+
+      // Send message on Enter key
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+
+      // Team tabs functionality
+      const teamTabs = document.querySelectorAll('.team-tab');
+      const executiveTeam = document.getElementById('executive-team');
+      const boardMembers = document.getElementById('board-members');
+      
+      teamTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Update active tab
+          teamTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Show appropriate content
+          if (this.dataset.tab === 'executive') {
+            executiveTeam.style.display = 'grid';
+            boardMembers.style.display = 'none';
+          } else {
+            executiveTeam.style.display = 'none';
+            boardMembers.style.display = 'grid';
+          }
+        });
+      });
+      
+      // Team member hover effect to show bio
+      const teamMembers = document.querySelectorAll('.team-member');
+      teamMembers.forEach(member => {
+        member.addEventListener('mouseenter', function() {
+          const bio = this.querySelector('.member-bio');
+          if (bio) bio.style.display = 'block';
+        });
+        
+        member.addEventListener('mouseleave', function() {
+          const bio = this.querySelector('.member-bio');
+          if (bio) bio.style.display = 'none';
+        });
+      });
       
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -981,11 +1937,6 @@
               top: target.offsetTop - 100,
               behavior: 'smooth'
             });
-            
-            // Close mobile menu if open
-            if(mobileMenu.classList.contains('active')) {
-              toggleMenu();
-            }
           }
         });
       });
