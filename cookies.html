@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Cookies Policy - Annita Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF7D06;
+      --secondary: #6C1D3A;
+      --accent: #FFC200;
+      --dark: #111111;
+      --light: #FFFFFF;
+      --grey: #F5F5F5;
+      --blue-dark: #001a57;
+      --blue-light: #00c2ff;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    /* Header with Hamburger Menu */
+    header {
+      background-color: var(--light);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid var(--primary);
+      transition: var(--transition);
+    }
+
+    .logo-text {
+      font-family: 'Zen Dots', cursive;
+      font-weight: 400;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 125, 6, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background-color: #e67100;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 125, 6, 0.4);
+    }
+    
+    /* Hamburger Menu */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+    }
+    
+    .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--dark);
+      position: absolute;
+      left: 5px;
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+    
+    .hamburger-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .hamburger-icon:before {
+      top: -8px;
+    }
+    
+    .hamburger-icon:after {
+      top: 8px;
+    }
+    
+    .hamburger-menu.active .hamburger-icon {
+      background-color: transparent;
+    }
+    
+    .hamburger-menu.active .hamburger-icon:before {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger-menu.active .hamburger-icon:after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      background-color: white;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-menu ul {
+      list-style: none;
+      width: 100%;
+    }
+    
+    .mobile-menu li {
+      margin-bottom: 15px;
+    }
+    
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      transition: var(--transition);
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+    
+    .mobile-menu a i {
+      margin-right: 15px;
+      width: 24px;
+      text-align: center;
+      color: var(--primary);
+    }
+    
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      width: 100%;
+      background-color: var(--grey);
+      margin-top: 80px; /* Offset for fixed header */
+    }
+
+    /* Policy Hero Section */
+    .policy-hero {
+      background: linear-gradient(rgba(0, 26, 87, 0.8), rgba(0, 26, 87, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 8rem 0 4rem;
+      color: var(--light);
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .policy-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(108, 29, 58, 0.7) 0%, rgba(0, 26, 87, 0.9) 100%);
+      z-index: 0;
+    }
+    
+    .policy-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .policy-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .policy-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Policy Container */
+    .policy-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* Cookie Settings Panel */
+    .cookie-settings {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .cookie-settings:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .cookie-settings h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .cookie-settings h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .cookie-settings p {
+      margin-bottom: 30px;
+      color: #555;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .cookie-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .cookie-toggle:hover {
+      background-color: rgba(245, 245, 245, 0.5);
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-left: -15px;
+      margin-right: -15px;
+      border-radius: 8px;
+    }
+
+    .cookie-toggle:last-child {
+      border-bottom: none;
+    }
+
+    .toggle-info {
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .toggle-info h3 {
+      font-size: 1.3rem;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .toggle-info p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* Toggle Switch */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e0e0e0;
+      transition: var(--transition);
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: var(--transition);
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(26px);
+    }
+
+    input:disabled + .toggle-slider {
+      background-color: #b0b0b0;
+      cursor: not-allowed;
+    }
+
+    input:disabled + .toggle-slider:before {
+      background-color: #f0f0f0;
+    }
+
+    /* Policy Content */
+    .policy-content {
+      padding: 30px 0;
+    }
+
+    .policy-content h2 {
+      color: var(--secondary);
+      margin: 50px 0 20px;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .policy-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .policy-content h3 {
+      color: var(--blue-dark);
+      margin: 40px 0 15px;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .policy-content p {
+      margin-bottom: 20px;
+      color: #555;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .policy-content ul, .policy-content ol {
+      margin-bottom: 25px;
+      padding-left: 25px;
+    }
+
+    .policy-content li {
+      margin-bottom: 12px;
+      color: #555;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .policy-content strong {
+      color: var(--blue-dark);
+      font-weight: 600;
+    }
+
+    .policy-content a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .policy-content a:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    /* Cookie Table */
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      font-size: 0.95em;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .cookie-table:hover {
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .cookie-table thead tr {
+      background-color: var(--primary);
+      color: white;
+      text-align: left;
+    }
+
+    .cookie-table th,
+    .cookie-table td {
+      padding: 15px 20px;
+    }
+
+    .cookie-table th {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .cookie-table tbody tr {
+      border-bottom: 1px solid #eeeeee;
+      transition: var(--transition);
+    }
+
+    .cookie-table tbody tr:nth-of-type(even) {
+      background-color: #fafafa;
+    }
+
+    .cookie-table tbody tr:last-of-type {
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .cookie-table tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .cookie-table td:first-child {
+      font-weight: 500;
+      color: var(--blue-dark);
+    }
+
+    /* Policy Buttons */
+    .policy-buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-secondary {
+      background-color: #f0f0f0;
+      color: var(--dark);
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+
+    .btn-secondary:hover {
+      background-color: #e0e0e0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Notification Banner */
+    .cookie-notification {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--dark);
+      color: white;
+      padding: 20px;
+      z-index: 999;
+      transform: translateY(100%);
+      transition: transform 0.5s ease-out;
+      box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cookie-notification.active {
+      transform: translateY(0);
+    }
+
+    .cookie-notification-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .cookie-notification p {
+      flex: 1;
+      min-width: 300px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cookie-notification-buttons {
+      display: flex;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+
+    .cookie-notification .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .cookie-notification .btn-outline {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .cookie-notification .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 80px 20px 30px;
+      position: relative;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column li {
+      margin-bottom: 15px;
+    }
+    
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+    
+    .footer-column a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .footer-social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .footer-logo-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-logo-group .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo-group .logo-text {
+      color: white;
+    }
+
+    .footer-tagline {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+
+    .footer-links-horizontal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links-horizontal a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-links-horizontal a:hover {
+      color: var(--primary);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+      
+      .policy-hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links, .nav-buttons {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .policy-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .policy-hero p {
+        font-size: 1.05rem;
+      }
+
+      .cookie-toggle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .toggle-switch {
+        align-self: flex-end;
+      }
+
+      .policy-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .btn, .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cookie-notification-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .cookie-notification-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .footer-links-horizontal {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .policy-hero {
+        padding: 6rem 0 3rem;
+      }
+      
+      .policy-hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .policy-hero p {
+        font-size: 1rem;
+      }
+
+      .cookie-settings {
+        padding: 25px;
+      }
+
+      .cookie-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .policy-hero-content {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .cookie-settings {
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+
+    .policy-content {
+      animation: fadeIn 0.8s ease-out 0.4s both;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Hamburger Menu -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+        <span class="logo-text">Annita</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Personal</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="loginpage.html" class="btn btn-outline">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <div class="hamburger-menu">
+        <span class="hamburger-icon"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
+      <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+    </ul>
+  </div>
+  <div class="menu-overlay"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Policy Hero Section -->
+    <section class="policy-hero">
+      <div class="policy-hero-content">
+        <h1>Annita Cookies Policy</h1>
+        <p>We use cookies to enhance your experience on our platform. Learn more about how we use cookies and manage your preferences.</p>
+      </div>
+    </section>
+
+    <div class="policy-container">
+      <!-- Cookie Settings Panel -->
+      <section class="cookie-settings">
+        <h2>Your Cookie Preferences</h2>
+        <p>We respect your privacy. You can manage your cookie preferences below. Please note that disabling some cookies may affect your experience on our website.</p>
+        
+        <div class="cookie-toggle">
+          <div class="toggle-info">
+            <h3>Essential Cookies</h3>
+            <p>These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you.</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked disabled>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        
+        <div class="cookie-toggle">
+          <div class="toggle-info">
+            <h3>Performance Cookies</h3>
+            <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked id="performance-cookies">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        
+        <div class="cookie-toggle">
+          <div class="toggle-info">
+            <h3>Functional Cookies</h3>
+            <p>These cookies enable the website to provide enhanced functionality and personalization, like remembering your preferences.</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" checked id="functional-cookies">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        
+        <div class="cookie-toggle">
+          <div class="toggle-info">
+            <h3>Targeting Cookies</h3>
+            <p>These cookies may be set through our site by our advertising partners to build a profile of your interests.</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="targeting-cookies">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        
+        <!-- Change this in the policy-buttons section -->
+<div class="policy-buttons">
+  <button class="btn btn-outline" id="reject-all">Reject All Optional</button>
+  <button class="btn btn-primary" id="save-settings">Save Preferences</button>
+</div>
+      </section>
+
+      <!-- Policy Content -->
+      <section class="policy-content">
+        <h2>About Our Use of Cookies</h2>
+        <p>When you visit our website, we may place small data files called cookies on your device. This policy explains what cookies are, how we use them, and how you can manage them.</p>
+        
+        <h3>What Are Cookies?</h3>
+        <p>Cookies are small text files that are placed on your computer, smartphone, or other device when you visit a website. They are widely used to make websites work more efficiently, as well as to provide information to the website owners.</p>
+        
+        <p>Cookies typically don't contain much information other than a URL and some identifiers, but they can be used to track browsing activity and preferences. They can be either "session cookies" (which are deleted when you close your browser) or "persistent cookies" (which remain on your device for a set period of time).</p>
+        
+        <h3>How We Use Cookies</h3>
+        <p>We use cookies for several purposes:</p>
+        <ul>
+          <li><strong>Essential cookies:</strong> These are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you such as logging in or filling in forms.</li>
+          <li><strong>Performance cookies:</strong> These allow us to count visits and traffic sources to measure and improve site performance. They help us know which pages are popular and how visitors move around the site.</li>
+          <li><strong>Functional cookies:</strong> These enable enhanced functionality and personalization, such as remembering your preferences (like language or region). Without these cookies, certain features may become unavailable.</li>
+          <li><strong>Targeting cookies:</strong> These may be set by our advertising partners to build a profile of your interests and show you relevant ads on other sites. They work by uniquely identifying your browser and device.</li>
+        </ul>
+        
+        <h3>Types of Cookies We Use</h3>
+        <p>The table below provides more information about the cookies we use and why we use them:</p>
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Cookie Name</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>session_id</td>
+              <td>Maintains your session state across page requests and keeps you logged in</td>
+              <td>Session</td>
+              <td>Essential</td>
+            </tr>
+            <tr>
+              <td>accept_cookies</td>
+              <td>Remembers your cookie preferences so we don't ask you again</td>
+              <td>1 year</td>
+              <td>Essential</td>
+            </tr>
+            <tr>
+              <td>_ga</td>
+              <td>Google Analytics - distinguishes unique users to generate statistical data</td>
+              <td>2 years</td>
+              <td>Performance</td>
+            </tr>
+            <tr>
+              <td>_gid</td>
+              <td>Google Analytics - distinguishes unique users for short-term tracking</td>
+              <td>24 hours</td>
+              <td>Performance</td>
+            </tr>
+            <tr>
+              <td>_gat</td>
+              <td>Google Analytics - used to throttle request rate</td>
+              <td>1 minute</td>
+              <td>Performance</td>
+            </tr>
+            <tr>
+              <td>preferences</td>
+              <td>Stores your site preferences (language, region, layout settings)</td>
+              <td>1 year</td>
+              <td>Functional</td>
+            </tr>
+            <tr>
+              <td>cart_items</td>
+              <td>Remembers items in your shopping cart for e-commerce functionality</td>
+              <td>30 days</td>
+              <td>Functional</td>
+            </tr>
+            <tr>
+              <td>_fbp</td>
+              <td>Facebook Pixel - tracks conversions from Facebook ads and remarketing</td>
+              <td>3 months</td>
+              <td>Targeting</td>
+            </tr>
+            <tr>
+              <td>NID</td>
+              <td>Google Ads - used for ad targeting and showing relevant ads</td>
+              <td>6 months</td>
+              <td>Targeting</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3>Third-Party Cookies</h3>
+        <p>In addition to our own cookies, we may also use various third-party cookies to report usage statistics of the website, deliver advertisements on and through the website, and so on. These third-party services may set their own cookies when you visit our site.</p>
+        
+        <p>Some of the third-party services we use include:</p>
+        <ul>
+          <li><strong>Google Analytics:</strong> For understanding how visitors engage with our site</li>
+          <li><strong>Facebook Pixel:</strong> For measuring the effectiveness of our Facebook ads</li>
+          <li><strong>Hotjar:</strong> For understanding user behavior through heatmaps and recordings</li>
+          <li><strong>Google Ads:</strong> For serving targeted advertisements</li>
+        </ul>
+        
+        <h3>Managing Cookies</h3>
+        <p>You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. However, if you do this, you may have to manually adjust some preferences every time you visit a site and some services and functionalities may not work.</p>
+        
+        <p>Most web browsers allow some control of most cookies through the browser settings. To find out more about cookies, including how to see what cookies have been set and how to manage and delete them, visit <a href="https://www.aboutcookies.org" target="_blank" rel="noopener noreferrer">www.aboutcookies.org</a> or <a href="https://www.allaboutcookies.org" target="_blank" rel="noopener noreferrer">www.allaboutcookies.org</a>.</p>
+        
+        <p>Here's how to manage cookies in popular browsers:</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+          <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+        </ul>
+        
+        <h3>Do Not Track Signals</h3>
+        <p>Some browsers have a "Do Not Track" feature that lets you tell websites you don't want to have your online activities tracked. At this time, we do not respond to browser "Do Not Track" signals because no standard has been adopted. We await the result of work by the privacy community and standards bodies on this issue.</p>
+        
+        <h3>Changes to This Policy</h3>
+        <p>We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the new policy on our website with a new effective date.</p>
+        
+        <p>We encourage you to periodically review this page for the latest information on our cookie practices. Your continued use of our website after any changes or revisions to this Cookie Policy shall indicate your agreement with the terms of such revised Cookie Policy.</p>
+        
+        <h3>Contact Us</h3>
+        <p>If you have any questions about our use of cookies or this Cookie Policy, please contact our Data Protection Officer at:</p>
+        
+        <p><strong>Email:</strong> <a href="mailto:privacy@annita.com">privacy@annita.com</a><br>
+        <strong>Address:</strong> Data Protection Officer, Annita Technologies, 123 Innovation Drive, Lagos, Nigeria</p>
+        
+        <p>We aim to respond to all legitimate requests within one month. Occasionally it may take us longer if your request is particularly complex or you have made several requests. In this case, we will notify you and keep you updated.</p>
+        
+        <p><strong>Last updated:</strong> April 8, 2025</p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo-group">
+            <a href="index.html" class="logo">
+              <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+              <span class="logo-text">Annita</span>
+            </a>
+            <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#">AnnitaPay</a></li>
+            <li><a href="#">AnnitaMarket</a></li>
+            <li><a href="#">AnnitaConnect</a></li>
+            <li><a href="#">AnnitaAI</a></li>
+            <li><a href="#">AnnitaAds</a></li>
+            <li><a href="#">AnnitaCloud</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="#">GDPR</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+        <div class="footer-links-horizontal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Cookie Notification Banner -->
+  <div class="cookie-notification" id="cookie-banner">
+    <div class="cookie-notification-container">
+      <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies. <a href="cookie-policy.html" style="color: var(--primary);">Learn more</a></p>
+      <div class="cookie-notification-buttons">
+        <button class="btn btn-outline" id="cookie-reject">Reject</button>
+        <button class="btn btn-primary" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.menu-overlay');
+      
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+      });
+      
+      overlay.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        this.classList.remove('active');
+      });
+
+      // Back to Top Button
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('active');
+        } else {
+          backToTopButton.classList.remove('active');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Cookie Settings Functionality
+      const performanceCookies = document.getElementById('performance-cookies');
+      const functionalCookies = document.getElementById('functional-cookies');
+      const targetingCookies = document.getElementById('targeting-cookies');
+      const rejectAllBtn = document.getElementById('reject-all');
+      const saveSettingsBtn = document.getElementById('save-settings');
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieReject = document.getElementById('cookie-reject');
+
+      // Check if cookie preferences are already set
+      function checkCookiePreferences() {
+        const preferences = localStorage.getItem('cookiePreferences');
+        const consentGiven = localStorage.getItem('cookieConsent');
+        
+        if (!consentGiven) {
+          // Show banner if no consent given yet
+          setTimeout(() => {
+            cookieBanner.classList.add('active');
+          }, 1000);
+        }
+        
+        if (preferences) {
+          // Load saved preferences
+          loadCookiePreferences();
+        }
+      }
+
+      // Load saved preferences
+      function loadCookiePreferences() {
+        const preferences = JSON.parse(localStorage.getItem('cookiePreferences')) || {
+          performance: true,
+          functional: true,
+          targeting: false
+        };
+        
+        performanceCookies.checked = preferences.performance;
+        functionalCookies.checked = preferences.functional;
+        targetingCookies.checked = preferences.targeting;
+      }
+
+      // Save preferences
+      function saveCookiePreferences() {
+        const preferences = {
+          performance: performanceCookies.checked,
+          functional: functionalCookies.checked,
+          targeting: targetingCookies.checked
+        };
+        
+        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+        localStorage.setItem('cookieConsent', 'given');
+        
+        // Update cookies based on preferences
+        updateCookies();
+        
+        // Show confirmation
+        showNotification('Your cookie preferences have been saved successfully!');
+      }
+
+      // Reject all optional cookies
+      function rejectOptionalCookies() {
+        performanceCookies.checked = false;
+        functionalCookies.checked = false;
+        targetingCookies.checked = false;
+        
+        // Save immediately
+        saveCookiePreferences();
+      }
+
+      // Accept all cookies
+      function acceptAllCookies() {
+        performanceCookies.checked = true;
+        functionalCookies.checked = true;
+        targetingCookies.checked = true;
+        
+        // Save immediately
+        saveCookiePreferences();
+      }
+
+      // Update cookies based on preferences
+      function updateCookies() {
+        const preferences = JSON.parse(localStorage.getItem('cookiePreferences')) || {
+          performance: true,
+          functional: true,
+          targeting: false
+        };
+        
+        // In a real implementation, you would set or remove cookies based on preferences
+        console.log('Updating cookies based on preferences:', preferences);
+        
+        // Example: Google Analytics
+        if (!preferences.performance) {
+          console.log('Disabling performance cookies (e.g., Google Analytics)');
+          // window['ga-disable-UA-XXXXX-Y'] = true;
+        } else {
+          // window['ga-disable-UA-XXXXX-Y'] = false;
+        }
+        
+        // Example: Facebook Pixel
+        if (!preferences.targeting) {
+          console.log('Disabling targeting cookies (e.g., Facebook Pixel)');
+          // fbq('optOut');
+        } else {
+          // fbq('optIn');
+        }
+      }
+
+      // Show notification
+      function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        notification.style.position = 'fixed';
+        notification.style.bottom = '20px';
+        notification.style.left = '50%';
+        notification.style.transform = 'translateX(-50%)';
+        notification.style.backgroundColor = 'var(--primary)';
+        notification.style.color = 'white';
+        notification.style.padding = '15px 30px';
+        notification.style.borderRadius = '8px';
+        notification.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+        notification.style.zIndex = '1000';
+        notification.style.animation = 'fadeIn 0.5s ease-out';
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.animation = 'fadeOut 0.5s ease-out';
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 500);
+        }, 3000);
+      }
+
+      // Event Listeners
+      saveSettingsBtn.addEventListener('click', saveCookiePreferences);
+      rejectAllBtn.addEventListener('click', rejectOptionalCookies);
+      cookieAccept.addEventListener('click', function() {
+        acceptAllCookies();
+        cookieBanner.classList.remove('active');
+      });
+      cookieReject.addEventListener('click', function() {
+        rejectOptionalCookies();
+        cookieBanner.classList.remove('active');
+      });
+
+      // Initialize
+      checkCookiePreferences();
+      
+      // If coming from cookie banner link, hide the banner
+      if (window.location.hash === '#cookie-policy') {
+        localStorage.setItem('cookieConsent', 'given');
+        cookieBanner.classList.remove('active');
+      }
+    });
+
+    // Add fadeOut animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeOut {
+        from { opacity: 1; transform: translateX(-50%) translateY(0); }
+        to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

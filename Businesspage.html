@@ -1,0 +1,3178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Annita - Premium Business Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    /* --- Global Variables & Reset --- */
+    :root {
+      --primary: #FF7D06;
+      --primary-light: #FF9E40;
+      --primary-dark: #E67000;
+      --secondary: #6C1D3A;
+      --secondary-light: #8E2A4D;
+      --secondary-dark: #4E1428;
+      --accent: #FFC200;
+      --accent-light: #FFD24D;
+      --accent-dark: #FFB300;
+      --dark: #111111;
+      --dark-light: #1E1E1E;
+      --light: #FFFFFF;
+      --light-dark: #F5F5F5;
+      --grey: #F5F5F5;
+      --grey-dark: #E0E0E0;
+      --grey-darker: #B0B0B0;
+      --blue-dark: #001a57;
+      --blue-light: #00c2ff;
+      --success: #4CAF50;
+      --warning: #FFC107;
+      --danger: #F44336;
+      --info: #2196F3;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+      --shadow-xl: 0 20px 40px rgba(0,0,0,0.15), 0 10px 20px rgba(0,0,0,0.1);
+      --shadow-primary: 0 10px 20px rgba(255,125,6,0.2);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition-slow: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --border-radius-sm: 4px;
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --border-radius-xl: 16px;
+      --border-radius-circle: 50%;
+      --max-width: 1440px;
+      --header-height: 80px;
+      --footer-height: 400px;
+      --section-padding: 120px;
+      --container-padding: 40px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      overflow-x: hidden;
+      background-color: var(--light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* --- Typography --- */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 2.75rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    h4 {
+      font-size: 1.5rem;
+    }
+
+    h5 {
+      font-size: 1.25rem;
+    }
+
+    h6 {
+      font-size: 1rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--dark-light);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    small {
+      font-size: 0.875rem;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-secondary {
+      color: var(--secondary);
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    .text-light {
+      color: var(--light);
+    }
+
+    .text-dark {
+      color: var(--dark);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-right {
+      text-align: right;
+    }
+
+    .text-left {
+      text-align: left;
+    }
+
+    /* --- Layout & Containers --- */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .container-fluid {
+      width: 100%;
+      padding: 0 var(--container-padding);
+    }
+
+    .section {
+      padding: var(--section-padding) 0;
+      position: relative;
+    }
+
+    .section-sm {
+      padding: calc(var(--section-padding) / 2) 0;
+    }
+
+    .section-lg {
+      padding: calc(var(--section-padding) * 1.5) 0;
+    }
+
+    .section-xl {
+      padding: calc(var(--section-padding) * 2) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-header h2 {
+      font-size: 2.75rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--dark-light);
+    }
+
+    .bg-primary {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+
+    .bg-secondary {
+      background-color: var(--secondary);
+      color: var(--light);
+    }
+
+    .bg-accent {
+      background-color: var(--accent);
+      color: var(--dark);
+    }
+
+    .bg-dark {
+      background-color: var(--dark);
+      color: var(--light);
+    }
+
+    .bg-light {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    .bg-grey {
+      background-color: var(--grey);
+      color: var(--dark);
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--border-radius-lg);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: 2px solid transparent;
+      font-size: 1rem;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn i {
+      margin-right: 0.5rem;
+      font-size: 1.1em;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: var(--light);
+      box-shadow: var(--shadow-primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255,125,6,0.3);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: var(--light);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--secondary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(108,29,58,0.2);
+    }
+
+    .btn-secondary:active {
+      transform: translateY(0);
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: var(--dark);
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255,194,0,0.2);
+    }
+
+    .btn-accent:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: var(--light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-primary);
+    }
+
+    .btn-outline:active {
+      transform: translateY(0);
+    }
+
+    .btn-light {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    .btn-light:hover {
+      background-color: var(--grey);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-light:active {
+      transform: translateY(0);
+    }
+
+    .btn-dark {
+      background-color: var(--dark);
+      color: var(--light);
+    }
+
+    .btn-dark:hover {
+      background-color: var(--dark-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-dark:active {
+      transform: translateY(0);
+    }
+
+    .btn-lg {
+      padding: 1rem 2.25rem;
+      font-size: 1.125rem;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    .btn-block {
+      display: flex;
+      width: 100%;
+    }
+
+    .btn-icon {
+      padding: 0.75rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .btn-icon i {
+      margin: 0;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* --- Forms --- */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .form-control {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--dark);
+      background-color: var(--light);
+      background-clip: padding-box;
+      border: 1px solid var(--grey-dark);
+      border-radius: var(--border-radius-md);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem rgba(255,125,6,0.25);
+    }
+
+    .form-control-lg {
+      padding: 1rem 1.25rem;
+      font-size: 1.125rem;
+      border-radius: var(--border-radius-lg);
+    }
+
+    .form-control-sm {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      border-radius: var(--border-radius-sm);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .input-group .form-control {
+      position: relative;
+      flex: 1 1 auto;
+      width: 1%;
+      min-width: 0;
+    }
+
+    .input-group-prepend,
+    .input-group-append {
+      display: flex;
+    }
+
+    .input-group-text {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--dark-light);
+      text-align: center;
+      white-space: nowrap;
+      background-color: var(--grey);
+      border: 1px solid var(--grey-dark);
+    }
+
+    .input-group-prepend .input-group-text {
+      border-right: 0;
+      border-top-left-radius: var(--border-radius-md);
+      border-bottom-left-radius: var(--border-radius-md);
+    }
+
+    .input-group-append .input-group-text {
+      border-left: 0;
+      border-top-right-radius: var(--border-radius-md);
+      border-bottom-right-radius: var(--border-radius-md);
+    }
+
+    .form-check {
+      position: relative;
+      display: block;
+      padding-left: 1.5rem;
+    }
+
+    .form-check-input {
+      position: absolute;
+      margin-top: 0.3rem;
+      margin-left: -1.5rem;
+    }
+
+    .form-check-label {
+      margin-bottom: 0;
+    }
+
+    /* --- Cards --- */
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: var(--light);
+      background-clip: border-box;
+      border: 1px solid rgba(0,0,0,0.125);
+      border-radius: var(--border-radius-lg);
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-body {
+      flex: 1 1 auto;
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .card-subtitle {
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark-light);
+    }
+
+    .card-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-img-top {
+      width: 100%;
+      border-top-left-radius: calc(var(--border-radius-lg) - 1px);
+      border-top-right-radius: calc(var(--border-radius-lg) - 1px);
+    }
+
+    .card-img-bottom {
+      width: 100%;
+      border-bottom-left-radius: calc(var(--border-radius-lg) - 1px);
+      border-bottom-right-radius: calc(var(--border-radius-lg) - 1px);
+    }
+
+    .card-header {
+      padding: 1rem 1.5rem;
+      margin-bottom: 0;
+      background-color: rgba(0,0,0,0.03);
+      border-bottom: 1px solid rgba(0,0,0,0.125);
+    }
+
+    .card-footer {
+      padding: 1rem 1.5rem;
+      background-color: rgba(0,0,0,0.03);
+      border-top: 1px solid rgba(0,0,0,0.125);
+    }
+
+    .card-primary {
+      background-color: var(--primary);
+      color: var(--light);
+      border-color: var(--primary);
+    }
+
+    .card-secondary {
+      background-color: var(--secondary);
+      color: var(--light);
+      border-color: var(--secondary);
+    }
+
+    .card-accent {
+      background-color: var(--accent);
+      color: var(--dark);
+      border-color: var(--accent);
+    }
+
+    .card-dark {
+      background-color: var(--dark);
+      color: var(--light);
+      border-color: var(--dark);
+    }
+
+    .card-light {
+      background-color: var(--light);
+      color: var(--dark);
+      border-color: var(--light);
+    }
+
+    .card-hover {
+      cursor: pointer;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    /* --- Alerts --- */
+    .alert {
+      position: relative;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: var(--border-radius-md);
+    }
+
+    .alert-primary {
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+    }
+
+    .alert-secondary {
+      color: #383d41;
+      background-color: #e2e3e5;
+      border-color: #d6d8db;
+    }
+
+    .alert-success {
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+    }
+
+    .alert-danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    }
+
+    .alert-warning {
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+    }
+
+    .alert-info {
+      color: #0c5460;
+      background-color: #d1ecf1;
+      border-color: #bee5eb;
+    }
+
+    .alert-light {
+      color: #818182;
+      background-color: #fefefe;
+      border-color: #fdfdfe;
+    }
+
+    .alert-dark {
+      color: #1b1e21;
+      background-color: #d6d8d9;
+      border-color: #c6c8ca;
+    }
+
+    /* --- Badges --- */
+    .badge {
+      display: inline-block;
+      padding: 0.35em 0.65em;
+      font-size: 0.75em;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      border-radius: 10rem;
+      transition: var(--transition);
+    }
+
+    .badge-primary {
+      color: var(--light);
+      background-color: var(--primary);
+    }
+
+    .badge-secondary {
+      color: var(--light);
+      background-color: var(--secondary);
+    }
+
+    .badge-accent {
+      color: var(--dark);
+      background-color: var(--accent);
+    }
+
+    .badge-dark {
+      color: var(--light);
+      background-color: var(--dark);
+    }
+
+    .badge-light {
+      color: var(--dark);
+      background-color: var(--light);
+    }
+
+    .badge-pill {
+      padding-right: 0.6em;
+      padding-left: 0.6em;
+      border-radius: 10rem;
+    }
+
+    /* --- Navigation --- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background-color: var(--light);
+      box-shadow: var(--shadow-sm);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid var(--primary);
+    }
+
+    .logo-text {
+      font-family: 'Zen Dots', cursive;
+      font-weight: 400;
+      color: var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 1.5rem;
+      position: relative;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li a i {
+      margin-right: 0.5rem;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    nav ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav ul li a:hover:after {
+      width: 100%;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* --- Mobile Menu --- */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+    }
+
+    .hamburger-icon,
+    .hamburger-icon:before,
+    .hamburger-icon:after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--dark);
+      position: absolute;
+      left: 5px;
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .hamburger-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hamburger-icon:before {
+      top: -8px;
+    }
+
+    .hamburger-icon:after {
+      top: 8px;
+    }
+
+    .hamburger-menu.active .hamburger-icon {
+      background-color: transparent;
+    }
+
+    .hamburger-menu.active .hamburger-icon:before {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-menu.active .hamburger-icon:after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background-color: var(--light);
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      box-shadow: var(--shadow-xl);
+      padding: 100px 30px 30px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-menu li {
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+    }
+
+    .mobile-menu.active li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+    .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+    .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+    .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; }
+    .mobile-menu.active li:nth-child(9) { transition-delay: 0.55s; }
+    .mobile-menu.active li:nth-child(10) { transition-delay: 0.6s; }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 1.125rem;
+      font-weight: 500;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .mobile-menu a i {
+      margin-right: 1rem;
+      width: 24px;
+      text-align: center;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .mobile-menu a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-menu a:hover i {
+      transform: scale(1.2);
+    }
+
+    .mobile-menu .btn {
+      width: 100%;
+      text-align: center;
+      margin: 0.5rem 0;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--header-height);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: var(--dark);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: var(--dark-light);
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-image {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      transform: perspective(1000px) rotateX(10deg);
+      transition: var(--transition);
+    }
+
+    .hero-image:hover {
+      transform: perspective(1000px) rotateX(0deg);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    }
+
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* --- Features Section --- */
+    .features {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background-color: var(--light);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .feature-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255,125,6,0.1) 0%, rgba(255,125,6,0) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-card:hover:before {
+      opacity: 1;
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      color: var(--light);
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: rotate(15deg) scale(1.1);
+      background-color: var(--secondary);
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .feature-text {
+      color: var(--dark-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .feature-link i {
+      margin-left: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .feature-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .feature-link:hover i {
+      transform: translateX(3px);
+    }
+
+    /* --- Premium Business Section --- */
+    .premium-business-section {
+      padding: var(--section-padding) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .premium-content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .premium-feature-card {
+      background-color: var(--light);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--grey-dark);
+    }
+
+    .premium-feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    .premium-feature-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .premium-feature-card:hover:before {
+      width: 100%;
+      opacity: 0.1;
+    }
+
+    .premium-feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .premium-feature-card h3:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 3px;
+    }
+
+    .premium-feature-card p {
+      color: var(--dark-light);
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    .premium-feature-card ul {
+      list-style: none;
+      margin: 0 0 1.5rem 0;
+      padding: 0;
+    }
+
+    .premium-feature-card ul li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark-light);
+    }
+
+    .premium-feature-card ul li:before {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary);
+    }
+
+    .premium-feature-card .icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      transition: var(--transition);
+    }
+
+    .premium-feature-card:hover .icon {
+      transform: rotate(15deg) scale(1.2);
+      color: var(--secondary);
+    }
+
+    /* --- Dashboard Preview --- */
+    .dashboard-preview {
+      position: relative;
+      padding: var(--section-padding) 0;
+      background-color: var(--grey);
+    }
+
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .dashboard-image {
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      z-index: 1;
+    }
+
+    .dashboard-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .dashboard-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255,125,6,0.2) 0%, rgba(108,29,58,0.2) 100%);
+      z-index: 2;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .dashboard-image:hover .dashboard-overlay {
+      opacity: 1;
+    }
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      background-color: var(--light);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--dark-light);
+      font-weight: 500;
+    }
+
+    /* --- Testimonials --- */
+    .testimonials {
+      position: relative;
+      padding: var(--section-padding) 0;
+      background-color: var(--light);
+    }
+
+    .testimonial-slider {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .testimonial-slide {
+      background-color: var(--light);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      margin: 0 1rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .testimonial-slide:before {
+      content: '\201C';
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: var(--primary);
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      font-size: 1.125rem;
+      font-style: italic;
+      color: var(--dark-light);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      border: 3px solid var(--primary);
+    }
+
+    .testimonial-info h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1.125rem;
+    }
+
+    .testimonial-info p {
+      color: var(--dark-light);
+      font-size: 0.875rem;
+      margin-bottom: 0;
+    }
+
+    .testimonial-rating {
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .slick-dots li {
+      margin: 0 0.25rem;
+    }
+
+    .slick-dots button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--grey-dark);
+      border: none;
+      font-size: 0;
+      padding: 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .slick-dots .slick-active button {
+      background-color: var(--primary);
+      transform: scale(1.2);
+    }
+
+    /* --- Pricing --- */
+    .pricing {
+      position: relative;
+      padding: var(--section-padding) 0;
+      background-color: var(--grey);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .pricing-card {
+      background-color: var(--light);
+      border-radius: var(--border-radius-lg);
+      padding: 2.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .pricing-card.popular {
+      border: 2px solid var(--primary);
+      transform: scale(1.05);
+      z-index: 1;
+    }
+
+    .pricing-card.popular:before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 0.25rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-bottom-left-radius: var(--border-radius-md);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .pricing-card.popular:hover {
+      transform: translateY(-10px) scale(1.05);
+    }
+
+    .pricing-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .pricing-price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--dark-light);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin: 0 0 2rem 0;
+      padding: 0;
+    }
+
+    .pricing-features li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--grey-dark);
+      color: var(--dark-light);
+    }
+
+    .pricing-features li:first-child {
+      border-top: 1px solid var(--grey-dark);
+    }
+
+    .pricing-features li i {
+      color: var(--primary);
+      margin-right: 0.5rem;
+    }
+
+    .pricing-button {
+      width: 100%;
+    }
+
+    /* --- Team --- */
+    .team {
+      position: relative;
+      padding: var(--section-padding) 0;
+      background-color: var(--light);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-member {
+      background-color: var(--light);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .team-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .team-info {
+      padding: 1.5rem;
+    }
+
+    .team-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--dark);
+    }
+
+    .team-position {
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+    }
+
+    .team-bio {
+      color: var(--dark-light);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .team-social {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .team-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--grey);
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .team-social a:hover {
+      background-color: var(--primary);
+      color: var(--light);
+      transform: translateY(-3px);
+    }
+
+    /* --- FAQ --- */
+    .faq {
+      position: relative;
+      padding: var(--section-padding) 0;
+      background-color: var(--grey);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: var(--light);
+      border-radius: var(--border-radius-md);
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      box-shadow: var(--shadow-md);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--primary);
+    }
+
+    .faq-question:after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      transition: var(--transition);
+    }
+
+    .faq-item.active .faq-question:after {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      max-height: 1000px;
+    }
+
+    /* --- CTA --- */
+    .cta {
+      position: relative;
+      padding: var(--section-padding) 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--light);
+      overflow: hidden;
+    }
+
+    .cta:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+      background-size: cover;
+      opacity: 0.1;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--light);
+    }
+
+    .cta-text {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .cta-button {
+      background-color: var(--light);
+      color: var(--primary);
+    }
+
+    .cta-button-outline {
+      background-color: transparent;
+      border-color: var(--light);
+      color: var(--light);
+    }
+
+    .cta-button-outline:hover {
+      background-color: var(--light);
+      color: var(--primary);
+    }
+
+    /* --- Footer --- */
+    footer {
+      background-color: var(--dark);
+      color: var(--light);
+      padding: var(--section-padding) 0 0;
+      position: relative;
+    }
+
+    .footer-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--light);
+    }
+
+    .footer-logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid var(--primary);
+    }
+
+    .footer-logo-text {
+      font-family: 'Zen Dots', cursive;
+      font-weight: 400;
+      color: var(--primary);
+    }
+
+    .footer-tagline {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      transition: var(--transition);
+    }
+
+    .footer-social a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-column h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    .footer-column h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.875rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: var(--shadow-md);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .footer-back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .footer-back-to-top:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    /* --- Chatbot --- */
+    .chatbot-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+    }
+
+    .chatbot-button {
+      width: 70px;
+      height: 70px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.1);
+      animation: none;
+    }
+
+    .chatbot-button i {
+      color: var(--light);
+      font-size: 1.75rem;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--secondary);
+      color: var(--light);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+
+    .chatbot-tooltip {
+      position: absolute;
+      right: 85px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--dark);
+      color: var(--light);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--border-radius-md);
+      font-size: 0.875rem;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-md);
+    }
+
+    .chatbot-tooltip:after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--dark);
+    }
+
+    .chatbot-button:hover .chatbot-tooltip {
+      opacity: 1;
+      visibility: visible;
+      right: 95px;
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 90px;
+      right: 0;
+      width: 380px;
+      max-width: 90vw;
+      height: 550px;
+      max-height: 80vh;
+      background-color: var(--light);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .chatbot-container.open .chatbot-window {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--light);
+      padding: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close-chat:hover {
+      transform: rotate(90deg);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      margin-bottom: 1rem;
+      max-width: 80%;
+      padding: 0.75rem 1.25rem;
+      border-radius: 1.125rem;
+      font-size: 0.875rem;
+      line-height: 1.4;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .bot-message {
+      background-color: #e5e5ea;
+      color: var(--dark);
+      border-bottom-left-radius: 0.5rem;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background-color: var(--primary);
+      color: var(--light);
+      border-bottom-right-radius: 0.5rem;
+      margin-left: auto;
+    }
+
+    .message-time {
+      display: block;
+      font-size: 0.625rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+      text-align: right;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 1rem;
+      background-color: var(--light);
+      border-top: 1px solid var(--grey-dark);
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 0.75rem 1.25rem;
+      border: 1px solid var(--grey-dark);
+      border-radius: 2rem;
+      outline: none;
+      font-size: 0.875rem;
+      transition: var(--transition);
+    }
+
+    .chat-input input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.2rem rgba(255,125,6,0.1);
+    }
+
+    .send-button {
+      background-color: var(--primary);
+      color: var(--light);
+      border: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      margin-left: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .send-button:hover {
+      background-color: var(--primary-dark);
+      transform: rotate(15deg);
+    }
+
+    .chat-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .chat-option {
+      background-color: var(--light);
+      color: var(--dark);
+      border: 1px solid var(--grey-dark);
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .chat-option:hover {
+      background-color: var(--primary);
+      color: var(--light);
+      border-color: var(--primary);
+    }
+
+    /* --- Cookie Notification --- */
+    .cookie-notification {
+      position: fixed;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      background-color: var(--dark);
+      color: var(--light);
+      z-index: 1000;
+      transition: var(--transition-slow);
+    }
+
+    .cookie-notification.active {
+      bottom: 0;
+    }
+
+    .cookie-notification-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem var(--container-padding);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .cookie-notification p {
+      margin: 0;
+      flex: 1;
+      min-width: 300px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .cookie-notification-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* --- Animations --- */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255,125,6,0.7);
+      }
+      70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255,125,6,0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255,125,6,0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeIn {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .animate-slideInUp {
+      animation: slideInUp 0.8s ease forwards;
+    }
+
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .animate-delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .animate-delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .animate-delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    .animate-delay-4 {
+      animation-delay: 0.8s;
+    }
+
+    /* --- Responsive Styles --- */
+    @media (max-width: 1199px) {
+      :root {
+        --section-padding: 100px;
+        --container-padding: 30px;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 991px) {
+      :root {
+        --section-padding: 80px;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.25rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .nav-links, .nav-buttons {
+        display: none;
+      }
+
+      .hamburger-menu {
+        display: block;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --section-padding: 60px;
+        --container-padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.125rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .premium-content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      .chatbot-window {
+        width: 90vw;
+        right: 5vw;
+      }
+    }
+
+    @media (max-width: 575px) {
+      :root {
+        --section-padding: 50px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+        <span class="logo-text">Annita</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="personalpage.html"><i class="fas fa-user"></i> Personal</a></li>
+          <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i> Business</a></li>
+          <li><a href="premium-business.html"><i class="fas fa-gem"></i> Premium Business</a></li>
+          <li><a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+          <li><a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+          <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i> CSR</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-buttons">
+        <a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Log In</a>
+        <a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a>
+      </div>
+
+      <div class="hamburger-menu">
+        <span class="hamburger-icon"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="personalpage.html"><i class="fas fa-user"></i> Personal</a></li>
+      <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i> Business</a></li>
+      <li><a href="premium-business.html"><i class="fas fa-gem"></i> Premium Business</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i> CSR</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+    </ul>
+  </div>
+  <div class="menu-overlay"></div>
+
+  <!-- Hero Section -->
+  <section class="hero premium-business-section">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content animate__animated animate__fadeIn">
+        <h1 class="hero-title">Premium Business Solutions</h1>
+        <p class="hero-subtitle">Unlock the full potential of your business with our exclusive premium services designed for growth, efficiency, and global reach.</p>
+        <div class="hero-buttons">
+          <a href="#features" class="btn btn-primary btn-lg animate__animated animate__fadeInUp animate-delay-1">
+            <i class="fas fa-rocket"></i> Explore Features
+          </a>
+          <a href="#contact" class="btn btn-outline btn-lg animate__animated animate__fadeInUp animate-delay-2">
+            <i class="fas fa-headset"></i> Get a Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Premium Features for Your Business</h2>
+        <p>Our comprehensive suite of premium tools and services is designed to streamline your operations, expand your reach, and maximize your profits.</p>
+      </div>
+
+      <div class="premium-content-grid">
+        <div class="premium-feature-card animate__animated animate__fadeInUp">
+          <i class="fas fa-credit-card icon"></i>
+          <h3>Advanced Payment Solutions</h3>
+          <p>Streamline your finances and expand globally with our cutting-edge payment processing.</p>
+          <ul>
+            <li>Accept online payments worldwide in multiple currencies with competitive rates</li>
+            <li>Effortless cross-border payouts and transfers with real-time tracking</li>
+            <li>Swap Naira for Dollars, Euros, and Pounds with our best exchange rates</li>
+            <li>State-of-the-art POS systems supporting all payment methods including contactless</li>
+            <li>Issue virtual and physical cards for business expenses with spending controls</li>
+            <li>Professional invoice creation with automated reminders for global payments</li>
+            <li>Seamless integration with Shopify, WordPress, WooCommerce, Joomla, PrestaShop</li>
+            <li>Accept payments via Payment Links without any coding required</li>
+            <li>Experience our checkout demo to see the seamless payment flow</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Learn More</a>
+        </div>
+
+        <div class="premium-feature-card animate__animated animate__fadeInUp animate-delay-1">
+          <i class="fas fa-rocket icon"></i>
+          <h3>Build & Grow Your Business</h3>
+          <p>Tools and resources to scale effectively and reach new markets.</p>
+          <ul>
+            <li>Build your own fintech startup with our white-label solutions and APIs</li>
+            <li>Embed financial services directly into your existing platforms</li>
+            <li>Access flexible, collateral-free business loans with competitive rates</li>
+            <li>Create a free online store to find customers and accept global payments</li>
+            <li>Use Disha for creators: build a free single-page website, sell globally (no coding)</li>
+            <li>Manage lifestyle, business, events, and travel with Afritickets integration</li>
+            <li>Advanced analytics dashboard to track performance and identify opportunities</li>
+            <li>Custom business development consultation with our experts</li>
+            <li>Access to exclusive business growth webinars and resources</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Learn More</a>
+        </div>
+
+        <div class="premium-feature-card animate__animated animate__fadeInUp animate-delay-2">
+          <i class="fas fa-cogs icon"></i>
+          <h3>Customized Business Solutions</h3>
+          <p>Innovative and reliable payment solutions tailored to your industry.</p>
+          <ul>
+            <li>Omnichannel payments: Safer, easier, faster collection via multiple channels</li>
+            <li>Customized industrial payment solutions for your specific needs</li>
+            <li>Banking & Bill Payments via the largest agent network in Africa</li>
+            <li>Expand sales channels from offline to online with our conversion tools</li>
+            <li>Digitize value chains with tailored tools and integrations</li>
+            <li>Automate collection, settlement & reconciliation to enhance efficiency</li>
+            <li>Eliminate potential risks and enhance fund security with our advanced protocols</li>
+            <li>Enhance customer loyalty with customizable reward systems</li>
+            <li>Industry-specific solutions for retail, hospitality, education, and more</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Learn More</a>
+        </div>
+
+        <div class="premium-feature-card animate__animated animate__fadeInUp">
+          <i class="fas fa-network-wired icon"></i>
+          <h3>Omnichannel Business Tools</h3>
+          <p>Seamless payment experiences across all customer touchpoints.</p>
+          <ul>
+            <li>POS Terminals: Best network uptime, low charges, durable hardware</li>
+            <li>Comprehensive EOD reports and automated dispute resolution</li>
+            <li>Transfer Number: Receive funds safely with masked accounts</li>
+            <li>Instant voice notifications and 100% success rate guarantees</li>
+            <li>Business App: Manage business on the go with full functionality</li>
+            <li>Collect payments, check history, manage branches/employees/customers</li>
+            <li>Multi-user access with customizable permission levels</li>
+            <li>Inventory management integration for retail businesses</li>
+            <li>Customer relationship management (CRM) tools built-in</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Learn More</a>
+        </div>
+
+        <div class="premium-feature-card animate__animated animate__fadeInUp animate-delay-1">
+          <i class="fas fa-shield-alt icon"></i>
+          <h3>Secure Online Payments</h3>
+          <p>Reliable, fast, and safe transactions with enterprise-grade security.</p>
+          <ul>
+            <li>Full suite of payment options for anytime, everywhere acceptance</li>
+            <li>Level 1 PCI compliance and custom fraud detection algorithms</li>
+            <li>24/7 expert customer care tailored to your business model</li>
+            <li>Dedicated account manager for premium clients</li>
+            <li>Advanced chargeback protection and dispute resolution</li>
+            <li>Tokenization for secure card storage and repeat payments</li>
+            <li>3D Secure authentication for all online transactions</li>
+            <li>Real-time transaction monitoring and alerts</li>
+            <li>Custom security settings based on your risk profile</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Learn More</a>
+        </div>
+
+        <div class="premium-feature-card animate__animated animate__fadeInUp animate-delay-2">
+          <i class="fas fa-chart-line icon"></i>
+          <h3>Professional Dashboard & BI</h3>
+          <p>Digitalize operations and gain valuable insights with our analytics.</p>
+          <ul>
+            <li>Real-time performance tracking with customizable reports</li>
+            <li>Automated weekly and monthly performance summaries</li>
+            <li>Easy branch and employee management with activity tracking</li>
+            <li>Corporate funds management & flexible settlement configuration</li>
+            <li>Payroll management with direct integration to banking services</li>
+            <li>Comprehensive data analysis across all business metrics</li>
+            <li>Customer behavior analysis and segmentation tools</li>
+            <li>Product performance tracking and inventory forecasting</li>
+            <li>Exportable reports in multiple formats for accounting</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Preview -->
+  <section class="dashboard-preview section bg-grey">
+    <div class="container">
+      <div class="section-header">
+        <h2>Your Business Dashboard</h2>
+        <p>Experience the power of our intuitive dashboard that puts all your business tools in one place.</p>
+      </div>
+
+      <div class="dashboard-container">
+        <div class="dashboard-image">
+          <img src="https://via.placeholder.com/1200x700" alt="Annita Business Dashboard">
+          <div class="dashboard-overlay"></div>
+        </div>
+
+        <div class="dashboard-stats">
+          <div class="stat-card animate__animated animate__fadeIn">
+            <div class="stat-number">98.9%</div>
+            <div class="stat-label">Uptime Guarantee</div>
+          </div>
+          <div class="stat-card animate__animated animate__fadeIn animate-delay-1">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Customer Support</div>
+          </div>
+          <div class="stat-card animate__animated animate__fadeIn animate-delay-2">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Integration Partners</div>
+          </div>
+          <div class="stat-card animate__animated animate__fadeIn animate-delay-3">
+            <div class="stat-number">10M+</div>
+            <div class="stat-label">Transactions Monthly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Clients Say</h2>
+        <p>Hear from businesses that have transformed their operations with Annita Premium.</p>
+      </div>
+
+      <div class="testimonial-slider">
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            "Since switching to Annita Premium, our payment processing has become seamless. The dashboard gives us real-time insights that have helped increase our sales by 40% in just three months."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/60" alt="Client" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Adebayo Johnson</h4>
+              <p>CEO, FashionHub NG</p>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            "The omnichannel tools have been a game-changer for our retail chain. We can now track inventory and payments across all locations in real-time, reducing losses and improving efficiency."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/60" alt="Client" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Chioma Okonkwo</h4>
+              <p>Operations Manager, UrbanMart</p>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            "As an e-commerce business, the international payment capabilities have allowed us to expand to new markets without worrying about currency conversions or payment security."
+          </div>
+          <div class="testimonial-author">
+            <img src="https://via.placeholder.com/60" alt="Client" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <h4>Emeka Nwankwo</h4>
+              <p>Founder, AfriCrafts Online</p>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing section bg-grey">
+    <div class="container">
+      <div class="section-header">
+        <h2>Flexible Pricing Plans</h2>
+        <p>Choose the plan that fits your business needs and scale as you grow.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card animate__animated animate__fadeInUp">
+          <div class="pricing-title">Starter</div>
+          <div class="pricing-price">₦25,000<span>/month</span></div>
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> Basic Payment Processing</li>
+            <li><i class="fas fa-check"></i> 2 User Accounts</li>
+            <li><i class="fas fa-check"></i> Standard Support</li>
+            <li><i class="fas fa-check"></i> Basic Analytics</li>
+            <li><i class="fas fa-check"></i> 1 POS Terminal</li>
+            <li><i class="fas fa-check"></i> Local Currency Only</li>
+          </ul>
+          <a href="#" class="btn btn-outline btn-block">Get Started</a>
+        </div>
+        <div class="pricing-card popular animate__animated animate__fadeInUp animate-delay-1">
+          <div class="pricing-title">Professional</div>
+          <div class="pricing-price">₦75,000<span>/month</span></div>
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> Advanced Payment Processing</li>
+            <li><i class="fas fa-check"></i> 5 User Accounts</li>
+            <li><i class="fas fa-check"></i> Priority Support</li>
+            <li><i class="fas fa-check"></i> Advanced Analytics</li>
+            <li><i class="fas fa-check"></i> 3 POS Terminals</li>
+            <li><i class="fas fa-check"></i> Multi-Currency Support</li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-block">Get Started</a>
+        </div>
+        <div class="pricing-card animate__animated animate__fadeInUp animate-delay-2">
+          <div class="pricing-title">Enterprise</div>
+          <div class="pricing-price">Custom</div>
+          <ul class="pricing-features">
+            <li><i class="fas fa-check"></i> Premium Payment Processing</li>
+            <li><i class="fas fa-check"></i> Unlimited User Accounts</li>
+            <li><i class="fas fa-check"></i> 24/7 Dedicated Support</li>
+            <li><i class="fas fa-check"></i> Custom Analytics</li>
+            <li><i class="fas fa-check"></i> Unlimited POS Terminals</li>
+            <li><i class="fas fa-check"></i> Global Payment Solutions</li>
+          </ul>
+          <a href="#" class="btn btn-outline btn-block">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Transform Your Business?</h2>
+        <p class="cta-text">Join thousands of businesses growing with Annita Premium Solutions. Get started today or request a personalized demo.</p>
+        <div class="cta-buttons">
+          <a href="signup.html" class="btn btn-primary btn-lg">Start Free Trial</a>
+          <a href="contactus.html" class="btn btn-outline btn-lg">Request Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about Annita Premium Business Solutions.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">What makes Annita Premium different from regular business accounts?</div>
+          <div class="faq-answer">
+            <p>Annita Premium offers advanced features like multi-currency support, higher transaction limits, dedicated account managers, priority support, comprehensive analytics, and specialized tools for business growth that aren't available with regular accounts.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How secure are transactions with Annita Premium?</div>
+          <div class="faq-answer">
+            <p>We use bank-level security with 256-bit encryption, PCI DSS compliance, 3D Secure authentication, and real-time fraud monitoring. Premium accounts also get additional security features like IP restrictions and transaction whitelisting.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I integrate Annita with my existing website or app?</div>
+          <div class="faq-answer">
+            <p>Yes! We offer easy integration options including APIs, plugins for popular platforms like WordPress and Shopify, and custom integration support for enterprise clients.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What kind of customer support is available for Premium users?</div>
+          <div class="faq-answer">
+            <p>Premium users get 24/7 priority support via phone, email, and live chat with faster response times. Enterprise plans include a dedicated account manager and technical support specialist.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Is there a contract or can I cancel anytime?</div>
+          <div class="faq-answer">
+            <p>Our plans are month-to-month with no long-term contracts. You can upgrade, downgrade, or cancel anytime with no penalties.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Download -->
+  <section class="section bg-primary">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="text-light">Get the Annita Business App</h2>
+        <p class="text-light">Manage your business on the go with our powerful mobile application.</p>
+      </div>
+      <div style="text-align: center; margin-top: 40px;">
+        <p class="text-light" style="font-size: 1.25rem;">Scan to download the mobile app</p>
+        <img src="/images/placeholder-qr-code.png" alt="Scan to download app" style="width: 150px; height: 150px; margin-top: 20px; border: 5px solid white; border-radius: 12px;">
+        <div class="btn-group" style="justify-content: center; margin-top: 30px;">
+          <a href="#" class="btn btn-light"><i class="fab fa-apple"></i> App Store</a>
+          <a href="#" class="btn btn-light"><i class="fab fa-google-play"></i> Play Store</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo-group">
+            <a href="index.html" class="footer-logo">
+              <img src="/images/Annita's Logo.jpg" class="footer-logo-image" alt="Annita Logo">
+              <span class="footer-logo-text">Annita</span>
+            </a>
+            <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+            <div class="footer-social">
+              <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#">AnnitaPay</a></li>
+            <li><a href="#">AnnitaMarket</a></li>
+            <li><a href="#">AnnitaConnect</a></li>
+            <li><a href="#">AnnitaAI</a></li>
+            <li><a href="#">AnnitaAds</a></li>
+            <li><a href="#">AnnitaCloud</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="careerpage.html">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="blogpage.html">Our Blog</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="#">GDPR</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 Annita Technologies. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Legal</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <div class="chatbot-container">
+    <div class="chatbot-button">
+      <i class="fas fa-comment-dots"></i>
+      <div class="notification-badge">1</div>
+      <div class="chatbot-tooltip">Need help? Ask Annita AI</div>
+    </div>
+    <div class="chatbot-window">
+      <div class="chat-header">
+        <h3>Annita AI Assistant</h3>
+        <button class="close-chat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages">
+        <div class="message bot-message">
+          Hello! I'm Annita AI. How can I help you today?
+          <span class="message-time">Just now</span>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message...">
+        <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Notification -->
+  <div class="cookie-notification" id="cookie-banner">
+    <div class="cookie-notification-container">
+      <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies. <a href="cookies.html" style="color: var(--primary);">Learn more</a></p>
+      <div class="cookie-notification-buttons">
+        <button class="btn btn-outline" id="cookie-reject">Reject</button>
+        <button class="btn btn-primary" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.menu-overlay');
+      const body = document.body;
+
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        body.classList.toggle('no-scroll');
+        
+        if (mobileMenu.classList.contains('active')) {
+          body.style.overflow = 'hidden';
+          mobileMenu.style.webkitOverflowScrolling = 'touch';
+        } else {
+          body.style.overflow = '';
+          mobileMenu.style.webkitOverflowScrolling = '';
+        }
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', toggleMenu);
+      
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (link.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            toggleMenu();
+            setTimeout(() => {
+              const target = document.querySelector(link.getAttribute('href'));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 500);
+          } else {
+            toggleMenu();
+          }
+        });
+      });
+
+      // Viewport Height Fix for Mobile
+      function handleViewportHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      handleViewportHeight();
+      window.addEventListener('resize', handleViewportHeight);
+      window.addEventListener('orientationchange', handleViewportHeight);
+
+      // Chatbot Functionality
+      const chatbotButton = document.querySelector('.chatbot-button');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      const closeChat = document.querySelector('.close-chat');
+      const chatInput = document.querySelector('.chat-input input');
+      const sendButton = document.querySelector('.send-button');
+      const chatMessages = document.querySelector('.chat-messages');
+
+      chatbotButton.addEventListener('click', function() {
+        chatbotContainer.classList.toggle('open');
+        const notificationBadge = document.querySelector('.notification-badge');
+        if (notificationBadge) notificationBadge.style.display = 'none';
+      });
+      
+      closeChat.addEventListener('click', function() {
+        chatbotContainer.classList.remove('open');
+      });
+
+      function sendMessage() {
+        const messageText = chatInput.value.trim();
+        if (messageText) {
+          const userMessage = document.createElement('div');
+          userMessage.className = 'message user-message';
+          userMessage.innerHTML = `${messageText}<span class="message-time">Just now</span>`;
+          chatMessages.appendChild(userMessage);
+          chatInput.value = '';
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          // Simulate bot response
+          setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            
+            // Simple response logic
+            let responseText = "Thanks for your message! Our team will get back to you soon.";
+            if (messageText.toLowerCase().includes('pricing')) {
+              responseText = "Our pricing plans start from ₦25,000/month. You can find detailed information on our pricing page or I can connect you with a sales representative.";
+            } else if (messageText.toLowerCase().includes('support') || messageText.toLowerCase().includes('help')) {
+              responseText = "Our support team is available 24/7. You can call +234 800 123 4567, email support@annita.com, or visit our Help Center at https://support.annita.com";
+            } else if (messageText.toLowerCase().includes('feature') || messageText.toLowerCase().includes('what can')) {
+              responseText = "Annita Premium offers advanced payment processing, business analytics, multi-currency support, POS integration, and much more. Is there a specific feature you'd like to know more about?";
+            }
+            
+            botMessage.innerHTML = `${responseText}<span class="message-time">Just now</span>`;
+            chatMessages.appendChild(botMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+        }
+      }
+      
+      sendButton.addEventListener('click', sendMessage);
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+
+      // Initialize Testimonial Slider
+      $('.testimonial-slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: false
+      });
+
+      // Back to Top Button
+      const backToTopButton = document.querySelector('.footer-back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('active');
+        } else {
+          backToTopButton.classList.remove('active');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // FAQ Accordion
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          item.classList.toggle('active');
+        });
+      });
+
+      // Cookie Banner Logic
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieReject = document.getElementById('cookie-reject');
+
+      function checkCookiePreferences() {
+        const consentGiven = localStorage.getItem('cookieConsent');
+        if (!consentGiven && cookieBanner) {
+          setTimeout(() => {
+            cookieBanner.classList.add('active');
+          }, 1000);
+        }
+      }
+
+      function acceptAllCookies() {
+        localStorage.setItem('cookieConsent', 'given');
+        // Add actual cookie setting logic here if needed
+        console.log('Accepted all cookies');
+      }
+
+      function rejectOptionalCookies() {
+        localStorage.setItem('cookieConsent', 'rejected');
+        // Add actual cookie removal logic here if needed
+        console.log('Rejected optional cookies');
+      }
+
+      if (cookieAccept) {
+        cookieAccept.addEventListener('click', function() {
+          acceptAllCookies();
+          if (cookieBanner) cookieBanner.classList.remove('active');
+        });
+      }
+
+      if (cookieReject) {
+        cookieReject.addEventListener('click', function() {
+          rejectOptionalCookies();
+          if (cookieBanner) cookieBanner.classList.remove('active');
+        });
+      }
+
+      checkCookiePreferences();
+      
+      if (window.location.hash === '#cookie-policy') {
+        localStorage.setItem('cookieConsent', 'given');
+        if (cookieBanner) cookieBanner.classList.remove('active');
+      }
+
+      // Scroll Animation
+      const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.animate__animated');
+        
+        elements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementPosition < windowHeight - 100) {
+            const animationClass = element.classList[1];
+            element.classList.add(animationClass);
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Run once on page load
+    });
+  </script>
+</body>
+</html>

@@ -15,6 +15,8 @@
       --light: #FFFFFF;
       --grey: #F5F5F5;
       --vh: 1vh; /* For mobile viewport height fix */
+      --blue-dark: #001a57;
+      --blue-light: #00c2ff;
     }
     
     * {
@@ -28,6 +30,9 @@
       color: var(--dark);
       overflow-x: hidden;
       background-color: var(--light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     
     .container {
@@ -52,40 +57,32 @@
       justify-content: space-between;
       align-items: center;
       height: 80px;
-      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     
-    /* Updated Logo Styles with larger size */
     .logo {
       display: flex;
       align-items: center;
       font-size: 24px;
       font-weight: 700;
-      color: var(--dark);
       text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .logo:hover {
-      opacity: 0.9;
     }
 
     .logo-image {
-      width: 60px;
-      height: 60px;
-      margin-right: 12px;
-      object-fit: contain;
-      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid var(--primary);
     }
 
     .logo-text {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      background: linear-gradient(to right, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      transition: all 0.3s ease;
+      font-family: 'Zen Dots', cursive;
+      font-weight: 400;
+      color: var(--primary);
     }
     
     nav ul {
@@ -111,7 +108,7 @@
     .nav-buttons {
       display: flex;
       align-items: center;
-      gap: 15px; /* Consistent spacing between buttons */
+      gap: 15px;
     }
     
     .btn {
@@ -144,7 +141,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     
-    /* Premium Hamburger Menu Styles */
+    /* Hamburger Menu */
     .hamburger-menu {
       display: none;
       cursor: pointer;
@@ -152,7 +149,6 @@
       height: 40px;
       position: relative;
       z-index: 1002;
-      -webkit-tap-highlight-color: transparent;
     }
     
     .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
@@ -164,7 +160,7 @@
       position: absolute;
       left: 5px;
       border-radius: 3px;
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition: all 0.4s;
     }
     
     .hamburger-icon {
@@ -180,22 +176,19 @@
       top: 8px;
     }
     
-    /* Animated state when menu is open */
     .hamburger-menu.active .hamburger-icon {
       background-color: transparent;
     }
     
     .hamburger-menu.active .hamburger-icon:before {
       transform: translateY(8px) rotate(45deg);
-      background-color: var(--dark);
     }
     
     .hamburger-menu.active .hamburger-icon:after {
       transform: translateY(-8px) rotate(-45deg);
-      background-color: var(--dark);
     }
     
-    /* Premium Mobile Menu */
+    /* Mobile Menu */
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -814,257 +807,6 @@
       padding: 20px;
     }
     
-    /* Footer */
-    footer {
-      background-color: var(--dark);
-      padding: 80px 0 30px;
-      color: white;
-    }
-    
-    .footer-container {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 50px;
-    }
-    
-    .footer-logo {
-      font-family: 'Zen Dots', cursive;
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-    }
-    
-    .footer-about p {
-      line-height: 1.6;
-      margin-bottom: 20px;
-      color: #aaa;
-    }
-    
-    .footer-social {
-      display: flex;
-      gap: 15px;
-    }
-    
-    .footer-social a {
-      width: 40px;
-      height: 40px;
-      background-color: rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: background-color 0.3s;
-      color: white;
-      text-decoration: none;
-    }
-    
-    .footer-social a:hover {
-      background-color: var(--primary);
-    }
-    
-    .footer-links h4 {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: white;
-    }
-    
-    .footer-links ul {
-      list-style: none;
-    }
-    
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-    
-    .footer-links a {
-      color: #aaa;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .footer-links a:hover {
-      color: var(--primary);
-    }
-    
-    .footer-bottom {
-      text-align: center;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #aaa;
-      font-size: 14px;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 991px) {
-      .hero-content {
-        flex-direction: column;
-      }
-      
-      .hero-text, .hero-image {
-        width: 100%;
-      }
-      
-      .hero-text {
-        margin-bottom: 50px;
-        text-align: center;
-      }
-      
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .features-container {
-        flex-direction: column;
-      }
-      
-      .features-content, .features-image {
-        width: 100%;
-      }
-      
-      .features-content {
-        margin-bottom: 50px;
-      }
-      
-      .footer-container {
-        grid-template-columns: 1fr 1fr;
-      }
-      
-      .partner-slide {
-        animation: slide 25s linear infinite;
-      }
-      
-      .partner-item {
-        margin: 0 30px;
-      }
-      
-      .partner-item img {
-        max-width: 180px;
-        max-height: 70px;
-      }
-      
-      .trusted-by h3:before,
-      .trusted-by h3:after {
-        width: 30px;
-      }
-      
-      .trusted-by h3:before {
-        left: -40px;
-      }
-      
-      .trusted-by h3:after {
-        right: -40px;
-      }
-      
-      .download-container {
-        flex-direction: column;
-      }
-      
-      .download-content, .download-image {
-        width: 100%;
-      }
-      
-      .download-content {
-        margin-bottom: 50px;
-        text-align: center;
-      }
-      
-      .download-buttons {
-        justify-content: center;
-      }
-
-      /* Logo responsive adjustments */
-      .logo-image {
-        width: 50px;
-        height: 50px;
-      }
-    }
-    
-    @media (max-width: 767px) {
-      .nav-links, .nav-buttons {
-        display: none;
-      }
-      
-      .hamburger-menu {
-        display: block;
-      }
-      
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .partner-slide {
-        animation: slide 20s linear infinite;
-      }
-      
-      .partner-item {
-        margin: 0 20px;
-      }
-      
-      .partner-item img {
-        max-width: 150px;
-        max-height: 60px;
-      }
-      
-      .trusted-by h3:before,
-      .trusted-by h3:after {
-        width: 20px;
-      }
-      
-      .trusted-by h3:before {
-        left: -30px;
-      }
-      
-      .trusted-by h3:after {
-        right: -30px;
-      }
-
-      /* Logo responsive adjustments */
-      .logo-image {
-        width: 45px;
-        height: 45px;
-        margin-right: 10px;
-      }
-      .logo-text {
-        font-size: 22px;
-      }
-
-      /* Hero buttons adjustments */
-      .hero-buttons {
-        justify-content: center;
-      }
-      
-      .hero-buttons .btn {
-        flex: 1;
-        min-width: 120px;
-        text-align: center;
-      }
-    }
-
-    /* iOS and Android specific adjustments */
-    @supports (-webkit-touch-callout: none) {
-      /* iOS specific styles */
-      .mobile-menu {
-        padding-top: max(100px, constant(safe-area-inset-top));
-        padding-top: max(100px, env(safe-area-inset-top));
-        padding-bottom: constant(safe-area-inset-bottom);
-        padding-bottom: env(safe-area-inset-bottom);
-      }
-    }
-
-    @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) {
-      /* Safari and Chrome specific styles */
-      .mobile-menu {
-        -webkit-overflow-scrolling: touch;
-      }
-    }
-
     /* Chatbot Styles */
     .chatbot-container {
       position: fixed;
@@ -1262,21 +1004,396 @@
         transform: scale(1);
       }
     }
+
+    /* Cookie Notification Popup */
+    .cookie-notification-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: cookieNotificationFadeIn 0.3s forwards;
+      max-width: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .cookie-notification-popup p {
+      margin: 0;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .cookie-notification-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0 0 0 10px;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .cookie-notification-close:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes cookieNotificationFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes cookieNotificationFadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(20px); }
+    }
+
+    /* Cookie Notification Banner */
+    .cookie-notification {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--dark);
+      color: white;
+      padding: 20px;
+      z-index: 999;
+      transform: translateY(100%);
+      transition: transform 0.5s ease-out;
+      box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cookie-notification.active {
+      transform: translateY(0);
+    }
+
+    .cookie-notification-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .cookie-notification p {
+      flex: 1;
+      min-width: 300px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cookie-notification-buttons {
+      display: flex;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+
+    .cookie-notification .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .cookie-notification .btn-outline {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .cookie-notification .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateX(-50%) translateY(0); }
+      to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 15px;
+    }
+
+    .footer-column a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .footer-logo-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-logo-group .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      color: #aaa;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo-group .footer-social {
+      margin-top: 0;
+    }
+
+    /* Responsive Footer */
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-logo-group {
+        margin-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .hero-text, .hero-image {
+        width: 100%;
+      }
+      
+      .hero-text {
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .features-container {
+        flex-direction: column;
+      }
+      
+      .features-content, .features-image {
+        width: 100%;
+      }
+      
+      .features-content {
+        margin-bottom: 50px;
+      }
+      
+      .partner-slide {
+        animation: slide 25s linear infinite;
+      }
+      
+      .partner-item {
+        margin: 0 30px;
+      }
+      
+      .partner-item img {
+        max-width: 180px;
+        max-height: 70px;
+      }
+      
+      .trusted-by h3:before,
+      .trusted-by h3:after {
+        width: 30px;
+      }
+      
+      .trusted-by h3:before {
+        left: -40px;
+      }
+      
+      .trusted-by h3:after {
+        right: -40px;
+      }
+      
+      .download-container {
+        flex-direction: column;
+      }
+      
+      .download-content, .download-image {
+        width: 100%;
+      }
+      
+      .download-content {
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      
+      .download-buttons {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .nav-links, .nav-buttons {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .partner-slide {
+        animation: slide 20s linear infinite;
+      }
+      
+      .partner-item {
+        margin: 0 20px;
+      }
+      
+      .partner-item img {
+        max-width: 150px;
+        max-height: 60px;
+      }
+      
+      .trusted-by h3:before,
+      .trusted-by h3:after {
+        width: 20px;
+      }
+      
+      .trusted-by h3:before {
+        left: -30px;
+      }
+      
+      .trusted-by h3:after {
+        right: -30px;
+      }
+
+      /* Hero buttons adjustments */
+      .hero-buttons {
+        justify-content: center;
+      }
+      
+      .hero-buttons .btn {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+      }
+    }
+
+    /* iOS and Android specific adjustments */
+    @supports (-webkit-touch-callout: none) {
+      /* iOS specific styles */
+      .mobile-menu {
+        padding-top: max(100px, constant(safe-area-inset-top));
+        padding-top: max(100px, env(safe-area-inset-top));
+        padding-bottom: constant(safe-area-inset-bottom);
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    }
+
+    @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) {
+      /* Safari and Chrome specific styles */
+      .mobile-menu {
+        -webkit-overflow-scrolling: touch;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
-    <div class="container header-container">
+    <div class="header-container">
       <a href="index.html" class="logo">
-        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo" loading="lazy">
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
         <span class="logo-text">Annita</span>
       </a>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Personal</a></li>
-          <li><a href="#">Business</a></li>
+          <li><a href="personalpage.html">Personal</a></li>
+          <li><a href="Businesspage.html">Business</a></li>
           <li><a href="aboutus.html">About Us</a></li>
           <li><a href="contactus.html">Contact Us</a></li>
           <li><a href="csrpage.html">CSR</a></li>
@@ -1286,7 +1403,6 @@
         <a href="loginpage.html" class="btn btn-outline">Log In</a>
         <a href="signup.html" class="btn btn-primary">Sign Up</a>
       </div>
-      <!-- Premium Hamburger Menu Button -->
       <div class="hamburger-menu">
         <span class="hamburger-icon"></span>
       </div>
@@ -1297,20 +1413,15 @@
   <div class="mobile-menu">
     <ul>
       <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-      <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
-      <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
+      <li><a href="personalpage.html"><i class="fas fa-user"></i>Personal</a></li>
+      <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li>
       <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
       <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
       <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
-      <!-- Hero buttons added to mobile menu -->
-      <li><a href="#" class="btn btn-primary"><i class="fas fa-user-plus"></i>Join Now</a></li>
-      <li><a href="#" class="btn btn-outline"><i class="fas fa-info-circle"></i>Learn More</a></li>
       <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
       <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
     </ul>
   </div>
-
-  <!-- Menu Overlay -->
   <div class="menu-overlay"></div>
 
   <!-- Hero Section -->
@@ -1321,8 +1432,8 @@
         <p>Combining e-commerce, Fintech, Artificial Intelligence, Social Networking, marketing, Logistics, and lifestyle services.
           Empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
         <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">Join Now</a>
-          <a href="#" class="btn btn-outline">Learn More</a>
+          <a href="signup.html" class="btn btn-primary">Join Now</a>
+          <a href="aboutus.html" class="btn btn-outline">Learn More</a>
         </div>
       </div>
       <div class="hero-image">
@@ -1343,63 +1454,63 @@
           <div class="service-icon">
             <i class="fas fa-globe"></i>
           </div>
-          <h3>Annita Ecommerce Global Marketplace</h3>
+          <h3>Annita Global Market</h3>
           <p>Buy and sell products across Africa with our secure and user-friendly marketplace, connecting vendors and customers seamlessly.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-wallet"></i>
           </div>
-          <h3>AnnitaPay (Fintech)</h3>
+          <h3>AnnitaPay</h3>
           <p>Access modern financial services including payments, transfers, loans, and investment opportunities tailored for the African market.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-robot"></i>
           </div>
-          <h3>Artificial Intelligence</h3>
+          <h3>Annita A.I</h3>
           <p>Leverage cutting-edge AI tools to optimize your business operations and gain valuable insights from your data.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-ad"></i>
           </div>
-          <h3>Marketing</h3>
+          <h3>Annita Ads</h3>
           <p>Promote your products and services with targeted advertising and comprehensive marketing tools designed for African audiences.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-truck"></i>
           </div>
-          <h3>Logistics</h3>
+          <h3>Annita Logistics</h3>
           <p>Streamline your supply chain with our integrated logistics services, ensuring timely delivery across the continent.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-users"></i>
           </div>
-          <h3>Social Networking</h3>
+          <h3>Annita Connect</h3>
           <p>Connect with like-minded individuals and businesses across Africa, building communities and expanding your network.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-spa"></i>
           </div>
-          <h3>Lifestyle Services</h3>
+          <h3>Annita Lifestyle Services</h3>
           <p>Discover wellness, entertainment, and personal development services tailored to enhance your quality of life.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-search-dollar"></i>
           </div>
-          <h3>Opportunities Search</h3>
+          <h3>Annita Opportunities Search</h3>
           <p>Find job opportunities, grants, funding, and business partnerships across Africa with our comprehensive search platform.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-graduation-cap"></i>
           </div>
-          <h3>Business Training & Mentorship</h3>
+          <h3>Annita Business Training & Mentorship</h3>
           <p>Access expert-led training programs and mentorship to grow your business skills and entrepreneurial capabilities.</p>
         </div>
       </div>
@@ -1416,7 +1527,7 @@
             <img src="/images/annitapay-logo.png.jpeg" alt="AnnitaPay">
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer" class="partner-item">
-            <img src="https://via.placeholder.com/200x80?text=Company+2" alt="Partner 2">
+            <img src="images/Wakanow.jpg" alt="Partner 2">
           </a>
           <a href="#" target="_blank" rel="noopener noreferrer" class="partner-item">
             <img src="https://via.placeholder.com/200x80?text=Company+3" alt="Partner 3">
@@ -1534,7 +1645,7 @@
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar">
-              <img src="/images/1591393071336.jpg" alt="User Avatar">
+              <img src="/images/images.jpeg" alt="User Avatar">
             </div>
             <div class="testimonial-info">
               <h4>Chike Okonkwo</h4>
@@ -1576,7 +1687,7 @@
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar">
-              <img src="/images/1591393071336.jpg" alt="User Avatar">
+              <img src="/images/happy-bearded-man-busines-clothes-with-crossed-arms-looking-camera-gray_171337-11335.avif" alt="User Avatar">
             </div>
             <div class="testimonial-info">
               <h4>Kwame Mensah</h4>
@@ -1667,59 +1778,86 @@
       </div>
     </section>
 
+
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="footer-container">
-        <div class="footer-about">
-          <div class="footer-logo">
-            <div class="logo-icon">A</div>
-            Annita
-          </div>
-          <p>Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
-          <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo-group">
+            <a href="index.html" class="logo">
+              <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+              <span class="logo-text">Annita</span>
+            </a>
+            <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+            <div class="footer-social">
+              <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+            </div>
           </div>
         </div>
-        <div class="footer-links">
-          <h4>Services</h4>
+        
+        <div class="footer-column">
+          <h3>Products</h3>
           <ul>
-            <li><a href="#">E-Commerce</a></li>
-            <li><a href="#">Fintech Solutions</a></li>
-            <li><a href="#">AI Integration</a></li>
-            <li><a href="#">Social Networking</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Logistics</a></li>
+            <li><a href="#">AnnitaPay</a></li>
+            <li><a href="#">AnnitaMarket</a></li>
+            <li><a href="#">AnnitaConnect</a></li>
+            <li><a href="#">AnnitaAI</a></li>
+            <li><a href="#">AnnitaAds</a></li>
+            <li><a href="#">AnnitaCloud</a></li>
           </ul>
         </div>
-        <div class="footer-links">
-          <h4>Company</h4>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Company</h3>
           <ul>
             <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="aboutus.html">Our Team</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="Annita-Dashboard.html">Press</a></li>
+            <li><a href="careerpage.html">Careers</a></li>
+            <li><a href="#">Press</a></li>
             <li><a href="blogpage.html">Our Blog</a></li>
+            <li><a href="#">Partners</a></li>
             <li><a href="contactus.html">Contact Us</a></li>
           </ul>
         </div>
-        <div class="footer-links">
-          <h4>Support</h4>
+        
+        <div class="footer-column">
+          <h3>Legal</h3>
           <ul>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">FAQs</a></li>
             <li><a href="#">Privacy Policy</a></li>
             <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="">GDPR</a></li>
+            <li><a href="#">Compliance</a></li>
           </ul>
         </div>
       </div>
+      
       <div class="footer-bottom">
-        <p>&copy; 2025 AnnitaPay. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
+        <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+        <div class="footer-links-horizontal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Legal</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1744,6 +1882,17 @@
       <div class="chat-input">
         <input type="text" placeholder="Type your message...">
         <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Notification Banner -->
+  <div class="cookie-notification" id="cookie-banner">
+    <div class="cookie-notification-container">
+      <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies. <a href="cookies.html" style="color: var(--primary);">Learn more</a></p>
+      <div class="cookie-notification-buttons">
+        <button class="btn btn-outline" id="cookie-reject">Reject</button>
+        <button class="btn btn-primary" id="cookie-accept">Accept</button>
       </div>
     </div>
   </div>
@@ -1782,23 +1931,27 @@
       // Overlay click event
       overlay.addEventListener('click', toggleMenu);
       
-      // Close menu when clicking on a link
-      const mobileLinks = mobileMenu.querySelectorAll('a');
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          if (!link.classList.contains('btn')) {
-            e.preventDefault();
-            toggleMenu();
-            // Scroll to section after menu closes
-            setTimeout(() => {
-              const target = document.querySelector(link.getAttribute('href'));
-              if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-              }
-            }, 500);
-          }
-        });
-      });
+// Close menu when clicking on a link
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    // Only prevent default for anchor links (same page navigation)
+    if (link.getAttribute('href').startsWith('#')) {
+      e.preventDefault();
+      toggleMenu();
+      setTimeout(() => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+    } else {
+      // For all other links, just close the menu
+      // The browser will handle the navigation normally
+      toggleMenu();
+    }
+  });
+});
       
       // Handle iOS viewport height changes
       function handleViewportHeight() {
@@ -1895,6 +2048,134 @@
           item.classList.toggle('active');
         });
       });
+
+      // Cookie Preferences Notification
+      if (localStorage.getItem('cookiePrefsSaved')) {
+        showCookieNotification('Your cookie preferences have been updated successfully!');
+        localStorage.removeItem('cookiePrefsSaved');
+      }
+
+      function showCookieNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'cookie-notification-popup';
+        notification.innerHTML = `
+          <p>${message}</p>
+          <button class="cookie-notification-close">&times;</button>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Close button functionality
+        notification.querySelector('.cookie-notification-close').addEventListener('click', function() {
+          notification.style.animation = 'cookieNotificationFadeOut 0.3s forwards';
+          setTimeout(() => notification.remove(), 300);
+        });
+        
+        // Auto-close after 5 seconds
+        setTimeout(() => {
+          notification.style.animation = 'cookieNotificationFadeOut 0.3s forwards';
+          setTimeout(() => notification.remove(), 300);
+        }, 5000);
+      }
+
+      // Cookie Settings Functionality
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieReject = document.getElementById('cookie-reject');
+
+      // Check if cookie preferences are already set
+      function checkCookiePreferences() {
+        const consentGiven = localStorage.getItem('cookieConsent');
+        
+        if (!consentGiven) {
+          // Show banner if no consent given yet
+          setTimeout(() => {
+            cookieBanner.classList.add('active');
+          }, 1000);
+        }
+      }
+
+      // Accept all cookies
+      function acceptAllCookies() {
+        const preferences = {
+          performance: true,
+          functional: true,
+          targeting: true
+        };
+        
+        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+        localStorage.setItem('cookieConsent', 'given');
+        
+        // Update cookies based on preferences
+        updateCookies();
+      }
+
+      // Reject all optional cookies
+      function rejectOptionalCookies() {
+        const preferences = {
+          performance: false,
+          functional: false,
+          targeting: false
+        };
+        
+        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+        localStorage.setItem('cookieConsent', 'given');
+        
+        // Update cookies based on preferences
+        updateCookies();
+      }
+
+      // Update cookies based on preferences
+      function updateCookies() {
+        const preferences = JSON.parse(localStorage.getItem('cookiePreferences')) || {
+          performance: true,
+          functional: true,
+          targeting: false
+        };
+        
+        // In a real implementation, you would set or remove cookies based on preferences
+        console.log('Updating cookies based on preferences:', preferences);
+        
+        // Example: Google Analytics
+        if (!preferences.performance) {
+          console.log('Disabling performance cookies (e.g., Google Analytics)');
+          // window['ga-disable-UA-XXXXX-Y'] = true;
+        } else {
+          // window['ga-disable-UA-XXXXX-Y'] = false;
+        }
+        
+        // Example: Facebook Pixel
+        if (!preferences.targeting) {
+          console.log('Disabling targeting cookies (e.g., Facebook Pixel)');
+          // fbq('optOut');
+        } else {
+          // fbq('optIn');
+        }
+      }
+
+      // Event Listeners
+      if (cookieAccept) {
+        cookieAccept.addEventListener('click', function() {
+          acceptAllCookies();
+          cookieBanner.classList.remove('active');
+        });
+      }
+
+      if (cookieReject) {
+        cookieReject.addEventListener('click', function() {
+          rejectOptionalCookies();
+          cookieBanner.classList.remove('active');
+        });
+      }
+
+      // Initialize
+      checkCookiePreferences();
+
+      // If coming from cookie banner link, hide the banner
+      if (window.location.hash === '#cookie-policy') {
+        localStorage.setItem('cookieConsent', 'given');
+        if (cookieBanner) cookieBanner.classList.remove('active');
+      }
     });
   </script>
 </body>

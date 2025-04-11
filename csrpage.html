@@ -2043,16 +2043,16 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="container header-container">
+    <div class="header-container">
       <a href="index.html" class="logo">
-        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo" loading="lazy">
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
         <span class="logo-text">Annita</span>
       </a>
       <nav>
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#">Personal</a></li>
-          <li><a href="#">Business</a></li>
+          <li><a href="personalpage.html">Personal</a></li>
+          <li><a href="Businesspage.html">Business</a></li>
           <li><a href="aboutus.html">About Us</a></li>
           <li><a href="contactus.html">Contact Us</a></li>
           <li><a href="csrpage.html" class="active">CSR</a></li>
@@ -2072,17 +2072,15 @@
   <div class="mobile-menu">
     <ul>
       <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-      <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
-      <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
+      <li><a href="personalpage.html"><i class="fas fa-user"></i>Personal</a></li>
+      <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li>
       <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
       <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+      <li><a href="csrpage.html" class="active"><i class="fas fa-hands-helping"></i>CSR</a></li>
       <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
       <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
     </ul>
   </div>
-
-  <!-- Menu Overlay -->
   <div class="menu-overlay"></div>
 
   <!-- CSR Hero Section -->
@@ -3024,12 +3022,16 @@
             // Simple response logic
             if (messageText.toLowerCase().includes('report') || messageText.toLowerCase().includes('download')) {
               botMessage.textContent = "You can download our latest CSR report from the Transparency section of this page. It contains detailed information about all our initiatives and their impact.";
+            } else if (messageText.toLowerCase().includes('volunteer') || messageText.toLowerCase().includes('get involved')) {
+              botMessage.textContent = "We'd love to have you join our efforts! You can explore volunteer opportunities through the 'Join Us' section at the bottom of this page. We have options for both individuals and groups.";
             } else if (messageText.toLowerCase().includes('partner') || messageText.toLowerCase().includes('collaborate')) {
-              botMessage.textContent = "We'd love to explore partnership opportunities! Please visit our Contact Us page or email csr@annita.com with details about your organization and how you'd like to collaborate.";
-            } else if (messageText.toLowerCase().includes('volunteer') || messageText.toLowerCase().includes('participate')) {
-              botMessage.textContent = "We have various volunteer opportunities available. Check the 'Employee Engagement' section for current programs, or email volunteer@annita.com for more information.";
+              botMessage.textContent = "For partnership inquiries, please visit our Contact Us page or email csr@annita.com. We collaborate with NGOs, businesses, and community organizations on various initiatives.";
+            } else if (messageText.toLowerCase().includes('education') || messageText.toLowerCase().includes('school')) {
+              botMessage.textContent = "Our Digital Africa Education Program provides technology infrastructure and training to schools across the continent. Learn more in the 'Focus Areas' section of this page.";
+            } else if (messageText.toLowerCase().includes('environment') || messageText.toLowerCase().includes('green')) {
+              botMessage.textContent = "Annita is committed to environmental sustainability through renewable energy, e-waste recycling, and reforestation. See our 'Sustainability Commitment' section for details.";
             } else {
-              botMessage.textContent = "Thank you for your interest in Annita's CSR initiatives. For specific questions, please email csr@annita.com or explore the different sections of this page for comprehensive information about our programs.";
+              botMessage.textContent = "Thank you for your message! For more specific information about our CSR initiatives, please explore the different sections of this page or visit our website's CSR hub.";
             }
             
             chatMessages.appendChild(botMessage);
@@ -3039,50 +3041,47 @@
       }
       
       sendButton.addEventListener('click', sendMessage);
+      
       chatInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
           sendMessage();
         }
       });
       
-      // Animate elements when they come into view
-      const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.value-card, .objective-card, .impact-card, .focus-card, .partner-item, .employee-card, .sustainability-card, .badge-item, .news-card, .gallery-item');
+      // Form submission handling (example)
+      document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Here you would normally handle form submission with AJAX
+          alert('Thank you for your message! Our team will get back to you soon.');
+          form.reset();
+        });
+      });
+      
+      // Animation on scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll('.value-card, .objective-card, .impact-card, .focus-card, .employee-card, .sustainability-card, .news-card, .gallery-item');
         
         elements.forEach(element => {
           const elementPosition = element.getBoundingClientRect().top;
-          const windowHeight = window.innerHeight;
+          const screenPosition = window.innerHeight / 1.2;
           
-          if (elementPosition < windowHeight - 100) {
+          if (elementPosition < screenPosition) {
             element.style.opacity = '1';
             element.style.transform = 'translateY(0)';
           }
         });
-      };
+      }
       
       // Set initial state for animated elements
-      document.querySelectorAll('.value-card, .objective-card, .impact-card, .focus-card, .partner-item, .employee-card, .sustainability-card, .badge-item, .news-card, .gallery-item').forEach(el => {
+      document.querySelectorAll('.value-card, .objective-card, .impact-card, .focus-card, .employee-card, .sustainability-card, .news-card, .gallery-item').forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       });
       
-      // Trigger animations on load and scroll
-      window.addEventListener('load', animateOnScroll);
       window.addEventListener('scroll', animateOnScroll);
-      
-      // Gallery hover effect
-      const galleryItems = document.querySelectorAll('.gallery-item');
-      galleryItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-          this.querySelector('.gallery-image').style.transform = 'scale(1.1)';
-          this.querySelector('.gallery-caption').style.opacity = '1';
-        });
-        item.addEventListener('mouseleave', function() {
-          this.querySelector('.gallery-image').style.transform = 'scale(1)';
-          this.querySelector('.gallery-caption').style.opacity = '0';
-        });
-      });
+      window.addEventListener('load', animateOnScroll);
     });
   </script>
 </body>

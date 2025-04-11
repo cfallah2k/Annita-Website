@@ -3,31 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - Annita</title>
+    <title>Premium Sign Up - Annita</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
     <style>
-        /* Importing relevant styles from the original document */
         :root {
-            --primary:  #FF7D06;
-            --secondary: #00c2ff;
-            --secondary-light: #33d0ff;
-            --white: #ffffff;
-            --light-gray: #f4f7fa;
-            --dark-gray: #4a4a4a;
-            --text: #333333;
+            --primary: #FF7D06;
+            --secondary: #6C1D3A;
+            --accent: #FFC200;
+            --dark: #111111;
+            --light: #FFFFFF;
+            --grey: #F5F5F5;
+            --blue-dark: #001a57;
+            --blue-light: #00c2ff;
+            --premium-gold: #FFD700;
+            --premium-silver: #c0c0c0;
+            --border-color: #e2e8f0;
             --error: #ff3b30;
-            --border-color: #ddd;
             --success: #34c759;
+            --warning: #ff9500;
         }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
         body {
-            background-color: var(--light-gray);
-            color: var(--text);
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
             width: 100%;
             min-height: 100vh;
@@ -35,224 +41,518 @@
             padding: 0;
             overflow-x: hidden;
         }
+        
         html {
             overflow-x: hidden;
             width: 100%;
         }
-        /* Navigation */
+        
+        /* Header Styles */
         header {
-            background-color: var(--primary);
-            padding: 1rem 0;
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
-        nav {
+        
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            padding: 0 2rem;
+            height: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
+        
         .logo {
             display: flex;
             align-items: center;
-        }
-        .logo-text {
-            color: var(--white);
-            font-size: 1.8rem;
+            font-size: 24px;
             font-weight: 700;
-            margin-left: 0.5rem;
+            text-decoration: none;
         }
-        .nav-links {
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid var(--primary);
+        }
+
+        .logo-text {
+            font-family: 'Zen Dots', cursive;
+            font-weight: 400;
+            color: var(--primary);
+        }
+        
+        nav ul {
             display: flex;
             list-style: none;
         }
-        .nav-links li {
-            margin-left: 2rem;
+        
+        nav ul li {
+            margin-left: 30px;
         }
-        .nav-links a {
-            color: var(--white);
+        
+        nav ul li a {
             text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
         }
-        .nav-links a:hover {
-            color: var(--secondary);
+        
+        nav ul li a:hover {
+            color: var(--primary);
         }
-        .auth-buttons {
+        
+        .nav-buttons {
             display: flex;
-            gap: 1rem;
+            align-items: center;
+            gap: 15px;
         }
+        
         .btn {
-            padding: 0.6rem 1.5rem;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-outline {
-            border: 2px solid var(--secondary);
-            color: var(--white);
-            background: transparent;
-        }
-        .btn-outline:hover {
-            background-color: var(--secondary);
-            color: var(--primary);
-        }
-        .btn-primary {
-            background-color: var(--secondary);
-            color: var(--primary);
-        }
-        .btn-primary:hover {
-            background-color: var(--secondary-light);
-        }
-        .mobile-menu {
-            display: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
+            display: inline-block;
         }
         
-        /* Signup Section Styles */
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, var(--premium-gold), var(--premium-silver));
+            color: var(--dark);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--dark);
+            position: absolute;
+            left: 5px;
+            border-radius: 3px;
+            transition: all 0.4s;
+        }
+        
+        .hamburger-icon {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .hamburger-icon:before {
+            top: -8px;
+        }
+        
+        .hamburger-icon:after {
+            top: 8px;
+        }
+        
+        .hamburger-menu.active .hamburger-icon {
+            background-color: transparent;
+        }
+        
+        .hamburger-menu.active .hamburger-icon:before {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .hamburger-menu.active .hamburger-icon:after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80%;
+            max-width: 320px;
+            height: 100%;
+            height: calc(var(--vh, 1vh) * 100);
+            background-color: white;
+            z-index: 1001;
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+            padding: 100px 30px 30px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            width: 100%;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+        }
+        
+        .mobile-menu.active li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Staggered animation for menu items */
+        .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+        .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+        .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+        .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+        .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+        .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+        .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; }
+        
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+        }
+        
+        .mobile-menu a i {
+            margin-right: 15px;
+            width: 24px;
+            text-align: center;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu a:hover i {
+            transform: scale(1.2);
+        }
+        
+        .mobile-menu .btn {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Premium Signup Section */
         .signup-section {
-            padding: 8rem 0 4rem;
-            background-color: var(--white);
+            padding: 180px 0 100px;
+            background-color: var(--light);
             min-height: calc(100vh - 350px);
             width: 100vw;
             margin: 0;
+            position: relative;
+            overflow: hidden;
         }
+        
         .signup-container {
             width: 100%;
-            margin: 0;
-            background-color: var(--white);
-            padding: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 3rem;
             display: flex;
             align-items: stretch;
-            border-radius: 0;
-            box-shadow: none;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--border-color);
         }
+        
         .signup-image-container {
             flex: 0 0 35%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding-right: 2.5rem;
+            padding-right: 3rem;
             border-right: 1px solid var(--border-color);
+            position: relative;
         }
+        
+        .signup-image-container::after {
+            content: "PREMIUM";
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--premium-gold), var(--premium-silver));
+            color: var(--dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
         .signup-image {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--light-gray);
+            background-color: var(--grey);
+            border: 5px solid var(--light);
+            outline: 2px solid var(--primary);
         }
+        
         .signup-image-text {
             text-align: center;
         }
+        
         .signup-image-text h3 {
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
+        
         .signup-image-text p {
-            color: var(--dark-gray);
-            font-size: 0.9rem;
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
         }
+        
+        .premium-features {
+            width: 100%;
+            margin-top: 2rem;
+        }
+        
+        .premium-features h4 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .premium-features h4 i {
+            color: var(--premium-gold);
+        }
+        
+        .premium-features ul {
+            list-style-type: none;
+        }
+        
+        .premium-features li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .premium-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
         .signup-form-container {
             flex: 0 0 65%;
-            padding-left: 2.5rem;
+            padding-left: 3rem;
         }
+        
         .signup-title {
-            font-size: 2.2rem;
-            color: var(--primary);
+            font-size: 2.5rem;
+            color: var(--secondary);
             margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
+        
         .signup-subtitle {
-            color: var(--dark-gray);
+            color: #555;
             margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
+        
         .signup-form {
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1.5rem;
         }
+        
         .form-group {
             position: relative;
         }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+        
         .signup-form input,
         .signup-form select,
         .signup-form textarea {
             width: 100%;
-            padding: 1rem;
+            padding: 1rem 1.2rem;
             border: 1px solid var(--border-color);
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            background-color: var(--grey);
         }
+        
         .signup-form input:focus,
         .signup-form select:focus,
         .signup-form textarea:focus {
-            border-color: var(--secondary);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
+            background-color: var(--light);
         }
+        
         .account-type-select {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
+        
         .password-field {
             position: relative;
         }
+        
         .password-toggle {
             position: absolute;
-            right: 12px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: var(--dark-gray);
+            color: #555;
             cursor: pointer;
             padding: 0;
         }
+        
         .password-toggle:focus {
             outline: none;
         }
+        
         .password-toggle i {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
+        
         .signup-form button[type="submit"] {
-            background-color: var(--secondary);
-            color: var(--primary);
-            padding: 1rem;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: var(--light);
+            padding: 1.2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             margin-top: 1rem;
             width: 100%;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+        
         .signup-form button[type="submit"]:hover {
-            background-color: var(--secondary-light);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 29, 58, 0.2);
         }
         
         .login-divider {
             display: flex;
             align-items: center;
-            margin: 1.5rem 0;
-            color: var(--dark-gray);
+            margin: 2rem 0;
+            color: #555;
         }
+        
         .login-divider::before,
         .login-divider::after {
             content: "";
@@ -260,432 +560,854 @@
             height: 1px;
             background-color: var(--border-color);
         }
+        
         .login-divider span {
             padding: 0 1rem;
             font-size: 0.9rem;
         }
+        
         .social-login {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
+        
         .social-login-btn {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--light-gray);
-            color: var(--dark-gray);
+            background-color: var(--grey);
+            color: #555;
             border: 1px solid var(--border-color);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
             transition: all 0.3s;
         }
+        
         .social-login-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
+        
         .social-login-btn.google {
             color: #DB4437;
         }
+        
         .social-login-btn.linkedin {
             color: #0077B5;
         }
+        
         .social-login-btn.facebook {
             color: #3b5998;
         }
+        
         .social-login-btn.apple {
             color: #000;
         }
+        
         .already-account {
             text-align: center;
-            margin-top: 1rem;
-            font-size: 0.95rem;
+            margin-top: 1.5rem;
+            font-size: 1rem;
         }
+        
         .already-account a {
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: 600;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
+        
         .already-account a:hover {
-            color: var(--secondary);
+            color: var(--primary);
             text-decoration: underline;
         }
+        
         .with-icon {
             display: flex;
             align-items: center;
+            gap: 0.5rem;
         }
         
-        /* KYC Specific Styles */
+        /* Premium KYC Specific Styles */
         .kyc-section {
             border: 1px solid var(--border-color);
-            border-radius: 5px;
-            padding: 1.5rem;
+            border-radius: 10px;
+            padding: 2rem;
             margin-top: 1.5rem;
-            background-color: var(--light-gray);
+            background-color: var(--grey);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .kyc-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+        
         .kyc-section h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
+        
         .kyc-section p {
             margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.7;
         }
+        
         .kyc-requirements {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
+        
         .kyc-requirements-title {
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+        
+        .kyc-requirements-title i {
+            color: var(--primary);
+        }
+        
         .requirement-list {
             list-style-type: none;
         }
+        
         .requirement-list li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
+            line-height: 1.6;
         }
+        
         .requirement-list li::before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: var(--secondary);
+            color: var(--primary);
             font-weight: bold;
         }
+        
         .document-upload {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
+        
         .upload-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background-color: var(--white);
+            gap: 0.8rem;
+            background-color: var(--light);
             border: 1px solid var(--border-color);
-            color: var(--dark-gray);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            color: #555;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: 500;
         }
+        
         .upload-btn:hover {
-            border-color: var(--secondary);
-            color: var(--primary);
-        }
-        .upload-btn i {
+            border-color: var(--primary);
             color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
+        
+        .upload-btn i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
         .form-row {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             width: 100%;
         }
+        
         .form-row .form-group {
             flex: 1;
         }
+        
         .checkbox-group {
             display: flex;
             align-items: flex-start;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
         }
+        
         .checkbox-group input {
             margin-top: 0.3rem;
             width: auto;
+            accent-color: var(--primary);
         }
         
-        /* Progress Indicator */
+        .checkbox-group label {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .checkbox-group label a {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .checkbox-group label a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Premium Progress Indicator */
         .progress-container {
             width: 100%;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
+        
         .progress-steps {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            position: relative;
         }
+        
+        .progress-steps::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+        
         .step {
-            font-size: 0.9rem;
-            color: var(--dark-gray);
+            font-size: 1rem;
+            color: #555;
             text-align: center;
             flex: 1;
             position: relative;
+            z-index: 2;
         }
+        
+        .step::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: var(--grey);
+            border: 3px solid var(--border-color);
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+            transition: all 0.3s;
+        }
+        
         .step.active {
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: 600;
         }
+        
+        .step.active::before {
+            border-color: var(--primary);
+            background-color: var(--light);
+        }
+        
         .step.completed {
             color: var(--success);
         }
+        
+        .step.completed::before {
+            border-color: var(--success);
+            background-color: var(--light);
+            content: "✓";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
         .progress-bar {
-            height: 5px;
+            height: 6px;
             width: 100%;
             background-color: var(--border-color);
             border-radius: 5px;
             margin-top: 0.5rem;
+            overflow: hidden;
         }
+        
         .progress {
             height: 100%;
             border-radius: 5px;
-            background-color: var(--secondary);
-            width: 25%; /* Will be controlled by JS */
-            transition: width 0.3s;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 25%;
+            transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
         }
         
         /* Footer */
         footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 4rem 0 2rem;
-            width: 100vw;
-            margin: 0;
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 20px 20px;
         }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            width: 100%;
-            padding: 0 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
             display: flex;
-            align-items: center;
+            gap: 15px;
         }
-        .footer-logo img {
-            height: 30px;
-            margin-right: 0.5rem;
-        }
-        .footer-about {
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-        }
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        .social-link {
-            width: 36px;
-            height: 36px;
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            text-decoration: none;
+            color: white;
             transition: background-color 0.3s;
         }
-        .social-link:hover {
-            background-color: var(--secondary);
-            color: var(--primary);
+
+        .footer-social a:hover {
+            background-color: var(--primary);
         }
-        .footer-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 14px;
         }
-        .footer-links {
-            list-style: none;
+
+        .footer-logo-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        .footer-links a {
-            color: var(--white);
-            opacity: 0.8;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        .footer-links a:hover {
-            opacity: 1;
-        }
-        .contact-info {
-            list-style: none;
-        }
-        .contact-info li {
-            margin-bottom: 0.8rem;
+
+        .footer-logo-group .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            margin-bottom: 10px;
         }
-        .contact-info i {
-            width: 20px;
-        }
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
+
+        .footer-tagline {
+            color: #aaa;
             font-size: 0.9rem;
-            width: 100%;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
-        .footer-country-dropdown {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.5rem;
-            border-radius: 5px;
-            margin-top: 0.5rem;
-            width: 100%;
+
+        .footer-logo-group .footer-social {
+            margin-top: 0;
         }
         
-        /* Navigation buttons */
+        /* Premium Navigation buttons */
         .form-navigation {
             display: flex;
             justify-content: space-between;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
+        
         .form-navigation button {
-            padding: 0.8rem 1.5rem;
+            padding: 1rem 2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-        }
-        .prev-btn {
-            background-color: var(--light-gray);
-            color: var(--dark-gray);
-        }
-        .prev-btn:hover {
-            background-color: var(--border-color);
-        }
-        .next-btn {
-            background-color: var(--secondary);
-            color: var(--primary);
-        }
-        .next-btn:hover {
-            background-color: var(--secondary-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
         }
         
+        .prev-btn {
+            background-color: var(--grey);
+            color: #555;
+        }
+        
+        .prev-btn:hover {
+            background-color: #e0e0e0;
+            transform: translateX(-3px);
+        }
+        
+        .next-btn {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--dark);
+        }
+        
+        .next-btn:hover {
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            transform: translateX(3px);
+            box-shadow: 0 5px 15px rgba(255, 125, 6, 0.3);
+        }
+        
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-button i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--secondary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        .chatbot-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--dark);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent var(--dark);
+        }
+
+        .chatbot-button:hover .chatbot-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 80px;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-container.open .chatbot-window {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .chat-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            background-color: #e5e5ea;
+            color: black;
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .send-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         /* Responsive styling */
+        @media (max-width: 1024px) {
+            .signup-container {
+                padding: 2.5rem;
+            }
+            
+            .signup-image-container {
+                padding-right: 2rem;
+            }
+            
+            .signup-form-container {
+                padding-left: 2rem;
+            }
+        }
+        
         @media (max-width: 900px) {
             .signup-container {
                 flex-direction: column;
             }
+            
             .signup-image-container {
                 padding-right: 0;
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
-                padding-bottom: 2rem;
-                margin-bottom: 2rem;
+                padding-bottom: 2.5rem;
+                margin-bottom: 2.5rem;
                 width: 100%;
             }
+            
             .signup-form-container {
                 padding-left: 0;
                 width: 100%;
             }
+            
             .form-row {
                 flex-direction: column;
-                gap: 1.25rem;
+                gap: 1.5rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 2rem;
             }
         }
         
         @media (max-width: 768px) {
-            .nav-links, .auth-buttons {
+            .nav-links, .nav-buttons {
                 display: none;
             }
-            .mobile-menu {
+            
+            .hamburger-menu {
                 display: block;
             }
-            nav {
-                padding: 0 1rem;
+            
+            .signup-section {
+                padding-top: 150px;
             }
+            
+            .signup-container {
+                padding: 2rem;
+            }
+            
+            .signup-title {
+                font-size: 2rem;
+            }
+            
+            .footer-grid {
+                padding: 0 1.5rem;
+            }
+            
+            .footer-bottom {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            
+            .chatbot-container {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            .chatbot-window {
+                width: 300px;
+                height: 450px;
+            }
+        }
+        
+        @media (max-width: 480px) {
             .signup-container {
                 padding: 1.5rem;
+                border-radius: 0;
             }
+            
+            .signup-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .signup-title {
+                font-size: 1.8rem;
+            }
+            
+            .form-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-navigation button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .chatbot-window {
+                width: 280px;
+                right: -20px;
+            }
+
             .footer-grid {
-                padding: 0 1rem;
+                grid-template-columns: 1fr;
             }
-            .copyright {
-                padding-left: 1rem;
-                padding-right: 1rem;
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
             }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <nav>
-            <div class="logo">
-                <div class="logo-text">AnnitaPay</div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Personal</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="csrpage.html" aria-label="CSR">CSR</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <a href="login.html" class="btn btn-outline">Login</a>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+                <span class="logo-text">Annita</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="personalpage.html">Personal</a></li>
+                    <li><a href="Businesspage.html">Business</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="csrpage.html">CSR</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Log In</a>
                 <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
             </div>
-            <div class="mobile-menu">☰</div>
-        </nav>
+            <div class="hamburger-menu">
+                <span class="hamburger-icon"></span>
+            </div>
+        </div>
     </header>
 
-    <!-- Signup Section -->
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="personalpage.html"><i class="fas fa-user"></i>Personal</a></li>
+            <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li>
+            <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+            <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+            <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+            <li><a href="login.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+            <li><a href="signuppage.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+        </ul>
+    </div>
+    <div class="menu-overlay"></div>
+
+    <!-- Premium Signup Section -->
     <section class="signup-section">
         <div class="signup-container">
             <div class="signup-image-container">
                 <div class="signup-image">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
-                        <!-- Background -->
-                        <circle cx="90" cy="90" r="90" fill="#001a57"/>
-                        
-                        <!-- AnnitaPay Logo -->
-                        <g fill="#00c2ff">
-                            <!-- Letter A stylized -->
-                            <path d="M50 120 L70 60 L90 120 M60 100 L80 100" stroke="#00c2ff" stroke-width="8" fill="none"/>
-                            
-                            <!-- Payment symbol -->
-                            <rect x="100" y="70" width="40" height="25" rx="5" ry="5"/>
-                            <rect x="105" y="80" width="30" height="5" fill="#001a57"/>
-                            <circle cx="120" cy="105" r="15"/>
-                            <path d="M113 105 L118 110 L127 100" stroke="#001a57" stroke-width="3" fill="none"/>
-                        </g>
-                        
-                        <!-- Financial graphic elements -->
-                        <g fill="#ffffff" opacity="0.2">
-                            <circle cx="40" cy="40" r="10"/>
-                            <circle cx="140" cy="40" r="10"/>
-                            <circle cx="40" cy="140" r="10"/>
-                            <circle cx="140" cy="140" r="10"/>
-                        </g>
-                        
-                        <!-- Abstract financial line -->
-                        <path d="M30 90 Q60 60, 90 90 Q120 120, 150 90" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
-                    </svg>
+                    <img src="/images/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1786166.jpg" alt="Premium Account" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="signup-image-text">
-                    <h3>Create Your Account</h3>
-                    <p>Join AnnitaPay's secure financial network</p>
+                    <h3>Premium Account Setup</h3>
+                    <p>Join Annita's exclusive financial network with enhanced features and benefits designed for Africa's digital economy.</p>
+                </div>
+                
+                <div class="premium-features">
+                    <h4><i class="fas fa-crown"></i> Premium Benefits</h4>
+                    <ul>
+                        <li>Higher transaction limits for African markets</li>
+                        <li>Priority customer support with local understanding</li>
+                        <li>Exclusive financial tools tailored for Africa</li>
+                        <li>Lower fees on intra-African transfers</li>
+                        <li>Dedicated account manager familiar with African business</li>
+                        <li>Advanced security features with African context</li>
+                        <li>Access to Annita's full ecosystem of services</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="signup-form-container">
-                <h2 class="signup-title">Get Started</h2>
-                <p class="signup-subtitle">Create your AnnitaPay account in just a few steps</p>
+                <h2 class="signup-title">Premium Sign Up</h2>
+                <p class="signup-subtitle">Create your Annita Premium account in just a few steps and unlock Africa's most comprehensive digital platform.</p>
                 
-                <!-- Progress Indicator -->
+                <!-- Premium Progress Indicator -->
                 <div class="progress-container">
                     <div class="progress-steps">
                         <div class="step active">Account Type</div>
@@ -705,7 +1427,7 @@
                             <label for="account-type">Select Account Type</label>
                             <select id="account-type" required onchange="showKycRequirements()">
                                 <option value="" disabled selected>Choose the type of account you need</option>
-                                <option value="personal">Personal Account</option>
+                                <option value="personal">Personal Premium Account</option>
                                 <option value="business-freelancer">Business - Freelancer/Sole Trader</option>
                                 <option value="business-startup">Business - Startup</option>
                                 <option value="business-sme">Business - Small to Medium Enterprise</option>
@@ -717,69 +1439,77 @@
                         
                         <!-- KYC Requirements Section (dynamically shown based on selection) -->
                         <div class="kyc-section" id="kyc-requirements">
-                            <h3>Account Verification Requirements</h3>
-                            <p>Please select an account type to see specific verification requirements.</p>
+                            <h3>Premium Account Verification Requirements</h3>
+                            <p>Please select an account type to see specific verification requirements for premium accounts. Annita is committed to providing secure financial services across Africa while complying with local regulations.</p>
                         </div>
                         
                         <!-- Personal Account KYC (Hidden by default) -->
                         <div class="kyc-details" id="personal-kyc" style="display: none;">
-                            <h3>Personal Account Verification</h3>
-                            <p>Create a personal account to send money, make payments, and manage your finances securely.</p>
+                            <h3>Premium Personal Account Verification</h3>
+                            <p>Create a premium personal account to enjoy higher limits, exclusive features, and priority support across our African markets.</p>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
                                 <ul class="requirement-list">
                                     <li>Valid Government-issued ID (Passport, National ID, or Driver's License)</li>
                                     <li>Proof of address (Utility bill or bank statement from the last 3 months)</li>
                                     <li>Recent photo (taken within the last 6 months)</li>
+                                    <li>Proof of income (for higher limits)</li>
                                     <li>Phone number verification</li>
                                     <li>Email verification</li>
                                 </ul>
                             </div>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
                                 <ul class="requirement-list">
-                                    <li>Basic identity verification (1-2 business days)</li>
-                                    <li>Transaction limits: Up to $3,000 per day after verification</li>
-                                    <li>Enhanced verification available for higher limits</li>
+                                    <li>Priority identity verification (within 24 hours)</li>
+                                    <li>Transaction limits: Up to $10,000 per day after verification</li>
+                                    <li>Dedicated account manager familiar with your local market</li>
+                                    <li>Exclusive customer support line with African language options</li>
+                                    <li>50% discount on intra-African transfer fees</li>
+                                    <li>Early access to new Annita features and services</li>
                                 </ul>
                             </div>
                         </div>
                         
                         <!-- Freelancer KYC (Hidden by default) -->
                         <div class="kyc-details" id="business-freelancer-kyc" style="display: none;">
-                            <h3>Freelancer/Sole Trader Verification</h3>
-                            <p>Perfect for freelancers, independent contractors, and sole proprietors looking to manage business transactions.</p>
+                            <h3>Premium Freelancer/Sole Trader Verification</h3>
+                            <p>Perfect for freelancers and independent contractors across Africa needing premium business features with local payment options.</p>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
                                 <ul class="requirement-list">
                                     <li>All personal account verification documents</li>
                                     <li>Business registration certificate (if applicable)</li>
                                     <li>Tax identification number</li>
                                     <li>Portfolio or business website (recommended)</li>
                                     <li>Proof of business activity (contracts or invoices)</li>
+                                    <li>Bank statements (last 6 months)</li>
                                 </ul>
                             </div>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
                                 <ul class="requirement-list">
-                                    <li>Business identity verification (2-3 business days)</li>
-                                    <li>Transaction limits: Up to $10,000 per day after verification</li>
-                                    <li>Access to payment links and basic invoice tools</li>
+                                    <li>Priority business verification (1-2 business days)</li>
+                                    <li>Transaction limits: Up to $25,000 per day after verification</li>
+                                    <li>Access to premium invoice tools with African payment options</li>
+                                    <li>Multi-currency accounts with no monthly fees</li>
+                                    <li>Exclusive freelancer financial tools for African markets</li>
+                                    <li>Integration with popular African accounting platforms</li>
                                 </ul>
                             </div>
                         </div>
                         
                         <!-- Startup KYC (Hidden by default) -->
                         <div class="kyc-details" id="business-startup-kyc" style="display: none;">
-                            <h3>Startup Business Verification</h3>
-                            <p>Designed for early-stage companies needing financial services to support rapid growth.</p>
+                            <h3>Premium Startup Business Verification</h3>
+                            <p>Designed for African early-stage companies needing premium financial services for rapid growth across the continent.</p>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
                                 <ul class="requirement-list">
                                     <li>Business registration certificate</li>
                                     <li>Articles of incorporation</li>
@@ -788,27 +1518,31 @@
                                     <li>Proof of business address</li>
                                     <li>Company bank statement (if available)</li>
                                     <li>Shareholder information (for those with >25% ownership)</li>
+                                    <li>Business plan or pitch deck</li>
                                 </ul>
                             </div>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
                                 <ul class="requirement-list">
-                                    <li>Full business verification (3-5 business days)</li>
+                                    <li>Priority business verification (2-3 business days)</li>
                                     <li>Director/owner verification</li>
-                                    <li>Transaction limits: Up to $50,000 per day after verification</li>
-                                    <li>Access to multi-user accounts and business analytics</li>
+                                    <li>Transaction limits: Up to $100,000 per day after verification</li>
+                                    <li>Access to premium multi-user accounts and business analytics</li>
+                                    <li>Startup financial advisory services with African market expertise</li>
+                                    <li>Integration with popular accounting software used in Africa</li>
+                                    <li>Access to Annita's investor network</li>
                                 </ul>
                             </div>
                         </div>
                         
                         <!-- SME KYC (Hidden by default) -->
                         <div class="kyc-details" id="business-sme-kyc" style="display: none;">
-                            <h3>Small to Medium Enterprise Verification</h3>
-                            <p>Comprehensive financial solutions for established businesses with multiple employees and regular transaction needs.</p>
+                            <h3>Premium Small to Medium Enterprise Verification</h3>
+                            <p>Comprehensive premium financial solutions for established African businesses looking to expand regionally.</p>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
                                 <ul class="requirement-list">
                                     <li>All startup verification documents</li>
                                     <li>Business financial statements (last 2 years if available)</li>
@@ -817,27 +1551,31 @@
                                     <li>Proof of operational business (contracts, invoices)</li>
                                     <li>Additional shareholder/director information</li>
                                     <li>Business license or industry-specific permits</li>
+                                    <li>Audited financials (if available)</li>
                                 </ul>
                             </div>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Verification Process:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
                                 <ul class="requirement-list">
-                                    <li>Enhanced business verification (5-7 business days)</li>
+                                    <li>Priority enhanced business verification (3-5 business days)</li>
                                     <li>Background checks for key personnel</li>
-                                    <li>Transaction limits: Up to $250,000 per day after full verification</li>
-                                    <li>Access to bulk payments, API integration, and advanced reporting</li>
+                                    <li>Transaction limits: Up to $500,000 per day after full verification</li>
+                                    <li>Access to premium bulk payments, API integration, and advanced reporting</li>
+                                    <li>Dedicated relationship manager with regional expertise</li>
+                                    <li>Customized financial solutions for African markets</li>
+                                    <li>Access to Annita's business marketplace</li>
                                 </ul>
                             </div>
                         </div>
                         
                         <!-- Enterprise KYC (Hidden by default) -->
                         <div class="kyc-details" id="business-enterprise-kyc" style="display: none;">
-                            <h3>Enterprise Business Verification</h3>
-                            <p>Premium financial solutions for large corporations with complex transaction needs across multiple countries.</p>
+                            <h3>Premium Enterprise Business Verification</h3>
+                            <p>Elite financial solutions for large African corporations with complex transaction needs across multiple countries.</p>
                             
                             <div class="kyc-requirements">
-                                <div class="kyc-requirements-title">Required Documents:</div>
+                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
                                 <ul class="requirement-list">
                                     <li>All SME verification documents</li>
                                     <li>Audited financial statements (last 3 years)</li>
@@ -846,502 +1584,681 @@
                                     <li>Board resolution approving account opening</li>
                                     <li>Anti-Money Laundering (AML) policy</li>
                                     <li>Know Your Customer (KYC) procedures</li>
-                                    <li>Parent/subsidiary structure
-                                        <li>Parent/subsidiary structure documentation</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="kyc-requirements">
-                                    <div class="kyc-requirements-title">Verification Process:</div>
-                                    <ul class="requirement-list">
-                                        <li>Comprehensive business verification (7-10 business days)</li>
-                                        <li>Enhanced due diligence</li>
-                                        <li>Custom transaction limits based on business needs</li>
-                                        <li>Access to dedicated account manager and custom solutions</li>
-                                        <li>Multi-currency accounts and global payment solutions</li>
-                                    </ul>
-                                </div>
+                                    <li>Parent/subsidiary structure documentation</li>
+                                </ul>
                             </div>
                             
-                            <!-- Charity KYC (Hidden by default) -->
-                            <div class="kyc-details" id="charity-kyc" style="display: none;">
-                                <h3>Charity/Non-Profit Verification</h3>
-                                <p>Specialized financial services for charities and non-profit organizations with reduced fees.</p>
-                                
-                                <div class="kyc-requirements">
-                                    <div class="kyc-requirements-title">Required Documents:</div>
-                                    <ul class="requirement-list">
-                                        <li>Charity registration certificate</li>
-                                        <li>Tax exemption documentation</li>
-                                        <li>Board members' identification</li>
-                                        <li>Proof of address for the organization</li>
-                                        <li>Latest annual report or financial statement</li>
-                                        <li>Constitution or governing documents</li>
-                                        <li>Minutes from latest board meeting</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="kyc-requirements">
-                                    <div class="kyc-requirements-title">Verification Process:</div>
-                                    <ul class="requirement-list">
-                                        <li>Charity verification (3-5 business days)</li>
-                                        <li>Verification of charitable status</li>
-                                        <li>Transaction limits: Based on organizational needs</li>
-                                        <li>Access to reduced-fee donation processing</li>
-                                        <li>Specialized reporting for supporters and stakeholders</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- Religious Institution KYC (Hidden by default) -->
-                            <div class="kyc-details" id="religious-kyc" style="display: none;">
-                                <h3>Religious Institution Verification</h3>
-                                <p>Tailored financial services for churches, mosques, temples, and other religious organizations.</p>
-                                
-                                <div class="kyc-requirements">
-                                    <div class="kyc-requirements-title">Required Documents:</div>
-                                    <ul class="requirement-list">
-                                        <li>Religious institution registration certificate</li>
-                                        <li>Tax exemption documentation</li>
-                                        <li>Identification of religious leaders or officers</li>
-                                        <li>Proof of religious institution address</li>
-                                        <li>Constitution or governing documents</li>
-                                        <li>Financial statements or budget</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="kyc-requirements">
-                                    <div class="kyc-requirements-title">Verification Process:</div>
-                                    <ul class="requirement-list">
-                                        <li>Institution verification (3-5 business days)</li>
-                                        <li>Verification of religious organization status</li>
-                                        <li>Transaction limits: Based on organizational needs</li>
-                                        <li>Access to donation and contribution management tools</li>
-                                        <li>Specialized services for religious organization treasurers</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="form-navigation">
-                                <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
+                                <ul class="requirement-list">
+                                    <li>Priority comprehensive business verification (5-7 business days)</li>
+                                    <li>Enhanced due diligence</li>
+                                    <li>Custom transaction limits based on business needs</li>
+                                    <li>Access to dedicated premium account team and custom solutions</li>
+                                    <li>Multi-currency accounts and pan-African payment solutions</li>
+                                    <li>24/7 VIP support with regional specialists</li>
+                                    <li>White-glove onboarding experience</li>
+                                    <li>Access to Annita's enterprise solutions</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- Step 2: Personal Information -->
-                        <div class="form-step" id="step-2" style="display: none;">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="first-name">First Name</label>
-                                    <input type="text" id="first-name" name="first-name" required placeholder="Enter your first name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="last-name">Last Name</label>
-                                    <input type="text" id="last-name" name="last-name" required placeholder="Enter your last name">
-                                </div>
+                        <!-- Charity KYC (Hidden by default) -->
+                        <div class="kyc-details" id="charity-kyc" style="display: none;">
+                            <h3>Premium Charity/Non-Profit Verification</h3>
+                            <p>Specialized premium financial services for African charities and non-profit organizations.</p>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
+                                <ul class="requirement-list">
+                                    <li>Charity registration certificate</li>
+                                    <li>Tax exemption documentation</li>
+                                    <li>Board members' identification</li>
+                                    <li>Proof of address for the organization</li>
+                                    <li>Latest annual report or financial statement</li>
+                                    <li>Constitution or governing documents</li>
+                                    <li>Minutes from latest board meeting</li>
+                                    <li>Donation processing history (if available)</li>
+                                </ul>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" required placeholder="Enter your email address">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="country">Country of Residence</label>
-                                    <select id="country" name="country" required>
-                                        <option value="" disabled selected>Select your country</option>
-                                        <option value="us">United States</option>
-                                        <option value="uk">United Kingdom</option>
-                                        <option value="ca">Canada</option>
-                                        <option value="au">Australia</option>
-                                        <option value="in">India</option>
-                                        <option value="ng">Nigeria</option>
-                                        <option value="za">South Africa</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="dob">Date of Birth</label>
-                                    <input type="date" id="dob" name="dob" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input type="text" id="address" name="address" required placeholder="Enter your street address">
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" id="city" name="city" required placeholder="Enter your city">
-                                </div>
-                                <div class="form-group">
-                                    <label for="postal-code">Postal/ZIP Code</label>
-                                    <input type="text" id="postal-code" name="postal-code" required placeholder="Enter your postal code">
-                                </div>
-                            </div>
-                            
-                            <div class="form-navigation">
-                                <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
-                                <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
+                                <ul class="requirement-list">
+                                    <li>Priority charity verification (2-3 business days)</li>
+                                    <li>Verification of charitable status</li>
+                                    <li>Transaction limits: Based on organizational needs</li>
+                                    <li>Access to premium reduced-fee donation processing</li>
+                                    <li>Specialized reporting for supporters and stakeholders</li>
+                                    <li>Donor management tools for African contexts</li>
+                                    <li>Integration with African fundraising platforms</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <!-- Step 3: Security & Verification -->
-                        <div class="form-step" id="step-3" style="display: none;">
-                            <div class="form-group password-field">
-                                <label for="password">Create Password</label>
-                                <input type="password" id="password" name="password" required placeholder="Create a secure password">
-                                <button type="button" class="password-toggle" onclick="togglePassword('password')">
-                                    <i class="far fa-eye"></i>
-                                </button>
+                        <!-- Religious Institution KYC (Hidden by default) -->
+                        <div class="kyc-details" id="religious-kyc" style="display: none;">
+                            <h3>Premium Religious Institution Verification</h3>
+                            <p>Tailored premium financial services for churches, mosques, temples, and other religious organizations across Africa.</p>
+                            
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
+                                <ul class="requirement-list">
+                                    <li>Religious institution registration certificate</li>
+                                    <li>Tax exemption documentation</li>
+                                    <li>Identification of religious leaders or officers</li>
+                                    <li>Proof of religious institution address</li>
+                                    <li>Constitution or governing documents</li>
+                                    <li>Financial statements or budget</li>
+                                    <li>Membership records (if available)</li>
+                                </ul>
                             </div>
                             
-                            <div class="form-group password-field">
-                                <label for="confirm-password">Confirm Password</label>
-                                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
-                                <button type="button" class="password-toggle" onclick="togglePassword('confirm-password')">
-                                    <i class="far fa-eye"></i>
-                                </button>
+                            <div class="kyc-requirements">
+                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
+                                <ul class="requirement-list">
+                                    <li>Priority institution verification (2-3 business days)</li>
+                                    <li>Verification of religious organization status</li>
+                                    <li>Transaction limits: Based on organizational needs</li>
+                                    <li>Access to premium donation and contribution management tools</li>
+                                    <li>Specialized services for religious organization treasurers</li>
+                                    <li>Tithing and offering management system</li>
+                                    <li>Integration with African religious networks</li>
+                                </ul>
                             </div>
-                            
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Personal Information -->
+                    <div class="form-step" id="step-2" style="display: none;">
+                        <div class="form-row">
                             <div class="form-group">
-                                <label for="security-question">Security Question</label>
-                                <select id="security-question" name="security-question" required>
-                                    <option value="" disabled selected>Select a security question</option>
-                                    <option value="pet">What was the name of your first pet?</option>
-                                    <option value="school">What was the name of your first school?</option>
-                                    <option value="mother">What is your mother's maiden name?</option>
-                                    <option value="city">In which city were you born?</option>
-                                    <option value="food">What is your favorite childhood food?</option>
+                                <label for="first-name">First Name</label>
+                                <input type="text" id="first-name" name="first-name" required placeholder="Enter your first name">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" required placeholder="Enter your last name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number with country code">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="country">Country of Residence</label>
+                                <select id="country" name="country" required>
+                                    <option value="" disabled selected>Select your country</option>
+                                    <option value="ng">Nigeria</option>
+                                    <option value="gh">Ghana</option>
+                                    <option value="ke">Kenya</option>
+                                    <option value="za">South Africa</option>
+                                    <option value="eg">Egypt</option>
+                                    <option value="tz">Tanzania</option>
+                                    <option value="et">Ethiopia</option>
+                                    <option value="other">Other African Country</option>
                                 </select>
                             </div>
-                            
                             <div class="form-group">
-                                <label for="security-answer">Security Answer</label>
-                                <input type="text" id="security-answer" name="security-answer" required placeholder="Enter your answer">
-                            </div>
-                            
-                            <div class="document-upload">
-                                <h3>Identity Verification</h3>
-                                <p>Please upload the following documents to verify your identity:</p>
-                                
-                                <div class="form-group">
-                                    <label for="id-document">Government-issued ID</label>
-                                    <input type="file" id="id-document" name="id-document" accept="image/*, application/pdf" style="display: none;">
-                                    <label for="id-document" class="upload-btn">
-                                        <i class="fas fa-upload"></i> Upload ID (Passport/Driver's License)
-                                    </label>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="address-proof">Proof of Address</label>
-                                    <input type="file" id="address-proof" name="address-proof" accept="image/*, application/pdf" style="display: none;">
-                                    <label for="address-proof" class="upload-btn">
-                                        <i class="fas fa-upload"></i> Upload Proof of Address
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <div class="form-navigation">
-                                <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
-                                <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob" name="dob" required>
                             </div>
                         </div>
                         
-                        <!-- Step 4: Review & Submit -->
-                        <div class="form-step" id="step-4" style="display: none;">
-                            <h3>Review Your Information</h3>
-                            <p>Please review your information before submitting your application.</p>
-                            
-                            <div class="kyc-section">
-                                <div id="review-content">
-                                    <!-- Will be filled with JavaScript -->
-                                    <p>Please complete all previous steps to review your information.</p>
-                                </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" required placeholder="Enter your street address">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" required placeholder="Enter your city">
                             </div>
-                            
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="terms" name="terms" required>
-                                <label for="terms">I agree to AnnitaPay's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                            </div>
-                            
-                            <div class="checkbox-group">
-                                <input type="checkbox" id="marketing" name="marketing">
-                                <label for="marketing">I would like to receive updates, promotions, and news from AnnitaPay</label>
-                            </div>
-                            
-                            <div class="form-navigation">
-                                <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
-                                <button type="submit" class="next-btn">Submit Application <i class="fas fa-check"></i></button>
+                            <div class="form-group">
+                                <label for="postal-code">Postal/ZIP Code</label>
+                                <input type="text" id="postal-code" name="postal-code" required placeholder="Enter your postal code">
                             </div>
                         </div>
-                    </form>
-                    
-                    <div class="login-divider">
-                        <span>Or sign up with</span>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
                     </div>
                     
-                    <div class="social-login">
-                        <button class="social-login-btn google"><i class="fab fa-google"></i></button>
-                        <button class="social-login-btn linkedin"><i class="fab fa-linkedin-in"></i></button>
-                        <button class="social-login-btn facebook"><i class="fab fa-facebook-f"></i></button>
-                        <button class="social-login-btn apple"><i class="fab fa-apple"></i></button>
+                    <!-- Step 3: Security & Verification -->
+                    <div class="form-step" id="step-3" style="display: none;">
+                        <div class="form-group password-field">
+                            <label for="password">Create Password</label>
+                            <input type="password" id="password" name="password" required placeholder="Create a secure password">
+                            <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="form-group password-field">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+                            <button type="button" class="password-toggle" onclick="togglePassword('confirm-password')">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="security-question">Security Question</label>
+                            <select id="security-question" name="security-question" required>
+                                <option value="" disabled selected>Select a security question</option>
+                                <option value="pet">What was the name of your first pet?</option>
+                                <option value="school">What was the name of your first school?</option>
+                                <option value="mother">What is your mother's maiden name?</option>
+                                <option value="city">In which city were you born?</option>
+                                <option value="food">What is your favorite childhood food?</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="security-answer">Security Answer</label>
+                            <input type="text" id="security-answer" name="security-answer" required placeholder="Enter your answer">
+                        </div>
+                        
+                        <div class="document-upload">
+                            <h3>Premium Identity Verification</h3>
+                            <p>Please upload the following documents to verify your identity for your premium account with Annita:</p>
+                            
+                            <div class="form-group">
+                                <label for="id-document">Government-issued ID</label>
+                                <input type="file" id="id-document" name="id-document" accept="image/*, application/pdf" style="display: none;">
+                                <label for="id-document" class="upload-btn">
+                                    <i class="fas fa-upload"></i> Upload ID (Passport/Driver's License/National ID)
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address-proof">Proof of Address</label>
+                                <input type="file" id="address-proof" name="address-proof" accept="image/*, application/pdf" style="display: none;">
+                                <label for="address-proof" class="upload-btn">
+                                    <i class="fas fa-upload"></i> Upload Proof of Address
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="additional-docs">Additional Documents (If required)</label>
+                                <input type="file" id="additional-docs" name="additional-docs" accept="image/*, application/pdf" style="display: none;">
+                                <label for="additional-docs" class="upload-btn">
+                                    <i class="fas fa-upload"></i> Upload Additional Documents
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                        </div>
                     </div>
                     
-                    <div class="already-account">
-                        Already have an account? <a href="login.html">Log in here</a>
+                    <!-- Step 4: Review & Submit -->
+                    <div class="form-step" id="step-4" style="display: none;">
+                        <h3>Review Your Premium Application</h3>
+                        <p>Please review your information before submitting your premium account application to Annita.</p>
+                        
+                        <div class="kyc-section">
+                            <div id="review-content">
+                                <!-- Will be filled with JavaScript -->
+                                <p>Please complete all previous steps to review your premium application.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to Annita's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, and <a href="#">Premium Agreement</a></label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="marketing" name="marketing">
+                            <label for="marketing">I would like to receive updates, promotions, and exclusive offers from Annita Premium</label>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button type="submit" class="next-btn">Submit Premium Application <i class="fas fa-check"></i></button>
+                        </div>
                     </div>
+                </form>
+                
+                <div class="login-divider">
+                    <span>Or sign up with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="social-login-btn google"><i class="fab fa-google"></i></button>
+                    <button class="social-login-btn linkedin"><i class="fab fa-linkedin-in"></i></button>
+                    <button class="social-login-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                    <button class="social-login-btn apple"><i class="fab fa-apple"></i></button>
+                </div>
+                
+                <div class="already-account">
+                    Already have an account? <a href="login.html">Log in here</a>
                 </div>
             </div>
-        </section>
-    
-        <!-- Footer -->
-        <footer>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
             <div class="footer-grid">
-                <div>
-                    <div class="footer-logo">
-                        <div>AnnitaPay</div>
-                    </div>
-                    <p class="footer-about">
-                        AnnitaPay is a secure global payment platform helping individuals and businesses make seamless transactions worldwide.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <div class="footer-column">
+                    <div class="footer-logo-group">
+                        <a href="index.html" class="logo">
+                            <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+                            <span class="logo-text">Annita</span>
+                        </a>
+                        <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+                        </div>
                     </div>
                 </div>
                 
-                <div>
-                    <h3 class="footer-title">Products</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Personal Banking</a></li>
-                        <li><a href="#">Business Accounts</a></li>
-                        <li><a href="#">International Transfers</a></li>
-                        <li><a href="#">Currency Exchange</a></li>
-                        <li><a href="#">Payment Gateway</a></li>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">AnnitaPay</a></li>
+                        <li><a href="#">AnnitaMarket</a></li>
+                        <li><a href="#">AnnitaConnect</a></li>
+                        <li><a href="#">AnnitaAI</a></li>
+                        <li><a href="#">AnnitaAds</a></li>
+                        <li><a href="#">AnnitaCloud</a></li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h3 class="footer-title">Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">CSR Initiatives</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="footer-title">Support</h3>
-                    <ul class="footer-links">
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
                         <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Community Forum</a></li>
-                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Developers</a></li>
                         <li><a href="#">API Documentation</a></li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h3 class="footer-title">Contact</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-envelope"></i> support@annitapay.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (888) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Finance Street, Tech City, TC 10101</li>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="careerpage.html">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="blogpage.html">Our Blog</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
                     </ul>
-                    <select class="footer-country-dropdown">
-                        <option value="gl">Global - English</option>
-                        <option value="us">United States - English</option>
-                        <option value="uk">United Kingdom - English</option>
-                        <option value="ca">Canada - English</option>
-                        <option value="fr">France - Français</option>
-                        <option value="de">Germany - Deutsch</option>
-                    </select>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                &copy; 2025 AnnitaPay. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a> | <a href="#" style="color: inherit;">Cookies Policy</a>
+            <div class="footer-bottom">
+                <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+                <div class="footer-links-horizontal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Legal</a>
+                </div>
             </div>
-        </footer>
-    
-        <script>
-            let currentStep = 1;
-            const totalSteps = 4;
-            
-            function nextStep() {
-                if (currentStep < totalSteps) {
-                    document.getElementById(`step-${currentStep}`).style.display = 'none';
-                    currentStep++;
-                    document.getElementById(`step-${currentStep}`).style.display = 'block';
-                    updateProgress();
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+        <div class="chatbot-button">
+            <i class="fa fa-bell"></i>
+            <div class="notification-badge">1</div>
+            <div class="chatbot-tooltip">Ask Annita AI?</div>
+        </div>
+        <div class="chatbot-window">
+            <div class="chat-header">
+                <h3>Annita AI Assistant</h3>
+                <button class="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages">
+                <div class="message bot-message fade-in">
+                    Hello! I'm Annita AI. How can I help you with your premium account setup today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatbot-input" placeholder="Type your message...">
+                <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+        
+        // Initialize chatbot
+        const chatbotToggle = document.querySelector('.chatbot-button');
+        const chatbotContainer = document.querySelector('.chatbot-container');
+        const chatbotClose = document.querySelector('.close-chat');
+        const chatbotMessages = document.querySelector('.chat-messages');
+        const chatbotInput = document.querySelector('.chat-input input');
+        const chatbotSend = document.querySelector('.chat-input button');
+        
+        // Toggle chat window
+        chatbotToggle.addEventListener('click', function() {
+            chatbotContainer.classList.toggle('open');
+            // Remove notification badge when chat is opened
+            document.querySelector('.notification-badge').style.display = 'none';
+        });
+
+        // Close chat window
+        chatbotClose.addEventListener('click', function() {
+            chatbotContainer.classList.remove('open');
+        });
+
+        // Send message function
+        function sendMessage() {
+            const messageText = chatbotInput.value.trim();
+            if (messageText) {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message fade-in';
+                userMessage.textContent = messageText;
+                chatbotMessages.appendChild(userMessage);
+
+                // Clear input
+                chatbotInput.value = '';
+
+                // Scroll to bottom
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+                // Simulate bot response after a delay
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message fade-in';
                     
-                    // If we're on the review step, populate the review content
-                    if (currentStep === 4) {
-                        populateReview();
-                    }
-                    
-                    // Scroll to top of form
-                    document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-            
-            function prevStep() {
-                if (currentStep > 1) {
-                    document.getElementById(`step-${currentStep}`).style.display = 'none';
-                    currentStep--;
-                    document.getElementById(`step-${currentStep}`).style.display = 'block';
-                    updateProgress();
-                    
-                    // Scroll to top of form
-                    document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-            
-            function updateProgress() {
-                const progressBar = document.getElementById('signup-progress');
-                const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
-                progressBar.style.width = `${progressPercentage}%`;
-                
-                // Update step indicators
-                const steps = document.querySelectorAll('.step');
-                steps.forEach((step, index) => {
-                    if (index + 1 < currentStep) {
-                        step.className = 'step completed';
-                    } else if (index + 1 === currentStep) {
-                        step.className = 'step active';
+                    // Simple responses based on keywords
+                    if (messageText.toLowerCase().includes('help') || messageText.toLowerCase().includes('support')) {
+                        botMessage.textContent = "For premium support, you can email us at premium@annita.com or call our 24/7 premium support line.";
+                    } else if (messageText.toLowerCase().includes('account') || messageText.toLowerCase().includes('setup')) {
+                        botMessage.textContent = "I can help with premium account setup. What specific question do you have about the process?";
+                    } else if (messageText.toLowerCase().includes('fee') || messageText.toLowerCase().includes('cost')) {
+                        botMessage.textContent = "Our premium accounts have different pricing tiers based on features. Would you like information about Personal Premium or Business Premium?";
                     } else {
-                        step.className = 'step';
+                        botMessage.textContent = "Thank you for your message. Our premium support team will get back to you shortly. Is there anything else I can help with?";
                     }
-                });
-            }
-            
-            function togglePassword(inputId) {
-                const passwordInput = document.getElementById(inputId);
-                const toggleBtn = passwordInput.nextElementSibling;
-                const toggleIcon = toggleBtn.querySelector('i');
-                
-                if (passwordInput.type === 'password') {
-                    passwordInput.type = 'text';
-                    toggleIcon.classList.remove('fa-eye');
-                    toggleIcon.classList.add('fa-eye-slash');
-                } else {
-                    passwordInput.type = 'password';
-                    toggleIcon.classList.remove('fa-eye-slash');
-                    toggleIcon.classList.add('fa-eye');
-                }
-            }
-            
-            function showKycRequirements() {
-                const accountType = document.getElementById('account-type').value;
-                
-                // Hide all KYC details first
-                document.querySelectorAll('.kyc-details').forEach(el => {
-                    el.style.display = 'none';
-                });
-                
-                // Show the selected one if it exists
-                const selectedKyc = document.getElementById(`${accountType}-kyc`);
-                if (selectedKyc) {
-                    selectedKyc.style.display = 'block';
-                }
-            }
-            
-            function populateReview() {
-                // Get values from the form
-                const accountType = document.getElementById('account-type').value;
-                const firstName = document.getElementById('first-name').value;
-                const lastName = document.getElementById('last-name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                const country = document.getElementById('country').value;
-                const dob = document.getElementById('dob').value;
-                const address = document.getElementById('address').value;
-                const city = document.getElementById('city').value;
-                const postalCode = document.getElementById('postal-code').value;
-                
-                // Map account type value to display name
-                const accountTypeMap = {
-                    'personal': 'Personal Account',
-                    'business-freelancer': 'Business - Freelancer/Sole Trader',
-                    'business-startup': 'Business - Startup',
-                    'business-sme': 'Business - Small to Medium Enterprise',
-                    'business-enterprise': 'Business - Enterprise',
-                    'charity': 'Charity/Non-Profit',
-                    'religious': 'Religious Institution'
-                };
-                
-                // Create review HTML
-                let reviewHTML = `
-                    <h4>Account Type</h4>
-                    <p>${accountTypeMap[accountType] || 'Not selected'}</p>
                     
-                    <h4>Personal Information</h4>
+                    chatbotMessages.appendChild(botMessage);
+                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        // Send message on button click
+        chatbotSend.addEventListener('click', sendMessage);
+
+        // Send message on Enter key
+        chatbotInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                document.getElementById(`step-${currentStep}`).style.display = 'none';
+                currentStep++;
+                document.getElementById(`step-${currentStep}`).style.display = 'block';
+                updateProgress();
+                
+                // If we're on the review step, populate the review content
+                if (currentStep === 4) {
+                    populateReview();
+                }
+                
+                // Scroll to top of form
+                document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step-${currentStep}`).style.display = 'none';
+                currentStep--;
+                document.getElementById(`step-${currentStep}`).style.display = 'block';
+                updateProgress();
+                
+                // Scroll to top of form
+                document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        function updateProgress() {
+            const progressBar = document.getElementById('signup-progress');
+            const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+            
+            // Update step indicators
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                if (index + 1 < currentStep) {
+                    step.className = 'step completed';
+                } else if (index + 1 === currentStep) {
+                    step.className = 'step active';
+                } else {
+                    step.className = 'step';
+                }
+            });
+        }
+        
+        function togglePassword(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleBtn = passwordInput.nextElementSibling;
+            const toggleIcon = toggleBtn.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+        
+        function showKycRequirements() {
+            const accountType = document.getElementById('account-type').value;
+            
+            // Hide all KYC details first
+            document.querySelectorAll('.kyc-details').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show the selected one if it exists
+            const selectedKyc = document.getElementById(`${accountType}-kyc`);
+            if (selectedKyc) {
+                selectedKyc.style.display = 'block';
+            }
+        }
+        
+        function populateReview() {
+            // Get values from the form
+            const accountType = document.getElementById('account-type').value;
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const country = document.getElementById('country').value;
+            const dob = document.getElementById('dob').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const postalCode = document.getElementById('postal-code').value;
+            
+            // Map account type value to display name
+            const accountTypeMap = {
+                'personal': 'Personal Premium Account',
+                'business-freelancer': 'Business - Freelancer/Sole Trader',
+                'business-startup': 'Business - Startup',
+                'business-sme': 'Business - Small to Medium Enterprise',
+                'business-enterprise': 'Business - Enterprise',
+                'charity': 'Charity/Non-Profit',
+                'religious': 'Religious Institution'
+            };
+            
+            // Format date of birth
+            const formattedDob = dob ? new Date(dob).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            }) : 'Not provided';
+            
+            // Create review HTML
+            let reviewHTML = `
+                <div class="review-section">
+                    <h4><i class="fas fa-user-circle"></i> Account Type</h4>
+                    <p>${accountTypeMap[accountType] || 'Not selected'}</p>
+                </div>
+                
+                <div class="review-section">
+                    <h4><i class="fas fa-info-circle"></i> Personal Information</h4>
                     <p><strong>Name:</strong> ${firstName} ${lastName}</p>
                     <p><strong>Email:</strong> ${email}</p>
                     <p><strong>Phone:</strong> ${phone}</p>
-                    <p><strong>Date of Birth:</strong> ${dob}</p>
-                    
-                    <h4>Address</h4>
+                    <p><strong>Date of Birth:</strong> ${formattedDob}</p>
+                </div>
+                
+                <div class="review-section">
+                    <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
                     <p>${address}</p>
                     <p>${city}, ${postalCode}</p>
                     <p>${document.getElementById('country').options[document.getElementById('country').selectedIndex].text}</p>
-                    
-                    <h4>Documents Uploaded</h4>
+                </div>
+                
+                <div class="review-section">
+                    <h4><i class="fas fa-file-upload"></i> Documents Uploaded</h4>
                     <p>ID Document: ${document.getElementById('id-document').files.length ? document.getElementById('id-document').files[0].name : 'Not uploaded'}</p>
                     <p>Proof of Address: ${document.getElementById('address-proof').files.length ? document.getElementById('address-proof').files[0].name : 'Not uploaded'}</p>
-                    
-                    <p class="requirement-list" style="margin-top: 1rem;">Please ensure all information is correct before submitting. You'll receive a confirmation email with next steps.</p>
-                `;
+                    ${document.getElementById('additional-docs').files.length ? 
+                        `<p>Additional Documents: ${document.getElementById('additional-docs').files[0].name}</p>` : ''}
+                </div>
                 
-                // Set the HTML content of the review section
-                document.getElementById('review-content').innerHTML = reviewHTML;
-            }
+                <div class="premium-benefits-notice">
+                    <p><i class="fas fa-crown"></i> <strong>Premium Benefits Activated:</strong> Your account will be processed with priority and you'll receive exclusive premium features upon approval.</p>
+                </div>
+            `;
             
-            // Mobile menu toggle functionality
-            document.querySelector('.mobile-menu').addEventListener('click', function() {
-                const navLinks = document.querySelector('.nav-links');
-                const authButtons = document.querySelector('.auth-buttons');
-                
-                if (navLinks.style.display === 'flex') {
-                    navLinks.style.display = 'none';
-                    authButtons.style.display = 'none';
+            // Set the HTML content of the review section
+            document.getElementById('review-content').innerHTML = reviewHTML;
+        }
+        
+        // Enhanced Mobile Menu Toggle with Premium Animations
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const overlay = document.querySelector('.menu-overlay');
+        const body = document.body;
+        
+        // Toggle menu function
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            body.classList.toggle('no-scroll');
+            
+            if (mobileMenu.classList.contains('active')) {
+                // Disable scrolling when menu is open
+                body.style.overflow = 'hidden';
+                // Add iOS inertia scrolling to menu
+                mobileMenu.style.webkitOverflowScrolling = 'touch';
+            } else {
+                // Re-enable scrolling
+                body.style.overflow = '';
+                // Remove iOS inertia when menu is closed
+                mobileMenu.style.webkitOverflowScrolling = '';
+            }
+        }
+        
+        // Hamburger click event
+        hamburger.addEventListener('click', toggleMenu);
+        
+        // Overlay click event
+        overlay.addEventListener('click', toggleMenu);
+        
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only prevent default for anchor links (same page navigation)
+                if (link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    toggleMenu();
+                    setTimeout(() => {
+                        const target = document.querySelector(link.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }, 500);
                 } else {
-                    navLinks.style.display = 'flex';
-                    navLinks.style.flexDirection = 'column';
-                    navLinks.style.position = 'absolute';
-                    navLinks.style.top = '100%';
-                    navLinks.style.left = '0';
-                    navLinks.style.width = '100%';
-                    navLinks.style.backgroundColor = 'var(--primary)';
-                    navLinks.style.padding = '1rem';
-                    
-                    authButtons.style.display = 'flex';
-                    authButtons.style.flexDirection = 'column';
-                    authButtons.style.width = '100%';
-                    authButtons.style.padding = '1rem';
-                    authButtons.style.backgroundColor = 'var(--primary)';
-                    authButtons.style.position = 'absolute';
-                    authButtons.style.top = 'calc(100% + ' + navLinks.offsetHeight + 'px)';
-                    authButtons.style.left = '0';
-                    authButtons.style.gap = '0.5rem';
+                    // For all other links, just close the menu
+                    // The browser will handle the navigation normally
+                    toggleMenu();
                 }
             });
-            
-            // Initialize the progress bar
-            updateProgress();
-        </script>
-    </body>
-    </html>
-                                    
+        });
+        
+        // Handle iOS viewport height changes
+        function handleViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        // Initial call
+        handleViewportHeight();
+        
+        // Listen for resize events
+        window.addEventListener('resize', handleViewportHeight);
+        window.addEventListener('orientationchange', handleViewportHeight);
+        
+        // Prevent body scroll when menu is open
+        document.addEventListener('touchmove', function(e) {
+            if (mobileMenu.classList.contains('active')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Initialize the progress bar
+        updateProgress();
+    </script>
+</body>
+</html>
