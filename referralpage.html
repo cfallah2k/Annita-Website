@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Referral Program - Annita Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF7D06;
+      --secondary: #6C1D3A;
+      --accent: #FFC200;
+      --dark: #111111;
+      --light: #FFFFFF;
+      --grey: #F5F5F5;
+      --blue-dark: #001a57;
+      --blue-light: #00c2ff;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    /* Header with Hamburger Menu */
+    header {
+      background-color: var(--light);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      transition: var(--transition);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid var(--primary);
+      transition: var(--transition);
+    }
+
+    .logo-text {
+      font-family: 'Zen Dots', cursive;
+      font-weight: 400;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      text-align: center;
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 125, 6, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background-color: #e67100;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 125, 6, 0.4);
+    }
+    
+    /* Hamburger Menu */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+    }
+    
+    .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--dark);
+      position: absolute;
+      left: 5px;
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+    
+    .hamburger-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .hamburger-icon:before {
+      top: -8px;
+    }
+    
+    .hamburger-icon:after {
+      top: 8px;
+    }
+    
+    .hamburger-menu.active .hamburger-icon {
+      background-color: transparent;
+    }
+    
+    .hamburger-menu.active .hamburger-icon:before {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger-menu.active .hamburger-icon:after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      background-color: white;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-menu ul {
+      list-style: none;
+      width: 100%;
+    }
+    
+    .mobile-menu li {
+      margin-bottom: 15px;
+    }
+    
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      transition: var(--transition);
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+    
+    .mobile-menu a i {
+      margin-right: 15px;
+      width: 24px;
+      text-align: center;
+      color: var(--primary);
+    }
+    
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+    
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      width: 100%;
+      background-color: var(--grey);
+      margin-top: 80px; /* Offset for fixed header */
+    }
+
+    /* Referral Hero Section */
+    .referral-hero {
+      background: linear-gradient(rgba(0, 26, 87, 0.8), rgba(0, 26, 87, 0.9)), url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 8rem 0 4rem;
+      color: var(--light);
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .referral-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(108, 29, 58, 0.7) 0%, rgba(0, 26, 87, 0.9) 100%);
+      z-index: 0;
+    }
+    
+    .referral-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .referral-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .referral-hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px 30px;
+      border-radius: 10px;
+      min-width: 160px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Referral Container */
+    .referral-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* Referral Program Section */
+    .referral-program {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .referral-program {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .referral-info {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .referral-info:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .referral-card {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .referral-card:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .referral-card h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .referral-card h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .referral-card p {
+      margin-bottom: 30px;
+      color: #555;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .referral-steps {
+      margin: 30px 0;
+    }
+
+    .step {
+      display: flex;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h3 {
+      font-size: 1.3rem;
+      color: var(--blue-dark);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .step-content p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* Referral Link Section */
+    .referral-link-section {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .referral-link-section:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .referral-link-section h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .referral-link-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .referral-link-container {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .referral-link-container {
+        flex-direction: column;
+      }
+    }
+
+    .referral-link-input {
+      flex: 1;
+      padding: 15px 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .referral-link-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .referral-link-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn-copy {
+      background-color: var(--blue-dark);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0 25px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .btn-copy:hover {
+      background-color: #000d3a;
+      transform: translateY(-2px);
+    }
+
+    .btn-share {
+      background-color: var(--light);
+      color: var(--blue-dark);
+      border: 2px solid var(--blue-dark);
+      border-radius: 8px;
+      padding: 0 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    .btn-share:hover {
+      background-color: var(--blue-dark);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .social-share-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-share-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .facebook-share {
+      background-color: #3b5998;
+    }
+
+    .twitter-share {
+      background-color: #1da1f2;
+    }
+
+    .linkedin-share {
+      background-color: #0077b5;
+    }
+
+    .whatsapp-share {
+      background-color: #25d366;
+    }
+
+    .email-share {
+      background-color: #d44638;
+    }
+
+    .social-share-btn:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Referral Rewards Section */
+    .referral-rewards {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .referral-rewards:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .referral-rewards h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .referral-rewards h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .rewards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .reward-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reward-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .reward-card.featured {
+      border: 2px solid var(--primary);
+    }
+
+    .reward-icon {
+      width: 80px;
+      height: 80px;
+      background-color: rgba(255, 125, 6, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .reward-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--blue-dark);
+    }
+
+    .reward-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .reward-description {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .reward-requirements {
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .reward-badge {
+      position: absolute;
+      top: 15px;
+      right: -30px;
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 5px 30px;
+      transform: rotate(45deg);
+      font-size: 0.8rem;
+      font-weight: 600;
+      width: 120px;
+      text-align: center;
+    }
+
+    /* Referral Leaderboard */
+    .referral-leaderboard {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .referral-leaderboard:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .referral-leaderboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .referral-leaderboard h2 {
+      color: var(--secondary);
+      margin-bottom: 0;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .referral-leaderboard h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .leaderboard-timeframe {
+      display: flex;
+      gap: 10px;
+    }
+
+    .timeframe-btn {
+      padding: 8px 15px;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .timeframe-btn.active {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .leaderboard-table thead th {
+      text-align: left;
+      padding: 15px;
+      background-color: #f5f5f5;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .leaderboard-table tbody tr {
+      border-bottom: 1px solid #eee;
+      transition: var(--transition);
+    }
+
+    .leaderboard-table tbody tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .leaderboard-table td {
+      padding: 15px;
+      vertical-align: middle;
+    }
+
+    .leaderboard-rank {
+      font-weight: 700;
+      color: var(--blue-dark);
+      width: 50px;
+    }
+
+    .leaderboard-user {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .user-name {
+      font-weight: 500;
+    }
+
+    .referral-count {
+      font-weight: 600;
+      color: var(--primary);
+      text-align: right;
+    }
+
+    .leaderboard-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .pagination-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .pagination-btn.active {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .pagination-btn:hover:not(.active) {
+      background-color: #e0e0e0;
+    }
+
+    /* Referral FAQ */
+    .referral-faq {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .referral-faq:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .referral-faq h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .referral-faq h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: var(--primary);
+    }
+
+    .faq-question {
+      padding: 20px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      background-color: #f0f0f0;
+    }
+
+    .faq-question i {
+      transition: var(--transition);
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 20px;
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      margin-bottom: 15px;
+    }
+
+    .faq-answer ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* Referral Testimonials */
+    .referral-testimonials {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .referral-testimonials:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .referral-testimonials h2 {
+      color: var(--secondary);
+      margin-bottom: 25px;
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 15px;
+      text-align: center;
+    }
+
+    .referral-testimonials h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    .testimonials-slider {
+      position: relative;
+      margin-top: 40px;
+    }
+
+    .testimonials-container {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 30px;
+      padding-bottom: 20px;
+    }
+
+    .testimonial-card {
+      min-width: 350px;
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      scroll-snap-align: start;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(255, 125, 6, 0.1);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      margin-bottom: 20px;
+      font-style: italic;
+      color: #555;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin-bottom: 5px;
+      color: var(--blue-dark);
+    }
+
+    .author-info p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-rating {
+      color: var(--accent);
+      margin-top: 5px;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .slider-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .slider-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Referral CTA */
+    .referral-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 15px;
+      padding: 60px 40px;
+      text-align: center;
+      color: white;
+      margin-bottom: 50px;
+    }
+
+    .referral-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .referral-cta p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-cta-primary {
+      background-color: white;
+      color: var(--primary);
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      text-align: center;
+      min-width: 200px;
+    }
+
+    .btn-cta-primary:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-cta-secondary {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      text-align: center;
+      min-width: 200px;
+    }
+
+    .btn-cta-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 80px 20px 30px;
+      position: relative;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+    
+    .footer-column ul {
+      list-style: none;
+    }
+    
+    .footer-column li {
+      margin-bottom: 15px;
+    }
+    
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+    
+    .footer-column a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .footer-social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: var(--transition);
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    .footer-logo-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-logo-group .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo-group .logo-text {
+      color: white;
+    }
+
+    .footer-tagline {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 300px;
+    }
+
+    .footer-links-horizontal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links-horizontal a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-links-horizontal a:hover {
+      color: var(--primary);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+      
+      .referral-hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links, .nav-buttons {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .referral-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .referral-hero p {
+        font-size: 1.05rem;
+      }
+
+      .referral-link-container {
+        flex-direction: column;
+      }
+
+      .referral-link-buttons {
+        width: 100%;
+      }
+
+      .btn-copy, .btn-share {
+        flex: 1;
+        justify-content: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+      .footer-links-horizontal {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .referral-hero {
+        padding: 6rem 0 3rem;
+      }
+      
+      .referral-hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .referral-hero p {
+        font-size: 1rem;
+      }
+
+      .stat-item {
+        min-width: 120px;
+        padding: 15px;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+      }
+
+      .referral-info, .referral-card, .referral-link-section, 
+      .referral-rewards, .referral-leaderboard, .referral-faq, 
+      .referral-testimonials {
+        padding: 25px;
+      }
+
+      .testimonial-card {
+        min-width: 280px;
+      }
+
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .referral-hero-content {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .referral-info {
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+
+    .referral-card {
+      animation: fadeIn 0.8s ease-out 0.4s both;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e67100;
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #333 transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background-color: var(--primary);
+      border-radius: 10px;
+      transition: width 0.5s ease;
+      position: relative;
+    }
+
+    .progress-text {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    /* Countdown Timer */
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .countdown-item {
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      background-color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .countdown-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 5px;
+      letter-spacing: 1px;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .badge-secondary {
+      background-color: var(--secondary);
+      color: white;
+    }
+
+    .badge-accent {
+      background-color: var(--accent);
+      color: var(--dark);
+    }
+
+    /* Ribbon */
+    .ribbon {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid #e67100;
+    }
+
+    .ribbon::before {
+      top: 0;
+      left: 0;
+    }
+
+    .ribbon::after {
+      bottom: 0;
+      right: 0;
+    }
+
+    .ribbon span {
+      position: absolute;
+      display: block;
+      width: 225px;
+      padding: 15px 0;
+      background-color: var(--primary);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      color: #fff;
+      font-size: 0.9rem;
+      text-align: center;
+      right: -25px;
+      top: 30px;
+      transform: rotate(45deg);
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .floating {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Pulse Animation */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    /* Shake Animation */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    .shake {
+      animation: shake 0.5s;
+    }
+
+    /* Bounce Animation */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-20px); }
+      60% { transform: translateY(-10px); }
+    }
+
+    .bounce {
+      animation: bounce 1s;
+    }
+
+    /* Fade Out Animation */
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateX(-50%) translateY(0); }
+      to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Hamburger Menu -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+        <span class="logo-text">Annita</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Personal</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contactus.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="loginpage.html" class="btn btn-outline">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <div class="hamburger-menu">
+        <span class="hamburger-icon"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
+      <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+    </ul>
+  </div>
+  <div class="menu-overlay"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Referral Hero Section -->
+    <section class="referral-hero">
+      <div class="referral-hero-content">
+        <h1>Annita Referral Program</h1>
+        <p>Invite friends to Annita and earn amazing rewards when they sign up and complete qualifying activities. Start sharing today!</p>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">$50K+</div>
+            <div class="stat-label">Earned by Users</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Successful Referrals</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">1:3</div>
+            <div class="stat-label">Conversion Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="referral-container">
+      <!-- Referral Program Section -->
+      <section class="referral-program">
+        <div class="referral-info">
+          <h2>How It Works</h2>
+          <p>Our referral program is designed to reward you for spreading the word about Annita. For every friend who signs up using your unique referral link and completes a qualifying activity, you both earn rewards.</p>
+          
+          <div class="referral-steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Get Your Unique Link</h3>
+                <p>Copy your personal referral link from your dashboard or the section below.</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Share With Friends</h3>
+                <p>Share your link via email, social media, WhatsApp, or directly with friends and family.</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>They Sign Up & Activate</h3>
+                <p>Your friend signs up using your link and completes a qualifying activity (like making their first deposit).</p>
+              </div>
+            </div>
+            
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>You Both Earn Rewards</h3>
+                <p>Once verified, the reward is credited to both your accounts immediately!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="referral-card">
+          <h2>Your Referral Status</h2>
+          <p>Track your progress and see how close you are to unlocking the next reward tier.</p>
+          
+          <div class="progress-container">
+            <div class="progress-bar" style="width: 65%;">
+              <span class="progress-text">65% Complete</span>
+            </div>
+          </div>
+          
+          <div style="margin: 30px 0;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span>5 Referrals</span>
+              <span>10 Referrals</span>
+              <span>25 Referrals</span>
+              <span>50+ Referrals</span>
+            </div>
+          </div>
+          
+          <div style="text-align: center; margin-top: auto;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Your Current Rewards</h3>
+            <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 10px;">$25</div>
+            <p style="color: #666; margin-bottom: 20px;">Earned from 8 successful referrals</p>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+              <div>
+                <div style="font-weight: 600;">8</div>
+                <div style="font-size: 0.9rem; color: #888;">Successful</div>
+              </div>
+              <div>
+                <div style="font-weight: 600;">12</div>
+                <div style="font-size: 0.9rem; color: #888;">Pending</div>
+              </div>
+              <div>
+                <div style="font-weight: 600;">3</div>
+                <div style="font-size: 0.9rem; color: #888;">Rejected</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Referral Link Section -->
+      <section class="referral-link-section">
+        <h2>Your Unique Referral Link</h2>
+        <p>Share this link with friends and family to start earning rewards. You'll both benefit when they sign up and complete qualifying activities.</p>
+        
+        <div class="referral-link-container">
+          <input type="text" class="referral-link-input" id="referral-link" value="https://annita.com/signup?ref=user12345" readonly>
+          <div class="referral-link-buttons">
+            <button class="btn-copy" id="copy-link">
+              <i class="fas fa-copy"></i> Copy
+            </button>
+            <button class="btn-share" id="share-link">
+              <i class="fas fa-share-alt"></i> Share
+            </button>
+          </div>
+        </div>
+        
+        <p style="font-size: 0.9rem; color: #888; margin-bottom: 20px;">This link is unique to you and will automatically track referrals from your account.</p>
+        
+        <h3 style="margin-top: 30px; margin-bottom: 15px;">Share Via Social Media</h3>
+        <div class="social-share-buttons">
+          <div class="social-share-btn facebook-share" data-platform="facebook">
+            <i class="fab fa-facebook-f"></i>
+          </div>
+          <div class="social-share-btn twitter-share" data-platform="twitter">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <div class="social-share-btn linkedin-share" data-platform="linkedin">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <div class="social-share-btn whatsapp-share" data-platform="whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <div class="social-share-btn email-share" data-platform="email">
+            <i class="fas fa-envelope"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- Referral Rewards Section -->
+      <section class="referral-rewards">
+        <h2>Reward Tiers</h2>
+        <p>Earn more as you refer more people. Our tiered system means your rewards increase with each successful referral.</p>
+        
+        <div class="rewards-grid">
+          <div class="reward-card">
+            <div class="reward-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3 class="reward-title">Starter</h3>
+            <div class="reward-amount">$2</div>
+            <div class="reward-description">For each successful referral when you have less than 5 total referrals</div>
+            <div class="reward-requirements">1-4 referrals</div>
+          </div>
+          
+          <div class="reward-card">
+            <div class="reward-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h3 class="reward-title">Bronze</h3>
+            <div class="reward-amount">$3</div>
+            <div class="reward-description">Increased rewards after reaching 5 successful referrals</div>
+            <div class="reward-requirements">5-9 referrals</div>
+          </div>
+          
+          <div class="reward-card featured">
+            <div class="reward-badge">Popular</div>
+            <div class="reward-icon">
+              <i class="fas fa-medal"></i>
+            </div>
+            <h3 class="reward-title">Silver</h3>
+            <div class="reward-amount">$5</div>
+            <div class="reward-description">Even better rewards when you reach 10 successful referrals</div>
+            <div class="reward-requirements">10-24 referrals</div>
+          </div>
+          
+          <div class="reward-card">
+            <div class="reward-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <h3 class="reward-title">Gold</h3>
+            <div class="reward-amount">$10</div>
+            <div class="reward-description">Top-tier rewards for our most active referrers</div>
+            <div class="reward-requirements">25+ referrals</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Referral Leaderboard -->
+      <section class="referral-leaderboard">
+        <div class="referral-leaderboard-header">
+          <h2>Top Referrers</h2>
+          <div class="leaderboard-timeframe">
+            <button class="timeframe-btn active">This Month</button>
+            <button class="timeframe-btn">All Time</button>
+          </div>
+        </div>
+        
+        <table class="leaderboard-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>User</th>
+              <th>Referrals</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="leaderboard-rank">1</td>
+              <td class="leaderboard-user">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="user-avatar" alt="User">
+                <span class="user-name">Amina Yusuf</span>
+              </td>
+              <td class="referral-count">47</td>
+            </tr>
+            <tr>
+              <td class="leaderboard-rank">2</td>
+              <td class="leaderboard-user">
+                <img src="https://randomuser.me/api/portraits/men/75.jpg" class="user-avatar" alt="User">
+                <span class="user-name">Emeka Okonkwo</span>
+              </td>
+              <td class="referral-count">39</td>
+            </tr>
+            <tr>
+              <td class="leaderboard-rank">3</td>
+              <td class="leaderboard-user">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="user-avatar" alt="User">
+                <span class="user-name">Chioma Adeleke</span>
+              </td>
+              <td class="referral-count">35</td>
+            </tr>
+            <tr>
+              <td class="leaderboard-rank">4</td>
+              <td class="leaderboard-user">
+                <img src="https://randomuser.me/api/portraits/men/42.jpg" class="user-avatar" alt="User">
+                <span class="user-name">Oluwaseun Bello</span>
+              </td>
+              <td class="referral-count">28</td>
+            </tr>
+            <tr>
+              <td class="leaderboard-rank">5</td>
+              <td class="leaderboard-user">
+                <img src="https://randomuser.me/api/portraits/women/55.jpg" class="user-avatar" alt="User">
+                <span class="user-name">Fatima Mohammed</span>
+              </td>
+              <td class="referral-count">24</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="leaderboard-pagination">
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn">4</button>
+          <button class="pagination-btn">5</button>
+        </div>
+      </section>
+
+      <!-- Referral FAQ -->
+      <section class="referral-faq">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our referral program below.</p>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What counts as a successful referral?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>A successful referral is when someone signs up using your unique referral link and completes at least one qualifying activity, such as:</p>
+            <ul>
+              <li>Verifying their account with valid ID</li>
+              <li>Making their first deposit of at least $10</li>
+              <li>Completing their profile information</li>
+              <li>Making their first transaction (for business accounts)</li>
+            </ul>
+            <p>You'll receive a notification when a referral becomes successful and the reward is credited to your account.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do I track my referrals?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>You can track all your referrals in real-time through your Annita dashboard. The dashboard shows:</p>
+            <ul>
+              <li>Total referrals sent</li>
+              <li>Successful referrals</li>
+              <li>Pending referrals (signed up but haven't completed qualifying activity)</li>
+              <li>Total earnings from referrals</li>
+              <li>Reward tier progress</li>
+            </ul>
+            <p>You'll also receive email notifications for each successful referral.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>When do I receive my referral rewards?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Referral rewards are credited to your Annita wallet immediately after a referral becomes successful. There's no waiting period.</p>
+            <p>You can withdraw your referral earnings at any time, subject to our standard withdrawal processing times (usually within 24 hours).</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Is there a limit to how many people I can refer?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No! There's no limit to the number of people you can refer. The more people you refer, the more you earn.</p>
+            <p>Plus, as you reach higher reward tiers (Bronze, Silver, Gold), you'll earn more per referral. Our top referrers also qualify for special bonuses and prizes.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I refer people who are already using Annita?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No, the referral program only applies to new users who have never had an Annita account before. Our system automatically checks for existing accounts.</p>
+            <p>If someone tries to sign up with your referral link but already has an account, it won't count as a successful referral.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What happens if someone I referred requests a refund?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>If a referred user requests a refund for their initial deposit or transaction within 14 days, the referral may be reversed and the reward deducted from your account.</p>
+            <p>This policy helps prevent abuse of the referral system. After 14 days, all referrals are considered final and won't be reversed.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Referral Testimonials -->
+      <section class="referral-testimonials">
+        <h2>Success Stories</h2>
+        <p>Hear from Annita users who have earned significant rewards through our referral program.</p>
+        
+        <div class="testimonials-slider">
+          <div class="testimonials-container">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                "I started sharing my referral link with friends and family, and within 3 months I had earned over $300! The extra income has helped me pay for my education and start a small business."
+              </div>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="author-avatar" alt="User">
+                <div class="author-info">
+                  <h4>Bisi Adeola</h4>
+                  <p>Lagos, Nigeria</p>
+                  <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                "As a student, the referral program has been a game-changer. I share my link on social media and through WhatsApp groups, and I've earned enough to cover my living expenses while in school."
+              </div>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/men/33.jpg" class="author-avatar" alt="User">
+                <div class="author-info">
+                  <h4>Tunde Okafor</h4>
+                  <p>Ibadan, Nigeria</p>
+                  <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                "I run a small business and encouraged my customers to sign up using my link. The extra income has allowed me to reinvest in my business and hire an additional employee. The process is so simple!"
+              </div>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/63.jpg" class="author-avatar" alt="User">
+                <div class="author-info">
+                  <h4>Amina Mohammed</h4>
+                  <p>Kano, Nigeria</p>
+                  <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="slider-controls">
+            <button class="slider-btn" id="prev-testimonial">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn" id="next-testimonial">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Referral CTA -->
+      <section class="referral-cta">
+        <h2>Ready to Start Earning?</h2>
+        <p>Join thousands of Annita users who are earning extra income by simply sharing our platform with friends and family.</p>
+        
+        <div class="cta-buttons">
+          <a href="#" class="btn-cta-primary">Get Your Referral Link</a>
+          <a href="signup.html" class="btn-cta-secondary">Sign Up Now</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo-group">
+            <a href="index.html" class="logo">
+              <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+              <span class="logo-text">Annita</span>
+            </a>
+            <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#">AnnitaPay</a></li>
+            <li><a href="#">AnnitaMarket</a></li>
+            <li><a href="#">AnnitaConnect</a></li>
+            <li><a href="#">AnnitaAI</a></li>
+            <li><a href="#">AnnitaAds</a></li>
+            <li><a href="#">AnnitaCloud</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+        <div class="footer-links-horizontal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.menu-overlay');
+      
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+      });
+      
+      overlay.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        this.classList.remove('active');
+      });
+
+      // Back to Top Button
+      const backToTopButton = document.querySelector('.back-to-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('active');
+        } else {
+          backToTopButton.classList.remove('active');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      // Copy Referral Link
+      const referralLink = document.getElementById('referral-link');
+      const copyButton = document.getElementById('copy-link');
+      
+      copyButton.addEventListener('click', function() {
+        referralLink.select();
+        document.execCommand('copy');
+        
+        // Change button text temporarily
+        const originalText = copyButton.innerHTML;
+        copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        
+        setTimeout(() => {
+          copyButton.innerHTML = originalText;
+        }, 2000);
+      });
+
+      // Share Referral Link
+      const shareButton = document.getElementById('share-link');
+      
+      shareButton.addEventListener('click', function() {
+        if (navigator.share) {
+          navigator.share({
+            title: 'Join me on Annita',
+            text: 'Sign up for Annita using my referral link and we both get rewards!',
+            url: referralLink.value
+          }).catch(err => {
+            console.log('Error sharing:', err);
+          });
+        } else {
+          // Fallback for browsers that don't support Web Share API
+          window.open(`mailto:?subject=Join me on Annita&body=Sign up for Annita using my referral link and we both get rewards! ${referralLink.value}`);
+        }
+      });
+
+      // Social Share Buttons
+      const socialShareButtons = document.querySelectorAll('.social-share-btn');
+      
+      socialShareButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const platform = this.getAttribute('data-platform');
+          let shareUrl = '';
+          const shareText = 'Sign up for Annita using my referral link and we both get rewards!';
+          
+          switch(platform) {
+            case 'facebook':
+              shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(referralLink.value)}`;
+              break;
+            case 'twitter':
+              shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(referralLink.value)}`;
+              break;
+            case 'linkedin':
+              shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(referralLink.value)}&title=${encodeURIComponent('Join me on Annita')}&summary=${encodeURIComponent(shareText)}`;
+              break;
+            case 'whatsapp':
+              shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + referralLink.value)}`;
+              break;
+            case 'email':
+              shareUrl = `mailto:?subject=Join me on Annita&body=${encodeURIComponent(shareText + '\n\n' + referralLink.value)}`;
+              break;
+          }
+          
+          window.open(shareUrl, '_blank', 'width=600,height=400');
+        });
+      });
+
+      // FAQ Accordion
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const item = this.parentNode;
+          item.classList.toggle('active');
+          
+          // Close other open items
+          faqQuestions.forEach(q => {
+            if (q !== this && q.parentNode.classList.contains('active')) {
+              q.parentNode.classList.remove('active');
+            }
+          });
+        });
+      });
+
+      // Testimonial Slider
+      const testimonialsContainer = document.querySelector('.testimonials-container');
+      const prevButton = document.getElementById('prev-testimonial');
+      const nextButton = document.getElementById('next-testimonial');
+      const testimonialCards = document.querySelectorAll('.testimonial-card');
+      let currentIndex = 0;
+      
+      function updateSlider() {
+        const cardWidth = testimonialCards[0].offsetWidth + 30; // Include gap
+        testimonialsContainer.scrollTo({
+          left: currentIndex * cardWidth,
+          behavior: 'smooth'
+        });
+      }
+      
+      prevButton.addEventListener('click', function() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      });
+      
+      nextButton.addEventListener('click', function() {
+        if (currentIndex < testimonialCards.length - 1) {
+          currentIndex++;
+          updateSlider();
+        }
+      });
+
+      // Leaderboard Timeframe Toggle
+      const timeframeButtons = document.querySelectorAll('.timeframe-btn');
+      
+      timeframeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          timeframeButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          // In a real implementation, you would fetch new data based on timeframe
+        });
+      });
+
+      // Leaderboard Pagination
+      const paginationButtons = document.querySelectorAll('.pagination-btn');
+      
+      paginationButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          paginationButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          // In a real implementation, you would fetch new data for the page
+        });
+      });
+
+      // Show notification
+      function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        notification.style.position = 'fixed';
+        notification.style.bottom = '20px';
+        notification.style.left = '50%';
+        notification.style.transform = 'translateX(-50%)';
+        notification.style.backgroundColor = 'var(--primary)';
+        notification.style.color = 'white';
+        notification.style.padding = '15px 30px';
+        notification.style.borderRadius = '8px';
+        notification.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
+        notification.style.zIndex = '1000';
+        notification.style.animation = 'fadeIn 0.5s ease-out';
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.animation = 'fadeOut 0.5s ease-out';
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 500);
+        }, 3000);
+      }
+    });
+
+    // Add fadeOut animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeOut {
+        from { opacity: 1; transform: translateX(-50%) translateY(0); }
+        to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

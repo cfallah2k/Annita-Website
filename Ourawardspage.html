@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Contact Sales - Annita Insights</title>
+  <title>Awards & Recognition - Annita Technologies</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
   <style>
     :root {
       --primary: #FF7D06;
@@ -361,13 +362,13 @@
       margin-top: 80px; /* Offset for fixed header */
     }
 
-    /* Sales Hero Section */
-    .sales-hero {
-      background: linear-gradient(135deg, rgba(108, 29, 58, 0.9) 0%, rgba(0, 26, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    /* Awards Hero Section */
+    .awards-hero {
+      background: linear-gradient(135deg, rgba(108, 29, 58, 0.9) 0%, rgba(0, 26, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
-      padding: 10rem 0 6rem;
+      padding: 12rem 0 8rem;
       color: var(--light);
       text-align: center;
       position: relative;
@@ -375,7 +376,7 @@
       margin-bottom: 3rem;
     }
     
-    .sales-hero::before {
+    .awards-hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -387,7 +388,7 @@
       pointer-events: none;
     }
     
-    .sales-hero-content {
+    .awards-hero-content {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 30px;
@@ -395,14 +396,14 @@
       z-index: 1;
     }
     
-    .sales-hero h1 {
+    .awards-hero h1 {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
       line-height: 1.2;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
     
-    .sales-hero p {
+    .awards-hero p {
       font-size: 1.3rem;
       opacity: 0.9;
       margin-bottom: 2.5rem;
@@ -469,349 +470,304 @@
       z-index: 0;
     }
     
-    /* Premium Container */
-    .premium-container {
+    /* Awards Container */
+    .awards-container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 30px 80px;
     }
     
-    /* Contact Mega Grid */
-    .contact-mega-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 50px;
+    /* Milestones Timeline */
+    .milestones-section {
+      margin: 80px 0;
     }
     
-    /* Contact Card */
-    .contact-card {
-      background-color: var(--light);
-      border-radius: 20px;
-      padding: 50px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    .milestones-header {
+      text-align: center;
+      margin-bottom: 50px;
     }
     
-    .contact-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
-    }
-    
-    .contact-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-    }
-    
-    .contact-card h2 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
+    .milestones-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
       color: var(--secondary);
-      position: relative;
-      padding-bottom: 15px;
     }
     
-    .contact-card h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background-color: var(--primary);
-    }
-    
-    /* Premium Form */
-    .premium-form .form-group {
-      margin-bottom: 25px;
-      position: relative;
-    }
-    
-    .premium-form label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 500;
+    .milestones-header p {
+      max-width: 700px;
+      margin: 0 auto;
       color: var(--darker);
-    }
-    
-    .premium-form .form-control {
-      width: 100%;
-      padding: 15px 20px;
-      border: 1px solid var(--grey-dark);
-      border-radius: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background-color: var(--lighter);
-    }
-    
-    .premium-form .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
-    }
-    
-    .premium-form textarea.form-control {
-      min-height: 180px;
-      resize: vertical;
-    }
-    
-    .premium-form select.form-control {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 16px;
-    }
-    
-    .form-row {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .form-row .form-group {
-      flex: 1;
-    }
-    
-    /* Submit Button */
-    .premium-submit-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
       font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.5s ease;
+    }
+    
+    .timeline {
       position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      box-shadow: 0 5px 20px rgba(255, 125, 6, 0.3);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
     }
     
-    .premium-submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 125, 6, 0.4);
-    }
-    
-    .premium-submit-btn::before {
+    .timeline::after {
       content: '';
       position: absolute;
+      width: 6px;
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
       top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 10px;
     }
     
-    .premium-submit-btn:hover::before {
-      left: 100%;
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      margin-bottom: 30px;
     }
     
-    .premium-submit-btn i {
-      margin-left: 10px;
-      transition: transform 0.3s;
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-color: var(--light);
+      border: 5px solid var(--primary);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
     }
     
-    .premium-submit-btn:hover i {
-      transform: translateX(5px);
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
     }
     
-    /* Contact Info Mega Card */
-    .contact-info-mega {
+    .timeline-item.left::after {
+      right: -12px;
+    }
+    
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+    }
+    
+    .timeline-item.right::after {
+      left: -12px;
+    }
+    
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: var(--light);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: all 0.5s ease;
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    
+    .timeline-item.left .timeline-content::before {
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--light);
+      right: -10px;
+      top: 20px;
+    }
+    
+    .timeline-item.right .timeline-content::before {
+      border-width: 10px 10px 10px 0;
+      border-color: transparent var(--light) transparent transparent;
+      left: -10px;
+      top: 20px;
+    }
+    
+    .timeline-year {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .timeline-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+    
+    .timeline-description {
+      color: var(--darker);
+      opacity: 0.8;
+      margin-bottom: 10px;
+    }
+    
+    .timeline-badge {
+      display: inline-block;
+      padding: 5px 15px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    
+    /* Awards Showcase */
+    .awards-showcase {
+      margin: 100px 0;
+    }
+    
+    .awards-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .awards-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    
+    .awards-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--darker);
+      font-size: 1.1rem;
+    }
+    
+    .awards-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 30px;
     }
     
-    .info-card {
+    .award-card {
       background-color: var(--light);
       border-radius: 15px;
-      padding: 40px;
+      overflow: hidden;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       transition: all 0.5s ease;
       position: relative;
+    }
+    
+    .award-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    }
+    
+    .award-image {
+      height: 250px;
       overflow: hidden;
+      position: relative;
     }
     
-    .info-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-    }
-    
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
+    .award-image img {
+      width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    }
-    
-    .info-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      color: var(--secondary);
-      display: flex;
-      align-items: center;
-    }
-    
-    .info-card h3 i {
-      margin-right: 15px;
-      color: var(--primary);
-      font-size: 1.8rem;
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary-light);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* Sales Team Styles */
-    .sales-team-card {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-      transition: all 0.3s ease;
-    }
-    
-    .sales-team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    
-    .sales-team-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--primary-light);
-      margin-right: 30px;
-      flex-shrink: 0;
+      transition: transform 0.5s ease;
     }
     
-    .sales-team-info h4 {
-      font-size: 1.4rem;
-      color: var(--secondary);
-      margin-bottom: 5px;
+    .award-card:hover .award-image img {
+      transform: scale(1.1);
     }
     
-    .sales-team-info .title {
-      color: var(--primary);
-      font-weight: 500;
-      margin-bottom: 10px;
-      display: block;
-    }
-    
-    .sales-team-contact {
-      display: flex;
-      gap: 15px;
-      margin-top: 15px;
-    }
-    
-    .sales-team-contact a {
-      color: var(--dark);
-      transition: color 0.3s;
-    }
-    
-    .sales-team-contact a:hover {
-      color: var(--primary);
-    }
-    
-    /* Client Logos */
-    .client-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 60px 0;
-    }
-    
-    .client-logo {
-      max-width: 150px;
-      max-height: 60px;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s ease;
-    }
-    
-    .client-logo:hover {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-    
-    /* Enterprise Card */
-    .enterprise-card {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      color: white;
-      padding: 50px;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-      margin-top: 60px;
-    }
-    
-    .enterprise-card::before {
+    .award-image::after {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-      background-size: 30px 30px;
-      opacity: 0.3;
+      background: linear-gradient(to bottom, rgba(255, 125, 6, 0.1), rgba(108, 29, 58, 0.2));
     }
     
-    .enterprise-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
+    .award-content {
+      padding: 30px;
     }
     
-    .enterprise-content h2 {
-      font-size: 2.5rem;
+    .award-category {
+      display: inline-block;
+      padding: 5px 15px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .award-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .award-description {
+      color: var(--darker);
+      opacity: 0.8;
       margin-bottom: 20px;
     }
     
-    .enterprise-content p {
-      margin-bottom: 30px;
-      opacity: 0.9;
-      font-size: 1.1rem;
+    .award-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--grey-dark);
     }
     
-    /* Testimonials Section */
-    .testimonials-section {
-      margin-top: 100px;
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      padding: 80px 0;
+    .award-date {
+      color: var(--darker);
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    .award-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .award-link:hover {
+      color: var(--primary-dark);
+    }
+    
+    .award-link i {
+      transition: transform 0.3s;
+    }
+    
+    .award-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Press Coverage */
+    .press-section {
+      margin: 100px 0;
+      background-color: var(--secondary);
       color: white;
+      padding: 80px 0;
       position: relative;
       overflow: hidden;
     }
     
-    .testimonials-section::before {
+    .press-section::before {
       content: '';
       position: absolute;
       top: 0;
@@ -823,7 +779,7 @@
       opacity: 0.3;
     }
     
-    .testimonials-container {
+    .press-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 30px;
@@ -831,107 +787,343 @@
       z-index: 1;
     }
     
-    .testimonials-header {
+    .press-header {
       text-align: center;
       margin-bottom: 50px;
     }
     
-    .testimonials-header h2 {
+    .press-header h2 {
       font-size: 2.5rem;
       margin-bottom: 20px;
     }
     
-    .testimonials-header p {
+    .press-header p {
       max-width: 700px;
       margin: 0 auto;
       opacity: 0.9;
       font-size: 1.1rem;
     }
     
-    .testimonials-grid {
+    .press-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin: 50px 0;
+    }
+    
+    .press-logo {
+      height: 40px;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+    
+    .press-logo:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    
+    .press-quotes {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      margin-top: 50px;
     }
     
-    .testimonial-card {
+    .press-quote {
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       border-radius: 15px;
       padding: 30px;
-      transition: all 0.5s ease;
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      background-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-    
-    .testimonial-text {
+    .press-quote-content {
       font-style: italic;
       margin-bottom: 20px;
       position: relative;
     }
     
-    .testimonial-text::before,
-    .testimonial-text::after {
+    .press-quote-content::before {
       content: '"';
-      font-size: 3rem;
-      color: rgba(255, 255, 255, 0.2);
       position: absolute;
-    }
-    
-    .testimonial-text::before {
-      top: -15px;
+      top: -20px;
       left: -10px;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
     }
     
-    .testimonial-text::after {
-      bottom: -35px;
-      right: -10px;
-    }
-    
-    .testimonial-author {
+    .press-quote-author {
       display: flex;
       align-items: center;
-      margin-top: 30px;
     }
     
-    .author-avatar {
-      width: 60px;
-      height: 60px;
+    .press-quote-author img {
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       object-fit: cover;
       margin-right: 15px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
+      border: 2px solid var(--primary-light);
     }
     
-    .author-info h4 {
+    .press-quote-author-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    
+    .press-quote-author-info p {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+      margin: 100px 0;
+    }
+    
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .gallery-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    
+    .gallery-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--darker);
+      font-size: 1.1rem;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      height: 250px;
+      cursor: pointer;
+      transition: all 0.5s ease;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    
+    .gallery-caption h3 {
       font-size: 1.2rem;
       margin-bottom: 5px;
     }
     
-    .author-info p {
+    .gallery-caption p {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      margin: 100px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 80px 0;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stats-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      transform: rotate(30deg);
+    }
+    
+    .stats-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+    
+    .stat-item {
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
+      transition: all 0.5s ease;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+    
+    .stat-label {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    /* Leadership Quotes */
+    .leadership-section {
+      margin: 100px 0;
+    }
+    
+    .leadership-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .leadership-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    
+    .leadership-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--darker);
+      font-size: 1.1rem;
+    }
+    
+    .leadership-quotes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .leadership-card {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      position: relative;
+      transition: all 0.5s ease;
+    }
+    
+    .leadership-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    }
+    
+    .leadership-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: var(--primary-light);
+      font-family: Georgia, serif;
+      line-height: 1;
+      z-index: 0;
+    }
+    
+    .leadership-content {
+      position: relative;
+      z-index: 1;
+      font-style: italic;
+      margin-bottom: 30px;
+      color: var(--darker);
+    }
+    
+    .leadership-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .leadership-author img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 3px solid var(--primary-light);
+    }
+    
+    .leadership-author-info h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+      color: var(--secondary);
+    }
+    
+    .leadership-author-info p {
+      color: var(--darker);
       opacity: 0.8;
       font-size: 0.9rem;
     }
     
     /* CTA Section */
     .cta-section {
-      margin-top: 80px;
+      margin: 100px 0;
       text-align: center;
     }
     
     .cta-card {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
       border-radius: 20px;
       padding: 60px;
       color: white;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(255, 125, 6, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
     
     .cta-card::before {
@@ -1205,56 +1397,6 @@
       }
     }
 
-    /* Cookie Notification Popup */
-    .cookie-notification-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
-      color: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      z-index: 1000;
-      animation: cookieNotificationFadeIn 0.3s forwards;
-      max-width: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .cookie-notification-popup p {
-      margin: 0;
-      font-size: 0.95rem;
-      flex: 1;
-    }
-
-    .cookie-notification-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0 0 0 10px;
-      line-height: 1;
-      transition: transform 0.2s;
-    }
-
-    .cookie-notification-close:hover {
-      transform: scale(1.2);
-    }
-
-    @keyframes cookieNotificationFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes cookieNotificationFadeOut {
-      from { opacity: 1; transform: translateY(0); }
-      to { opacity: 0; transform: translateY(20px); }
-    }
-
     /* Cookie Notification Banner */
     .cookie-notification {
       position: fixed;
@@ -1310,11 +1452,6 @@
 
     .cookie-notification .btn-outline:hover {
       background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    @keyframes fadeOut {
-      from { opacity: 1; transform: translateX(-50%) translateY(0); }
-      to { opacity: 0; transform: translateX(-50%) translateY(20px); }
     }
 
     /* Footer */
@@ -1416,12 +1553,34 @@
 
     /* Responsive Design */
     @media (max-width: 1200px) {
-      .contact-mega-grid {
-        grid-template-columns: 1fr;
+      .timeline::after {
+        left: 31px;
       }
       
-      .sales-hero h1 {
-        font-size: 3rem;
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item.left, .timeline-item.right {
+        left: 0;
+        text-align: left;
+      }
+      
+      .timeline-item.left::after, .timeline-item.right::after {
+        left: 18px;
+      }
+      
+      .timeline-item.left .timeline-content::before {
+        border-width: 10px 10px 10px 0;
+        border-color: transparent var(--light) transparent transparent;
+        left: -10px;
+        top: 20px;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
     }
     
@@ -1434,15 +1593,15 @@
         display: block;
       }
       
-      .sales-hero {
+      .awards-hero {
         padding: 8rem 0 4rem;
       }
       
-      .sales-hero h1 {
+      .awards-hero h1 {
         font-size: 2.5rem;
       }
       
-      .sales-hero p {
+      .awards-hero p {
         font-size: 1.1rem;
       }
       
@@ -1451,32 +1610,12 @@
         align-items: center;
       }
       
-      .contact-card,
-      .info-card {
-        padding: 30px;
-      }
-      
-      .form-row {
-        flex-direction: column;
-        gap: 0;
-      }
-      
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .sales-team-card {
-        flex-direction: column;
-        text-align: center;
-      }
       
-      .sales-team-photo {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-      
-      .sales-team-contact {
-        justify-content: center;
+      .awards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
     }
     
@@ -1485,21 +1624,12 @@
         padding: 0 20px;
       }
       
-      .premium-container {
+      .awards-container {
         padding: 0 20px 60px;
       }
       
-      .sales-hero h1 {
+      .awards-hero h1 {
         font-size: 2.2rem;
-      }
-      
-      .contact-card h2,
-      .info-card h3 {
-        font-size: 1.8rem;
-      }
-      
-      .testimonials-section {
-        padding: 60px 0;
       }
       
       .cta-card {
@@ -1510,35 +1640,26 @@
         font-size: 2rem;
       }
       
-      .features-header h2,
-      .testimonials-header h2 {
-        font-size: 2rem;
-      }
-
-      .client-logos {
+      .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 20px;
       }
       
-      .client-logo {
-        max-width: 120px;
+      .stat-item {
+        padding: 20px;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
       }
     }
     
     @media (max-width: 576px) {
-      .sales-hero {
+      .awards-hero {
         padding: 7rem 0 3rem;
       }
       
-      .sales-hero h1 {
-        font-size: 1.8rem;
-      }
-      
-      .contact-card h2,
-      .info-card h3 {
-        font-size: 1.5rem;
-      }
-      
-      .cta-card h2 {
+      .awards-hero h1 {
         font-size: 1.8rem;
       }
       
@@ -1549,6 +1670,18 @@
       .footer-bottom {
         flex-direction: column;
         gap: 10px;
+      }
+      
+      .press-logos {
+        gap: 20px;
+      }
+      
+      .press-logo {
+        height: 30px;
+      }
+      
+      .awards-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1598,165 +1731,425 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Sales Hero Section -->
-    <section class="sales-hero">
-      <div class="premium-hero-content animate__animated animate__fadeIn">
-        <h1>Connect With Our Sales Team</h1>
-        <p>Our experts are ready to help you find the perfect Annita solutions for your business needs.</p>
+    <!-- Awards Hero Section -->
+    <section class="awards-hero">
+      <div class="awards-hero-content animate__animated animate__fadeIn">
+        <h1>Recognizing Excellence</h1>
+        <p>Celebrating Annita's achievements, awards, and industry recognition across Africa and beyond.</p>
         <div class="hero-buttons">
-          <a href="#contact-form" class="hero-btn hero-btn-primary">Contact Sales <i class="fas fa-arrow-right"></i></a>
-          <a href="#team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
+          <a href="#awards-showcase" class="hero-btn hero-btn-primary">View Our Awards <i class="fas fa-trophy"></i></a>
+          <a href="#milestones" class="hero-btn hero-btn-secondary">Our Milestones</a>
         </div>
       </div>
     </section>
 
-    <div class="premium-container">
-      <!-- Contact Mega Grid -->
-      <div class="contact-mega-grid">
-        <!-- Contact Card -->
-        <div class="contact-card animate__animated animate__fadeInLeft" id="contact-form">
-          <h2>Sales Inquiry Form</h2>
-          <form class="premium-form" id="premiumSalesForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-name">Full Name</label>
-                <input type="text" id="sales-name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-email">Business Email</label>
-                <input type="email" id="sales-email" class="form-control" required>
-              </div>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-phone">Phone Number</label>
-                <input type="tel" id="sales-phone" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-company">Company Name</label>
-                <input type="text" id="sales-company" class="form-control" required>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-title">Job Title</label>
-                <select id="sales-title" class="form-control" required>
-                  <option value="" disabled selected>Select your position</option>
-                  <option value="owner">Owner/Founder</option>
-                  <option value="ceo">CEO/President</option>
-                  <option value="cfo">CFO/Finance Director</option>
-                  <option value="cio">CIO/IT Director</option>
-                  <option value="manager">Department Manager</option>
-                  <option value="other">Other</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-industry">Industry</label>
-              <select id="sales-industry" class="form-control" required>
-                <option value="" disabled selected>Select your industry</option>
-                <option value="finance">Banking & Financial Services</option>
-                <option value="retail">Retail & E-commerce</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="technology">Technology</option>
-                <option value="education">Education</option>
-                <option value="government">Government</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-needs">How Can We Help?</label>
-              <textarea id="sales-needs" class="form-control" placeholder="Tell us about your business needs and challenges" required></textarea>
-            </div>
-            
-            <button type="submit" class="premium-submit-btn">Submit Inquiry <i class="fas fa-paper-plane"></i></button>
-          </form>
+    <div class="awards-container">
+      <!-- Milestones Timeline -->
+      <section class="milestones-section" id="milestones">
+        <div class="milestones-header">
+          <h2 class="animate__animated animate__fadeIn">Our Journey of Excellence</h2>
+          <p class="animate__animated animate__fadeIn">From our humble beginnings to becoming Africa's leading technology platform, these are the key milestones in our journey.</p>
         </div>
         
-        <!-- Sales Team Info Card -->
-        <div class="contact-info-mega" id="team">
-          <!-- Sales Team Card -->
-          <div class="info-card animate__animated animate__fadeInRight">
-            <h3><i class="fas fa-users"></i>Meet Our Sales Team</h3>
-            <p>Our dedicated sales executives are ready to understand your business needs and recommend the perfect Annita solutions.</p>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>Sarah Johnson</h4>
-                <span class="title">Senior Sales Director</span>
-                <p>Specializing in enterprise solutions with 10+ years experience helping businesses scale across Africa.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231775057227"><i class="fas fa-phone-alt"></i> +231 77 505 7227</a>
-                  <a href="mailto:sarah@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-              </div>
+        <div class="timeline">
+          <div class="timeline-item left animate__animated animate__fadeInLeft">
+            <div class="timeline-content">
+              <div class="timeline-year">2020</div>
+              <h3 class="timeline-title">Company Founded</h3>
+              <p class="timeline-description">Annita Technologies was launched in Monrovia, Liberia with a vision to revolutionize digital services across Africa.</p>
+              <span class="timeline-badge">Milestone</span>
             </div>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="David Kamara" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>David Kamara</h4>
-                <span class="title">Business Development Manager</span>
-                <p>Expert in mid-market solutions with focus on retail and financial services sectors.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231886213748"><i class="fas fa-phone-alt"></i> +231 886 213 748</a>
-                  <a href="mailto:david@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
+          </div>
+          
+          <div class="timeline-item right animate__animated animate__fadeInRight">
+            <div class="timeline-content">
+              <div class="timeline-year">2021</div>
+              <h3 class="timeline-title">First Product Launch</h3>
+              <p class="timeline-description">AnnitaPay, our flagship payment solution, was introduced to the market, quickly gaining traction.</p>
+              <span class="timeline-badge">Product</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item left animate__animated animate__fadeInLeft">
+            <div class="timeline-content">
+              <div class="timeline-year">2021</div>
+              <h3 class="timeline-title">First Industry Award</h3>
+              <p class="timeline-description">Won "Best FinTech Startup" at the African Digital Innovation Awards.</p>
+              <span class="timeline-badge">Award</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item right animate__animated animate__fadeInRight">
+            <div class="timeline-content">
+              <div class="timeline-year">2022</div>
+              <h3 class="timeline-title">Series A Funding</h3>
+              <p class="timeline-description">Secured $15 million in Series A funding to expand operations across West Africa.</p>
+              <span class="timeline-badge">Funding</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item left animate__animated animate__fadeInLeft">
+            <div class="timeline-content">
+              <div class="timeline-year">2022</div>
+              <h3 class="timeline-title">Expansion to 5 Countries</h3>
+              <p class="timeline-description">Launched services in Nigeria, Ghana, Senegal, Côte d'Ivoire, and Sierra Leone.</p>
+              <span class="timeline-badge">Expansion</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item right animate__animated animate__fadeInRight">
+            <div class="timeline-content">
+              <div class="timeline-year">2023</div>
+              <h3 class="timeline-title">Forbes Recognition</h3>
+              <p class="timeline-description">Featured in Forbes Africa's "30 Most Promising Startups" list.</p>
+              <span class="timeline-badge">Recognition</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item left animate__animated animate__fadeInLeft">
+            <div class="timeline-content">
+              <div class="timeline-year">2023</div>
+              <h3 class="timeline-title">AnnitaMarket Launch</h3>
+              <p class="timeline-description">Expanded our ecosystem with the introduction of our e-commerce platform.</p>
+              <span class="timeline-badge">Product</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item right animate__animated animate__fadeInRight">
+            <div class="timeline-content">
+              <div class="timeline-year">2024</div>
+              <h3 class="timeline-title">Best Employer Award</h3>
+              <p class="timeline-description">Recognized as one of Africa's "Best Places to Work in Tech" by TechCabal.</p>
+              <span class="timeline-badge">Award</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item left animate__animated animate__fadeInLeft">
+            <div class="timeline-content">
+              <div class="timeline-year">2024</div>
+              <h3 class="timeline-title">10 Million Users</h3>
+              <p class="timeline-description">Reached the milestone of 10 million active users across our platforms.</p>
+              <span class="timeline-badge">Milestone</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item right animate__animated animate__fadeInRight">
+            <div class="timeline-content">
+              <div class="timeline-year">2025</div>
+              <h3 class="timeline-title">Global Innovation Award</h3>
+              <p class="timeline-description">Won "Most Innovative African Company" at the Global Tech Awards in Dubai.</p>
+              <span class="timeline-badge">Award</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Awards Showcase -->
+      <section class="awards-showcase" id="awards-showcase">
+        <div class="awards-header">
+          <h2 class="animate__animated animate__fadeIn">Our Awards & Recognitions</h2>
+          <p class="animate__animated animate__fadeIn">These prestigious honors reflect our commitment to innovation, excellence, and positive impact across Africa.</p>
+        </div>
+        
+        <div class="awards-grid">
+          <div class="award-card animate__animated animate__fadeIn">
+            <div class="award-image">
+              <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="African Digital Innovation Award">
+            </div>
+            <div class="award-content">
+              <span class="award-category">FinTech</span>
+              <h3 class="award-title">African Digital Innovation Award</h3>
+              <p class="award-description">Recognized as the Best FinTech Startup in Africa for our innovative payment solutions that are transforming financial inclusion.</p>
+              <div class="award-meta">
+                <span class="award-date">June 2021</span>
+                <a href="#" class="award-link">Read More <i class="fas fa-arrow-right"></i></a>
               </div>
             </div>
           </div>
           
-          <!-- Support Card -->
-          <div class="info-card animate__animated animate__fadeInRight animate__delay-1s">
-            <h3><i class="fas fa-headset"></i>Sales Support</h3>
-            <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i>
-              <div class="contact-detail-content">
-                <h4>Sales Hotline</h4>
-                <p>Liberia: <a href="tel:+231775057227">+231 77 505 7227</a></p>
-                <p>International: <a href="tel:+231886213748">+231 886 213 748</a></p>
+          <div class="award-card animate__animated animate__fadeIn">
+            <div class="award-image">
+              <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Forbes Africa Recognition">
+            </div>
+            <div class="award-content">
+              <span class="award-category">Recognition</span>
+              <h3 class="award-title">Forbes Africa 30 Most Promising</h3>
+              <p class="award-description">Featured in Forbes Africa's prestigious list of the continent's most promising startups driving digital transformation.</p>
+              <div class="award-meta">
+                <span class="award-date">March 2023</span>
+                <a href="#" class="award-link">Read More <i class="fas fa-arrow-right"></i></a>
               </div>
             </div>
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div class="contact-detail-content">
-                <h4>Email Sales</h4>
-                <p><a href="mailto:sales@annita.com">sales@an-nita.com</a></p>
+          </div>
+          
+          <div class="award-card animate__animated animate__fadeIn">
+            <div class="award-image">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Best Employer Award">
+            </div>
+            <div class="award-content">
+              <span class="award-category">Workplace</span>
+              <h3 class="award-title">Best Places to Work in Tech</h3>
+              <p class="award-description">Awarded by TechCabal for our exceptional workplace culture, employee benefits, and growth opportunities.</p>
+              <div class="award-meta">
+                <span class="award-date">September 2024</span>
+                <a href="#" class="award-link">Read More <i class="fas fa-arrow-right"></i></a>
               </div>
             </div>
-            <div class="contact-detail">
-              <i class="fas fa-clock"></i>
-              <div class="contact-detail-content">
-                <h4>Business Hours</h4>
-                <p>Monday-Friday: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
+          </div>
+          
+          <div class="award-card animate__animated animate__fadeIn">
+            <div class="award-image">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Global Tech Award">
+            </div>
+            <div class="award-content">
+              <span class="award-category">Innovation</span>
+              <h3 class="award-title">Global Tech Innovation Award</h3>
+              <p class="award-description">Honored as the Most Innovative African Company at the Global Tech Awards for our groundbreaking AI solutions.</p>
+              <div class="award-meta">
+                <span class="award-date">January 2025</span>
+                <a href="#" class="award-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="award-card animate__animated animate__fadeIn">
+            <div class="award-image">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="CSR Excellence Award">
+            </div>
+            <div class="award-content">
+              <span class="award-category">Social Impact</span>
+              <h3 class="award-title">CSR Excellence Award</h3>
+              <p class="award-description">Recognized for our outstanding contributions to digital literacy programs across underserved communities in Africa.</p>
+              <div class="award-meta">
+                <span class="award-date">November 2024</span>
+                <a href="#" class="award-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="award-card animate__animated animate__fadeIn">
+            <div class="award-image">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Product Design Award">
+            </div>
+            <div class="award-content">
+              <span class="award-category">Design</span>
+              <h3 class="award-title">Africa Design Excellence Award</h3>
+              <p class="award-description">Celebrated for our user-centric design approach that makes technology accessible to all Africans.</p>
+              <div class="award-meta">
+                <span class="award-date">July 2023</span>
+                <a href="#" class="award-link">Read More <i class="fas fa-arrow-right"></i></a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Enterprise Solutions Section -->
-      <div class="enterprise-card">
-        <div class="enterprise-content">
-          <h2>Enterprise Solutions</h2>
-          <p>For large organizations with complex needs, our enterprise team delivers custom solutions with dedicated support, security, and scalability.</p>
-          <a href="#contact-form" class="hero-btn hero-btn-secondary">Contact Enterprise Sales</a>
+      </section>
+
+      <!-- Press Coverage -->
+      <section class="press-section">
+        <div class="press-container">
+          <div class="press-header">
+            <h2 class="animate__animated animate__fadeIn">Featured In</h2>
+            <p class="animate__animated animate__fadeIn">Leading publications and media outlets have recognized Annita's impact and innovation.</p>
+          </div>
+          
+          <div class="press-logos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Forbes_Africa_logo.svg/1200px-Forbes_Africa_logo.svg.png" alt="Forbes Africa" class="press-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/TechCrunch_logo.svg/1200px-TechCrunch_logo.svg.png" alt="TechCrunch" class="press-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Bloomberg_Logo.svg/1200px-Bloomberg_Logo.svg.png" alt="Bloomberg" class="press-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/The_Africa_Report_logo.svg/1200px-The_Africa_Report_logo.svg.png" alt="The Africa Report" class="press-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CNBC_Africa_logo.svg/1200px-CNBC_Africa_logo.svg.png" alt="CNBC Africa" class="press-logo">
+          </div>
+          
+          <div class="press-quotes">
+            <div class="press-quote animate__animated animate__fadeIn">
+              <div class="press-quote-content">
+                Annita Technologies is redefining digital services in Africa with its innovative all-in-one platform that combines payments, commerce, and connectivity in ways never seen before on the continent.
+              </div>
+              <div class="press-quote-author">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                <div class="press-quote-author-info">
+                  <h4>Sarah Johnson</h4>
+                  <p>Tech Editor, Forbes Africa</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="press-quote animate__animated animate__fadeIn">
+              <div class="press-quote-content">
+                What sets Annita apart is their deep understanding of African markets and their ability to build solutions that truly meet the needs of local businesses and consumers.
+              </div>
+              <div class="press-quote-author">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Kwame Osei">
+                <div class="press-quote-author-info">
+                  <h4>Kwame Osei</h4>
+                  <p>Senior Analyst, Bloomberg</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="press-quote animate__animated animate__fadeIn">
+              <div class="press-quote-content">
+                With their rapid growth and expanding ecosystem, Annita is well positioned to become Africa's next tech unicorn and a model for homegrown innovation.
+              </div>
+              <div class="press-quote-author">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina Diallo">
+                <div class="press-quote-author-info">
+                  <h4>Amina Diallo</h4>
+                  <p>Contributor, TechCrunch</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      
+      </section>
+
+      <!-- Gallery Section -->
+      <section class="gallery-section">
+        <div class="gallery-header">
+          <h2 class="animate__animated animate__fadeIn">Award Moments</h2>
+          <p class="animate__animated animate__fadeIn">Relive the special moments from our award ceremonies and recognition events.</p>
+        </div>
+        
+        <div class="gallery-grid" id="awards-gallery">
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Global Tech Awards">
+            <div class="gallery-caption">
+              <h3>Global Tech Awards 2025</h3>
+              <p>Our team accepting the Most Innovative African Company award in Dubai</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Forbes Feature">
+            <div class="gallery-caption">
+              <h3>Forbes Africa Feature</h3>
+              <p>Our CEO interviewed for the 30 Most Promising Startups feature</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Design Award">
+            <div class="gallery-caption">
+              <h3>Design Excellence Award</h3>
+              <p>Our design team receiving recognition for user experience innovation</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Team Celebration">
+            <div class="gallery-caption">
+              <h3>Team Celebration</h3>
+              <p>Celebrating our Best Employer Award with the entire Annita team</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Keynote Speech">
+            <div class="gallery-caption">
+              <h3>Keynote Speech</h3>
+              <p>Our CTO speaking at the African Digital Innovation Summit</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+            <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="First Award">
+            <div class="gallery-caption">
+              <h3>Our First Award</h3>
+              <p>Accepting the Best FinTech Startup award in 2021</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section -->
+      <section class="stats-section">
+        <div class="stats-container">
+          <div class="stats-grid">
+            <div class="stat-item animate__animated animate__fadeIn">
+              <div class="stat-number" id="awards-count">0</div>
+              <div class="stat-label">Awards Won</div>
+            </div>
+            
+            <div class="stat-item animate__animated animate__fadeIn">
+              <div class="stat-number" id="countries-count">0</div>
+              <div class="stat-label">Countries of Operation</div>
+            </div>
+            
+            <div class="stat-item animate__animated animate__fadeIn">
+              <div class="stat-number" id="features-count">0</div>
+              <div class="stat-label">Media Features</div>
+            </div>
+            
+            <div class="stat-item animate__animated animate__fadeIn">
+              <div class="stat-number" id="team-count">0</div>
+              <div class="stat-label">Team Members</div>
+            </div>
+            
+            <div class="stat-item animate__animated animate__fadeIn">
+              <div class="stat-number" id="users-count">0</div>
+              <div class="stat-label">Active Users</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership Quotes -->
+      <section class="leadership-section">
+        <div class="leadership-header">
+          <h2 class="animate__animated animate__fadeIn">Words From Our Leaders</h2>
+          <p class="animate__animated animate__fadeIn">Our leadership team reflects on what these recognitions mean for Annita and our mission.</p>
+        </div>
+        
+        <div class="leadership-quotes">
+          <div class="leadership-card animate__animated animate__fadeIn">
+            <div class="leadership-content">
+              These awards are not just trophies on a shelf—they're validation that our vision for a digitally empowered Africa is resonating. Each recognition fuels our commitment to keep innovating and serving our communities.
+            </div>
+            <div class="leadership-author">
+              <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson">
+              <div class="leadership-author-info">
+                <h4>Sarah Johnson</h4>
+                <p>CEO & Co-Founder</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="leadership-card animate__animated animate__fadeIn">
+            <div class="leadership-content">
+              Being recognized as a great place to work is particularly meaningful because it reflects our investment in our people. Our team's talent and dedication are what make all these achievements possible.
+            </div>
+            <div class="leadership-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David Kamara">
+              <div class="leadership-author-info">
+                <h4>David Kamara</h4>
+                <p>Chief People Officer</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="leadership-card animate__animated animate__fadeIn">
+            <div class="leadership-content">
+              The design awards are special because they acknowledge our focus on creating solutions that are not just powerful, but also intuitive and accessible to all Africans, regardless of tech literacy.
+            </div>
+            <div class="leadership-author">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina Diallo">
+              <div class="leadership-author-info">
+                <h4>Amina Diallo</h4>
+                <p>Chief Design Officer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA Section -->
-      <div class="cta-section">
+      <section class="cta-section">
         <div class="cta-card">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>Contact our sales team today to discuss how Annita can help your business grow and thrive in the digital economy.</p>
-          <a href="#contact-form" class="cta-btn">Contact Sales Now <i class="fas fa-arrow-right"></i></a>
+          <h2>Join Our Award-Winning Team</h2>
+          <p>Be part of a company that's recognized for innovation, excellence, and positive impact across Africa.</p>
+          <a href="careerpage.html" class="cta-btn">View Careers <i class="fas fa-arrow-right"></i></a>
         </div>
-      </div>
+      </section>
     </div>
   </main>
 
@@ -1809,11 +2202,11 @@
           <h3>Company</h3>
           <ul>
             <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="careers.html">Careers</a></li>
             <li><a href="#">Press</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">Partners</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
           </ul>
         </div>
         
@@ -1846,22 +2239,22 @@
   <!-- Chatbot Widget -->
   <div class="chatbot-container">
     <div class="chatbot-button">
-      <i class="fa fa-bell"></i>
+      <i class="fas fa-comment-alt"></i>
       <div class="notification-badge">1</div>
-      <div class="chatbot-tooltip">Ask Annita AI?</div>
+      <div class="chatbot-tooltip">Have questions about our awards?</div>
     </div>
     <div class="chatbot-window">
       <div class="chat-header">
-        <h3>Annita AI Assistant</h3>
+        <h3>Annita Awards Assistant</h3>
         <button class="close-chat"><i class="fas fa-times"></i></button>
       </div>
       <div class="chat-messages">
         <div class="message bot-message">
-          Hello! I'm Annita AI. How can I help you today?
+          Hello! I can help answer questions about Annita's awards and recognitions. What would you like to know?
         </div>
       </div>
       <div class="chat-input">
-        <input type="text" placeholder="Type your message...">
+        <input type="text" placeholder="Type your question...">
         <button class="send-button"><i class="fas fa-paper-plane"></i></button>
       </div>
     </div>
@@ -1878,6 +2271,7 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
   <script>
     // Enhanced Mobile Menu Toggle with Premium Animations
     document.addEventListener('DOMContentLoaded', function() {
@@ -1994,7 +2388,22 @@
           setTimeout(() => {
             const botMessage = document.createElement('div');
             botMessage.className = 'message bot-message';
-            botMessage.textContent = "Thanks for your message! Our team will get back to you soon with more information.";
+            
+            // Simple FAQ responses
+            let response = "";
+            if (messageText.toLowerCase().includes('recent') || messageText.toLowerCase().includes('latest')) {
+              response = "Our most recent award is the Global Tech Innovation Award we won in January 2025 for being the Most Innovative African Company.";
+            } else if (messageText.toLowerCase().includes('first') || messageText.toLowerCase().includes('initial')) {
+              response = "Our first major recognition was the 'Best FinTech Startup' award at the African Digital Innovation Awards in 2021, just a year after our founding.";
+            } else if (messageText.toLowerCase().includes('many') || messageText.toLowerCase().includes('count')) {
+              response = "Annita has won 12 major awards and recognitions since our founding in 2020. You can see them all in our Awards Showcase section.";
+            } else if (messageText.toLowerCase().includes('important') || messageText.toLowerCase().includes('significant')) {
+              response = "While all our awards are meaningful, being named one of Forbes Africa's 30 Most Promising Startups and winning the Global Tech Innovation Award are particularly significant as they recognize our continental impact.";
+            } else {
+              response = "Thanks for your question! For more detailed information about our awards, please visit our Awards Showcase section or contact our communications team at press@annita.com.";
+            }
+            
+            botMessage.textContent = response;
             chatMessages.appendChild(botMessage);
             
             // Scroll to bottom again after bot response
@@ -2013,37 +2422,47 @@
         }
       });
 
-      // Sales Form Submission
-      const salesForm = document.getElementById('premiumSalesForm');
-      
-      salesForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+      // Animated counter for stats
+      function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
         
-        // Get form values
-        const name = document.getElementById('sales-name').value;
-        const email = document.getElementById('sales-email').value;
-        const phone = document.getElementById('sales-phone').value;
-        const company = document.getElementById('sales-company').value;
-        const title = document.getElementById('sales-title').value;
-        const industry = document.getElementById('sales-industry').value;
-        const needs = document.getElementById('sales-needs').value;
-        
-        // Here you would typically send the form data to your server
-        console.log('Sales form submitted:', { 
-          name, email, phone, company, title, industry, needs
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            clearInterval(timer);
+            current = target;
+          }
+          element.textContent = Math.floor(current).toLocaleString();
+        }, 16);
+      }
+
+      // Initialize counters when they come into view
+      const statsSection = document.querySelector('.stats-section');
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(document.getElementById('awards-count'), 12);
+            animateCounter(document.getElementById('countries-count'), 15);
+            animateCounter(document.getElementById('features-count'), 48);
+            animateCounter(document.getElementById('team-count'), 200);
+            animateCounter(document.getElementById('users-count'), 10000000);
+            
+            // Stop observing after animation
+            statsObserver.unobserve(entry.target);
+          }
         });
-        
-        // Show success message with animation
-        const submitBtn = salesForm.querySelector('.premium-submit-btn');
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent';
-        submitBtn.style.backgroundColor = 'var(--success)';
-        
-        // Reset form after delay
-        setTimeout(() => {
-          salesForm.reset();
-          submitBtn.innerHTML = 'Submit Inquiry <i class="fas fa-paper-plane"></i>';
-          submitBtn.style.backgroundColor = '';
-        }, 3000);
+      }, { threshold: 0.5 });
+
+      statsObserver.observe(statsSection);
+
+      // Initialize lightGallery for the awards gallery
+      lightGallery(document.getElementById('awards-gallery'), {
+        selector: '.gallery-item',
+        download: false,
+        counter: false,
+        getCaptionFromTitleOrAlt: false
       });
 
       // Header Scroll Effect
@@ -2058,7 +2477,7 @@
 
       // Create Floating Particles
       function createParticles() {
-        const hero = document.querySelector('.sales-hero');
+        const hero = document.querySelector('.awards-hero');
         const particleCount = 20;
         
         for (let i = 0; i < particleCount; i++) {

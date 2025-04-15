@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report an Issue - Annita</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+    <style>
+        /* Reusing styles from the provided file [cite: 1] */
+        :root {
+            --primary: #FF7D06; /* [cite: 1] */
+            --secondary: #6C1D3A; /* [cite: 2] */
+            --accent: #FFC200; /* [cite: 2] */
+            --dark: #111111; /* [cite: 2] */
+            --light: #FFFFFF; /* [cite: 2] */
+            --grey: #F5F5F5; /* [cite: 2] */
+            --border-color: #e2e8f0; /* [cite: 2] */
+            --error: #ff3b30; /* [cite: 3] */
+            --success: #34c759; /* [cite: 3] */
+            --warning: #ff9500; /* [cite: 3] */
+        }
+
+        * {
+            margin: 0; /* [cite: 3] */
+            padding: 0; /* [cite: 4] */
+            box-sizing: border-box; /* [cite: 4] */
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* [cite: 4] */
+        }
+
+        body {
+            background-color: var(--light); /* [cite: 5] */
+            color: var(--dark); /* [cite: 6] */
+            line-height: 1.6; /* [cite: 6] */
+            width: 100%; /* [cite: 6] */
+            min-height: 100vh; /* [cite: 6] */
+            margin: 0; /* [cite: 6] */
+            padding: 0; /* [cite: 6] */
+            overflow-x: hidden; /* [cite: 6] */
+            display: flex;
+            flex-direction: column;
+        }
+
+        html {
+            overflow-x: hidden; /* [cite: 7] */
+            width: 100%; /* [cite: 8] */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--light); /* [cite: 8] */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* [cite: 9] */
+            position: fixed; /* [cite: 9] */
+            width: 100%; /* [cite: 9] */
+            top: 0; /* [cite: 9] */
+            z-index: 1000; /* [cite: 9] */
+        }
+
+        .header-container {
+            display: flex; /* [cite: 10] */
+            justify-content: space-between; /* [cite: 11] */
+            align-items: center; /* [cite: 11] */
+            height: 80px; /* [cite: 11] */
+            max-width: 1200px; /* [cite: 11] */
+            margin: 0 auto; /* [cite: 11] */
+            padding: 0 20px; /* [cite: 11] */
+        }
+
+        .logo {
+            display: flex; /* [cite: 12] */
+            align-items: center; /* [cite: 13] */
+            font-size: 24px; /* [cite: 13] */
+            font-weight: 700; /* [cite: 13] */
+            text-decoration: none; /* [cite: 13] */
+        }
+
+        .logo-image {
+            width: 40px; /* [cite: 13] */
+            height: 40px; /* [cite: 14] */
+            border-radius: 50%; /* [cite: 14] */
+            object-fit: cover; /* [cite: 14] */
+            margin-right: 10px; /* [cite: 14] */
+            border: 2px solid var(--primary); /* [cite: 14] */
+        }
+
+        .logo-text {
+            font-family: 'Zen Dots', cursive; /* [cite: 15] */
+            font-weight: 400; /* [cite: 16] */
+            color: var(--primary); /* [cite: 16] */
+        }
+
+        nav ul {
+            display: flex; /* [cite: 16] */
+            list-style: none; /* [cite: 17] */
+        }
+
+        nav ul li {
+            margin-left: 30px; /* [cite: 17] */
+        }
+
+        nav ul li a {
+            text-decoration: none; /* [cite: 18] */
+            color: var(--dark); /* [cite: 19] */
+            font-weight: 500; /* [cite: 19] */
+            transition: color 0.3s; /* [cite: 19] */
+        }
+
+        nav ul li a:hover {
+            color: var(--primary); /* [cite: 19] */
+        }
+
+        .nav-buttons {
+            display: flex; /* [cite: 20] */
+            align-items: center; /* [cite: 21] */
+            gap: 15px; /* [cite: 21] */
+        }
+
+        .btn {
+            padding: 10px 20px; /* [cite: 21] */
+            border-radius: 8px; /* [cite: 22] */
+            font-weight: 600; /* [cite: 22] */
+            text-decoration: none; /* [cite: 22] */
+            transition: all 0.3s; /* [cite: 22] */
+            display: inline-block; /* [cite: 22] */
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary); /* [cite: 23] */
+            color: var(--primary); /* [cite: 24] */
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary); /* [cite: 24] */
+            color: white; /* [cite: 25] */
+        }
+
+        .btn-primary {
+            background-color: var(--primary); /* [cite: 25] */
+            color: white; /* [cite: 26] */
+        }
+
+        .btn-primary:hover {
+            background-color: #e67000; /* [cite: 26] */
+            transform: translateY(-2px); /* [cite: 27] */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* [cite: 27] */
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none; /* [cite: 29] */
+            cursor: pointer; /* [cite: 30] */
+            width: 40px; /* [cite: 30] */
+            height: 40px; /* [cite: 30] */
+            position: relative; /* [cite: 30] */
+            z-index: 1002; /* [cite: 30] */
+        }
+        /* ... other hamburger styles from... */
+         .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after { /* [cite: 31] */
+            content: ''; /* [cite: 31] */
+            display: block; /* [cite: 32] */
+            width: 30px; /* [cite: 32] */
+            height: 3px; /* [cite: 32] */
+            background-color: var(--dark); /* [cite: 32] */
+            position: absolute; /* [cite: 32] */
+            left: 5px; /* [cite: 32] */
+            border-radius: 3px; /* [cite: 32] */
+            transition: all 0.4s; /* [cite: 32] */
+        }
+        .hamburger-icon { /* [cite: 33] */
+            top: 50%; /* [cite: 33] */
+            transform: translateY(-50%); /* [cite: 34] */
+        }
+        .hamburger-icon:before { /* [cite: 34] */
+            top: -8px; /* [cite: 34] */
+        }
+        .hamburger-icon:after { /* [cite: 35] */
+            top: 8px; /* [cite: 36] */
+        }
+        .hamburger-menu.active .hamburger-icon { /* [cite: 36] */
+            background-color: transparent; /* [cite: 36] */
+        }
+        .hamburger-menu.active .hamburger-icon:before { /* [cite: 37] */
+            transform: translateY(8px) rotate(45deg); /* [cite: 37] */
+        }
+        .hamburger-menu.active .hamburger-icon:after { /* [cite: 38] */
+            transform: translateY(-8px) rotate(-45deg); /* [cite: 39] */
+        }
+
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed; /* [cite: 39] */
+            top: 0; /* [cite: 40] */
+            left: 0; /* [cite: 40] */
+            width: 80%; /* [cite: 40] */
+            max-width: 320px; /* [cite: 40] */
+            height: 100%; /* [cite: 40] */
+            height: calc(var(--vh, 1vh) * 100); /* [cite: 40] */
+            background-color: white; /* [cite: 40] */
+            z-index: 1001; /* [cite: 40] */
+            transform: translateX(-100%); /* [cite: 41] */
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0); /* [cite: 41] */
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1); /* [cite: 41] */
+            padding: 100px 30px 30px; /* [cite: 42] */
+            overflow-y: auto; /* [cite: 42] */
+            -webkit-overflow-scrolling: touch; /* [cite: 42] */
+        }
+        /* ... other mobile menu styles from... */
+        .mobile-menu.active { /* [cite: 42] */
+            transform: translateX(0); /* [cite: 43] */
+        }
+        .mobile-menu ul { /* [cite: 43] */
+            list-style: none; /* [cite: 43] */
+            width: 100%; /* [cite: 44] */
+        }
+        .mobile-menu li { /* [cite: 44] */
+            margin-bottom: 15px; /* [cite: 44] */
+            opacity: 0; /* [cite: 45] */
+            transform: translateX(-20px); /* [cite: 45] */
+            transition: all 0.4s ease; /* [cite: 45] */
+        }
+        .mobile-menu.active li { /* [cite: 45] */
+            opacity: 1; /* [cite: 45] */
+            transform: translateX(0); /* [cite: 46] */
+        }
+        /* Staggered animation for menu items */
+        .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; /* [cite: 46] */ }
+        .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; /* [cite: 47] */ }
+        .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; /* [cite: 48] */ }
+        .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; /* [cite: 49] */ }
+        .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; /* [cite: 50] */ }
+        .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; /* [cite: 51] */ }
+        .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; /* [cite: 52] */ }
+        .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; /* [cite: 53] */ }
+        .mobile-menu a { /* [cite: 54] */
+            text-decoration: none; /* [cite: 54] */
+            color: var(--dark); /* [cite: 55] */
+            font-size: 18px; /* [cite: 55] */
+            font-weight: 500; /* [cite: 55] */
+            transition: all 0.3s; /* [cite: 55] */
+            display: flex; /* [cite: 55] */
+            align-items: center; /* [cite: 55] */
+            padding: 8px 0; /* [cite: 55] */
+        }
+        .mobile-menu a i { /* [cite: 56] */
+            margin-right: 15px; /* [cite: 56] */
+            width: 24px; /* [cite: 57] */
+            text-align: center; /* [cite: 57] */
+            color: var(--primary); /* [cite: 57] */
+            transition: all 0.3s; /* [cite: 57] */
+        }
+        .mobile-menu a:hover { /* [cite: 57] */
+            color: var(--primary); /* [cite: 58] */
+        }
+        .mobile-menu a:hover i { /* [cite: 58] */
+            transform: scale(1.2); /* [cite: 59] */
+        }
+        .mobile-menu .btn { /* [cite: 59] */
+            width: 100%; /* [cite: 59] */
+            text-align: center; /* [cite: 60] */
+            margin: 10px 0; /* [cite: 60] */
+            padding: 12px 20px; /* [cite: 60] */
+            display: flex; /* [cite: 60] */
+            align-items: center; /* [cite: 60] */
+            justify-content: center; /* [cite: 60] */
+            gap: 10px; /* [cite: 60] */
+        }
+        /* Menu Overlay */
+        .menu-overlay { /* [cite: 61] */
+            position: fixed; /* [cite: 61] */
+            top: 0; /* [cite: 62] */
+            left: 0; /* [cite: 62] */
+            width: 100%; /* [cite: 62] */
+            height: 100%; /* [cite: 62] */
+            background-color: rgba(0, 0, 0, 0.5); /* [cite: 62] */
+            z-index: 1000; /* [cite: 62] */
+            opacity: 0; /* [cite: 62] */
+            visibility: hidden; /* [cite: 62] */
+            transition: all 0.3s ease; /* [cite: 63] */
+        }
+        .menu-overlay.active { /* [cite: 63] */
+            opacity: 1; /* [cite: 63] */
+            visibility: visible; /* [cite: 64] */
+        }
+
+
+        /* Report Issue Section */
+        .report-issue-section {
+            padding: 120px 20px 60px; /* Adjusted padding */
+            background-color: var(--light); /* [cite: 65] */
+            flex-grow: 1; /* Make section grow to fill space */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .report-issue-container {
+            width: 100%; /* [cite: 66] */
+            max-width: 800px; /* Adjusted max-width */
+            margin: 0 auto; /* [cite: 67] */
+            background-color: var(--light); /* [cite: 67] */
+            padding: 3rem; /* [cite: 67] */
+            border-radius: 10px; /* [cite: 67] */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* [cite: 68] */
+            border: 1px solid var(--border-color); /* [cite: 68] */
+        }
+
+        .report-issue-title {
+            font-size: 2.2rem; /* Adjusted size */
+            color: var(--secondary); /* [cite: 88] */
+            margin-bottom: 1rem; /* [cite: 88] */
+            font-weight: 700; /* [cite: 88] */
+            text-align: center;
+        }
+
+        .report-issue-subtitle {
+            color: #555; /* [cite: 89] */
+            margin-bottom: 2.5rem; /* [cite: 90] */
+            font-size: 1.1rem; /* [cite: 90] */
+            text-align: center;
+        }
+
+        .report-issue-form {
+            display: flex; /* [cite: 90] */
+            flex-direction: column; /* [cite: 91] */
+            gap: 1.5rem; /* [cite: 91] */
+        }
+
+        .form-group {
+            position: relative; /* [cite: 91] */
+        }
+
+        .form-group label {
+            display: block; /* [cite: 92] */
+            margin-bottom: 0.5rem; /* [cite: 93] */
+            font-weight: 500; /* [cite: 93] */
+            color: var(--secondary); /* [cite: 93] */
+        }
+
+        .report-issue-form input[type="text"],
+        .report-issue-form input[type="email"],
+        .report-issue-form select,
+        .report-issue-form textarea {
+            width: 100%; /* [cite: 93] */
+            padding: 1rem 1.2rem; /* [cite: 94] */
+            border: 1px solid var(--border-color); /* [cite: 94] */
+            border-radius: 8px; /* [cite: 94] */
+            font-size: 1rem; /* [cite: 94] */
+            outline: none; /* [cite: 94] */
+            transition: all 0.3s; /* [cite: 94] */
+            background-color: var(--grey); /* [cite: 94] */
+        }
+
+        .report-issue-form input[type="text"]:focus,
+        .report-issue-form input[type="email"]:focus,
+        .report-issue-form select:focus,
+        .report-issue-form textarea:focus {
+            border-color: var(--primary); /* [cite: 95] */
+            box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2); /* [cite: 96] */
+            background-color: var(--light); /* [cite: 96] */
+        }
+
+         .report-issue-form textarea {
+            min-height: 150px;
+            resize: vertical;
+         }
+
+        /* Basic file input styling */
+        .report-issue-form input[type="file"] {
+            width: 100%; /* [cite: 93] */
+            padding: 0.8rem 1rem; /* [cite: 94] */
+            border: 1px dashed var(--border-color); /* [cite: 94] */
+            border-radius: 8px; /* [cite: 94] */
+            font-size: 0.95rem; /* [cite: 94] */
+            outline: none; /* [cite: 94] */
+            transition: all 0.3s; /* [cite: 94] */
+            background-color: var(--grey); /* [cite: 94] */
+            cursor: pointer;
+        }
+
+        .report-issue-form input[type="file"]:hover {
+             border-color: var(--primary); /* [cite: 95] */
+             background-color: #eee;
+        }
+
+        .report-issue-form button[type="submit"] {
+            background: linear-gradient(90deg, var(--secondary), var(--primary)); /* [cite: 103] */
+            color: var(--light); /* [cite: 104] */
+            padding: 1.2rem; /* [cite: 104] */
+            border: none; /* [cite: 104] */
+            border-radius: 8px; /* [cite: 104] */
+            font-weight: 600; /* [cite: 104] */
+            cursor: pointer; /* [cite: 104] */
+            transition: all 0.3s; /* [cite: 104] */
+            margin-top: 1rem; /* [cite: 104] */
+            width: 100%; /* [cite: 104] */
+            font-size: 1.1rem; /* [cite: 105] */
+            text-transform: uppercase; /* [cite: 105] */
+            letter-spacing: 0.5px; /* [cite: 105] */
+        }
+
+        .report-issue-form button[type="submit"]:hover {
+            background: linear-gradient(90deg, var(--primary), var(--secondary)); /* [cite: 105] */
+            transform: translateY(-2px); /* [cite: 106] */
+            box-shadow: 0 5px 15px rgba(108, 29, 58, 0.2); /* [cite: 106] */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark); /* [cite: 165] */
+            color: white; /* [cite: 166] */
+            padding: 60px 20px 20px; /* [cite: 166] */
+            margin-top: auto; /* Push footer to bottom */
+        }
+
+        .footer-container {
+            max-width: 1200px; /* [cite: 166] */
+            margin: 0 auto; /* [cite: 167] */
+        }
+
+        /* ... other footer styles from... */
+        .footer-grid { /* [cite: 167] */
+            display: grid; /* [cite: 167] */
+            grid-template-columns: repeat(4, 1fr); /* [cite: 168] */
+            gap: 40px; /* [cite: 168] */
+            margin-bottom: 40px; /* [cite: 168] */
+        }
+        .footer-column h3 { /* [cite: 168] */
+            font-size: 18px; /* [cite: 168] */
+            margin-bottom: 20px; /* [cite: 169] */
+            color: var(--primary); /* [cite: 169] */
+        }
+        .footer-column ul { /* [cite: 169] */
+            list-style: none; /* [cite: 169] */
+        }
+        .footer-column li { /* [cite: 170] */
+            margin-bottom: 15px; /* [cite: 170] */
+        }
+        .footer-column a { /* [cite: 171] */
+            color: #aaa; /* [cite: 171] */
+            text-decoration: none; /* [cite: 172] */
+            transition: color 0.3s; /* [cite: 172] */
+        }
+        .footer-column a:hover { /* [cite: 172] */
+            color: var(--primary); /* [cite: 172] */
+        }
+        .footer-social { /* [cite: 173] */
+            display: flex; /* [cite: 173] */
+            gap: 15px; /* [cite: 174] */
+        }
+        .footer-social a { /* [cite: 174] */
+            width: 40px; /* [cite: 174] */
+            height: 40px; /* [cite: 175] */
+            border-radius: 50%; /* [cite: 175] */
+            background-color: rgba(255,255,255,0.1); /* [cite: 175] */
+            display: flex; /* [cite: 175] */
+            align-items: center; /* [cite: 175] */
+            justify-content: center; /* [cite: 175] */
+            color: white; /* [cite: 175] */
+            transition: background-color 0.3s; /* [cite: 175] */
+        }
+        .footer-social a:hover { /* [cite: 176] */
+            background-color: var(--primary); /* [cite: 176] */
+        }
+        .footer-bottom { /* [cite: 177] */
+            display: flex; /* [cite: 177] */
+            justify-content: space-between; /* [cite: 178] */
+            align-items: center; /* [cite: 178] */
+            padding-top: 20px; /* [cite: 178] */
+            border-top: 1px solid rgba(255,255,255,0.1); /* [cite: 178] */
+            color: #aaa; /* [cite: 178] */
+            font-size: 14px; /* [cite: 178] */
+        }
+        .footer-logo-group { /* [cite: 179] */
+            display: flex; /* [cite: 179] */
+            flex-direction: column; /* [cite: 180] */
+            gap: 15px; /* [cite: 180] */
+        }
+        .footer-logo-group .logo { /* [cite: 180] */
+            display: flex; /* [cite: 180] */
+            align-items: center; /* [cite: 181] */
+            margin-bottom: 10px; /* [cite: 181] */
+        }
+        .footer-tagline { /* [cite: 181] */
+            color: #aaa; /* [cite: 181] */
+            font-size: 0.9rem; /* [cite: 182] */
+            line-height: 1.5; /* [cite: 182] */
+            margin-bottom: 15px; /* [cite: 182] */
+        }
+        .footer-logo-group .footer-social { /* [cite: 182] */
+            margin-top: 0; /* [cite: 182] */
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .report-issue-container {
+                padding: 2rem;
+            }
+             .footer-grid { /* [cite: 232] */
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* [cite: 232] */
+                gap: 2rem; /* [cite: 233] */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-buttons {
+                display: none; /* [cite: 233] */
+            }
+            .hamburger-menu {
+                display: block; /* [cite: 234] */
+            }
+            .report-issue-section {
+                padding: 100px 15px 40px; /* Adjust padding */
+            }
+            .report-issue-container {
+                padding: 1.5rem;
+            }
+            .report-issue-title {
+                font-size: 1.8rem; /* [cite: 237] */
+            }
+             .footer-grid { /* [cite: 238] */
+                padding: 0 1.5rem; /* [cite: 238] */
+            }
+            .footer-bottom { /* [cite: 239] */
+                padding-left: 1.5rem; /* [cite: 239] */
+                padding-right: 1.5rem; /* [cite: 240] */
+            }
+        }
+         @media (max-width: 480px) {
+             .footer-grid { /* [cite: 248] */
+                grid-template-columns: 1fr; /* [cite: 248] */
+            }
+            .footer-bottom { /* [cite: 249] */
+                flex-direction: column; /* [cite: 249] */
+                gap: 10px; /* [cite: 250] */
+            }
+         }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo"> <span class="logo-text">Annita</span> </a>
+            <nav>
+                <ul class="nav-links"> <li><a href="index.html">Home</a></li> <li><a href="personalpage.html">Personal</a></li> <li><a href="Businesspage.html">Business</a></li> <li><a href="aboutus.html">About Us</a></li> <li><a href="contactus.html">Contact Us</a></li> <li><a href="csrpage.html">CSR</a></li> <li><a href="report-issue.html">Report Issue</a></li> </ul>
+            </nav>
+            <div class="nav-buttons"> <a href="login.html" class="btn btn-outline">Log In</a> <a href="signuppage.html" class="btn btn-primary">Sign Up</a> </div>
+            <div class="hamburger-menu"> <span class="hamburger-icon"></span> </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu"> <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li> <li><a href="personalpage.html"><i class="fas fa-user"></i>Personal</a></li> <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li> <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li> <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li> <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li> <li><a href="report-issue.html"><i class="fas fa-exclamation-triangle"></i>Report Issue</a></li> <li><a href="login.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li> <li><a href="signuppage.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li> </ul>
+    </div>
+    <div class="menu-overlay"></div> <section class="report-issue-section">
+        <div class="report-issue-container">
+            <h2 class="report-issue-title">Report an Issue</h2>
+            <p class="report-issue-subtitle">Experiencing problems? Let us know the details, and our team will look into it.</p>
+
+            <form class="report-issue-form" action="#" method="POST">
+                 <div class="form-group">
+                    <label for="name">Your Name (Optional)</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address so we can follow up">
+                </div>
+
+                <div class="form-group">
+                    <label for="issue-type">Type of Issue</label>
+                    <select id="issue-type" name="issue-type" required>
+                        <option value="" disabled selected>Select the category of your issue</option>
+                        <option value="bug">Bug / Technical Problem</option>
+                        <option value="payment">Payment / Transaction Issue</option>
+                        <option value="account">Account Access / Login Problem</option>
+                        <option value="feature-request">Feature Request / Suggestion</option>
+                        <option value="content">Content Problem (e.g., incorrect info)</option>
+                        <option value="security">Security Concern</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Briefly summarize the issue">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Detailed Description</label>
+                    <textarea id="description" name="description" required placeholder="Please provide as much detail as possible. Include steps to reproduce the issue if applicable."></textarea>
+                </div>
+
+                 <div class="form-group">
+                    <label for="attachment">Attach Screenshot/File (Optional)</label>
+                    <input type="file" id="attachment" name="attachment" accept="image/*, .pdf, .doc, .docx, .txt">
+                    <small style="display: block; margin-top: 5px; color: #555;">Max file size: 5MB. Allowed types: JPG, PNG, PDF, DOC, TXT.</small>
+                 </div>
+
+                <button type="submit">Submit Report</button>
+            </form>
+        </div>
+    </section>
+
+    <footer> <div class="footer-container"> <div class="footer-grid"> <div class="footer-column"> <div class="footer-logo-group"> <a href="index.html" class="logo"> <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo"> <span class="logo-text">Annita</span> </a>
+                        <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p> <div class="footer-social"> <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a> <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a> <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a> </div>
+                    </div>
+                </div>
+                <div class="footer-column"> <h3>Products</h3> <ul>
+                        <li><a href="#">AnnitaPay</a></li> <li><a href="#">AnnitaMarket</a></li> <li><a href="#">AnnitaConnect</a></li> <li><a href="#">AnnitaAI</a></li> <li><a href="#">AnnitaAds</a></li> <li><a href="#">AnnitaCloud</a></li> </ul>
+                </div>
+                <div class="footer-column"> <h3>Resources</h3> <ul>
+                        <li><a href="#">Help Center</a></li> <li><a href="#">Community</a></li> <li><a href="#">Tutorials</a></li> <li><a href="#">Webinars</a></li> <li><a href="#">Developers</a></li> <li><a href="#">API Documentation</a></li> </ul>
+                </div>
+                 <div class="footer-column"> <h3>Company</h3> <ul>
+                        <li><a href="aboutus.html">About Us</a></li> <li><a href="careerpage.html">Careers</a></li> <li><a href="#">Press</a></li> <li><a href="blogpage.html">Our Blog</a></li> <li><a href="#">Partners</a></li> <li><a href="contactus.html">Contact Us</a></li> </ul>
+                </div>
+                <div class="footer-column"> <h3>Legal</h3> <ul>
+                        <li><a href="#">Privacy Policy</a></li> <li><a href="#">Terms of Service</a></li> <li><a href="#">Security</a></li> <li><a href="cookie-policy.html">Cookie Policy</a></li> <li><a href="#">GDPR</a></li> <li><a href="#">Compliance</a></li> </ul>
+                </div>
+            </div>
+            <div class="footer-bottom"> <div>© 2025 Annita Technologies. All rights reserved.</div> <div class="footer-links-horizontal"> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Sitemap</a> <a href="#">Accessibility</a> <a href="#">Legal</a> </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reused Mobile Menu Toggle Script from [cite: 1]
+        const hamburger = document.querySelector('.hamburger-menu'); /* [cite: 480] */
+        const mobileMenu = document.querySelector('.mobile-menu'); /* [cite: 481] */
+        const overlay = document.querySelector('.menu-overlay'); /* [cite: 481] */
+        const body = document.body; /* [cite: 481] */
+
+        function toggleMenu() { /* [cite: 482] */
+            hamburger.classList.toggle('active'); /* [cite: 482] */
+            mobileMenu.classList.toggle('active'); /* [cite: 483] */
+            overlay.classList.toggle('active'); /* [cite: 483] */
+            // body.classList.toggle('no-scroll'); /* [cite: 483] */ // Removed to allow main content scroll
+
+            if (mobileMenu.classList.contains('active')) { /* [cite: 483] */
+                 body.style.overflow = 'hidden'; /* [cite: 483] */ // Prevent body scroll only when menu is active
+                 mobileMenu.style.webkitOverflowScrolling = 'touch'; /* [cite: 484] */
+            } else {
+                body.style.overflow = ''; /* [cite: 485] */
+                mobileMenu.style.webkitOverflowScrolling = ''; /* [cite: 486] */
+            }
+        }
+
+        hamburger.addEventListener('click', toggleMenu); /* [cite: 487] */
+        overlay.addEventListener('click', toggleMenu); /* [cite: 488] */
+
+        const mobileLinks = mobileMenu.querySelectorAll('a'); /* [cite: 489] */
+        mobileLinks.forEach(link => { /* [cite: 489] */
+            link.addEventListener('click', function(e) { /* [cite: 490] */
+                 // Close menu for all link clicks on this simple page
+                toggleMenu(); /* [cite: 492, 493] */
+                 // Allow default navigation
+            });
+        });
+
+        // Handle iOS viewport height changes
+        function handleViewportHeight() { /* [cite: 494] */
+            let vh = window.innerHeight * 0.01; /* [cite: 494] */
+            document.documentElement.style.setProperty('--vh', `${vh}px`); /* [cite: 495] */
+        }
+
+        handleViewportHeight(); /* [cite: 495] */
+        window.addEventListener('resize', handleViewportHeight); /* [cite: 496] */
+        window.addEventListener('orientationchange', handleViewportHeight); /* [cite: 496] */
+
+        // You might want to add JavaScript here to handle form submission (e.g., using AJAX or formspree.io)
+        // Example: Basic form validation feedback
+        const form = document.querySelector('.report-issue-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                // Add actual submission logic here (e.g., send data to server)
+                // For now, just prevent default and log
+                e.preventDefault();
+                console.log('Form submitted (implement actual submission logic)');
+                alert('Thank you for your report! We will look into the issue.');
+                form.reset(); // Optional: reset form after submission
+            });
+        }
+
+    </script>
+</body>
+</html>

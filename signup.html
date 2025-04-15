@@ -3,182 +3,1219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Sign Up - Annita</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+    <title>Sign Up - Annita | Africa's All-In-One Platform</title>
+    <meta name="description" content="Join Annita - Africa's premier digital platform for payments, e-commerce, connectivity and more. Sign up for your free account today.">
+    <meta name="keywords" content="Annita, Africa digital platform, mobile payments, e-commerce, African tech">
+    <meta name="author" content="Annita Technologies">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Sign Up - Annita | Africa's All-In-One Platform">
+    <meta property="og:description" content="Join Annita - Africa's premier digital platform for payments, e-commerce, connectivity and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.annita.com/signup">
+    <meta property="og:image" content="https://www.annita.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FF7D06">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Zen+Dots&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
     <style>
+        /* CSS Variables for Theme */
         :root {
             --primary: #FF7D06;
+            --primary-dark: #E67000;
+            --primary-light: #FFE8D6;
             --secondary: #6C1D3A;
+            --secondary-dark: #4E1529;
+            --secondary-light: #F8E8EE;
             --accent: #FFC200;
+            --accent-dark: #E6AE00;
             --dark: #111111;
+            --dark-80: #333333;
+            --dark-60: #666666;
+            --dark-40: #999999;
+            --dark-20: #CCCCCC;
+            --dark-10: #E5E5E5;
             --light: #FFFFFF;
+            --light-90: #F9F9F9;
+            --light-80: #F5F5F5;
+            --light-70: #EEEEEE;
             --grey: #F5F5F5;
-            --blue-dark: #001a57;
-            --blue-light: #00c2ff;
-            --premium-gold: #FFD700;
-            --premium-silver: #c0c0c0;
-            --border-color: #e2e8f0;
-            --error: #ff3b30;
-            --success: #34c759;
-            --warning: #ff9500;
+            --blue-dark: #001A57;
+            --blue-light: #00C2FF;
+            --success: #34C759;
+            --success-dark: #2DAE4E;
+            --error: #FF3B30;
+            --error-dark: #E6352B;
+            --warning: #FF9500;
+            --info: #5AC8FA;
+            --growth-color: #4CAF50;
+            --pro-color: #2196F3;
+            --business-color: #9C27B0;
+            --enterprise-color: #FF5722;
+            --border-color: #E2E8F0;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --header-height: 80px;
+            --max-width: 1200px;
         }
         
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            width: 100%;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+        *::before,
+        *::after {
+            box-sizing: inherit;
         }
         
         html {
+            font-size: 16px;
+            scroll-behavior: smooth;
             overflow-x: hidden;
             width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+        }
+        
+        h4 {
+            font-size: 1.5rem;
+        }
+        
+        h5 {
+            font-size: 1.25rem;
+        }
+        
+        h6 {
+            font-size: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--dark-60);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        strong {
+            font-weight: 600;
+        }
+        
+        small {
+            font-size: 0.875rem;
+            color: var(--dark-60);
+        }
+        
+        /* Utility Classes */
+        .text-primary {
+            color: var(--primary) !important;
+        }
+        
+        .text-secondary {
+            color: var(--secondary) !important;
+        }
+        
+        .text-success {
+            color: var(--success) !important;
+        }
+        
+        .text-error {
+            color: var(--error) !important;
+        }
+        
+        .text-warning {
+            color: var(--warning) !important;
+        }
+        
+        .text-info {
+            color: var(--info) !important;
+        }
+        
+        .text-light {
+            color: var(--light) !important;
+        }
+        
+        .text-dark {
+            color: var(--dark) !important;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-left {
+            text-align: left;
+        }
+        
+        .text-right {
+            text-align: right;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary) !important;
+        }
+        
+        .bg-light {
+            background-color: var(--light) !important;
+        }
+        
+        .bg-dark {
+            background-color: var(--dark) !important;
+        }
+        
+        .bg-success {
+            background-color: var(--success) !important;
+        }
+        
+        .bg-error {
+            background-color: var(--error) !important;
+        }
+        
+        .bg-warning {
+            background-color: var(--warning) !important;
+        }
+        
+        .bg-info {
+            background-color: var(--info) !important;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-sm {
+            padding: 3rem 0;
+        }
+        
+        .section-lg {
+            padding: 7rem 0;
+        }
+        
+        .d-flex {
+            display: flex;
+        }
+        
+        .flex-column {
+            flex-direction: column;
+        }
+        
+        .flex-row {
+            flex-direction: row;
+        }
+        
+        .justify-content-center {
+            justify-content: center;
+        }
+        
+        .justify-content-between {
+            justify-content: space-between;
+        }
+        
+        .justify-content-around {
+            justify-content: space-around;
+        }
+        
+        .align-items-center {
+            align-items: center;
+        }
+        
+        .align-items-start {
+            align-items: flex-start;
+        }
+        
+        .align-items-end {
+            align-items: flex-end;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .gap-1 {
+            gap: 0.5rem;
+        }
+        
+        .gap-2 {
+            gap: 1rem;
+        }
+        
+        .gap-3 {
+            gap: 1.5rem;
+        }
+        
+        .gap-4 {
+            gap: 2rem;
+        }
+        
+        .gap-5 {
+            gap: 3rem;
+        }
+        
+        .w-100 {
+            width: 100%;
+        }
+        
+        .mw-100 {
+            max-width: 100%;
+        }
+        
+        .h-100 {
+            height: 100%;
+        }
+        
+        .mh-100 {
+            min-height: 100%;
+        }
+        
+        .my-1 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .my-2 {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .my-3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .my-4 {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .my-5 {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .py-1 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .py-2 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        .py-3 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        
+        .py-4 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        
+        .py-5 {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        .rounded {
+            border-radius: var(--border-radius);
+        }
+        
+        .rounded-circle {
+            border-radius: 50%;
+        }
+        
+        .shadow {
+            box-shadow: var(--box-shadow);
+        }
+        
+        .shadow-lg {
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .position-relative {
+            position: relative;
+        }
+        
+        .position-absolute {
+            position: absolute;
+        }
+        
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        
+        .d-none {
+            display: none;
+        }
+        
+        .d-block {
+            display: block;
+        }
+        
+        .d-inline {
+            display: inline;
+        }
+        
+        .d-inline-block {
+            display: inline-block;
+        }
+        
+        @media (min-width: 768px) {
+            .d-md-none {
+                display: none;
+            }
+            
+            .d-md-block {
+                display: block;
+            }
+            
+            .d-md-flex {
+                display: flex;
+            }
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 2px solid transparent;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: none;
+        }
+        
+        .btn:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(255, 125, 6, 0.25);
+        }
+        
+        .btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+        
+        .btn-primary {
+            color: var(--light);
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            color: var(--light);
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-secondary {
+            color: var(--light);
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            color: var(--light);
+            background-color: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary);
+            background-color: transparent;
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-primary:hover {
+            color: var(--light);
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-outline-secondary {
+            color: var(--secondary);
+            background-color: transparent;
+            border-color: var(--secondary);
+        }
+        
+        .btn-outline-secondary:hover {
+            color: var(--light);
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-light {
+            color: var(--dark);
+            background-color: var(--light);
+            border-color: var(--light);
+        }
+        
+        .btn-light:hover {
+            color: var(--dark);
+            background-color: var(--light-80);
+            border-color: var(--light-80);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-dark {
+            color: var(--light);
+            background-color: var(--dark);
+            border-color: var(--dark);
+        }
+        
+        .btn-dark:hover {
+            color: var(--light);
+            background-color: var(--dark-80);
+            border-color: var(--dark-80);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-success {
+            color: var(--light);
+            background-color: var(--success);
+            border-color: var(--success);
+        }
+        
+        .btn-success:hover {
+            color: var(--light);
+            background-color: var(--success-dark);
+            border-color: var(--success-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-error {
+            color: var(--light);
+            background-color: var(--error);
+            border-color: var(--error);
+        }
+        
+        .btn-error:hover {
+            color: var(--light);
+            background-color: var(--error-dark);
+            border-color: var(--error-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-link {
+            font-weight: 600;
+            color: var(--primary);
+            background-color: transparent;
+            border: none;
+            text-decoration: underline;
+        }
+        
+        .btn-link:hover {
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 50rem;
+            transition: var(--transition);
+        }
+        
+        .badge-primary {
+            color: var(--light);
+            background-color: var(--primary);
+        }
+        
+        .badge-secondary {
+            color: var(--light);
+            background-color: var(--secondary);
+        }
+        
+        .badge-success {
+            color: var(--light);
+            background-color: var(--success);
+        }
+        
+        .badge-error {
+            color: var(--light);
+            background-color: var(--error);
+        }
+        
+        .badge-warning {
+            color: var(--dark);
+            background-color: var(--warning);
+        }
+        
+        .badge-info {
+            color: var(--light);
+            background-color: var(--info);
+        }
+        
+        .badge-light {
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        .badge-dark {
+            color: var(--light);
+            background-color: var(--dark);
+        }
+        
+        /* Alerts */
+        .alert {
+            position: relative;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .alert-primary {
+            color: #084298;
+            background-color: #CFE2FF;
+            border-color: #B6D4FE;
+        }
+        
+        .alert-secondary {
+            color: #41464B;
+            background-color: #E2E3E5;
+            border-color: #D3D6D8;
+        }
+        
+        .alert-success {
+            color: #0F5132;
+            background-color: #D1E7DD;
+            border-color: #BADBCC;
+        }
+        
+        .alert-error {
+            color: #842029;
+            background-color: #F8D7DA;
+            border-color: #F5C2C7;
+        }
+        
+        .alert-warning {
+            color: #664D03;
+            background-color: #FFF3CD;
+            border-color: #FFECB5;
+        }
+        
+        .alert-info {
+            color: #055160;
+            background-color: #CFF4FC;
+            border-color: #B6EAFB;
+        }
+        
+        .alert-light {
+            color: #636464;
+            background-color: #FEFEFE;
+            border-color: #FDFDFE;
+        }
+        
+        .alert-dark {
+            color: #141619;
+            background-color: #D3D3D4;
+            border-color: #BCBEBF;
+        }
+        
+        .alert-dismissible {
+            padding-right: 3rem;
+        }
+        
+        .alert-dismissible .btn-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 1.25rem 1rem;
+            color: inherit;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--dark);
+            background-color: var(--light);
+            background-clip: padding-box;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            color: var(--dark);
+            background-color: var(--light);
+            border-color: var(--primary);
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(255, 125, 6, 0.25);
+        }
+        
+        .form-control::placeholder {
+            color: var(--dark-40);
+            opacity: 1;
+        }
+        
+        .form-control:disabled,
+        .form-control[readonly] {
+            background-color: var(--light-80);
+            opacity: 1;
+        }
+        
+        .form-text {
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+            color: var(--dark-60);
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: center;
+            min-height: 1.5rem;
+            padding-left: 1.5em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-check-input {
+            width: 1em;
+            height: 1em;
+            margin-top: 0.25em;
+            margin-left: -1.5em;
+            vertical-align: top;
+            background-color: var(--light);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border: 1px solid var(--border-color);
+            appearance: none;
+            color-adjust: exact;
+            transition: var(--transition);
+        }
+        
+        .form-check-input:checked {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .form-check-input:focus {
+            border-color: var(--primary);
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(255, 125, 6, 0.25);
+        }
+        
+        .form-check-label {
+            margin-bottom: 0;
+            font-weight: 400;
+            color: var(--dark);
+        }
+        
+        .form-select {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 2.25rem 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--dark);
+            background-color: var(--light);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            appearance: none;
+        }
+        
+        .form-select:focus {
+            border-color: var(--primary);
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(255, 125, 6, 0.25);
+        }
+        
+        .form-select:disabled {
+            background-color: var(--light-80);
+        }
+        
+        .input-group {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            width: 100%;
+        }
+        
+        .input-group > .form-control,
+        .input-group > .form-select {
+            position: relative;
+            flex: 1 1 auto;
+            width: 1%;
+            min-width: 0;
+        }
+        
+        .input-group-text {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--dark);
+            text-align: center;
+            white-space: nowrap;
+            background-color: var(--light-80);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+        }
+        
+        .input-group-lg > .form-control,
+        .input-group-lg > .form-select,
+        .input-group-lg > .input-group-text {
+            padding: 1rem 1.5rem;
+            font-size: 1.25rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .input-group-sm > .form-control,
+        .input-group-sm > .form-select,
+        .input-group-sm > .input-group-text {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .is-invalid {
+            border-color: var(--error) !important;
+        }
+        
+        .is-valid {
+            border-color: var(--success) !important;
+        }
+        
+        .invalid-feedback {
+            width: 100%;
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+            color: var(--error);
+        }
+        
+        .valid-feedback {
+            width: 100%;
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+            color: var(--success);
+        }
+        
+        /* Cards */
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: var(--light);
+            background-clip: border-box;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .card-subtitle {
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: var(--dark-60);
+        }
+        
+        .card-text:last-child {
+            margin-bottom: 0;
+        }
+        
+        .card-header {
+            padding: 1rem 1.5rem;
+            margin-bottom: 0;
+            background-color: var(--light-80);
+            border-bottom: 1px solid var(--border-color);
+            border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+        }
+        
+        .card-footer {
+            padding: 1rem 1.5rem;
+            background-color: var(--light-80);
+            border-top: 1px solid var(--border-color);
+            border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
+        }
+        
+        .card-img-top {
+            width: 100%;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+        
+        .card-img-bottom {
+            width: 100%;
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+        
+        /* Lists */
+        .list-group {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            border-radius: var(--border-radius);
+        }
+        
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            background-color: var(--light);
+            border: 1px solid var(--border-color);
+        }
+        
+        .list-group-item:first-child {
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
+        }
+        
+        .list-group-item:last-child {
+            border-bottom-left-radius: inherit;
+            border-bottom-right-radius: inherit;
+        }
+        
+        .list-group-item-action {
+            width: 100%;
+            color: var(--dark);
+            text-align: inherit;
+            transition: var(--transition);
+        }
+        
+        .list-group-item-action:hover {
+            z-index: 1;
+            color: var(--dark);
+            text-decoration: none;
+            background-color: var(--light-80);
+        }
+        
+        .list-group-item-action:focus {
+            z-index: 1;
+            color: var(--dark);
+            text-decoration: none;
+            background-color: var(--light-80);
+        }
+        
+        .list-group-item-action:active {
+            color: var(--dark);
+            background-color: var(--light-70);
+        }
+        
+        .list-group-item-primary {
+            color: #084298;
+            background-color: #CFE2FF;
+        }
+        
+        .list-group-item-secondary {
+            color: #41464B;
+            background-color: #E2E3E5;
+        }
+        
+        .list-group-item-success {
+            color: #0F5132;
+            background-color: #D1E7DD;
+        }
+        
+        .list-group-item-error {
+            color: #842029;
+            background-color: #F8D7DA;
+        }
+        
+        .list-group-item-warning {
+            color: #664D03;
+            background-color: #FFF3CD;
+        }
+        
+        .list-group-item-info {
+            color: #055160;
+            background-color: #CFF4FC;
+        }
+        
+        .list-group-item-light {
+            color: #636464;
+            background-color: #FEFEFE;
+        }
+        
+        .list-group-item-dark {
+            color: #141619;
+            background-color: #D3D3D4;
         }
         
         /* Header Styles */
         header {
             background-color: var(--light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            height: var(--header-height);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
-            max-width: 1200px;
+            height: 100%;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
+            gap: 0.75rem;
         }
-
+        
         .logo-image {
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
             border-radius: 50%;
             object-fit: cover;
-            margin-right: 10px;
             border: 2px solid var(--primary);
         }
-
+        
         .logo-text {
             font-family: 'Zen Dots', cursive;
             font-weight: 400;
             color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .logo:hover .logo-text {
+            color: var(--primary-dark);
         }
         
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
+            gap: 1.5rem;
         }
         
         nav ul li a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
+            position: relative;
         }
         
         nav ul li a:hover {
             color: var(--primary);
         }
         
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
         .nav-buttons {
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .btn-outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: #e67000;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .btn-premium {
-            background: linear-gradient(135deg, var(--premium-gold), var(--premium-silver));
-            color: var(--dark);
-            font-weight: 700;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            gap: 1rem;
         }
         
         /* Hamburger Menu */
         .hamburger-menu {
             display: none;
             cursor: pointer;
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
             position: relative;
             z-index: 1002;
         }
         
-        .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+        .hamburger-icon,
+        .hamburger-icon:before,
+        .hamburger-icon:after {
             content: '';
             display: block;
-            width: 30px;
-            height: 3px;
+            width: 1.875rem;
+            height: 0.1875rem;
             background-color: var(--dark);
             position: absolute;
-            left: 5px;
-            border-radius: 3px;
-            transition: all 0.4s;
+            left: 0.3125rem;
+            border-radius: 0.1875rem;
+            transition: var(--transition);
         }
         
         .hamburger-icon {
@@ -187,11 +1224,11 @@
         }
         
         .hamburger-icon:before {
-            top: -8px;
+            top: -0.5rem;
         }
         
         .hamburger-icon:after {
-            top: 8px;
+            top: 0.5rem;
         }
         
         .hamburger-menu.active .hamburger-icon {
@@ -199,11 +1236,11 @@
         }
         
         .hamburger-menu.active .hamburger-icon:before {
-            transform: translateY(8px) rotate(45deg);
+            transform: translateY(0.5rem) rotate(45deg);
         }
         
         .hamburger-menu.active .hamburger-icon:after {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-0.5rem) rotate(-45deg);
         }
         
         /* Mobile Menu */
@@ -212,15 +1249,14 @@
             top: 0;
             left: 0;
             width: 80%;
-            max-width: 320px;
-            height: 100%;
-            height: calc(var(--vh, 1vh) * 100);
-            background-color: white;
+            max-width: 20rem;
+            height: 100vh;
+            background-color: var(--light);
             z-index: 1001;
             transform: translateX(-100%);
             transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-            padding: 100px 30px 30px;
+            box-shadow: 0.25rem 0 1.25rem rgba(0, 0, 0, 0.1);
+            padding: 5rem 1.5rem 1.5rem;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
@@ -232,12 +1268,15 @@
         .mobile-menu ul {
             list-style: none;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
         
         .mobile-menu li {
-            margin-bottom: 15px;
+            margin-bottom: 0.5rem;
             opacity: 0;
-            transform: translateX(-20px);
+            transform: translateX(-1.25rem);
             transition: all 0.4s ease;
         }
         
@@ -259,24 +1298,26 @@
         .mobile-menu a {
             text-decoration: none;
             color: var(--dark);
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: 500;
-            transition: all 0.3s;
+            transition: var(--transition);
             display: flex;
             align-items: center;
-            padding: 8px 0;
-        }
-        
-        .mobile-menu a i {
-            margin-right: 15px;
-            width: 24px;
-            text-align: center;
-            color: var(--primary);
-            transition: all 0.3s;
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
         }
         
         .mobile-menu a:hover {
             color: var(--primary);
+            background-color: var(--light-80);
+        }
+        
+        .mobile-menu a i {
+            margin-right: 1rem;
+            width: 1.5rem;
+            text-align: center;
+            color: var(--primary);
+            transition: var(--transition);
         }
         
         .mobile-menu a:hover i {
@@ -286,12 +1327,12 @@
         .mobile-menu .btn {
             width: 100%;
             text-align: center;
-            margin: 10px 0;
-            padding: 12px 20px;
+            margin: 0.5rem 0;
+            padding: 0.75rem 1.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 0.5rem;
         }
         
         /* Menu Overlay */
@@ -300,40 +1341,163 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
         
         .menu-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-
-        /* Premium Signup Section */
-        .signup-section {
-            padding: 180px 0 100px;
-            background-color: var(--light);
-            min-height: calc(100vh - 350px);
-            width: 100vw;
-            margin: 0;
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(108, 29, 58, 0.9), rgba(255, 125, 6, 0.9)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') no-repeat center center/cover;
+            color: var(--light);
+            padding: calc(var(--header-height) + 3rem) 0 5rem;
             position: relative;
             overflow: hidden;
         }
         
+        .hero-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 42rem;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            max-width: 50%;
+            height: auto;
+            display: none;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 5rem 0;
+            background-color: var(--light-80);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5rem;
+            height: 0.25rem;
+            background-color: var(--primary);
+            border-radius: 0.125rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--dark-60);
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .feature-icon {
+            width: 5rem;
+            height: 5rem;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            font-size: 2rem;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-text {
+            color: var(--dark-60);
+        }
+        
+        /* Signup Section */
+        .signup-section {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
         .signup-container {
-            width: 100%;
-            max-width: 1200px;
+            display: flex;
+            gap: 3rem;
+            max-width: var(--max-width);
             margin: 0 auto;
             background-color: var(--light);
             padding: 3rem;
-            display: flex;
-            align-items: stretch;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-lg);
             position: relative;
             z-index: 1;
             border: 1px solid var(--border-color);
@@ -350,35 +1514,20 @@
             position: relative;
         }
         
-        .signup-image-container::after {
-            content: "PREMIUM";
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: linear-gradient(135deg, var(--premium-gold), var(--premium-silver));
-            color: var(--dark);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
         .signup-image {
-            width: 200px;
-            height: 200px;
+            width: 12.5rem;
+            height: 12.5rem;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--box-shadow-lg);
             margin-bottom: 2rem;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--grey);
-            border: 5px solid var(--light);
-            outline: 2px solid var(--primary);
+            background-color: var(--light-80);
+            border: 0.3125rem solid var(--light);
+            outline: 0.125rem solid var(--primary);
         }
         
         .signup-image-text {
@@ -393,17 +1542,17 @@
         }
         
         .signup-image-text p {
-            color: #555;
+            color: var(--dark-60);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
         
-        .premium-features {
+        .account-features {
             width: 100%;
             margin-top: 2rem;
         }
         
-        .premium-features h4 {
+        .account-features h4 {
             color: var(--secondary);
             margin-bottom: 1rem;
             font-size: 1.1rem;
@@ -412,23 +1561,23 @@
             gap: 0.5rem;
         }
         
-        .premium-features h4 i {
-            color: var(--premium-gold);
+        .account-features h4 i {
+            color: var(--primary);
         }
         
-        .premium-features ul {
+        .account-features ul {
             list-style-type: none;
         }
         
-        .premium-features li {
+        .account-features li {
             margin-bottom: 0.8rem;
             position: relative;
             padding-left: 1.8rem;
             font-size: 0.9rem;
-            color: #555;
+            color: var(--dark-60);
         }
         
-        .premium-features li::before {
+        .account-features li::before {
             content: "✓";
             position: absolute;
             left: 0;
@@ -453,11 +1602,149 @@
         }
         
         .signup-subtitle {
-            color: #555;
+            color: var(--dark-60);
             margin-bottom: 2rem;
             font-size: 1.1rem;
         }
         
+        /* Plan Selection */
+        .plan-selection {
+            margin-bottom: 2rem;
+        }
+        
+        .plan-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            background-color: var(--light);
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .plan-card.selected {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(255, 125, 6, 0.2);
+            transform: translateY(-0.5rem);
+        }
+        
+        .plan-card.free {
+            border-top: 0.25rem solid var(--dark-40);
+        }
+        
+        .plan-card.growth {
+            border-top: 0.25rem solid var(--growth-color);
+        }
+        
+        .plan-card.pro {
+            border-top: 0.25rem solid var(--pro-color);
+        }
+        
+        .plan-card.business {
+            border-top: 0.25rem solid var(--business-color);
+        }
+        
+        .plan-card.enterprise {
+            border-top: 0.25rem solid var(--enterprise-color);
+        }
+        
+        .plan-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .plan-price {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-price .period {
+            font-size: 0.9rem;
+            color: var(--dark-60);
+        }
+        
+        .plan-price .annual {
+            font-size: 0.9rem;
+            color: var(--dark-60);
+        }
+        
+        .plan-price .savings {
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--dark-60);
+            margin-top: 1rem;
+        }
+        
+        .plan-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .plan-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .plan-badge {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Verification Notice */
+        .verification-notice {
+            background-color: rgba(255, 125, 6, 0.1);
+            border-left: 0.25rem solid var(--primary);
+            padding: 1rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 1.5rem 0;
+        }
+        
+        .verification-notice h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .verification-notice h3 i {
+            color: var(--primary);
+        }
+        
+        /* Form Elements */
         .signup-form {
             display: flex;
             flex-direction: column;
@@ -481,258 +1768,19 @@
             width: 100%;
             padding: 1rem 1.2rem;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             font-size: 1rem;
             outline: none;
-            transition: all 0.3s;
-            background-color: var(--grey);
+            transition: var(--transition);
+            background-color: var(--light-80);
         }
         
         .signup-form input:focus,
         .signup-form select:focus,
         .signup-form textarea:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
+            box-shadow: 0 0 0 0.25rem rgba(255, 125, 6, 0.2);
             background-color: var(--light);
-        }
-        
-        .account-type-select {
-            margin-bottom: 1.5rem;
-        }
-        
-        .password-field {
-            position: relative;
-        }
-        
-        .password-toggle {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #555;
-            cursor: pointer;
-            padding: 0;
-        }
-        
-        .password-toggle:focus {
-            outline: none;
-        }
-        
-        .password-toggle i {
-            font-size: 1.2rem;
-        }
-        
-        .signup-form button[type="submit"] {
-            background: linear-gradient(90deg, var(--secondary), var(--primary));
-            color: var(--light);
-            padding: 1.2rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 1rem;
-            width: 100%;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .signup-form button[type="submit"]:hover {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(108, 29, 58, 0.2);
-        }
-        
-        .login-divider {
-            display: flex;
-            align-items: center;
-            margin: 2rem 0;
-            color: #555;
-        }
-        
-        .login-divider::before,
-        .login-divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: var(--border-color);
-        }
-        
-        .login-divider span {
-            padding: 0 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .social-login {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .social-login-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--grey);
-            color: #555;
-            border: 1px solid var(--border-color);
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .social-login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .social-login-btn.google {
-            color: #DB4437;
-        }
-        
-        .social-login-btn.linkedin {
-            color: #0077B5;
-        }
-        
-        .social-login-btn.facebook {
-            color: #3b5998;
-        }
-        
-        .social-login-btn.apple {
-            color: #000;
-        }
-        
-        .already-account {
-            text-align: center;
-            margin-top: 1.5rem;
-            font-size: 1rem;
-        }
-        
-        .already-account a {
-            color: var(--secondary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .already-account a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-        
-        .with-icon {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        /* Premium KYC Specific Styles */
-        .kyc-section {
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-top: 1.5rem;
-            background-color: var(--grey);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .kyc-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--secondary));
-        }
-        
-        .kyc-section h3 {
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .kyc-section p {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-        
-        .kyc-requirements {
-            margin-bottom: 2rem;
-        }
-        
-        .kyc-requirements-title {
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .kyc-requirements-title i {
-            color: var(--primary);
-        }
-        
-        .requirement-list {
-            list-style-type: none;
-        }
-        
-        .requirement-list li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-left: 2rem;
-            line-height: 1.6;
-        }
-        
-        .requirement-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .document-upload {
-            margin-top: 1.5rem;
-        }
-        
-        .upload-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background-color: var(--light);
-            border: 1px solid var(--border-color);
-            color: #555;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-        
-        .upload-btn:hover {
-            border-color: var(--primary);
-            color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .upload-btn i {
-            color: var(--primary);
-            font-size: 1.2rem;
         }
         
         .form-row {
@@ -745,474 +1793,515 @@
             flex: 1;
         }
         
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-        
-        .checkbox-group input {
-            margin-top: 0.3rem;
-            width: auto;
-            accent-color: var(--primary);
-        }
-        
-        .checkbox-group label {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .checkbox-group label a {
-            color: var(--secondary);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        
-        .checkbox-group label a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Premium Progress Indicator */
-        .progress-container {
-            width: 100%;
-            margin-bottom: 3rem;
-        }
-        
-        .progress-steps {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
+        .password-field {
             position: relative;
         }
         
-        .progress-steps::before {
-            content: "";
+        .password-toggle {
             position: absolute;
-            top: 15px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background-color: var(--border-color);
-            z-index: 1;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--dark-40);
+            cursor: pointer;
+            padding: 0;
         }
         
-        .step {
-            font-size: 1rem;
-            color: #555;
-            text-align: center;
+        .password-toggle:focus {
+            outline: none;
+        }
+        
+        .password-toggle i {
+            font-size: 1.2rem;
+        }
+        
+        /* Social Login Options */
+        .social-login {
+            margin: 1.5rem 0;
+        }
+        
+        .social-login-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--dark-60);
+            font-size: 0.9rem;
+        }
+        
+        .social-login-title::before,
+        .social-login-title::after {
+            content: '';
             flex: 1;
-            position: relative;
-            z-index: 2;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 0 1rem;
         }
         
-        .step::before {
-            content: "";
-            display: block;
-            width: 30px;
-            height: 30px;
-            background-color: var(--grey);
-            border: 3px solid var(--border-color);
-            border-radius: 50%;
-            margin: 0 auto 0.5rem;
-            transition: all 0.3s;
+        .social-login-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
         
-        .step.active {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        .step.active::before {
-            border-color: var(--primary);
-            background-color: var(--light);
-        }
-        
-        .step.completed {
-            color: var(--success);
-        }
-        
-        .step.completed::before {
-            border-color: var(--success);
-            background-color: var(--light);
-            content: "✓";
+        .social-login-btn {
+            flex: 1;
+            min-width: 10rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--success);
-            font-weight: bold;
+            gap: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            background-color: var(--light);
         }
         
-        .progress-bar {
-            height: 6px;
+        .social-login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .social-login-btn.google {
+            color: #4285F4;
+        }
+        
+        .social-login-btn.google:hover {
+            background-color: rgba(66, 133, 244, 0.1);
+        }
+        
+        .social-login-btn.apple {
+            color: var(--dark);
+        }
+        
+        .social-login-btn.apple:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .social-login-btn.facebook {
+            color: #1877F2;
+        }
+        
+        .social-login-btn.facebook:hover {
+            background-color: rgba(24, 119, 242, 0.1);
+        }
+        
+        .social-login-btn.mobile {
+            color: var(--primary);
+        }
+        
+        .social-login-btn.mobile:hover {
+            background-color: rgba(255, 125, 6, 0.1);
+        }
+        
+        /* Payment Options */
+        .payment-options {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: var(--light-80);
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+            min-width: 8rem;
+        }
+        
+        .payment-method:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .payment-method.selected {
+            border-color: var(--primary);
+            background-color: rgba(255, 125, 6, 0.1);
+        }
+        
+        /* Incentives Section */
+        .incentives-section {
+            background-color: var(--light-80);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .incentives-section h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .incentives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .incentive-card {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .incentive-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .incentive-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: rgba(255, 125, 6, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .incentive-card h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .incentive-card p {
+            font-size: 0.9rem;
+            color: var(--dark-60);
+        }
+        
+        /* Policy Acceptance */
+        .policy-acceptance {
+            margin: 1.5rem 0;
+        }
+        
+        .policy-item {
+            margin-bottom: 1rem;
+        }
+        
+        .policy-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .policy-checkbox input[type="checkbox"] {
+            margin-top: 0.25rem;
+        }
+        
+        .policy-label {
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+        
+        .policy-link {
+            color: var(--primary);
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .policy-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* Submit Button */
+        .signup-form button[type="submit"] {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: var(--light);
+            padding: 1.2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
             width: 100%;
-            background-color: var(--border-color);
-            border-radius: 5px;
-            margin-top: 0.5rem;
-            overflow: hidden;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
         }
         
-        .progress {
-            height: 100%;
-            border-radius: 5px;
+        .signup-form button[type="submit"]:hover {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            width: 25%;
-            transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 1.5rem rgba(108, 29, 58, 0.2);
+        }
+        
+        .signup-form button[type="submit"]:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
         
         /* Footer */
         footer {
             background-color: var(--dark);
-            color: white;
-            padding: 60px 20px 20px;
+            color: var(--light);
+            padding: 5rem 0 0;
+            margin-top: auto;
         }
-
+        
         .footer-container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
+            padding: 0 1.5rem;
         }
-
+        
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
-
+        
         .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
             color: var(--primary);
         }
-
+        
         .footer-column ul {
             list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
-
+        
         .footer-column li {
-            margin-bottom: 15px;
+            margin-bottom: 0.5rem;
         }
-
+        
         .footer-column a {
-            color: #aaa;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
+            font-size: 0.9rem;
         }
-
+        
         .footer-column a:hover {
             color: var(--primary);
+            text-decoration: underline;
         }
-
+        
         .footer-social {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-
+        
         .footer-social a {
-            width: 40px;
-            height: 40px;
+            width: 2.5rem;
+            height: 2.5rem;
             border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            transition: background-color 0.3s;
+            color: var(--light);
+            transition: var(--transition);
         }
-
+        
         .footer-social a:hover {
             background-color: var(--primary);
+            transform: translateY(-2px);
         }
-
+        
         .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #aaa;
-            font-size: 14px;
+            padding: 1.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
         }
-
+        
         .footer-logo-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 1rem;
         }
-
+        
         .footer-logo-group .logo {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
         }
-
+        
         .footer-tagline {
-            color: #aaa;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
             line-height: 1.5;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
+            max-width: 20rem;
         }
-
+        
         .footer-logo-group .footer-social {
             margin-top: 0;
         }
         
-        /* Premium Navigation buttons */
-        .form-navigation {
+        .footer-links-horizontal {
             display: flex;
-            justify-content: space-between;
-            margin-top: 3rem;
+            gap: 1.5rem;
         }
         
-        .form-navigation button {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+        .footer-links-horizontal a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.875rem;
+        }
+        
+        .footer-links-horizontal a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
+            justify-content: center;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: var(--box-shadow);
         }
         
-        .prev-btn {
-            background-color: var(--grey);
-            color: #555;
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
         
-        .prev-btn:hover {
-            background-color: #e0e0e0;
-            transform: translateX(-3px);
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-0.5rem);
         }
         
-        .next-btn {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-dialog {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 40rem;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(-2rem);
+            transition: var(--transition);
+            box-shadow: var(--box-shadow-lg);
+        }
+        
+        .modal.show .modal-dialog {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            margin: 0;
+            font-size: 1.5rem;
             color: var(--dark);
         }
         
-        .next-btn:hover {
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-            transform: translateX(3px);
-            box-shadow: 0 5px 15px rgba(255, 125, 6, 0.3);
-        }
-        
-        /* Chatbot Styles */
-        .chatbot-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-        }
-
-        .chatbot-button {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-button:hover {
-            transform: scale(1.1);
-        }
-
-        .chatbot-button i {
-            color: white;
-            font-size: 24px;
-        }
-
-        .notification-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: var(--secondary);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-
-        .chatbot-tooltip {
-            position: absolute;
-            right: 70px;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: var(--dark);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-tooltip::after {
-            content: '';
-            position: absolute;
-            right: -5px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent transparent transparent var(--dark);
-        }
-
-        .chatbot-button:hover .chatbot-tooltip {
-            opacity: 1;
-            visibility: visible;
-            right: 80px;
-        }
-
-        .chatbot-window {
-            position: absolute;
-            bottom: 80px;
-            right: 0;
-            width: 350px;
-            height: 500px;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
-            display: none;
-            flex-direction: column;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-container.open .chatbot-window {
-            display: flex;
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .chat-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-header h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .close-chat {
+        .modal-close {
             background: none;
             border: none;
-            color: white;
-            font-size: 20px;
+            font-size: 1.5rem;
             cursor: pointer;
+            color: var(--dark-60);
+            transition: var(--transition);
         }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background-color: #f9f9f9;
+        
+        .modal-close:hover {
+            color: var(--dark);
         }
-
-        .message {
-            margin-bottom: 15px;
-            max-width: 80%;
-            padding: 10px 15px;
-            border-radius: 18px;
-            font-size: 14px;
-            line-height: 1.4;
+        
+        .modal-body {
+            padding: 1.5rem;
         }
-
-        .bot-message {
-            background-color: #e5e5ea;
-            color: black;
-            border-bottom-left-radius: 5px;
-            align-self: flex-start;
-        }
-
-        .user-message {
-            background-color: var(--primary);
-            color: white;
-            border-bottom-right-radius: 5px;
-            margin-left: auto;
-        }
-
-        .chat-input {
+        
+        .modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
             display: flex;
-            padding: 15px;
-            background-color: white;
-            border-top: 1px solid #eee;
+            justify-content: flex-end;
+            gap: 1rem;
         }
-
-        .chat-input input {
-            flex: 1;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            outline: none;
-            font-size: 14px;
-        }
-
-        .send-button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-left: 10px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
+        
         /* Responsive styling */
-        @media (max-width: 1024px) {
-            .signup-container {
-                padding: 2.5rem;
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 2.5rem;
             }
             
-            .signup-image-container {
-                padding-right: 2rem;
-            }
-            
-            .signup-form-container {
-                padding-left: 2rem;
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
         }
         
-        @media (max-width: 900px) {
+        @media (max-width: 992px) {
             .signup-container {
                 flex-direction: column;
             }
@@ -1236,9 +2325,8 @@
                 gap: 1.5rem;
             }
             
-            .footer-grid {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                gap: 2rem;
+            .hero-image {
+                display: none;
             }
         }
         
@@ -1251,8 +2339,32 @@
                 display: block;
             }
             
-            .signup-section {
-                padding-top: 150px;
+            .hero-section {
+                padding: calc(var(--header-height) + 2rem) 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
             }
             
             .signup-container {
@@ -1264,73 +2376,121 @@
             }
             
             .footer-grid {
-                padding: 0 1.5rem;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
             }
             
             .footer-bottom {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
             
-            .chatbot-container {
-                bottom: 1.5rem;
-                right: 1.5rem;
-            }
-            
-            .chatbot-window {
-                width: 300px;
-                height: 450px;
+            .footer-links-horizontal {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
             .signup-container {
                 padding: 1.5rem;
                 border-radius: 0;
             }
             
             .signup-image {
-                width: 150px;
-                height: 150px;
+                width: 9.375rem;
+                height: 9.375rem;
             }
             
             .signup-title {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
             }
             
-            .form-navigation {
+            .plan-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-login-buttons {
                 flex-direction: column;
-                gap: 1rem;
             }
             
-            .form-navigation button {
+            .social-login-btn {
                 width: 100%;
-                justify-content: center;
             }
             
-            .chatbot-window {
-                width: 280px;
-                right: -20px;
+            .payment-options {
+                flex-direction: column;
             }
-
+            
+            .payment-method {
+                width: 100%;
+            }
+            
             .footer-grid {
                 grid-template-columns: 1fr;
             }
             
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px;
+            .modal-dialog {
+                width: 95%;
             }
         }
         
-        /* Animation */
+        /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
-        .fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+        @keyframes slideInUp {
+            from {
+                transform: translateY(2rem);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .animate-slideInUp {
+            animation: slideInUp 0.5s ease forwards;
+        }
+        
+        /* Print Styles */
+        @media print {
+            header, footer, .hero-section, .back-to-top {
+                display: none !important;
+            }
+            
+            body {
+                padding: 0;
+                background-color: var(--light);
+                color: var(--dark);
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .signup-container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
         }
     </style>
 </head>
@@ -1377,481 +2537,429 @@
     </div>
     <div class="menu-overlay"></div>
 
-    <!-- Premium Signup Section -->
-    <section class="signup-section">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-slideInUp">Join Africa's Premier Digital Platform</h1>
+                <p class="hero-subtitle animate-slideInUp" style="animation-delay: 0.2s">Annita connects you to a world of possibilities with seamless payments, e-commerce, and digital services tailored for Africa's unique needs.</p>
+                <div class="hero-buttons animate-slideInUp" style="animation-delay: 0.4s">
+                    <a href="#signup" class="btn btn-primary btn-lg">Get Started</a>
+                    <a href="#features" class="btn btn-outline-secondary btn-lg">Learn More</a>
+                </div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Annita Platform" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Annita?</h2>
+                <p class="section-subtitle">We're building Africa's most comprehensive digital ecosystem to empower businesses and individuals across the continent.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-fadeIn" style="animation-delay: 0.1s">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Lightning Fast Payments</h3>
+                    <p class="feature-text">Send and receive money instantly across Africa with our optimized payment network and competitive rates.</p>
+                </div>
+                
+                <div class="feature-card animate-fadeIn" style="animation-delay: 0.2s">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Bank-Grade Security</h3>
+                    <p class="feature-text">Your transactions and data are protected with military-grade encryption and multi-factor authentication.</p>
+                </div>
+                
+                <div class="feature-card animate-fadeIn" style="animation-delay: 0.3s">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3 class="feature-title">Pan-African Reach</h3>
+                    <p class="feature-text">Connect with customers and partners across 54 African countries through our unified platform.</p>
+                </div>
+                
+                <div class="feature-card animate-fadeIn" style="animation-delay: 0.4s">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Analytics</h3>
+                    <p class="feature-text">Gain valuable insights with our AI-powered analytics dashboard to grow your business intelligently.</p>
+                </div>
+                
+                <div class="feature-card animate-fadeIn" style="animation-delay: 0.5s">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p class="feature-text">Our dedicated support team is available around the clock to assist you in multiple local languages.</p>
+                </div>
+                
+                <div class="feature-card animate-fadeIn" style="animation-delay: 0.6s">
+                    <div class="feature-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3 class="feature-title">Seamless Integrations</h3>
+                    <p class="feature-text">Connect Annita with your favorite tools and services through our developer-friendly API ecosystem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section class="signup-section" id="signup">
         <div class="signup-container">
             <div class="signup-image-container">
                 <div class="signup-image">
-                    <img src="/images/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1786166.jpg" alt="Premium Account" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Annita Account" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="signup-image-text">
-                    <h3>Premium Account Setup</h3>
-                    <p>Join Annita's exclusive financial network with enhanced features and benefits designed for Africa's digital economy.</p>
+                    <h3>Create Your Annita Account</h3>
+                    <p>Join millions of users across Africa who trust Annita for their digital transactions and business needs.</p>
                 </div>
                 
-                <div class="premium-features">
-                    <h4><i class="fas fa-crown"></i> Premium Benefits</h4>
+                <div class="account-features">
+                    <h4><i class="fas fa-star"></i> Account Benefits</h4>
                     <ul>
-                        <li>Higher transaction limits for African markets</li>
-                        <li>Priority customer support with local understanding</li>
-                        <li>Exclusive financial tools tailored for Africa</li>
-                        <li>Lower fees on intra-African transfers</li>
-                        <li>Dedicated account manager familiar with African business</li>
-                        <li>Advanced security features with African context</li>
-                        <li>Access to Annita's full ecosystem of services</li>
+                        <li>Secure digital wallet with multi-currency support</li>
+                        <li>Instant transfers across Africa with low fees</li>
+                        <li>Access to Annita's full suite of services</li>
+                        <li>Personalized dashboard with actionable insights</li>
+                        <li>24/7 customer support in local languages</li>
+                        <li>Advanced security features and fraud protection</li>
+                        <li>Exclusive discounts and partner offers</li>
                     </ul>
                 </div>
             </div>
             
             <div class="signup-form-container">
-                <h2 class="signup-title">Premium Sign Up</h2>
-                <p class="signup-subtitle">Create your Annita Premium account in just a few steps and unlock Africa's most comprehensive digital platform.</p>
+                <h2 class="signup-title">Choose Your Plan</h2>
+                <p class="signup-subtitle">Select the plan that best fits your needs and start enjoying Africa's most comprehensive digital platform.</p>
                 
-                <!-- Premium Progress Indicator -->
-                <div class="progress-container">
-                    <div class="progress-steps">
-                        <div class="step active">Account Type</div>
-                        <div class="step">Personal Info</div>
-                        <div class="step">Verification</div>
-                        <div class="step">Review</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress" id="signup-progress"></div>
-                    </div>
-                </div>
-                
-                <form class="signup-form" id="signup-form" action="#" method="POST">
-                    <!-- Step 1: Account Type -->
-                    <div class="form-step" id="step-1">
-                        <div class="form-group account-type-select">
-                            <label for="account-type">Select Account Type</label>
-                            <select id="account-type" required onchange="showKycRequirements()">
-                                <option value="" disabled selected>Choose the type of account you need</option>
-                                <option value="personal">Personal Premium Account</option>
-                                <option value="business-freelancer">Business - Freelancer/Sole Trader</option>
-                                <option value="business-startup">Business - Startup</option>
-                                <option value="business-sme">Business - Small to Medium Enterprise</option>
-                                <option value="business-enterprise">Business - Enterprise</option>
-                                <option value="charity">Charity/Non-Profit</option>
-                                <option value="religious">Religious Institution</option>
-                            </select>
+                <!-- Plan Selection -->
+                <div class="plan-selection">
+                    <div class="plan-options">
+                        <div class="plan-card free" onclick="selectPlan('free')">
+                            <h3 class="plan-name">Starter</h3>
+                            <div class="plan-price">$0<span class="period">/month</span></div>
+                            <ul class="plan-features">
+                                <li>Basic account features</li>
+                                <li>Up to $500 monthly transactions</li>
+                                <li>Standard customer support</li>
+                                <li>Basic security features</li>
+                                <li>Access to AnnitaPay</li>
+                                <li>Community support</li>
+                            </ul>
                         </div>
                         
-                        <!-- KYC Requirements Section (dynamically shown based on selection) -->
-                        <div class="kyc-section" id="kyc-requirements">
-                            <h3>Premium Account Verification Requirements</h3>
-                            <p>Please select an account type to see specific verification requirements for premium accounts. Annita is committed to providing secure financial services across Africa while complying with local regulations.</p>
+                        <div class="plan-card growth" onclick="selectPlan('growth')">
+                            <h3 class="plan-name">Growth</h3>
+                            <div class="plan-price">$9.99<span class="period">/month</span></div>
+                            <div class="plan-price annual">$99/year <span class="savings">(Save $20)</span></div>
+                            <ul class="plan-features">
+                                <li>Everything in Starter</li>
+                                <li>Up to $5,000 monthly transactions</li>
+                                <li>Priority customer support</li>
+                                <li>Advanced security features</li>
+                                <li>Access to AnnitaMarket</li>
+                                <li>Basic analytics dashboard</li>
+                            </ul>
+                            <span class="plan-badge">Popular</span>
                         </div>
                         
-                        <!-- Personal Account KYC (Hidden by default) -->
-                        <div class="kyc-details" id="personal-kyc" style="display: none;">
-                            <h3>Premium Personal Account Verification</h3>
-                            <p>Create a premium personal account to enjoy higher limits, exclusive features, and priority support across our African markets.</p>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
-                                <ul class="requirement-list">
-                                    <li>Valid Government-issued ID (Passport, National ID, or Driver's License)</li>
-                                    <li>Proof of address (Utility bill or bank statement from the last 3 months)</li>
-                                    <li>Recent photo (taken within the last 6 months)</li>
-                                    <li>Proof of income (for higher limits)</li>
-                                    <li>Phone number verification</li>
-                                    <li>Email verification</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
-                                <ul class="requirement-list">
-                                    <li>Priority identity verification (within 24 hours)</li>
-                                    <li>Transaction limits: Up to $10,000 per day after verification</li>
-                                    <li>Dedicated account manager familiar with your local market</li>
-                                    <li>Exclusive customer support line with African language options</li>
-                                    <li>50% discount on intra-African transfer fees</li>
-                                    <li>Early access to new Annita features and services</li>
-                                </ul>
-                            </div>
+                        <div class="plan-card pro" onclick="selectPlan('pro')">
+                            <h3 class="plan-name">Pro</h3>
+                            <div class="plan-price">$19.99<span class="period">/month</span></div>
+                            <div class="plan-price annual">$199/year <span class="savings">(Save $40)</span></div>
+                            <ul class="plan-features">
+                                <li>Everything in Growth</li>
+                                <li>Up to $20,000 monthly transactions</li>
+                                <li>24/7 dedicated support</li>
+                                <li>Premium security features</li>
+                                <li>Access to AnnitaConnect</li>
+                                <li>Advanced analytics dashboard</li>
+                            </ul>
                         </div>
                         
-                        <!-- Freelancer KYC (Hidden by default) -->
-                        <div class="kyc-details" id="business-freelancer-kyc" style="display: none;">
-                            <h3>Premium Freelancer/Sole Trader Verification</h3>
-                            <p>Perfect for freelancers and independent contractors across Africa needing premium business features with local payment options.</p>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
-                                <ul class="requirement-list">
-                                    <li>All personal account verification documents</li>
-                                    <li>Business registration certificate (if applicable)</li>
-                                    <li>Tax identification number</li>
-                                    <li>Portfolio or business website (recommended)</li>
-                                    <li>Proof of business activity (contracts or invoices)</li>
-                                    <li>Bank statements (last 6 months)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
-                                <ul class="requirement-list">
-                                    <li>Priority business verification (1-2 business days)</li>
-                                    <li>Transaction limits: Up to $25,000 per day after verification</li>
-                                    <li>Access to premium invoice tools with African payment options</li>
-                                    <li>Multi-currency accounts with no monthly fees</li>
-                                    <li>Exclusive freelancer financial tools for African markets</li>
-                                    <li>Integration with popular African accounting platforms</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Startup KYC (Hidden by default) -->
-                        <div class="kyc-details" id="business-startup-kyc" style="display: none;">
-                            <h3>Premium Startup Business Verification</h3>
-                            <p>Designed for African early-stage companies needing premium financial services for rapid growth across the continent.</p>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
-                                <ul class="requirement-list">
-                                    <li>Business registration certificate</li>
-                                    <li>Articles of incorporation</li>
-                                    <li>Tax identification number</li>
-                                    <li>Director ID (passport or national ID)</li>
-                                    <li>Proof of business address</li>
-                                    <li>Company bank statement (if available)</li>
-                                    <li>Shareholder information (for those with >25% ownership)</li>
-                                    <li>Business plan or pitch deck</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
-                                <ul class="requirement-list">
-                                    <li>Priority business verification (2-3 business days)</li>
-                                    <li>Director/owner verification</li>
-                                    <li>Transaction limits: Up to $100,000 per day after verification</li>
-                                    <li>Access to premium multi-user accounts and business analytics</li>
-                                    <li>Startup financial advisory services with African market expertise</li>
-                                    <li>Integration with popular accounting software used in Africa</li>
-                                    <li>Access to Annita's investor network</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- SME KYC (Hidden by default) -->
-                        <div class="kyc-details" id="business-sme-kyc" style="display: none;">
-                            <h3>Premium Small to Medium Enterprise Verification</h3>
-                            <p>Comprehensive premium financial solutions for established African businesses looking to expand regionally.</p>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
-                                <ul class="requirement-list">
-                                    <li>All startup verification documents</li>
-                                    <li>Business financial statements (last 2 years if available)</li>
-                                    <li>Business plan or company profile</li>
-                                    <li>Organizational structure</li>
-                                    <li>Proof of operational business (contracts, invoices)</li>
-                                    <li>Additional shareholder/director information</li>
-                                    <li>Business license or industry-specific permits</li>
-                                    <li>Audited financials (if available)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
-                                <ul class="requirement-list">
-                                    <li>Priority enhanced business verification (3-5 business days)</li>
-                                    <li>Background checks for key personnel</li>
-                                    <li>Transaction limits: Up to $500,000 per day after full verification</li>
-                                    <li>Access to premium bulk payments, API integration, and advanced reporting</li>
-                                    <li>Dedicated relationship manager with regional expertise</li>
-                                    <li>Customized financial solutions for African markets</li>
-                                    <li>Access to Annita's business marketplace</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Enterprise KYC (Hidden by default) -->
-                        <div class="kyc-details" id="business-enterprise-kyc" style="display: none;">
-                            <h3>Premium Enterprise Business Verification</h3>
-                            <p>Elite financial solutions for large African corporations with complex transaction needs across multiple countries.</p>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
-                                <ul class="requirement-list">
-                                    <li>All SME verification documents</li>
-                                    <li>Audited financial statements (last 3 years)</li>
-                                    <li>Corporate governance documents</li>
-                                    <li>Ultimate Beneficial Owner (UBO) declaration</li>
-                                    <li>Board resolution approving account opening</li>
-                                    <li>Anti-Money Laundering (AML) policy</li>
-                                    <li>Know Your Customer (KYC) procedures</li>
-                                    <li>Parent/subsidiary structure documentation</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
-                                <ul class="requirement-list">
-                                    <li>Priority comprehensive business verification (5-7 business days)</li>
-                                    <li>Enhanced due diligence</li>
-                                    <li>Custom transaction limits based on business needs</li>
-                                    <li>Access to dedicated premium account team and custom solutions</li>
-                                    <li>Multi-currency accounts and pan-African payment solutions</li>
-                                    <li>24/7 VIP support with regional specialists</li>
-                                    <li>White-glove onboarding experience</li>
-                                    <li>Access to Annita's enterprise solutions</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Charity KYC (Hidden by default) -->
-                        <div class="kyc-details" id="charity-kyc" style="display: none;">
-                            <h3>Premium Charity/Non-Profit Verification</h3>
-                            <p>Specialized premium financial services for African charities and non-profit organizations.</p>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
-                                <ul class="requirement-list">
-                                    <li>Charity registration certificate</li>
-                                    <li>Tax exemption documentation</li>
-                                    <li>Board members' identification</li>
-                                    <li>Proof of address for the organization</li>
-                                    <li>Latest annual report or financial statement</li>
-                                    <li>Constitution or governing documents</li>
-                                    <li>Minutes from latest board meeting</li>
-                                    <li>Donation processing history (if available)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
-                                <ul class="requirement-list">
-                                    <li>Priority charity verification (2-3 business days)</li>
-                                    <li>Verification of charitable status</li>
-                                    <li>Transaction limits: Based on organizational needs</li>
-                                    <li>Access to premium reduced-fee donation processing</li>
-                                    <li>Specialized reporting for supporters and stakeholders</li>
-                                    <li>Donor management tools for African contexts</li>
-                                    <li>Integration with African fundraising platforms</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Religious Institution KYC (Hidden by default) -->
-                        <div class="kyc-details" id="religious-kyc" style="display: none;">
-                            <h3>Premium Religious Institution Verification</h3>
-                            <p>Tailored premium financial services for churches, mosques, temples, and other religious organizations across Africa.</p>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-id-card"></i> Required Documents:</div>
-                                <ul class="requirement-list">
-                                    <li>Religious institution registration certificate</li>
-                                    <li>Tax exemption documentation</li>
-                                    <li>Identification of religious leaders or officers</li>
-                                    <li>Proof of religious institution address</li>
-                                    <li>Constitution or governing documents</li>
-                                    <li>Financial statements or budget</li>
-                                    <li>Membership records (if available)</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="kyc-requirements">
-                                <div class="kyc-requirements-title"><i class="fas fa-shield-alt"></i> Premium Benefits:</div>
-                                <ul class="requirement-list">
-                                    <li>Priority institution verification (2-3 business days)</li>
-                                    <li>Verification of religious organization status</li>
-                                    <li>Transaction limits: Based on organizational needs</li>
-                                    <li>Access to premium donation and contribution management tools</li>
-                                    <li>Specialized services for religious organization treasurers</li>
-                                    <li>Tithing and offering management system</li>
-                                    <li>Integration with African religious networks</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                        <div class="plan-card business selected" onclick="selectPlan('business')">
+                            <h3 class="plan-name">Business</h3>
+                            <div class="plan-price">$49.99<span class="period">/month</span></div>
+                            <div class="plan-price annual">$499/year <span class="savings">(Save $100)</span></div>
+                            <ul class="plan-features">
+                                <li>Everything in Pro</li>
+                                <li>Unlimited transactions</li>
+                                <li>VIP customer support</li>
+                                <li>Enterprise-grade security</li>
+                                <li>Access to all Annita services</li>
+                                <li>Custom analytics solutions</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <!-- Step 2: Personal Information -->
-                    <div class="form-step" id="step-2" style="display: none;">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="first-name">First Name</label>
-                                <input type="text" id="first-name" name="first-name" required placeholder="Enter your first name">
-                            </div>
-                            <div class="form-group">
-                                <label for="last-name">Last Name</label>
-                                <input type="text" id="last-name" name="last-name" required placeholder="Enter your last name">
-                            </div>
+                    <div class="verification-notice">
+                        <h3><i class="fas fa-shield-alt"></i> Secure Verification Process</h3>
+                        <p>To ensure the safety of all our users, we require identity verification for certain features. This helps us maintain a trusted platform for everyone.</p>
+                    </div>
+                </div>
+                
+                <!-- Signup Form -->
+                <form class="signup-form" id="signup-form" action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="first-name" required placeholder="Enter your first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="last-name" required placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number with country code">
+                    </div>
+                    
+                    <div class="form-group password-field">
+                        <label for="password">Create Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Create a secure password (min 8 characters)">
+                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                            <i class="far fa-eye"></i>
+                        </button>
+                        <div class="form-text">Use at least 8 characters with a mix of letters, numbers & symbols</div>
+                    </div>
+                    
+                    <div class="form-group password-field">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+                        <button type="button" class="password-toggle" onclick="togglePassword('confirm-password')">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Social Login Options -->
+                    <div class="social-login">
+                        <div class="social-login-title">Or sign up with</div>
+                        <div class="social-login-buttons">
+                            <button type="button" class="social-login-btn google" onclick="socialSignUp('google')">
+                                <i class="fab fa-google"></i> Google
+                            </button>
+                            <button type="button" class="social-login-btn mobile" onclick="socialSignUp('mobile')">
+                                <i class="fas fa-mobile-alt"></i> Mobile
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Business Information (shown for business plans) -->
+                    <div id="business-info" style="display: none;">
+                        <div class="form-group">
+                            <label for="business-name">Business Name (Optional)</label>
+                            <input type="text" id="business-name" name="business-name" placeholder="Enter your business name">
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            <label for="business-type">Business Type (Optional)</label>
+                            <select id="business-type" name="business-type">
+                                <option value="">Select business type</option>
+                                <option value="sole-proprietor">Sole Proprietor</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="llc">LLC</option>
+                                <option value="corporation">Corporation</option>
+                                <option value="non-profit">Non-Profit</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Section (shown for paid plans) -->
+                    <div id="payment-section">
+                        <h3>Payment Information</h3>
+                        
+                        <div class="payment-options">
+                            <div class="payment-method selected" onclick="selectPaymentMethod(this, 'card')">
+                                <i class="far fa-credit-card"></i>
+                                <span>Credit/Debit Card</span>
+                            </div>
+                            <div class="payment-method" onclick="selectPaymentMethod(this, 'annitapay')">
+                                <i class="fas fa-wallet"></i>
+                                <span>AnnitaPay</span>
+                            </div>
+                            <div class="payment-method" onclick="selectPaymentMethod(this, 'mobile')">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Mobile Money</span>
+                            </div>
+                            <div class="payment-method" onclick="selectPaymentMethod(this, 'bank')">
+                                <i class="fas fa-university"></i>
+                                <span>Bank Transfer</span>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number with country code">
-                        </div>
-                        
-                        <div class="form-row">
+                        <div id="card-payment-fields">
                             <div class="form-group">
-                                <label for="country">Country of Residence</label>
-                                <select id="country" name="country" required>
-                                    <option value="" disabled selected>Select your country</option>
-                                    <option value="ng">Nigeria</option>
-                                    <option value="gh">Ghana</option>
-                                    <option value="ke">Kenya</option>
-                                    <option value="za">South Africa</option>
-                                    <option value="eg">Egypt</option>
-                                    <option value="tz">Tanzania</option>
-                                    <option value="et">Ethiopia</option>
-                                    <option value="other">Other African Country</option>
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry-date">Expiry Date</label>
+                                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-name">Name on Card</label>
+                                <input type="text" id="card-name" name="card-name" placeholder="As it appears on your card">
+                            </div>
+                        </div>
+                        
+                        <div id="annitapay-fields" style="display: none;">
+                            <div class="form-group">
+                                <label for="annitapay-email">AnnitaPay Email</label>
+                                <input type="email" id="annitapay-email" name="annitapay-email" placeholder="Your AnnitaPay registered email">
+                            </div>
+                        </div>
+                        
+                        <div id="mobile-money-fields" style="display: none;">
+                            <div class="form-group">
+                                <label for="mobile-provider">Mobile Provider</label>
+                                <select id="mobile-provider" name="mobile-provider">
+                                    <option value="">Select provider</option>
+                                    <option value="mtn">MTN</option>
+                                    <option value="airtel">Airtel</option>
+                                    <option value="vodafone">Vodafone</option>
+                                    <option value="orange">Orange</option>
+                                    <option value="safaricom">Safaricom</option>
                                 </select>
                             </div>
+                            
                             <div class="form-group">
-                                <label for="dob">Date of Birth</label>
-                                <input type="date" id="dob" name="dob" required>
+                                <label for="mobile-number">Mobile Number</label>
+                                <input type="tel" id="mobile-number" name="mobile-number" placeholder="Your mobile money number">
+                            </div>
+                        </div>
+                        
+                        <div id="bank-transfer-fields" style="display: none;">
+                            <div class="form-group">
+                                <label for="bank-name">Bank Name</label>
+                                <input type="text" id="bank-name" name="bank-name" placeholder="Your bank name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="account-number">Account Number</label>
+                                <input type="text" id="account-number" name="account-number" placeholder="Your account number">
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" id="address" name="address" required placeholder="Enter your street address">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="city">City</label>
-                                <input type="text" id="city" name="city" required placeholder="Enter your city">
-                            </div>
-                            <div class="form-group">
-                                <label for="postal-code">Postal/ZIP Code</label>
-                                <input type="text" id="postal-code" name="postal-code" required placeholder="Enter your postal code">
-                            </div>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
-                            <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 3: Security & Verification -->
-                    <div class="form-step" id="step-3" style="display: none;">
-                        <div class="form-group password-field">
-                            <label for="password">Create Password</label>
-                            <input type="password" id="password" name="password" required placeholder="Create a secure password">
-                            <button type="button" class="password-toggle" onclick="togglePassword('password')">
-                                <i class="far fa-eye"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="form-group password-field">
-                            <label for="confirm-password">Confirm Password</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
-                            <button type="button" class="password-toggle" onclick="togglePassword('confirm-password')">
-                                <i class="far fa-eye"></i>
-                            </button>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="security-question">Security Question</label>
-                            <select id="security-question" name="security-question" required>
-                                <option value="" disabled selected>Select a security question</option>
-                                <option value="pet">What was the name of your first pet?</option>
-                                <option value="school">What was the name of your first school?</option>
-                                <option value="mother">What is your mother's maiden name?</option>
-                                <option value="city">In which city were you born?</option>
-                                <option value="food">What is your favorite childhood food?</option>
+                            <label for="billing-cycle">Billing Cycle</label>
+                            <select id="billing-cycle" name="billing-cycle">
+                                <option value="monthly">Monthly Billing</option>
+                                <option value="annual">Annual Billing (Save 17%)</option>
                             </select>
                         </div>
+                    </div>
+                    
+                    <!-- Incentives Section -->
+                    <div class="incentives-section">
+                        <h3>Special Offers for New Members</h3>
                         
-                        <div class="form-group">
-                            <label for="security-answer">Security Answer</label>
-                            <input type="text" id="security-answer" name="security-answer" required placeholder="Enter your answer">
-                        </div>
-                        
-                        <div class="document-upload">
-                            <h3>Premium Identity Verification</h3>
-                            <p>Please upload the following documents to verify your identity for your premium account with Annita:</p>
-                            
-                            <div class="form-group">
-                                <label for="id-document">Government-issued ID</label>
-                                <input type="file" id="id-document" name="id-document" accept="image/*, application/pdf" style="display: none;">
-                                <label for="id-document" class="upload-btn">
-                                    <i class="fas fa-upload"></i> Upload ID (Passport/Driver's License/National ID)
-                                </label>
+                        <div class="incentives-grid">
+                            <div class="incentive-card">
+                                <div class="incentive-icon">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                                <h4>15% Off First Payment</h4>
+                                <p>Get 15% discount on your first payment when you choose annual billing.</p>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="address-proof">Proof of Address</label>
-                                <input type="file" id="address-proof" name="address-proof" accept="image/*, application/pdf" style="display: none;">
-                                <label for="address-proof" class="upload-btn">
-                                    <i class="fas fa-upload"></i> Upload Proof of Address
-                                </label>
+                            <div class="incentive-card">
+                                <div class="incentive-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <h4>Referral Bonus</h4>
+                                <p>Earn $10 credit for every friend who joins with your referral link.</p>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="additional-docs">Additional Documents (If required)</label>
-                                <input type="file" id="additional-docs" name="additional-docs" accept="image/*, application/pdf" style="display: none;">
-                                <label for="additional-docs" class="upload-btn">
-                                    <i class="fas fa-upload"></i> Upload Additional Documents
-                                </label>
+                            <div class="incentive-card">
+                                <div class="incentive-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <h4>Exclusive Features</h4>
+                                <p>Early access to new tools and features before general release.</p>
                             </div>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
-                            <button type="button" class="next-btn" onclick="nextStep()">Continue <i class="fas fa-arrow-right"></i></button>
+                            
+                            <div class="incentive-card">
+                                <div class="incentive-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h4>Priority Support</h4>
+                                <p>Jump the queue with dedicated support for your first 30 days.</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- Step 4: Review & Submit -->
-                    <div class="form-step" id="step-4" style="display: none;">
-                        <h3>Review Your Premium Application</h3>
-                        <p>Please review your information before submitting your premium account application to Annita.</p>
+                    <!-- Policy Acceptance -->
+                    <div class="policy-acceptance">
+                        <h4>Terms & Policies</h4>
                         
-                        <div class="kyc-section">
-                            <div id="review-content">
-                                <!-- Will be filled with JavaScript -->
-                                <p>Please complete all previous steps to review your premium application.</p>
+                        <div class="policy-item">
+                            <div class="policy-checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms" class="policy-label">
+                                    I agree to Annita's <a href="#" class="policy-link" onclick="showPolicyModal('terms')">Terms of Service</a>
+                                </label>
                             </div>
                         </div>
                         
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="terms" name="terms" required>
-                            <label for="terms">I agree to Annita's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, and <a href="#">Premium Agreement</a></label>
+                        <div class="policy-item">
+                            <div class="policy-checkbox">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy" class="policy-label">
+                                    I agree to Annita's <a href="#" class="policy-link" onclick="showPolicyModal('privacy')">Privacy Policy</a>
+                                </label>
+                            </div>
                         </div>
                         
-                        <div class="checkbox-group">
-                            <input type="checkbox" id="marketing" name="marketing">
-                            <label for="marketing">I would like to receive updates, promotions, and exclusive offers from Annita Premium</label>
+                        <div class="policy-item">
+                            <div class="policy-checkbox">
+                                <input type="checkbox" id="communications" name="communications">
+                                <label for="communications" class="policy-label">
+                                    I agree to receive communications from Annita about products, services, and offers
+                                </label>
+                            </div>
                         </div>
                         
-                        <div class="form-navigation">
-                            <button type="button" class="prev-btn" onclick="prevStep()"><i class="fas fa-arrow-left"></i> Previous</button>
-                            <button type="submit" class="next-btn">Submit Premium Application <i class="fas fa-check"></i></button>
+                        <div class="policy-item">
+                            <div class="policy-checkbox">
+                                <input type="checkbox" id="age" name="age" required>
+                                <label for="age" class="policy-label">
+                                    I confirm that I am at least 18 years of age
+                                </label>
+                            </div>
                         </div>
                     </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        <i class="fas fa-user-plus"></i> Create My Account
+                    </button>
+                    
+                    <p class="text-center">Already have an account? <a href="login.html">Log in</a></p>
                 </form>
-                
-                <div class="login-divider">
-                    <span>Or sign up with</span>
-                </div>
-                
-                <div class="social-login">
-                    <button class="social-login-btn google"><i class="fab fa-google"></i></button>
-                    <button class="social-login-btn linkedin"><i class="fab fa-linkedin-in"></i></button>
-                    <button class="social-login-btn facebook"><i class="fab fa-facebook-f"></i></button>
-                    <button class="social-login-btn apple"><i class="fab fa-apple"></i></button>
-                </div>
-                
-                <div class="already-account">
-                    Already have an account? <a href="login.html">Log in here</a>
-                </div>
             </div>
         </div>
     </section>
@@ -1868,11 +2976,11 @@
                         </a>
                         <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
                         <div class="footer-social">
-                            <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/share/15vfTCB6zA/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/annita_" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/annita-official/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1916,12 +3024,12 @@
                 <div class="footer-column">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Security</a></li>
+                        <li><a href="#" onclick="showPolicyModal('terms')">Terms of Service</a></li>
+                        <li><a href="#" onclick="showPolicyModal('privacy')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showPolicyModal('security')">Security</a></li>
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
-                        <li><a href="#">GDPR</a></li>
-                        <li><a href="#">Compliance</a></li>
+                        <li><a href="#" onclick="showPolicyModal('gdpr')">GDPR</a></li>
+                        <li><a href="#" onclick="showPolicyModal('compliance')">Compliance</a></li>
                     </ul>
                 </div>
             </div>
@@ -1929,159 +3037,139 @@
             <div class="footer-bottom">
                 <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
                 <div class="footer-links-horizontal">
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
+                    <a href="#" onclick="showPolicyModal('privacy')">Privacy</a>
+                    <a href="#" onclick="showPolicyModal('terms')">Terms</a>
                     <a href="#">Sitemap</a>
                     <a href="#">Accessibility</a>
-                    <a href="#">Legal</a>
+                    <a href="#" onclick="showPolicyModal('legal')">Legal</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Chatbot Widget -->
-    <div class="chatbot-container">
-        <div class="chatbot-button">
-            <i class="fa fa-bell"></i>
-            <div class="notification-badge">1</div>
-            <div class="chatbot-tooltip">Ask Annita AI?</div>
-        </div>
-        <div class="chatbot-window">
-            <div class="chat-header">
-                <h3>Annita AI Assistant</h3>
-                <button class="close-chat"><i class="fas fa-times"></i></button>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Policy Modal -->
+    <div class="modal" id="policy-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="policy-modal-title">Terms of Service</h3>
+                <button class="modal-close" onclick="hidePolicyModal()">&times;</button>
             </div>
-            <div class="chat-messages">
-                <div class="message bot-message fade-in">
-                    Hello! I'm Annita AI. How can I help you with your premium account setup today?
-                </div>
+            <div class="modal-body" id="policy-modal-content">
+                <p>Loading policy content...</p>
             </div>
-            <div class="chat-input">
-                <input type="text" id="chatbot-input" placeholder="Type your message...">
-                <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+            <div class="modal-footer">
+                <button class="btn btn-outline-secondary" onclick="hidePolicyModal()">Close</button>
+                <button class="btn btn-primary" onclick="acceptPolicy()">I Accept</button>
             </div>
         </div>
     </div>
 
     <script>
-        let currentStep = 1;
-        const totalSteps = 4;
+        // Current policy being viewed
+        let currentPolicy = '';
         
-        // Initialize chatbot
-        const chatbotToggle = document.querySelector('.chatbot-button');
-        const chatbotContainer = document.querySelector('.chatbot-container');
-        const chatbotClose = document.querySelector('.close-chat');
-        const chatbotMessages = document.querySelector('.chat-messages');
-        const chatbotInput = document.querySelector('.chat-input input');
-        const chatbotSend = document.querySelector('.chat-input button');
+        // DOM Elements
+        const backToTopBtn = document.getElementById('back-to-top');
+        const policyModal = document.getElementById('policy-modal');
+        const policyModalTitle = document.getElementById('policy-modal-title');
+        const policyModalContent = document.getElementById('policy-modal-content');
+        const submitBtn = document.getElementById('submit-btn');
         
-        // Toggle chat window
-        chatbotToggle.addEventListener('click', function() {
-            chatbotContainer.classList.toggle('open');
-            // Remove notification badge when chat is opened
-            document.querySelector('.notification-badge').style.display = 'none';
+        // Mobile Menu Toggle
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        
+        hamburgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
         });
-
-        // Close chat window
-        chatbotClose.addEventListener('click', function() {
-            chatbotContainer.classList.remove('open');
+        
+        menuOverlay.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            this.classList.remove('active');
         });
-
-        // Send message function
-        function sendMessage() {
-            const messageText = chatbotInput.value.trim();
-            if (messageText) {
-                // Add user message
-                const userMessage = document.createElement('div');
-                userMessage.className = 'message user-message fade-in';
-                userMessage.textContent = messageText;
-                chatbotMessages.appendChild(userMessage);
-
-                // Clear input
-                chatbotInput.value = '';
-
-                // Scroll to bottom
-                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-
-                // Simulate bot response after a delay
-                setTimeout(() => {
-                    const botMessage = document.createElement('div');
-                    botMessage.className = 'message bot-message fade-in';
-                    
-                    // Simple responses based on keywords
-                    if (messageText.toLowerCase().includes('help') || messageText.toLowerCase().includes('support')) {
-                        botMessage.textContent = "For premium support, you can email us at premium@annita.com or call our 24/7 premium support line.";
-                    } else if (messageText.toLowerCase().includes('account') || messageText.toLowerCase().includes('setup')) {
-                        botMessage.textContent = "I can help with premium account setup. What specific question do you have about the process?";
-                    } else if (messageText.toLowerCase().includes('fee') || messageText.toLowerCase().includes('cost')) {
-                        botMessage.textContent = "Our premium accounts have different pricing tiers based on features. Would you like information about Personal Premium or Business Premium?";
-                    } else {
-                        botMessage.textContent = "Thank you for your message. Our premium support team will get back to you shortly. Is there anything else I can help with?";
-                    }
-                    
-                    chatbotMessages.appendChild(botMessage);
-                    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-                }, 1000);
-            }
-        }
-
-        // Send message on button click
-        chatbotSend.addEventListener('click', sendMessage);
-
-        // Send message on Enter key
-        chatbotInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
+        
+        // Back to Top Button
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
             }
         });
         
-        function nextStep() {
-            if (currentStep < totalSteps) {
-                document.getElementById(`step-${currentStep}`).style.display = 'none';
-                currentStep++;
-                document.getElementById(`step-${currentStep}`).style.display = 'block';
-                updateProgress();
-                
-                // If we're on the review step, populate the review content
-                if (currentStep === 4) {
-                    populateReview();
-                }
-                
-                // Scroll to top of form
-                document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-        
-        function prevStep() {
-            if (currentStep > 1) {
-                document.getElementById(`step-${currentStep}`).style.display = 'none';
-                currentStep--;
-                document.getElementById(`step-${currentStep}`).style.display = 'block';
-                updateProgress();
-                
-                // Scroll to top of form
-                document.querySelector('.signup-form-container').scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-        
-        function updateProgress() {
-            const progressBar = document.getElementById('signup-progress');
-            const progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
-            progressBar.style.width = `${progressPercentage}%`;
-            
-            // Update step indicators
-            const steps = document.querySelectorAll('.step');
-            steps.forEach((step, index) => {
-                if (index + 1 < currentStep) {
-                    step.className = 'step completed';
-                } else if (index + 1 === currentStep) {
-                    step.className = 'step active';
-                } else {
-                    step.className = 'step';
-                }
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
+        });
+        
+        // Plan Selection
+        function selectPlan(plan) {
+            // Remove selected class from all plan cards
+            document.querySelectorAll('.plan-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked plan
+            document.querySelector(`.plan-card.${plan}`).classList.add('selected');
+            
+            // Update form action based on plan
+            document.getElementById('signup-form').action = `signup-process.php?plan=${plan}`;
+            
+            // Show/hide business info based on plan
+            if (plan === 'free') {
+                document.getElementById('business-info').style.display = 'none';
+                document.getElementById('payment-section').style.display = 'none';
+            } else {
+                document.getElementById('business-info').style.display = 'block';
+                document.getElementById('payment-section').style.display = 'block';
+            }
         }
         
+        // Payment Method Selection
+        function selectPaymentMethod(element, method) {
+            // Remove selected class from all payment methods
+            document.querySelectorAll('.payment-method').forEach(method => {
+                method.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked method
+            element.classList.add('selected');
+            
+            // Hide all payment fields
+            document.getElementById('card-payment-fields').style.display = 'none';
+            document.getElementById('annitapay-fields').style.display = 'none';
+            document.getElementById('mobile-money-fields').style.display = 'none';
+            document.getElementById('bank-transfer-fields').style.display = 'none';
+            
+            // Show selected payment fields
+            switch(method) {
+                case 'card':
+                    document.getElementById('card-payment-fields').style.display = 'block';
+                    break;
+                case 'annitapay':
+                    document.getElementById('annitapay-fields').style.display = 'block';
+                    break;
+                case 'mobile':
+                    document.getElementById('mobile-money-fields').style.display = 'block';
+                    break;
+                case 'bank':
+                    document.getElementById('bank-transfer-fields').style.display = 'block';
+                    break;
+            }
+        }
+        
+        // Toggle Password Visibility
         function togglePassword(inputId) {
             const passwordInput = document.getElementById(inputId);
             const toggleBtn = passwordInput.nextElementSibling;
@@ -2098,167 +3186,262 @@
             }
         }
         
-        function showKycRequirements() {
-            const accountType = document.getElementById('account-type').value;
+        // Social Sign Up
+        function socialSignUp(provider) {
+            let url = '';
             
-            // Hide all KYC details first
-            document.querySelectorAll('.kyc-details').forEach(el => {
-                el.style.display = 'none';
-            });
-            
-            // Show the selected one if it exists
-            const selectedKyc = document.getElementById(`${accountType}-kyc`);
-            if (selectedKyc) {
-                selectedKyc.style.display = 'block';
+            switch(provider) {
+                case 'google':
+                    url = 'auth/google';
+                    break;
+                case 'facebook':
+                    url = 'auth/facebook';
+                    break;
+                case 'apple':
+                    url = 'auth/apple';
+                    break;
+                case 'mobile':
+                    url = 'auth/mobile';
+                    break;
             }
+            
+            // In a real implementation, this would redirect to the OAuth endpoint
+            console.log(`Redirecting to ${provider} authentication...`);
+            // window.location.href = url;
+            
+            // For demo purposes, we'll just show an alert
+            alert(`In a real implementation, this would redirect to ${provider} authentication.`);
         }
         
-        function populateReview() {
-            // Get values from the form
-            const accountType = document.getElementById('account-type').value;
-            const firstName = document.getElementById('first-name').value;
-            const lastName = document.getElementById('last-name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const country = document.getElementById('country').value;
-            const dob = document.getElementById('dob').value;
-            const address = document.getElementById('address').value;
-            const city = document.getElementById('city').value;
-            const postalCode = document.getElementById('postal-code').value;
+        // Show Policy Modal
+        function showPolicyModal(policy) {
+            currentPolicy = policy;
             
-            // Map account type value to display name
-            const accountTypeMap = {
-                'personal': 'Personal Premium Account',
-                'business-freelancer': 'Business - Freelancer/Sole Trader',
-                'business-startup': 'Business - Startup',
-                'business-sme': 'Business - Small to Medium Enterprise',
-                'business-enterprise': 'Business - Enterprise',
-                'charity': 'Charity/Non-Profit',
-                'religious': 'Religious Institution'
-            };
+            // Set modal title based on policy
+            let title = '';
+            let content = '';
             
-            // Format date of birth
-            const formattedDob = dob ? new Date(dob).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            }) : 'Not provided';
-            
-            // Create review HTML
-            let reviewHTML = `
-                <div class="review-section">
-                    <h4><i class="fas fa-user-circle"></i> Account Type</h4>
-                    <p>${accountTypeMap[accountType] || 'Not selected'}</p>
-                </div>
-                
-                <div class="review-section">
-                    <h4><i class="fas fa-info-circle"></i> Personal Information</h4>
-                    <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Phone:</strong> ${phone}</p>
-                    <p><strong>Date of Birth:</strong> ${formattedDob}</p>
-                </div>
-                
-                <div class="review-section">
-                    <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
-                    <p>${address}</p>
-                    <p>${city}, ${postalCode}</p>
-                    <p>${document.getElementById('country').options[document.getElementById('country').selectedIndex].text}</p>
-                </div>
-                
-                <div class="review-section">
-                    <h4><i class="fas fa-file-upload"></i> Documents Uploaded</h4>
-                    <p>ID Document: ${document.getElementById('id-document').files.length ? document.getElementById('id-document').files[0].name : 'Not uploaded'}</p>
-                    <p>Proof of Address: ${document.getElementById('address-proof').files.length ? document.getElementById('address-proof').files[0].name : 'Not uploaded'}</p>
-                    ${document.getElementById('additional-docs').files.length ? 
-                        `<p>Additional Documents: ${document.getElementById('additional-docs').files[0].name}</p>` : ''}
-                </div>
-                
-                <div class="premium-benefits-notice">
-                    <p><i class="fas fa-crown"></i> <strong>Premium Benefits Activated:</strong> Your account will be processed with priority and you'll receive exclusive premium features upon approval.</p>
-                </div>
-            `;
-            
-            // Set the HTML content of the review section
-            document.getElementById('review-content').innerHTML = reviewHTML;
-        }
-        
-        // Enhanced Mobile Menu Toggle with Premium Animations
-        const hamburger = document.querySelector('.hamburger-menu');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const overlay = document.querySelector('.menu-overlay');
-        const body = document.body;
-        
-        // Toggle menu function
-        function toggleMenu() {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            body.classList.toggle('no-scroll');
-            
-            if (mobileMenu.classList.contains('active')) {
-                // Disable scrolling when menu is open
-                body.style.overflow = 'hidden';
-                // Add iOS inertia scrolling to menu
-                mobileMenu.style.webkitOverflowScrolling = 'touch';
-            } else {
-                // Re-enable scrolling
-                body.style.overflow = '';
-                // Remove iOS inertia when menu is closed
-                mobileMenu.style.webkitOverflowScrolling = '';
+            switch(policy) {
+                case 'terms':
+                    title = 'Terms of Service';
+                    content = `
+                        <h4>1. Acceptance of Terms</h4>
+                        <p>By accessing or using Annita's services, you agree to be bound by these Terms of Service. If you do not agree to all the terms, you may not use our services.</p>
+                        
+                        <h4>2. Description of Service</h4>
+                        <p>Annita provides a digital platform for payments, e-commerce, and other digital services across Africa. Our services may evolve over time based on user needs and technological advancements.</p>
+                        
+                        <h4>3. User Responsibilities</h4>
+                        <p>You agree to use our services legally and ethically. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
+                        
+                        <h4>4. Privacy Policy</h4>
+                        <p>Your use of our services is also governed by our Privacy Policy, which explains how we collect, use, and protect your personal information.</p>
+                        
+                        <h4>5. Modifications to Terms</h4>
+                        <p>We reserve the right to modify these terms at any time. We will notify users of significant changes through our platform or via email.</p>
+                        
+                        <h4>6. Termination</h4>
+                        <p>We may terminate or suspend access to our services immediately, without prior notice, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+                        
+                        <h4>7. Governing Law</h4>
+                        <p>These Terms shall be governed by and construed in accordance with the laws of the Federal Republic of Nigeria, without regard to its conflict of law provisions.</p>
+                    `;
+                    break;
+                case 'privacy':
+                    title = 'Privacy Policy';
+                    content = `
+                        <h4>1. Information We Collect</h4>
+                        <p>We collect personal information you provide when you create an account, use our services, or communicate with us. This may include name, email, phone number, payment information, and other details necessary to provide our services.</p>
+                        
+                        <h4>2. How We Use Information</h4>
+                        <p>We use your information to provide and improve our services, communicate with you, prevent fraud, comply with laws, and for other legitimate business purposes.</p>
+                        
+                        <h4>3. Information Sharing</h4>
+                        <p>We do not sell your personal information. We may share information with service providers who assist us in operating our platform, when required by law, or to protect rights and safety.</p>
+                        
+                        <h4>4. Data Security</h4>
+                        <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, or destruction.</p>
+                        
+                        <h4>5. Your Rights</h4>
+                        <p>You may have rights to access, correct, or delete your personal information, object to processing, or request data portability, subject to applicable laws.</p>
+                        
+                        <h4>6. Data Retention</h4>
+                        <p>We retain personal information only as long as necessary to provide services, comply with legal obligations, resolve disputes, and enforce agreements.</p>
+                        
+                        <h4>7. International Transfers</h4>
+                        <p>Your information may be transferred to and processed in countries other than your own, which may have different data protection laws.</p>
+                        
+                        <h4>8. Changes to This Policy</h4>
+                        <p>We may update this policy from time to time. We will notify you of significant changes through our platform or via email.</p>
+                    `;
+                    break;
+                case 'security':
+                    title = 'Security Policy';
+                    content = `
+                        <h4>1. Our Security Measures</h4>
+                        <p>Annita employs industry-standard security measures to protect your data, including encryption, firewalls, secure servers, and regular security audits.</p>
+                        
+                        <h4>2. Account Security</h4>
+                        <p>You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. Use strong passwords and enable two-factor authentication when available.</p>
+                        
+                        <h4>3. Data Encryption</h4>
+                        <p>All sensitive data is encrypted in transit using TLS 1.2+ and at rest using AES-256 encryption.</p>
+                        
+                        <h4>4. Fraud Prevention</h4>
+                        <p>We employ advanced fraud detection systems to monitor for suspicious activity and protect against unauthorized transactions.</p>
+                        
+                        <h4>5. Incident Response</h4>
+                        <p>In the event of a security breach, we will promptly investigate and notify affected users as required by applicable laws.</p>
+                        
+                        <h4>6. Reporting Security Issues</h4>
+                        <p>If you discover a security vulnerability in our platform, please report it to security@annita.com. We appreciate responsible disclosure.</p>
+                        
+                        <h4>7. Compliance</h4>
+                        <p>Our security practices comply with applicable regulations and industry standards for financial services and data protection.</p>
+                    `;
+                    break;
+                case 'gdpr':
+                    title = 'GDPR Compliance';
+                    content = `
+                        <h4>1. GDPR Commitment</h4>
+                        <p>Annita is committed to complying with the General Data Protection Regulation (GDPR) for users in the European Union.</p>
+                        
+                        <h4>2. Lawful Basis for Processing</h4>
+                        <p>We process personal data based on consent, contractual necessity, legal obligations, legitimate interests, or other lawful bases as defined by GDPR.</p>
+                        
+                        <h4>3. Data Subject Rights</h4>
+                        <p>Under GDPR, EU users have rights including access, rectification, erasure, restriction of processing, data portability, and objection to processing.</p>
+                        
+                        <h4>4. Data Protection Officer</h4>
+                        <p>We have appointed a Data Protection Officer who can be contacted at dpo@annita.com for GDPR-related inquiries.</p>
+                        
+                        <h4>5. International Transfers</h4>
+                        <p>When transferring EU personal data outside the EU, we use appropriate safeguards such as Standard Contractual Clauses.</p>
+                        
+                        <h4>6. Data Breach Notification</h4>
+                        <p>In case of a data breach affecting EU users, we will notify the relevant supervisory authority within 72 hours and affected users without undue delay.</p>
+                    `;
+                    break;
+                case 'compliance':
+                    title = 'Regulatory Compliance';
+                    content = `
+                        <h4>1. Financial Regulations</h4>
+                        <p>Annita complies with all applicable financial regulations in the jurisdictions where we operate, including anti-money laundering (AML) and know-your-customer (KYC) requirements.</p>
+                        
+                        <h4>2. Licensing</h4>
+                        <p>We hold all necessary licenses and approvals to operate our payment services in each country where we conduct business.</p>
+                        
+                        <h4>3. Anti-Money Laundering</h4>
+                        <p>We implement robust AML controls including transaction monitoring, suspicious activity reporting, and customer due diligence.</p>
+                        
+                        <h4>4. Sanctions Compliance</h4>
+                        <p>We screen users and transactions against global sanctions lists to prevent prohibited activities.</p>
+                        
+                        <h4>5. Consumer Protection</h4>
+                        <p>We adhere to consumer protection laws and regulations to ensure fair treatment of all users.</p>
+                        
+                        <h4>6. Tax Compliance</h4>
+                        <p>We comply with all applicable tax laws and regulations, including reporting requirements where applicable.</p>
+                        
+                        <h4>7. Continuous Monitoring</h4>
+                        <p>We continuously monitor regulatory changes and update our compliance programs accordingly.</p>
+                    `;
+                    break;
+                default:
+                    title = 'Policy';
+                    content = '<p>Policy content not available.</p>';
             }
+            
+            policyModalTitle.textContent = title;
+            policyModalContent.innerHTML = content;
+            policyModal.classList.add('show');
         }
         
-        // Hamburger click event
-        hamburger.addEventListener('click', toggleMenu);
+        // Hide Policy Modal
+        function hidePolicyModal() {
+            policyModal.classList.remove('show');
+        }
         
-        // Overlay click event
-        overlay.addEventListener('click', toggleMenu);
+        // Accept Policy
+        function acceptPolicy() {
+            // Check which policy is being accepted and mark the corresponding checkbox
+            switch(currentPolicy) {
+                case 'terms':
+                    document.getElementById('terms').checked = true;
+                    break;
+                case 'privacy':
+                    document.getElementById('privacy').checked = true;
+                    break;
+            }
+            
+            hidePolicyModal();
+        }
         
-        // Close menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Only prevent default for anchor links (same page navigation)
-                if (link.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    toggleMenu();
-                    setTimeout(() => {
-                        const target = document.querySelector(link.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }, 500);
-                } else {
-                    // For all other links, just close the menu
-                    // The browser will handle the navigation normally
-                    toggleMenu();
-                }
-            });
+        // Form Validation
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate required checkboxes
+            if (!document.getElementById('terms').checked || !document.getElementById('privacy').checked || !document.getElementById('age').checked) {
+                alert('Please accept all required policies and confirm your age to continue.');
+                return;
+            }
+            
+            // Validate password match
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+            
+            // Validate password strength (basic example)
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+            
+            // If all validations pass, submit the form
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            // Simulate form submission
+            setTimeout(function() {
+                alert('Account created successfully! Welcome to Annita.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-user-plus"></i> Create My Account';
+                // In a real implementation, this would submit the form
+                // this.submit();
+            }, 2000);
         });
         
-        // Handle iOS viewport height changes
-        function handleViewportHeight() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        
-        // Initial call
-        handleViewportHeight();
-        
-        // Listen for resize events
-        window.addEventListener('resize', handleViewportHeight);
-        window.addEventListener('orientationchange', handleViewportHeight);
-        
-        // Prevent body scroll when menu is open
-        document.addEventListener('touchmove', function(e) {
-            if (mobileMenu.classList.contains('active')) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-
-        // Initialize the progress bar
-        updateProgress();
+        // Initialize form
+        document.addEventListener('DOMContentLoaded', function() {
+            // Default to Business plan
+            selectPlan('business');
+            
+            // Default to card payment method
+            selectPaymentMethod(document.querySelector('.payment-method.selected'), 'card');
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

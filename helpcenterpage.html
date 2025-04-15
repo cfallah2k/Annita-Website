@@ -1,0 +1,3268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Help Center - Annita Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    :root {
+      --primary: #FF7D06;
+      --primary-light: rgba(255, 125, 6, 0.1);
+      --primary-dark: #e06d00;
+      --secondary: #6C1D3A;
+      --accent: #FFC200;
+      --dark: #111111;
+      --darker: #0a0a0a;
+      --light: #FFFFFF;
+      --lighter: #fafafa;
+      --grey: #F5F5F5;
+      --grey-dark: #e0e0e0;
+      --blue-dark: #001a57;
+      --blue-light: #00c2ff;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --info: #17a2b8;
+      --vh: 1vh;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--light);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      height: 70px;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled .header-container {
+      height: 70px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .logo-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+      border: 2px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled .logo-image {
+      width: 36px;
+      height: 36px;
+    }
+
+    .logo-text {
+      font-family: 'Zen Dots', cursive;
+      font-weight: 400;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled .logo-text {
+      font-size: 22px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+      position: relative;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 125, 6, 0.3);
+    }
+    
+    /* Hamburger Menu */
+    .hamburger-menu {
+      display: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1002;
+    }
+    
+    .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--dark);
+      position: absolute;
+      left: 5px;
+      border-radius: 3px;
+      transition: all 0.4s;
+    }
+    
+    .hamburger-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .hamburger-icon:before {
+      top: -8px;
+    }
+    
+    .hamburger-icon:after {
+      top: 8px;
+    }
+    
+    .hamburger-menu.active .hamburger-icon {
+      background-color: transparent;
+    }
+    
+    .hamburger-menu.active .hamburger-icon:before {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger-menu.active .hamburger-icon:after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      height: calc(var(--vh, 1vh) * 100);
+      background-color: white;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      padding: 100px 30px 30px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-menu ul {
+      list-style: none;
+      width: 100%;
+    }
+    
+    .mobile-menu li {
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s ease;
+    }
+    
+    .mobile-menu.active li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Staggered animation for menu items */
+    .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+    .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+    .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+    .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+    .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+    .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+    .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; }
+    .mobile-menu.active li:nth-child(9) { transition-delay: 0.55s; }
+    .mobile-menu.active li:nth-child(10) { transition-delay: 0.6s; }
+    
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+    }
+    
+    .mobile-menu a i {
+      margin-right: 15px;
+      width: 24px;
+      text-align: center;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--primary);
+    }
+    
+    .mobile-menu a:hover i {
+      transform: scale(1.2);
+    }
+    
+    .mobile-menu .btn {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    /* Menu Overlay */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Mobile Menu Buttons */
+    @media (max-width: 768px) {
+      .nav-buttons {
+        display: none !important;
+      }
+      
+      .mobile-menu .nav-buttons {
+        display: flex !important;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+      }
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      width: 100%;
+      background-color: var(--grey);
+      margin-top: 80px; /* Offset for fixed header */
+    }
+
+    /* Help Center Hero Section */
+    .help-hero {
+      background: linear-gradient(135deg, rgba(108, 29, 58, 0.9) 0%, rgba(0, 26, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 12rem 0 8rem;
+      color: var(--light);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    
+    .help-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(255, 125, 6, 0.2) 0%, transparent 30%),
+                  radial-gradient(circle at 80% 70%, rgba(255, 194, 0, 0.2) 0%, transparent 30%);
+      pointer-events: none;
+    }
+    
+    .help-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 30px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .help-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .help-hero p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero-search {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 18px 25px;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      padding-right: 60px;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .search-btn {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .search-btn:hover {
+      background-color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+    
+    /* Floating Particles */
+    .particle {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Help Center Container */
+    .help-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px 80px;
+    }
+    
+    /* Quick Help Section */
+    .quick-help {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+    
+    .quick-card {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .quick-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .quick-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .quick-card:hover::before {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    .quick-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .quick-card:hover .quick-icon {
+      transform: scale(1.1);
+      color: var(--secondary);
+    }
+    
+    .quick-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .quick-card p {
+      color: var(--darker);
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+    
+    /* Popular Topics Section */
+    .popular-topics {
+      margin: 80px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    
+    .section-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--darker);
+      font-size: 1.1rem;
+    }
+    
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .topic-card {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .topic-card:hover::before {
+      background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    }
+    
+    .topic-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .topic-links {
+      list-style: none;
+    }
+    
+    .topic-links li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .topic-links li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    .topic-links a {
+      text-decoration: none;
+      color: var(--darker);
+      transition: color 0.3s;
+    }
+    
+    .topic-links a:hover {
+      color: var(--primary);
+    }
+    
+    /* Knowledge Base Section */
+    .knowledge-base {
+      margin: 80px 0;
+    }
+    
+    .kb-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .kb-category {
+      background-color: var(--light);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .kb-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .kb-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .kb-icon {
+      font-size: 1.8rem;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .kb-header h3 {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+    
+    .kb-header p {
+      opacity: 0.9;
+      font-size: 0.9rem;
+    }
+    
+    .kb-articles {
+      padding: 20px;
+    }
+    
+    .kb-article {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--grey-dark);
+    }
+    
+    .kb-article:last-child {
+      border-bottom: none;
+    }
+    
+    .kb-article a {
+      text-decoration: none;
+      color: var(--darker);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color 0.3s;
+    }
+    
+    .kb-article a:hover {
+      color: var(--primary);
+    }
+    
+    .kb-article i {
+      color: var(--primary);
+      transition: transform 0.3s;
+    }
+    
+    .kb-article a:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Video Tutorials Section */
+    .video-tutorials {
+      margin: 80px 0;
+      background-color: var(--light);
+      border-radius: 20px;
+      padding: 60px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .video-card {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .video-thumbnail {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    
+    .video-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .video-card:hover .video-thumbnail img {
+      transform: scale(1.1);
+    }
+    
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .video-card:hover .play-button {
+      background-color: var(--primary);
+      color: white;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    
+    .video-info {
+      padding: 20px;
+      background-color: white;
+    }
+    
+    .video-info h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--secondary);
+    }
+    
+    .video-meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--darker);
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+      margin: 80px 0;
+    }
+    
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background-color: var(--light);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item.active {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-question {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--secondary);
+      transition: all 0.3s;
+    }
+    
+    .faq-question:hover {
+      color: var(--primary);
+    }
+    
+    .faq-question i {
+      color: var(--primary);
+      transition: transform 0.3s;
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 20px;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 20px 20px;
+    }
+    
+    .faq-answer p {
+      color: var(--darker);
+      margin-bottom: 15px;
+    }
+    
+    .faq-answer ul, .faq-answer ol {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .faq-answer li {
+      margin-bottom: 8px;
+    }
+    
+    /* Contact Support Section */
+    .contact-support {
+      margin: 80px 0;
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
+      border-radius: 20px;
+      padding: 60px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .contact-support::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+      background-size: 30px 30px;
+      opacity: 0.3;
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .contact-info h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    
+    .contact-info p {
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .contact-methods {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .contact-method:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--accent);
+    }
+    
+    .contact-details h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    
+    .contact-details p, .contact-details a {
+      opacity: 0.9;
+      color: white;
+      text-decoration: none;
+    }
+    
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+    
+    .contact-form {
+      background-color: white;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .contact-form h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--darker);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--grey-dark);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(255, 125, 6, 0.2);
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 125, 6, 0.3);
+    }
+    
+    /* Community Section */
+    .community-section {
+      margin: 80px 0;
+      text-align: center;
+    }
+    
+    .community-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .community-card {
+      background-color: var(--light);
+      border-radius: 15px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.5s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .community-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .community-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    .community-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .community-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .community-card p {
+      color: var(--darker);
+      margin-bottom: 25px;
+    }
+    
+    .community-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .community-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 125, 6, 0.3);
+    }
+    
+    /* Status Page Section */
+    .status-section {
+      margin: 80px 0;
+      background-color: var(--light);
+      border-radius: 20px;
+      padding: 60px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    .status-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .status-title {
+      font-size: 1.8rem;
+      color: var(--secondary);
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .status-operational {
+      background-color: rgba(40, 167, 69, 0.1);
+      color: var(--success);
+    }
+    
+    .status-items {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .status-item {
+      background-color: var(--lighter);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .status-service {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .status-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+    }
+    
+    .status-details h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    
+    .status-details p {
+      font-size: 0.9rem;
+      color: var(--darker);
+      opacity: 0.8;
+    }
+    
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .indicator-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    
+    .indicator-operational {
+      background-color: var(--success);
+    }
+    
+    .indicator-partial {
+      background-color: var(--warning);
+    }
+    
+    .indicator-major {
+      background-color: var(--danger);
+    }
+    
+    .status-history {
+      margin-top: 40px;
+    }
+    
+    .history-title {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    
+    .history-items {
+      border-left: 2px solid var(--grey-dark);
+      padding-left: 20px;
+    }
+    
+    .history-item {
+      position: relative;
+      padding-bottom: 30px;
+    }
+    
+    .history-item:last-child {
+      padding-bottom: 0;
+    }
+    
+    .history-item::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--primary);
+    }
+    
+    .history-date {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--secondary);
+    }
+    
+    .history-event {
+      background-color: var(--lighter);
+      border-radius: 8px;
+      padding: 15px;
+    }
+    
+    .history-event p {
+      color: var(--darker);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 60px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 15px;
+    }
+
+    .footer-column a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--primary);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .footer-logo-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-logo-group .logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      color: #aaa;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo-group .footer-social {
+      margin-top: 0;
+    }
+
+    /* Chatbot Styles */
+    .chatbot-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+    }
+
+    .chatbot-button {
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.1);
+    }
+
+    .chatbot-button i {
+      color: white;
+      font-size: 24px;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--secondary);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+
+    .chatbot-tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--dark);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--dark);
+    }
+
+    .chatbot-button:hover .chatbot-tooltip {
+      opacity: 1;
+      visibility: visible;
+      right: 80px;
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-container.open .chatbot-window {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .chat-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 18px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .bot-message {
+      background-color: #e5e5ea;
+      color: black;
+      border-bottom-left-radius: 5px;
+      align-self: flex-start;
+    }
+
+    .user-message {
+      background-color: var(--primary);
+      color: white;
+      border-bottom-right-radius: 5px;
+      margin-left: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      background-color: white;
+      border-top: 1px solid #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .send-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-left: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Cookie Notification Popup */
+    .cookie-notification-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: cookieNotificationFadeIn 0.3s forwards;
+      max-width: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .cookie-notification-popup p {
+      margin: 0;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .cookie-notification-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0 0 0 10px;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .cookie-notification-close:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes cookieNotificationFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes cookieNotificationFadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(20px); }
+    }
+
+    /* Cookie Notification Banner */
+    .cookie-notification {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--dark);
+      color: white;
+      padding: 20px;
+      z-index: 999;
+      transform: translateY(100%);
+      transition: transform 0.5s ease-out;
+      box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .cookie-notification.active {
+      transform: translateY(0);
+    }
+
+    .cookie-notification-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .cookie-notification p {
+      flex: 1;
+      min-width: 300px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .cookie-notification-buttons {
+      display: flex;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+
+    .cookie-notification .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .cookie-notification .btn-outline {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .cookie-notification .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateX(-50%) translateY(0); }
+      to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .help-hero h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .help-hero {
+        padding: 8rem 0 4rem;
+      }
+      
+      .help-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .help-hero p {
+        font-size: 1.1rem;
+      }
+      
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 20px;
+      }
+      
+      .help-container {
+        padding: 0 20px 60px;
+      }
+      
+      .help-hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .video-tutorials,
+      .contact-support,
+      .status-section {
+        padding: 40px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .help-hero {
+        padding: 7rem 0 3rem;
+      }
+      
+      .help-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .kb-categories {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .cookie-notification-container {
+        flex-direction: column;
+      }
+      
+      .cookie-notification-buttons {
+        width: 100%;
+      }
+      
+      .cookie-notification .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+        <span class="logo-text">Annita</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="personalpage.html">Personal</a></li>
+          <li><a href="Businesspage.html">Business</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="csrpage.html">CSR</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="loginpage.html" class="btn btn-outline">Log In</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <div class="hamburger-menu">
+        <span class="hamburger-icon"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="personalpage.html"><i class="fas fa-user"></i>Personal</a></li>
+      <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li>
+      <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+      <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+    </ul>
+  </div>
+  <div class="menu-overlay"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Help Center Hero Section -->
+    <section class="help-hero">
+      <div class="help-hero-content animate__animated animate__fadeIn">
+        <h1>How can we help you today?</h1>
+        <p>Find answers to your questions, troubleshoot issues, or contact our support team.</p>
+        <div class="hero-search">
+          <input type="text" class="search-input" placeholder="Search our help center...">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="help-container">
+      <!-- Quick Help Section -->
+      <section class="quick-help">
+        <div class="quick-card animate__animated animate__fadeIn">
+          <div class="quick-icon">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <h3>Getting Started</h3>
+          <p>New to Annita? Learn how to set up your account and get started with our platform.</p>
+        </div>
+        
+        <div class="quick-card animate__animated animate__fadeIn">
+          <div class="quick-icon">
+            <i class="fas fa-credit-card"></i>
+          </div>
+          <h3>Payments & Billing</h3>
+          <p>Questions about payments, subscriptions, or billing? Find answers here.</p>
+        </div>
+        
+        <div class="quick-card animate__animated animate__fadeIn">
+          <div class="quick-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile App Help</h3>
+          <p>Troubleshoot issues with our mobile app or learn about its features.</p>
+        </div>
+        
+        <div class="quick-card animate__animated animate__fadeIn">
+          <div class="quick-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Security & Privacy</h3>
+          <p>Learn how we protect your data and manage your privacy settings.</p>
+        </div>
+      </section>
+
+      <!-- Popular Topics Section -->
+      <section class="popular-topics">
+        <div class="section-header animate__animated animate__fadeIn">
+          <h2>Popular Topics</h2>
+          <p>Browse our most frequently asked questions and helpful articles.</p>
+        </div>
+        
+        <div class="topics-grid">
+          <div class="topic-card animate__animated animate__fadeIn">
+            <h3>Account Management</h3>
+            <ul class="topic-links">
+              <li><a href="#">How to reset your password</a></li>
+              <li><a href="#">Updating your account information</a></li>
+              <li><a href="#">Two-factor authentication setup</a></li>
+              <li><a href="#">Closing or deactivating your account</a></li>
+              <li><a href="#">Managing notification preferences</a></li>
+            </ul>
+          </div>
+          
+          <div class="topic-card animate__animated animate__fadeIn">
+            <h3>Payment Solutions</h3>
+            <ul class="topic-links">
+              <li><a href="#">Setting up payment methods</a></li>
+              <li><a href="#">Understanding transaction fees</a></li>
+              <li><a href="#">Troubleshooting failed payments</a></li>
+              <li><a href="#">Requesting refunds</a></li>
+              <li><a href="#">International payment guidelines</a></li>
+            </ul>
+          </div>
+          
+          <div class="topic-card animate__animated animate__fadeIn">
+            <h3>Business Tools</h3>
+            <ul class="topic-links">
+              <li><a href="#">Setting up your business profile</a></li>
+              <li><a href="#">Using Annita for inventory management</a></li>
+              <li><a href="#">Generating business reports</a></li>
+              <li><a href="#">Integrating with other platforms</a></li>
+              <li><a href="#">Managing team access</a></li>
+            </ul>
+          </div>
+          
+          <div class="topic-card animate__animated animate__fadeIn">
+            <h3>Technical Support</h3>
+            <ul class="topic-links">
+              <li><a href="#">Troubleshooting common errors</a></li>
+              <li><a href="#">System requirements</a></li>
+              <li><a href="#">Browser compatibility</a></li>
+              <li><a href="#">Mobile app troubleshooting</a></li>
+              <li><a href="#">API documentation</a></li>
+            </ul>
+          </div>
+          
+          <div class="topic-card animate__animated animate__fadeIn">
+            <h3>Security Center</h3>
+            <ul class="topic-links">
+              <li><a href="#">Recognizing phishing attempts</a></li>
+              <li><a href="#">Securing your account</a></li>
+              <li><a href="#">Data privacy controls</a></li>
+              <li><a href="#">Reporting security issues</a></li>
+              <li><a href="#">Understanding our security measures</a></li>
+            </ul>
+          </div>
+          
+          <div class="topic-card animate__animated animate__fadeIn">
+            <h3>Annita Market</h3>
+            <ul class="topic-links">
+              <li><a href="#">Setting up your store</a></li>
+              <li><a href="#">Managing product listings</a></li>
+              <li><a href="#">Handling orders & shipping</a></li>
+              <li><a href="#">Marketing your products</a></li>
+              <li><a href="#">Understanding seller fees</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Knowledge Base Section -->
+      <section class="knowledge-base">
+        <div class="section-header animate__animated animate__fadeIn">
+          <h2>Knowledge Base</h2>
+          <p>Comprehensive guides and documentation for all Annita products and services.</p>
+        </div>
+        
+        <div class="kb-categories">
+          <div class="kb-category animate__animated animate__fadeIn">
+            <div class="kb-header">
+              <div class="kb-icon">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div>
+                <h3>AnnitaPay</h3>
+                <p>Digital payments and money transfers</p>
+              </div>
+            </div>
+            <div class="kb-articles">
+              <div class="kb-article">
+                <a href="#">
+                  <span>Getting started with AnnitaPay</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Sending and receiving money</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Understanding transaction fees</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Business payment solutions</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Troubleshooting payment issues</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="kb-category animate__animated animate__fadeIn">
+            <div class="kb-header">
+              <div class="kb-icon">
+                <i class="fas fa-store"></i>
+              </div>
+              <div>
+                <h3>AnnitaMarket</h3>
+                <p>E-commerce and online marketplace</p>
+              </div>
+            </div>
+            <div class="kb-articles">
+              <div class="kb-article">
+                <a href="#">
+                  <span>Setting up your online store</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Product listing best practices</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Managing orders and inventory</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Marketing tools for sellers</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Buyer protection policies</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="kb-category animate__animated animate__fadeIn">
+            <div class="kb-header">
+              <div class="kb-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div>
+                <h3>AnnitaConnect</h3>
+                <p>Business networking and communication</p>
+              </div>
+            </div>
+            <div class="kb-articles">
+              <div class="kb-article">
+                <a href="#">
+                  <span>Creating your professional profile</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Networking and connection tools</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Business messaging features</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Group and community features</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Privacy and security settings</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="kb-category animate__animated animate__fadeIn">
+            <div class="kb-header">
+              <div class="kb-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div>
+                <h3>AnnitaAI</h3>
+                <p>Artificial intelligence tools</p>
+              </div>
+            </div>
+            <div class="kb-articles">
+              <div class="kb-article">
+                <a href="#">
+                  <span>AI-powered business insights</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Automated customer service</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Predictive analytics tools</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Custom AI model training</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>AI API documentation</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="kb-category animate__animated animate__fadeIn">
+            <div class="kb-header">
+              <div class="kb-icon">
+                <i class="fas fa-ad"></i>
+              </div>
+              <div>
+                <h3>AnnitaAds</h3>
+                <p>Advertising and marketing solutions</p>
+              </div>
+            </div>
+            <div class="kb-articles">
+              <div class="kb-article">
+                <a href="#">
+                  <span>Creating your first campaign</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Targeting and audience tools</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Budgeting and bidding strategies</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Performance analytics</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Ad policies and guidelines</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="kb-category animate__animated animate__fadeIn">
+            <div class="kb-header">
+              <div class="kb-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <div>
+                <h3>AnnitaCloud</h3>
+                <p>Cloud storage and computing</p>
+              </div>
+            </div>
+            <div class="kb-articles">
+              <div class="kb-article">
+                <a href="#">
+                  <span>Setting up cloud storage</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>File sharing and collaboration</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Cloud computing services</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>Security and access controls</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="kb-article">
+                <a href="#">
+                  <span>API and integration options</span>
+                  <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Tutorials Section -->
+      <section class="video-tutorials">
+        <div class="section-header animate__animated animate__fadeIn">
+          <h2>Video Tutorials</h2>
+          <p>Watch step-by-step guides to help you get the most out of Annita's platform.</p>
+        </div>
+        
+        <div class="videos-grid">
+          <div class="video-card animate__animated animate__fadeIn">
+            <div class="video-thumbnail">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Getting Started">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Getting Started with Annita</h3>
+              <div class="video-meta">
+                <span><i class="far fa-clock"></i> 5:32</span>
+                <span><i class="far fa-eye"></i> 12.5K views</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-card animate__animated animate__fadeIn">
+            <div class="video-thumbnail">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Payment Features">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Mastering AnnitaPay Features</h3>
+              <div class="video-meta">
+                <span><i class="far fa-clock"></i> 8:15</span>
+                <span><i class="far fa-eye"></i> 9.2K views</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-card animate__animated animate__fadeIn">
+            <div class="video-thumbnail">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Business Analytics">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Business Analytics with AnnitaAI</h3>
+              <div class="video-meta">
+                <span><i class="far fa-clock"></i> 12:47</span>
+                <span><i class="far fa-eye"></i> 7.8K views</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-card animate__animated animate__fadeIn">
+            <div class="video-thumbnail">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Marketplace Setup">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Setting Up Your AnnitaMarket Store</h3>
+              <div class="video-meta">
+                <span><i class="far fa-clock"></i> 15:22</span>
+                <span><i class="far fa-eye"></i> 6.3K views</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-card animate__animated animate__fadeIn">
+            <div class="video-thumbnail">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Security Features">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Advanced Security Features</h3>
+              <div class="video-meta">
+                <span><i class="far fa-clock"></i> 7:45</span>
+                <span><i class="far fa-eye"></i> 5.9K views</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="video-card animate__animated animate__fadeIn">
+            <div class="video-thumbnail">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mobile App">
+              <div class="play-button">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Annita Mobile App Walkthrough</h3>
+              <div class="video-meta">
+                <span><i class="far fa-clock"></i> 10:18</span>
+                <span><i class="far fa-eye"></i> 11.2K views</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="section-header animate__animated animate__fadeIn">
+          <h2>Frequently Asked Questions</h2>
+          <p>Quick answers to common questions about our products and services.</p>
+        </div>
+        
+        <div class="faq-container">
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>How do I create an Annita account?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Creating an Annita account is simple and free:</p>
+              <ol>
+                <li>Visit our website or download the Annita mobile app</li>
+                <li>Click on "Sign Up"</li>
+                <li>Enter your personal information (name, email, phone number)</li>
+                <li>Create a secure password</li>
+                <li>Verify your email address or phone number</li>
+                <li>Complete your profile setup</li>
+              </ol>
+              <p>Once your account is created, you can start using all of Annita's services.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>What payment methods does Annita accept?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Annita accepts a variety of payment methods to make transactions convenient for you:</p>
+              <ul>
+                <li><strong>Credit/Debit Cards:</strong> Visa, Mastercard, American Express</li>
+                <li><strong>Bank Transfers:</strong> Direct transfers from your bank account</li>
+                <li><strong>Mobile Money:</strong> M-Pesa, Airtel Money, MTN Mobile Money</li>
+                <li><strong>Annita Wallet:</strong> Funds in your Annita account balance</li>
+                <li><strong>Crypto Payments:</strong> Bitcoin, Ethereum (select markets)</li>
+              </ul>
+              <p>Available payment methods may vary by country.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>How do I reset my password?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>If you've forgotten your password, follow these steps to reset it:</p>
+              <ol>
+                <li>Go to the Annita login page</li>
+                <li>Click on "Forgot Password"</li>
+                <li>Enter the email address or phone number associated with your account</li>
+                <li>Check your email or phone for a password reset link</li>
+                <li>Click the link and follow the instructions to create a new password</li>
+                <li>Log in with your new password</li>
+              </ol>
+              <p>If you don't receive the reset link, check your spam folder or contact our support team.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>Is my personal and financial information secure with Annita?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>At Annita, we take security very seriously. We employ multiple layers of protection to keep your information safe:</p>
+              <ul>
+                <li><strong>Bank-level encryption:</strong> All data is encrypted using 256-bit SSL technology</li>
+                <li><strong>Two-factor authentication:</strong> Optional extra layer of security for your account</li>
+                <li><strong>Regular security audits:</strong> Our systems are continuously monitored and tested</li>
+                <li><strong>Fraud detection:</strong> Advanced algorithms detect and prevent suspicious activity</li>
+                <li><strong>Data privacy:</strong> We never sell your personal information to third parties</li>
+              </ul>
+              <p>You can review our full <a href="#">Security Policy</a> and <a href="#">Privacy Policy</a> for more details.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>How do I contact Annita customer support?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We offer several ways to get in touch with our support team:</p>
+              <ul>
+                <li><strong>In-app support:</strong> Use the "Help" section in your Annita mobile app</li>
+                <li><strong>Email:</strong> support@annita.com (response within 24 hours)</li>
+                <li><strong>Phone:</strong> +1 (800) 555-0199 (available 24/7 for urgent issues)</li>
+                <li><strong>Live chat:</strong> Available on our website during business hours</li>
+                <li><strong>Social media:</strong> DM us on Twitter or Facebook</li>
+              </ul>
+              <p>For faster service, have your account information ready when contacting support.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>What countries does Annita operate in?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Annita currently operates in 15 African countries with plans to expand:</p>
+              <ul>
+                <li>Nigeria</li>
+                <li>Ghana</li>
+                <li>Kenya</li>
+                <li>South Africa</li>
+                <li>Egypt</li>
+                <li>Ethiopia</li>
+                <li>Tanzania</li>
+                <li>Uganda</li>
+                <li>Rwanda</li>
+                <li>Senegal</li>
+                <li>Ivory Coast</li>
+                <li>Cameroon</li>
+                <li>Zambia</li>
+                <li>Zimbabwe</li>
+                <li>Liberia</li>
+              </ul>
+              <p>Some features may vary by country based on local regulations. We're working to expand to more countries soon.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>How do I become an Annita merchant?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>To become an Annita merchant and sell on our platform:</p>
+              <ol>
+                <li>Create a personal Annita account (if you don't have one already)</li>
+                <li>Go to the Merchant Center in your account dashboard</li>
+                <li>Click "Become a Merchant"</li>
+                <li>Provide your business information (name, type, location, etc.)</li>
+                <li>Submit required documents (ID, business registration, tax info)</li>
+                <li>Wait for verification (typically 1-3 business days)</li>
+                <li>Once approved, set up your store and start selling!</li>
+              </ol>
+              <p>There are no upfront fees to become a merchant. We only charge a small percentage when you make a sale.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item animate__animated animate__fadeIn">
+            <div class="faq-question">
+              <span>What are Annita's fees?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Annita's fees vary depending on the service:</p>
+              <ul>
+                <li><strong>Personal Payments:</strong> Free between Annita users, 1.5% fee for external transfers</li>
+                <li><strong>Merchant Services:</strong> 2.9% + $0.30 per transaction</li>
+                <li><strong>Marketplace Sales:</strong> 5-15% commission depending on product category</li>
+                <li><strong>Withdrawals:</strong> Free to bank accounts, small fee for instant transfers</li>
+                <li><strong>Currency Conversion:</strong> 1% above interbank rate</li>
+              </ul>
+              <p>We offer discounted fees for high-volume merchants and non-profit organizations. See our complete <a href="#">Pricing Page</a> for details.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Support Section -->
+      <section class="contact-support">
+        <div class="section-header animate__animated animate__fadeIn">
+          <h2>Contact Our Support Team</h2>
+          <p>Can't find what you're looking for? Our team is ready to help you 24/7.</p>
+        </div>
+        
+        <div class="contact-container">
+          <div class="contact-info animate__animated animate__fadeIn">
+            <h2>We're Here to Help</h2>
+            <p>Whether you have a question about features, need troubleshooting help, or want to provide feedback, our support team is available around the clock.</p>
+            
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Phone Support</h3>
+                  <p>+1 (800) 555-0199</p>
+                  <p>24/7 for urgent issues</p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Email Support</h3>
+                  <a href="mailto:support@annita.com">support@annita.com</a>
+                  <p>Response within 24 hours</p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-comment-dots"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Live Chat</h3>
+                  <p>Available in-app and on website</p>
+                  <p>Mon-Fri: 8AM-8PM (GMT)</p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h3>Office Locations</h3>
+                  <p>Lagos, Nigeria</p>
+                  <p>Nairobi, Kenya</p>
+                  <p>Accra, Ghana</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form animate__animated animate__fadeIn">
+            <h3>Send Us a Message</h3>
+            <form id="supportForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" class="form-control" required>
+                  <option value="" disabled selected>Select a topic</option>
+                  <option value="account">Account Help</option>
+                  <option value="payment">Payments & Billing</option>
+                  <option value="technical">Technical Support</option>
+                  <option value="business">Business Services</option>
+                  <option value="feedback">Feedback & Suggestions</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" class="form-control" required></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label>Attachments (optional)</label>
+                <input type="file" id="attachments" class="form-control" multiple>
+                <small>Screenshots or documents that might help us understand your issue</small>
+              </div>
+              
+              <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Community Section -->
+      <section class="community-section">
+        <div class="section-header animate__animated animate__fadeIn">
+          <h2>Join Our Community</h2>
+          <p>Connect with other Annita users, share tips, and get help from the community.</p>
+        </div>
+        
+        <div class="community-cards">
+          <div class="community-card animate__animated animate__fadeIn">
+            <div class="community-icon">
+              <i class="fab fa-facebook"></i>
+            </div>
+            <h3>Facebook Group</h3>
+            <p>Join our active Facebook community with over 50,000 members discussing Annita products and services.</p>
+            <a href="#" class="community-btn">Join Group</a>
+          </div>
+          
+          <div class="community-card animate__animated animate__fadeIn">
+            <div class="community-icon">
+              <i class="fab fa-slack"></i>
+            </div>
+            <h3>Developer Slack</h3>
+            <p>Connect with developers building on Annita's platform. Share code, ask questions, and collaborate.</p>
+            <a href="#" class="community-btn">Join Slack</a>
+          </div>
+          
+          <div class="community-card animate__animated animate__fadeIn">
+            <div class="community-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <h3>Open Source</h3>
+            <p>Contribute to Annita's open source projects and help improve our platform for everyone.</p>
+            <a href="#" class="community-btn">View on GitHub</a>
+          </div>
+          
+          <div class="community-card animate__animated animate__fadeIn">
+            <div class="community-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Annita Academy</h3>
+            <p>Learn how to get the most from Annita with our free courses, webinars, and certification programs.</p>
+            <a href="#" class="community-btn">Start Learning</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Status Page Section -->
+      <section class="status-section">
+        <div class="status-header">
+          <h2 class="status-title">System Status</h2>
+          <span class="status-badge status-operational">All Systems Operational</span>
+        </div>
+        
+        <div class="status-items">
+          <div class="status-item animate__animated animate__fadeIn">
+            <div class="status-service">
+              <div class="status-icon">
+                <i class="fas fa-wallet"></i>
+              </div>
+              <div class="status-details">
+                <h4>AnnitaPay</h4>
+                <p>Payment processing system</p>
+              </div>
+            </div>
+            <div class="status-indicator">
+              <span class="indicator-dot indicator-operational"></span>
+              <span>Operational</span>
+            </div>
+          </div>
+          
+          <div class="status-item animate__animated animate__fadeIn">
+            <div class="status-service">
+              <div class="status-icon">
+                <i class="fas fa-store"></i>
+              </div>
+              <div class="status-details">
+                <h4>AnnitaMarket</h4>
+                <p>E-commerce marketplace</p>
+              </div>
+            </div>
+            <div class="status-indicator">
+              <span class="indicator-dot indicator-operational"></span>
+              <span>Operational</span>
+            </div>
+          </div>
+          
+          <div class="status-item animate__animated animate__fadeIn">
+            <div class="status-service">
+              <div class="status-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="status-details">
+                <h4>AnnitaConnect</h4>
+                <p>Business networking platform</p>
+              </div>
+            </div>
+            <div class="status-indicator">
+              <span class="indicator-dot indicator-operational"></span>
+              <span>Operational</span>
+            </div>
+          </div>
+          
+          <div class="status-item animate__animated animate__fadeIn">
+            <div class="status-service">
+              <div class="status-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="status-details">
+                <h4>AnnitaAI</h4>
+                <p>Artificial intelligence services</p>
+              </div>
+            </div>
+            <div class="status-indicator">
+              <span class="indicator-dot indicator-operational"></span>
+              <span>Operational</span>
+            </div>
+          </div>
+          
+          <div class="status-item animate__animated animate__fadeIn">
+            <div class="status-service">
+              <div class="status-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="status-details">
+                <h4>Mobile Apps</h4>
+                <p>iOS and Android applications</p>
+              </div>
+            </div>
+            <div class="status-indicator">
+              <span class="indicator-dot indicator-operational"></span>
+              <span>Operational</span>
+            </div>
+          </div>
+          
+          <div class="status-item animate__animated animate__fadeIn">
+            <div class="status-service">
+              <div class="status-icon">
+                <i class="fas fa-cloud"></i>
+              </div>
+              <div class="status-details">
+                <h4>API Services</h4>
+                <p>Developer and integration tools</p>
+              </div>
+            </div>
+            <div class="status-indicator">
+              <span class="indicator-dot indicator-operational"></span>
+              <span>Operational</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="status-history">
+          <h3 class="history-title">Recent Incidents</h3>
+          <div class="history-items">
+            <div class="history-item">
+              <div class="history-date">June 15, 2023</div>
+              <div class="history-event">
+                <p><strong>Partial outage:</strong> AnnitaPay services were intermittently unavailable for 47 minutes due to a database overload. Services were fully restored by 14:32 GMT.</p>
+              </div>
+            </div>
+            
+            <div class="history-item">
+              <div class="history-date">May 28, 2023</div>
+              <div class="history-event">
+                <p><strong>Maintenance:</strong> Scheduled maintenance from 02:00 to 04:00 GMT. All services were affected during this window.</p>
+              </div>
+            </div>
+            
+            <div class="history-item">
+              <div class="history-date">April 10, 2023</div>
+              <div class="history-event">
+                <p><strong>Performance issues:</strong> Some users experienced slow response times on AnnitaMarket for approximately 2 hours. The issue was resolved by optimizing our search algorithms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo-group">
+            <a href="index.html" class="logo">
+              <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+              <span class="logo-text">Annita</span>
+            </a>
+            <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#">AnnitaPay</a></li>
+            <li><a href="#">AnnitaMarket</a></li>
+            <li><a href="#">AnnitaConnect</a></li>
+            <li><a href="#">AnnitaAI</a></li>
+            <li><a href="#">AnnitaAds</a></li>
+            <li><a href="#">AnnitaCloud</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="help-center.html">Help Center</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Developers</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+            <li><a href="#">GDPR</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+        <div class="footer-links-horizontal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Sitemap</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot Widget -->
+  <div class="chatbot-container">
+    <div class="chatbot-button">
+      <i class="fas fa-comment-alt"></i>
+      <div class="notification-badge">1</div>
+      <div class="chatbot-tooltip">Need help? Ask our virtual assistant!</div>
+    </div>
+    <div class="chatbot-window">
+      <div class="chat-header">
+        <h3>Annita Help Assistant</h3>
+        <button class="close-chat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages">
+        <div class="message bot-message">
+          Hello! I'm here to help with any questions about Annita's products and services. What can I help you with today?
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your question...">
+        <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Notification Banner -->
+  <div class="cookie-notification" id="cookie-banner">
+    <div class="cookie-notification-container">
+      <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies. <a href="cookies.html" style="color: var(--primary);">Learn more</a></p>
+      <div class="cookie-notification-buttons">
+        <button class="btn btn-outline" id="cookie-reject">Reject</button>
+        <button class="btn btn-primary" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Enhanced Mobile Menu Toggle with Premium Animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.querySelector('.hamburger-menu');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.menu-overlay');
+      const body = document.body;
+      
+      // Toggle menu function
+      function toggleMenu() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        overlay.classList.toggle('active');
+        body.classList.toggle('no-scroll');
+        
+        if (mobileMenu.classList.contains('active')) {
+          // Disable scrolling when menu is open
+          body.style.overflow = 'hidden';
+          // Add iOS inertia scrolling to menu
+          mobileMenu.style.webkitOverflowScrolling = 'touch';
+        } else {
+          // Re-enable scrolling
+          body.style.overflow = '';
+          // Remove iOS inertia when menu is closed
+          mobileMenu.style.webkitOverflowScrolling = '';
+        }
+      }
+      
+      // Hamburger click event
+      hamburger.addEventListener('click', toggleMenu);
+      
+      // Overlay click event
+      overlay.addEventListener('click', toggleMenu);
+      
+      // Close menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Only prevent default for anchor links (same page navigation)
+          if (link.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            toggleMenu();
+            setTimeout(() => {
+              const target = document.querySelector(link.getAttribute('href'));
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 500);
+          } else {
+            // For all other links, just close the menu
+            // The browser will handle the navigation normally
+            toggleMenu();
+          }
+        });
+      });
+      
+      // Handle iOS viewport height changes
+      function handleViewportHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+      
+      // Initial call
+      handleViewportHeight();
+      
+      // Listen for resize events
+      window.addEventListener('resize', handleViewportHeight);
+      window.addEventListener('orientationchange', handleViewportHeight);
+      
+      // Prevent body scroll when menu is open
+      document.addEventListener('touchmove', function(e) {
+        if (mobileMenu.classList.contains('active')) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      // Chatbot functionality
+      const chatbotButton = document.querySelector('.chatbot-button');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      const closeChat = document.querySelector('.close-chat');
+      const chatInput = document.querySelector('.chat-input input');
+      const sendButton = document.querySelector('.send-button');
+      const chatMessages = document.querySelector('.chat-messages');
+
+      // Toggle chat window
+      chatbotButton.addEventListener('click', function() {
+        chatbotContainer.classList.toggle('open');
+        // Remove notification badge when chat is opened
+        document.querySelector('.notification-badge').style.display = 'none';
+      });
+
+      // Close chat window
+      closeChat.addEventListener('click', function() {
+        chatbotContainer.classList.remove('open');
+      });
+
+      // Send message function
+      function sendMessage() {
+        const messageText = chatInput.value.trim();
+        if (messageText) {
+          // Add user message
+          const userMessage = document.createElement('div');
+          userMessage.className = 'message user-message';
+          userMessage.textContent = messageText;
+          chatMessages.appendChild(userMessage);
+
+          // Clear input
+          chatInput.value = '';
+
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          // Simulate bot response after a delay
+          setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            
+            // Simple FAQ responses
+            let response = "";
+            if (messageText.toLowerCase().includes('account') || messageText.toLowerCase().includes('login')) {
+              response = "For account issues, you can reset your password or contact our support team. Would you like me to direct you to the account recovery page?";
+            } else if (messageText.toLowerCase().includes('payment') || messageText.toLowerCase().includes('transaction')) {
+              response = "Payment issues can often be resolved by checking your transaction history or verifying your payment method. You can find detailed payment help in our Knowledge Base under 'Payments & Billing'.";
+            } else if (messageText.toLowerCase().includes('contact') || messageText.toLowerCase().includes('support')) {
+              response = "Our support team is available 24/7. You can email support@annita.com, call +1 (800) 555-0199, or use the contact form in our Help Center for non-urgent inquiries.";
+            } else if (messageText.toLowerCase().includes('feature') || messageText.toLowerCase().includes('how to')) {
+              response = "We have comprehensive guides and video tutorials for all Annita features. Would you like me to search our Knowledge Base for you or direct you to the appropriate tutorial?";
+            } else {
+              response = "I'm still learning, but I can connect you with a human support agent if you'd like. For immediate assistance, please call our support line at +1 (800) 555-0199. Otherwise, you can try searching our Help Center for more detailed information.";
+            }
+            
+            botMessage.textContent = response;
+            chatMessages.appendChild(botMessage);
+            
+            // Scroll to bottom again after bot response
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+        }
+      }
+
+      // Send message on button click
+      sendButton.addEventListener('click', sendMessage);
+
+      // Send message on Enter key
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+
+      // FAQ Accordion Functionality
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const faqItem = this.parentNode;
+          faqItem.classList.toggle('active');
+          
+          // Close other open FAQs
+          faqQuestions.forEach(q => {
+            if (q !== question) {
+              q.parentNode.classList.remove('active');
+            }
+          });
+        });
+      });
+
+      // Support Form Submission
+      const supportForm = document.getElementById('supportForm');
+      
+      supportForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        const attachments = document.getElementById('attachments').files;
+        
+        // Here you would typically send the form data to your server
+        console.log('Support request submitted:', { 
+          name, email, subject, message, attachments
+        });
+        
+        // Show success message with animation
+        const submitBtn = supportForm.querySelector('.submit-btn');
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent';
+        submitBtn.style.backgroundColor = 'var(--success)';
+        
+        // Reset form after delay
+        setTimeout(() => {
+          supportForm.reset();
+          submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+          submitBtn.style.backgroundColor = '';
+        }, 3000);
+      });
+
+      // Search Functionality
+      const searchInput = document.querySelector('.search-input');
+      const searchBtn = document.querySelector('.search-btn');
+      
+      searchBtn.addEventListener('click', function() {
+        performSearch(searchInput.value);
+      });
+      
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          performSearch(searchInput.value);
+        }
+      });
+      
+      function performSearch(query) {
+        if (query.trim()) {
+          // In a real implementation, this would search your knowledge base
+          alert(`Searching for: ${query}\n\nThis would normally display search results from the knowledge base.`);
+          // You might redirect to a search results page or dynamically load results
+          // window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+        }
+      }
+
+      // Quick Help Card Click Handlers
+      const quickCards = document.querySelectorAll('.quick-card');
+      
+      quickCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const title = this.querySelector('h3').textContent;
+          // In a real implementation, this would navigate to the appropriate help section
+          alert(`Navigating to ${title} help section`);
+          // Example: window.location.href = 'help-section.html?topic=' + encodeURIComponent(title);
+        });
+      });
+
+      // Header Scroll Effect
+      window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // Create Floating Particles
+      function createParticles() {
+        const hero = document.querySelector('.help-hero');
+        const particleCount = 20;
+        
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random size between 2px and 6px
+          const size = Math.random() * 4 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          
+          // Random position
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          
+          // Random opacity
+          particle.style.opacity = Math.random() * 0.5 + 0.1;
+          
+          // Random animation
+          const duration = Math.random() * 20 + 10;
+          const delay = Math.random() * 5;
+          particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+          
+          hero.appendChild(particle);
+        }
+      }
+      
+      // Add floating animation to CSS
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes float {
+          0%, 100% {
+            transform: translate(0, 0);
+          }
+          25% {
+            transform: translate(10px, 10px);
+          }
+          50% {
+            transform: translate(5px, -5px);
+          }
+          75% {
+            transform: translate(-5px, 5px);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Create particles
+      createParticles();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Animate elements when they come into view
+      const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.animate__animated');
+        
+        elements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementPosition < windowHeight - 100) {
+            const animationClass = element.classList[1];
+            element.classList.add(animationClass);
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Run once on page load
+
+      // Video Card Click Handlers
+      const videoCards = document.querySelectorAll('.video-card');
+      
+      videoCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const videoTitle = this.querySelector('h3').textContent;
+          // In a real implementation, this would open a video player or modal
+          alert(`Playing: ${videoTitle}\n\nThis would normally open a video player.`);
+        });
+      });
+
+      // Cookie Banner Functionality
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieReject = document.getElementById('cookie-reject');
+
+      // Check if cookie preferences are already set
+      function checkCookiePreferences() {
+        const consentGiven = localStorage.getItem('cookieConsent');
+        
+        if (!consentGiven) {
+          // Show banner if no consent given yet
+          setTimeout(() => {
+            cookieBanner.classList.add('active');
+          }, 1000);
+        }
+      }
+
+      // Accept all cookies
+      function acceptAllCookies() {
+        localStorage.setItem('cookieConsent', 'given');
+        cookieBanner.classList.remove('active');
+      }
+
+      // Reject all optional cookies
+      function rejectOptionalCookies() {
+        localStorage.setItem('cookieConsent', 'given');
+        cookieBanner.classList.remove('active');
+      }
+
+      // Event Listeners
+      if (cookieAccept) {
+        cookieAccept.addEventListener('click', acceptAllCookies);
+      }
+
+      if (cookieReject) {
+        cookieReject.addEventListener('click', rejectOptionalCookies);
+      }
+
+      // Initialize
+      checkCookiePreferences();
+    });
+  </script>
+</body>
+</html>

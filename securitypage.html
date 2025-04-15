@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Contact Sales - Annita Insights</title>
+  <title>Security - Annita Insights</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -361,9 +361,9 @@
       margin-top: 80px; /* Offset for fixed header */
     }
 
-    /* Sales Hero Section */
-    .sales-hero {
-      background: linear-gradient(135deg, rgba(108, 29, 58, 0.9) 0%, rgba(0, 26, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    /* Security Hero Section */
+    .security-hero {
+      background: linear-gradient(135deg, rgba(0, 26, 87, 0.9) 0%, rgba(108, 29, 58, 0.9) 100%), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -375,7 +375,7 @@
       margin-bottom: 3rem;
     }
     
-    .sales-hero::before {
+    .security-hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -387,7 +387,7 @@
       pointer-events: none;
     }
     
-    .sales-hero-content {
+    .security-hero-content {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 30px;
@@ -395,129 +395,56 @@
       z-index: 1;
     }
     
-    .sales-hero h1 {
+    .security-hero h1 {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
       line-height: 1.2;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
     
-    .sales-hero p {
+    .security-hero p {
       font-size: 1.3rem;
       opacity: 0.9;
       margin-bottom: 2.5rem;
       text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     }
     
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    
-    .hero-btn {
-      padding: 15px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 180px;
-    }
-    
-    .hero-btn-primary {
-      background-color: var(--primary);
-      color: white;
-      box-shadow: 0 5px 20px rgba(255, 125, 6, 0.4);
-    }
-    
-    .hero-btn-primary:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 125, 6, 0.5);
-    }
-    
-    .hero-btn-secondary {
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-    
-    .hero-btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-3px);
-    }
-    
-    .hero-btn i {
-      margin-left: 8px;
-      transition: transform 0.3s;
-    }
-    
-    .hero-btn:hover i {
-      transform: translateX(5px);
-    }
-    
-    /* Floating Particles */
-    .particle {
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.6);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    /* Premium Container */
-    .premium-container {
-      max-width: 1400px;
+    /* Security Container */
+    .security-container {
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 30px 80px;
     }
     
-    /* Contact Mega Grid */
-    .contact-mega-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 50px;
-    }
-    
-    /* Contact Card */
-    .contact-card {
+    /* Security Content */
+    .security-content {
       background-color: var(--light);
       border-radius: 20px;
-      padding: 50px;
+      padding: 60px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
       position: relative;
       overflow: hidden;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
     
-    .contact-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
-    }
-    
-    .contact-card::before {
+    .security-content::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, var(--primary), var(--blue-dark));
     }
     
-    .contact-card h2 {
+    .security-content h2 {
       font-size: 2.2rem;
       margin-bottom: 30px;
-      color: var(--secondary);
+      color: var(--blue-dark);
       position: relative;
       padding-bottom: 15px;
     }
     
-    .contact-card h2::after {
+    .security-content h2::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -527,484 +454,154 @@
       background-color: var(--primary);
     }
     
-    /* Premium Form */
-    .premium-form .form-group {
-      margin-bottom: 25px;
-      position: relative;
+    .security-content h3 {
+      font-size: 1.6rem;
+      margin: 40px 0 20px;
+      color: var(--blue-dark);
     }
     
-    .premium-form label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 500;
-      color: var(--darker);
-    }
-    
-    .premium-form .form-control {
-      width: 100%;
-      padding: 15px 20px;
-      border: 1px solid var(--grey-dark);
-      border-radius: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background-color: var(--lighter);
-    }
-    
-    .premium-form .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
-    }
-    
-    .premium-form textarea.form-control {
-      min-height: 180px;
-      resize: vertical;
-    }
-    
-    .premium-form select.form-control {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 16px;
-    }
-    
-    .form-row {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .form-row .form-group {
-      flex: 1;
-    }
-    
-    /* Submit Button */
-    .premium-submit-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      box-shadow: 0 5px 20px rgba(255, 125, 6, 0.3);
-    }
-    
-    .premium-submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 125, 6, 0.4);
-    }
-    
-    .premium-submit-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
-    }
-    
-    .premium-submit-btn:hover::before {
-      left: 100%;
-    }
-    
-    .premium-submit-btn i {
-      margin-left: 10px;
-      transition: transform 0.3s;
-    }
-    
-    .premium-submit-btn:hover i {
-      transform: translateX(5px);
-    }
-    
-    /* Contact Info Mega Card */
-    .contact-info-mega {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-    
-    .info-card {
-      background-color: var(--light);
-      border-radius: 15px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .info-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-    }
-    
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    }
-    
-    .info-card h3 {
-      font-size: 1.5rem;
+    .security-content p {
       margin-bottom: 20px;
-      color: var(--secondary);
-      display: flex;
-      align-items: center;
+      line-height: 1.8;
     }
     
-    .info-card h3 i {
-      margin-right: 15px;
-      color: var(--primary);
-      font-size: 1.8rem;
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary-light);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* Sales Team Styles */
-    .sales-team-card {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    .security-content ul {
       margin-bottom: 30px;
-      transition: all 0.3s ease;
+      padding-left: 20px;
     }
     
-    .sales-team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    
-    .sales-team-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--primary-light);
-      margin-right: 30px;
-      flex-shrink: 0;
-    }
-    
-    .sales-team-info h4 {
-      font-size: 1.4rem;
-      color: var(--secondary);
-      margin-bottom: 5px;
-    }
-    
-    .sales-team-info .title {
-      color: var(--primary);
-      font-weight: 500;
+    .security-content li {
       margin-bottom: 10px;
-      display: block;
+      position: relative;
+      padding-left: 25px;
     }
     
-    .sales-team-contact {
-      display: flex;
-      gap: 15px;
-      margin-top: 15px;
+    .security-content li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary);
+      border-radius: 50%;
     }
     
-    .sales-team-contact a {
-      color: var(--dark);
-      transition: color 0.3s;
-    }
-    
-    .sales-team-contact a:hover {
+    .security-content a {
       color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s;
     }
     
-    /* Client Logos */
-    .client-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 60px 0;
+    .security-content a:hover {
+      text-decoration: underline;
     }
     
-    .client-logo {
-      max-width: 150px;
-      max-height: 60px;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s ease;
-    }
-    
-    .client-logo:hover {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-    
-    /* Enterprise Card */
-    .enterprise-card {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      color: white;
-      padding: 50px;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-      margin-top: 60px;
-    }
-    
-    .enterprise-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-      background-size: 30px 30px;
-      opacity: 0.3;
-    }
-    
-    .enterprise-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .enterprise-content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    
-    .enterprise-content p {
-      margin-bottom: 30px;
-      opacity: 0.9;
-      font-size: 1.1rem;
-    }
-    
-    /* Testimonials Section */
-    .testimonials-section {
-      margin-top: 100px;
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      padding: 80px 0;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .testimonials-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-      background-size: 30px 30px;
-      opacity: 0.3;
-    }
-    
-    .testimonials-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 30px;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .testimonials-header {
-      text-align: center;
+    .security-section {
       margin-bottom: 50px;
     }
     
-    .testimonials-header h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    
-    .testimonials-header p {
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.9;
-      font-size: 1.1rem;
-    }
-    
-    .testimonials-grid {
+    /* Security Feature Cards */
+    .security-features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
+      margin: 40px 0;
     }
     
-    .testimonial-card {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+    .security-card {
+      background-color: var(--lighter);
       border-radius: 15px;
       padding: 30px;
-      transition: all 0.5s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--grey-dark);
     }
     
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      background-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    .security-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     }
     
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    
-    .testimonial-text::before,
-    .testimonial-text::after {
-      content: '"';
-      font-size: 3rem;
-      color: rgba(255, 255, 255, 0.2);
-      position: absolute;
-    }
-    
-    .testimonial-text::before {
-      top: -15px;
-      left: -10px;
-    }
-    
-    .testimonial-text::after {
-      bottom: -35px;
-      right: -10px;
-    }
-    
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      margin-top: 30px;
-    }
-    
-    .author-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .author-info h4 {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-    
-    .author-info p {
-      opacity: 0.8;
-      font-size: 0.9rem;
-    }
-    
-    /* CTA Section */
-    .cta-section {
-      margin-top: 80px;
-      text-align: center;
-    }
-    
-    .cta-card {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: 20px;
-      padding: 60px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(255, 125, 6, 0.3);
-    }
-    
-    .cta-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      transform: rotate(30deg);
-    }
-    
-    .cta-card h2 {
+    .security-card-icon {
       font-size: 2.5rem;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    
-    .cta-card p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 1.1rem;
-      opacity: 0.9;
-      position: relative;
-    }
-    
-    .cta-btn {
-      background-color: white;
       color: var(--primary);
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
     
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    .security-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--blue-dark);
     }
     
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
+    /* Security Table */
+    .security-table {
       width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: 0.5s;
+      border-collapse: collapse;
+      margin: 30px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
     
-    .cta-btn:hover::before {
-      left: 100%;
+    .security-table th {
+      background-color: var(--blue-dark);
+      color: white;
+      text-align: left;
+      padding: 15px;
     }
     
-    .cta-btn i {
-      margin-left: 10px;
-      transition: transform 0.3s;
+    .security-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--grey-dark);
     }
     
-    .cta-btn:hover i {
-      transform: translateX(5px);
+    .security-table tr:nth-child(even) {
+      background-color: var(--grey);
+    }
+    
+    .security-table tr:hover {
+      background-color: var(--primary-light);
+    }
+    
+    /* Security Update Section */
+    .security-update {
+      background-color: var(--lighter);
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 60px;
+      border: 1px solid var(--grey-dark);
+    }
+    
+    .security-update h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    
+    /* Security Checklist */
+    .security-checklist {
+      background-color: var(--primary-light);
+      border-radius: 10px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+    
+    .security-checklist h4 {
+      color: var(--blue-dark);
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+    
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    
+    .checklist-icon {
+      color: var(--success);
+      margin-right: 15px;
+      font-size: 1.2rem;
+      flex-shrink: 0;
     }
     
     /* Chatbot Styles */
@@ -1416,12 +1013,8 @@
 
     /* Responsive Design */
     @media (max-width: 1200px) {
-      .contact-mega-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .sales-hero h1 {
-        font-size: 3rem;
+      .security-content {
+        padding: 50px;
       }
     }
     
@@ -1434,49 +1027,28 @@
         display: block;
       }
       
-      .sales-hero {
-        padding: 8rem 0 4rem;
-      }
-      
-      .sales-hero h1 {
+      .security-hero h1 {
         font-size: 2.5rem;
       }
       
-      .sales-hero p {
+      .security-hero p {
         font-size: 1.1rem;
       }
       
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+      .security-content {
+        padding: 40px;
       }
       
-      .contact-card,
-      .info-card {
-        padding: 30px;
+      .security-content h2 {
+        font-size: 2rem;
       }
       
-      .form-row {
-        flex-direction: column;
-        gap: 0;
+      .security-content h3 {
+        font-size: 1.4rem;
       }
       
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .sales-team-card {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .sales-team-photo {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-      
-      .sales-team-contact {
-        justify-content: center;
       }
     }
     
@@ -1485,61 +1057,42 @@
         padding: 0 20px;
       }
       
-      .premium-container {
+      .security-container {
         padding: 0 20px 60px;
       }
       
-      .sales-hero h1 {
+      .security-hero h1 {
         font-size: 2.2rem;
       }
       
-      .contact-card h2,
-      .info-card h3 {
+      .security-content {
+        padding: 30px;
+      }
+      
+      .security-content h2 {
         font-size: 1.8rem;
       }
       
-      .testimonials-section {
-        padding: 60px 0;
-      }
-      
-      .cta-card {
-        padding: 40px 20px;
-      }
-      
-      .cta-card h2 {
-        font-size: 2rem;
-      }
-      
-      .features-header h2,
-      .testimonials-header h2 {
-        font-size: 2rem;
-      }
-
-      .client-logos {
-        gap: 20px;
-      }
-      
-      .client-logo {
-        max-width: 120px;
+      .security-content h3 {
+        font-size: 1.3rem;
       }
     }
     
     @media (max-width: 576px) {
-      .sales-hero {
+      .security-hero {
         padding: 7rem 0 3rem;
       }
       
-      .sales-hero h1 {
+      .security-hero h1 {
         font-size: 1.8rem;
       }
       
-      .contact-card h2,
-      .info-card h3 {
+      .security-content {
+        padding: 25px;
+      }
+      
+      .security-content h2 {
         font-size: 1.5rem;
-      }
-      
-      .cta-card h2 {
-        font-size: 1.8rem;
       }
       
       .footer-grid {
@@ -1598,163 +1151,233 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Sales Hero Section -->
-    <section class="sales-hero">
-      <div class="premium-hero-content animate__animated animate__fadeIn">
-        <h1>Connect With Our Sales Team</h1>
-        <p>Our experts are ready to help you find the perfect Annita solutions for your business needs.</p>
-        <div class="hero-buttons">
-          <a href="#contact-form" class="hero-btn hero-btn-primary">Contact Sales <i class="fas fa-arrow-right"></i></a>
-          <a href="#team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
-        </div>
+    <!-- Security Hero Section -->
+    <section class="security-hero">
+      <div class="security-hero-content animate__animated animate__fadeIn">
+        <h1>Security at Annita</h1>
+        <p>Your safety and security are our top priorities. Learn how we protect your data and privacy.</p>
       </div>
     </section>
 
-    <div class="premium-container">
-      <!-- Contact Mega Grid -->
-      <div class="contact-mega-grid">
-        <!-- Contact Card -->
-        <div class="contact-card animate__animated animate__fadeInLeft" id="contact-form">
-          <h2>Sales Inquiry Form</h2>
-          <form class="premium-form" id="premiumSalesForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-name">Full Name</label>
-                <input type="text" id="sales-name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-email">Business Email</label>
-                <input type="email" id="sales-email" class="form-control" required>
-              </div>
+    <div class="security-container">
+      <div class="security-content animate__animated animate__fadeInUp">
+        <!-- Security Features Grid -->
+        <div class="security-features">
+          <div class="security-card">
+            <div class="security-card-icon">
+              <i class="fas fa-lock"></i>
             </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-phone">Phone Number</label>
-                <input type="tel" id="sales-phone" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-company">Company Name</label>
-                <input type="text" id="sales-company" class="form-control" required>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-title">Job Title</label>
-                <select id="sales-title" class="form-control" required>
-                  <option value="" disabled selected>Select your position</option>
-                  <option value="owner">Owner/Founder</option>
-                  <option value="ceo">CEO/President</option>
-                  <option value="cfo">CFO/Finance Director</option>
-                  <option value="cio">CIO/IT Director</option>
-                  <option value="manager">Department Manager</option>
-                  <option value="other">Other</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-industry">Industry</label>
-              <select id="sales-industry" class="form-control" required>
-                <option value="" disabled selected>Select your industry</option>
-                <option value="finance">Banking & Financial Services</option>
-                <option value="retail">Retail & E-commerce</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="technology">Technology</option>
-                <option value="education">Education</option>
-                <option value="government">Government</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-needs">How Can We Help?</label>
-              <textarea id="sales-needs" class="form-control" placeholder="Tell us about your business needs and challenges" required></textarea>
-            </div>
-            
-            <button type="submit" class="premium-submit-btn">Submit Inquiry <i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-        
-        <!-- Sales Team Info Card -->
-        <div class="contact-info-mega" id="team">
-          <!-- Sales Team Card -->
-          <div class="info-card animate__animated animate__fadeInRight">
-            <h3><i class="fas fa-users"></i>Meet Our Sales Team</h3>
-            <p>Our dedicated sales executives are ready to understand your business needs and recommend the perfect Annita solutions.</p>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>Sarah Johnson</h4>
-                <span class="title">Senior Sales Director</span>
-                <p>Specializing in enterprise solutions with 10+ years experience helping businesses scale across Africa.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231775057227"><i class="fas fa-phone-alt"></i> +231 77 505 7227</a>
-                  <a href="mailto:sarah@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="David Kamara" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>David Kamara</h4>
-                <span class="title">Business Development Manager</span>
-                <p>Expert in mid-market solutions with focus on retail and financial services sectors.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231886213748"><i class="fas fa-phone-alt"></i> +231 886 213 748</a>
-                  <a href="mailto:david@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-              </div>
-            </div>
+            <h4>Data Encryption</h4>
+            <p>All your data is encrypted both in transit and at rest using industry-standard AES-256 encryption to ensure maximum protection.</p>
           </div>
           
-          <!-- Support Card -->
-          <div class="info-card animate__animated animate__fadeInRight animate__delay-1s">
-            <h3><i class="fas fa-headset"></i>Sales Support</h3>
-            <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i>
-              <div class="contact-detail-content">
-                <h4>Sales Hotline</h4>
-                <p>Liberia: <a href="tel:+231775057227">+231 77 505 7227</a></p>
-                <p>International: <a href="tel:+231886213748">+231 886 213 748</a></p>
-              </div>
+          <div class="security-card">
+            <div class="security-card-icon">
+              <i class="fas fa-shield-alt"></i>
             </div>
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div class="contact-detail-content">
-                <h4>Email Sales</h4>
-                <p><a href="mailto:sales@annita.com">sales@an-nita.com</a></p>
-              </div>
+            <h4>Multi-Factor Authentication</h4>
+            <p>Add an extra layer of security to your account with our multi-factor authentication options including SMS, email, and authenticator apps.</p>
+          </div>
+          
+          <div class="security-card">
+            <div class="security-card-icon">
+              <i class="fas fa-user-shield"></i>
             </div>
-            <div class="contact-detail">
-              <i class="fas fa-clock"></i>
-              <div class="contact-detail-content">
-                <h4>Business Hours</h4>
-                <p>Monday-Friday: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
-              </div>
-            </div>
+            <h4>Privacy Controls</h4>
+            <p>Granular privacy settings allow you to control exactly what information is shared and with whom.</p>
           </div>
         </div>
-      </div>
-      
-      <!-- Enterprise Solutions Section -->
-      <div class="enterprise-card">
-        <div class="enterprise-content">
-          <h2>Enterprise Solutions</h2>
-          <p>For large organizations with complex needs, our enterprise team delivers custom solutions with dedicated support, security, and scalability.</p>
-          <a href="#contact-form" class="hero-btn hero-btn-secondary">Contact Enterprise Sales</a>
+
+        <!-- Introduction -->
+        <div class="security-section">
+          <h2>Our Security Commitment</h2>
+          <p>At Annita, we understand that security is fundamental to earning and maintaining your trust. We implement rigorous security measures to protect your personal and financial information from unauthorized access, alteration, disclosure, or destruction.</p>
+          <p>Our security team works around the clock to monitor our systems, identify potential threats, and implement the latest security technologies to keep your data safe.</p>
         </div>
-      </div>
-      
-      <!-- CTA Section -->
-      <div class="cta-section">
-        <div class="cta-card">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>Contact our sales team today to discuss how Annita can help your business grow and thrive in the digital economy.</p>
-          <a href="#contact-form" class="cta-btn">Contact Sales Now <i class="fas fa-arrow-right"></i></a>
+
+        <!-- Data Protection -->
+        <div class="security-section">
+          <h2>Data Protection</h2>
+          <h3>Encryption</h3>
+          <p>We use industry-standard encryption protocols to protect your data:</p>
+          <ul>
+            <li><strong>In Transit:</strong> All data transmitted between your device and our servers is encrypted using TLS 1.2 or higher with 256-bit encryption.</li>
+            <li><strong>At Rest:</strong> All stored data is encrypted using AES-256 encryption, the same standard used by banks and government agencies.</li>
+            <li><strong>End-to-End:</strong> Sensitive communications are protected with end-to-end encryption where only you and the intended recipient can read them.</li>
+          </ul>
+          
+          <h3>Data Storage</h3>
+          <p>Your data is stored securely in geographically distributed data centers that implement:</p>
+          <ul>
+            <li>Redundant power supplies and network connections</li>
+            <li>Biometric access controls and 24/7 monitoring</li>
+            <li>Regular security audits and penetration testing</li>
+            <li>Disaster recovery and business continuity plans</li>
+          </ul>
+        </div>
+
+        <!-- Account Security -->
+        <div class="security-section">
+          <h2>Account Security</h2>
+          <h3>Authentication</h3>
+          <p>We provide multiple layers of account protection:</p>
+          <ul>
+            <li><strong>Strong Password Requirements:</strong> Minimum 12 characters with complexity requirements</li>
+            <li><strong>Multi-Factor Authentication (MFA):</strong> Optional additional verification via SMS, email, or authenticator apps</li>
+            <li><strong>Device Recognition:</strong> We remember your trusted devices and alert you about new logins</li>
+            <li><strong>Session Management:</strong> Automatic logout after periods of inactivity</li>
+          </ul>
+          
+          <h3>Security Alerts</h3>
+          <p>We'll notify you immediately if we detect:</p>
+          <ul>
+            <li>Logins from new devices or locations</li>
+            <li>Unusual account activity</li>
+            <li>Changes to your security settings</li>
+            <li>Suspicious transactions</li>
+          </ul>
+        </div>
+
+        <!-- Security Checklist -->
+        <div class="security-checklist">
+          <h4>Your Security Checklist</h4>
+          <div class="checklist-item">
+            <div class="checklist-icon"><i class="fas fa-check-circle"></i></div>
+            <div>Create a strong, unique password for your Annita account</div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon"><i class="fas fa-check-circle"></i></div>
+            <div>Enable multi-factor authentication for extra security</div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon"><i class="fas fa-check-circle"></i></div>
+            <div>Keep your devices and apps up to date</div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon"><i class="fas fa-check-circle"></i></div>
+            <div>Be cautious of phishing attempts - we'll never ask for your password</div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-icon"><i class="fas fa-check-circle"></i></div>
+            <div>Review your account activity regularly</div>
+          </div>
+        </div>
+
+        <!-- Compliance -->
+        <div class="security-section">
+          <h2>Compliance & Certifications</h2>
+          <p>Annita adheres to the highest industry standards and complies with all applicable regulations:</p>
+          
+          <div class="security-table-container">
+            <table class="security-table">
+              <thead>
+                <tr>
+                  <th>Standard</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PCI DSS</td>
+                  <td>Payment Card Industry Data Security Standard</td>
+                  <td>Level 1 Compliant</td>
+                </tr>
+                <tr>
+                  <td>GDPR</td>
+                  <td>General Data Protection Regulation</td>
+                  <td>Fully Compliant</td>
+                </tr>
+                <tr>
+                  <td>ISO 27001</td>
+                  <td>Information Security Management</td>
+                  <td>Certified</td>
+                </tr>
+                <tr>
+                  <td>SOC 2</td>
+                  <td>Service Organization Controls</td>
+                  <td>Type II Certified</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Fraud Prevention -->
+        <div class="security-section">
+          <h2>Fraud Prevention</h2>
+          <h3>Advanced Monitoring</h3>
+          <p>Our systems use machine learning and behavioral analysis to detect and prevent fraudulent activity:</p>
+          <ul>
+            <li>Real-time transaction monitoring</li>
+            <li>Anomaly detection for unusual account activity</li>
+            <li>Pattern recognition to identify potential threats</li>
+            <li>Automated fraud scoring for all transactions</li>
+          </ul>
+          
+          <h3>What You Can Do</h3>
+          <p>Help protect your account by:</p>
+          <ul>
+            <li>Never sharing your password or verification codes</li>
+            <li>Using unique passwords for different services</li>
+            <li>Being wary of unsolicited communications requesting personal information</li>
+            <li>Keeping your contact information up to date so we can reach you if needed</li>
+          </ul>
+        </div>
+
+        <!-- Incident Response -->
+        <div class="security-section">
+          <h2>Incident Response</h2>
+          <p>In the unlikely event of a security incident, we have a comprehensive response plan:</p>
+          <ul>
+            <li><strong>Detection:</strong> 24/7 monitoring to quickly identify potential security issues</li>
+            <li><strong>Containment:</strong> Immediate action to limit the impact of any incident</li>
+            <li><strong>Investigation:</strong> Thorough analysis to understand the scope and cause</li>
+            <li><strong>Remediation:</strong> Steps to eliminate the threat and prevent recurrence</li>
+            <li><strong>Notification:</strong> Prompt communication if your data may have been affected</li>
+          </ul>
+          
+          <p>We conduct regular drills to ensure our team is prepared to respond effectively to security incidents.</p>
+        </div>
+
+        <!-- Security Resources -->
+        <div class="security-section">
+          <h2>Security Resources</h2>
+          <h3>For Individuals</h3>
+          <ul>
+            <li><a href="#">How to create strong passwords</a></li>
+            <li><a href="#">Setting up two-factor authentication</a></li>
+            <li><a href="#">Recognizing phishing attempts</a></li>
+            <li><a href="#">Securing your mobile devices</a></li>
+          </ul>
+          
+          <h3>For Businesses</h3>
+          <ul>
+            <li><a href="#">Enterprise security features</a></li>
+            <li><a href="#">Admin controls and permissions</a></li>
+            <li><a href="#">Security best practices for teams</a></li>
+            <li><a href="#">Compliance documentation</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Security Team -->
+        <div class="security-section">
+          <h2>Contact Our Security Team</h2>
+          <p>If you have any security concerns or questions, please don't hesitate to reach out:</p>
+          
+          <ul>
+            <li><strong>Security Support:</strong> <a href="mailto:security@an-nita.com">security@an-nita.com</a></li>
+            <li><strong>Report Vulnerabilities:</strong> <a href="mailto:security@an-nita.com">security@an-nita.com</a> (for responsible disclosure)</li>
+            <li><strong>Emergency:</strong> +231 77 505 7227 (Security Operations Center)</li>
+          </ul>
+          
+          <p>We welcome reports from security researchers and offer a bug bounty program for qualifying vulnerabilities.</p>
+        </div>
+
+        <!-- Security Update Notice -->
+        <div class="security-update">
+          <h3>Last Updated: April 12, 2025</h3>
+          <p>This security overview is regularly updated to reflect our current practices and technologies.</p>
         </div>
       </div>
     </div>
@@ -2013,39 +1636,6 @@
         }
       });
 
-      // Sales Form Submission
-      const salesForm = document.getElementById('premiumSalesForm');
-      
-      salesForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('sales-name').value;
-        const email = document.getElementById('sales-email').value;
-        const phone = document.getElementById('sales-phone').value;
-        const company = document.getElementById('sales-company').value;
-        const title = document.getElementById('sales-title').value;
-        const industry = document.getElementById('sales-industry').value;
-        const needs = document.getElementById('sales-needs').value;
-        
-        // Here you would typically send the form data to your server
-        console.log('Sales form submitted:', { 
-          name, email, phone, company, title, industry, needs
-        });
-        
-        // Show success message with animation
-        const submitBtn = salesForm.querySelector('.premium-submit-btn');
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent';
-        submitBtn.style.backgroundColor = 'var(--success)';
-        
-        // Reset form after delay
-        setTimeout(() => {
-          salesForm.reset();
-          submitBtn.innerHTML = 'Submit Inquiry <i class="fas fa-paper-plane"></i>';
-          submitBtn.style.backgroundColor = '';
-        }, 3000);
-      });
-
       // Header Scroll Effect
       window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
@@ -2058,7 +1648,7 @@
 
       // Create Floating Particles
       function createParticles() {
-        const hero = document.querySelector('.sales-hero');
+        const hero = document.querySelector('.security-hero');
         const particleCount = 20;
         
         for (let i = 0; i < particleCount; i++) {

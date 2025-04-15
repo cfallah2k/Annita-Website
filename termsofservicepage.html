@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Contact Sales - Annita Insights</title>
+  <title>Terms of Service - Annita Insights</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -361,9 +361,9 @@
       margin-top: 80px; /* Offset for fixed header */
     }
 
-    /* Sales Hero Section */
-    .sales-hero {
-      background: linear-gradient(135deg, rgba(108, 29, 58, 0.9) 0%, rgba(0, 26, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    /* Terms Hero Section */
+    .terms-hero {
+      background: linear-gradient(135deg, rgba(108, 29, 58, 0.9) 0%, rgba(0, 26, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -375,7 +375,7 @@
       margin-bottom: 3rem;
     }
     
-    .sales-hero::before {
+    .terms-hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -387,7 +387,7 @@
       pointer-events: none;
     }
     
-    .sales-hero-content {
+    .terms-hero-content {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 30px;
@@ -395,111 +395,38 @@
       z-index: 1;
     }
     
-    .sales-hero h1 {
+    .terms-hero h1 {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
       line-height: 1.2;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
     
-    .sales-hero p {
+    .terms-hero p {
       font-size: 1.3rem;
       opacity: 0.9;
       margin-bottom: 2.5rem;
       text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     }
     
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    
-    .hero-btn {
-      padding: 15px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 180px;
-    }
-    
-    .hero-btn-primary {
-      background-color: var(--primary);
-      color: white;
-      box-shadow: 0 5px 20px rgba(255, 125, 6, 0.4);
-    }
-    
-    .hero-btn-primary:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 125, 6, 0.5);
-    }
-    
-    .hero-btn-secondary {
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-    
-    .hero-btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-3px);
-    }
-    
-    .hero-btn i {
-      margin-left: 8px;
-      transition: transform 0.3s;
-    }
-    
-    .hero-btn:hover i {
-      transform: translateX(5px);
-    }
-    
-    /* Floating Particles */
-    .particle {
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.6);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    /* Premium Container */
-    .premium-container {
-      max-width: 1400px;
+    /* Terms Container */
+    .terms-container {
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 30px 80px;
     }
     
-    /* Contact Mega Grid */
-    .contact-mega-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 50px;
-    }
-    
-    /* Contact Card */
-    .contact-card {
+    /* Terms Content */
+    .terms-content {
       background-color: var(--light);
       border-radius: 20px;
-      padding: 50px;
+      padding: 60px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
       position: relative;
       overflow: hidden;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
     
-    .contact-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
-    }
-    
-    .contact-card::before {
+    .terms-content::before {
       content: '';
       position: absolute;
       top: 0;
@@ -509,7 +436,7 @@
       background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
     
-    .contact-card h2 {
+    .terms-content h2 {
       font-size: 2.2rem;
       margin-bottom: 30px;
       color: var(--secondary);
@@ -517,7 +444,7 @@
       padding-bottom: 15px;
     }
     
-    .contact-card h2::after {
+    .terms-content h2::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -527,484 +454,108 @@
       background-color: var(--primary);
     }
     
-    /* Premium Form */
-    .premium-form .form-group {
-      margin-bottom: 25px;
-      position: relative;
-    }
-    
-    .premium-form label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 500;
-      color: var(--darker);
-    }
-    
-    .premium-form .form-control {
-      width: 100%;
-      padding: 15px 20px;
-      border: 1px solid var(--grey-dark);
-      border-radius: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background-color: var(--lighter);
-    }
-    
-    .premium-form .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
-    }
-    
-    .premium-form textarea.form-control {
-      min-height: 180px;
-      resize: vertical;
-    }
-    
-    .premium-form select.form-control {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 16px;
-    }
-    
-    .form-row {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .form-row .form-group {
-      flex: 1;
-    }
-    
-    /* Submit Button */
-    .premium-submit-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      box-shadow: 0 5px 20px rgba(255, 125, 6, 0.3);
-    }
-    
-    .premium-submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 125, 6, 0.4);
-    }
-    
-    .premium-submit-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
-    }
-    
-    .premium-submit-btn:hover::before {
-      left: 100%;
-    }
-    
-    .premium-submit-btn i {
-      margin-left: 10px;
-      transition: transform 0.3s;
-    }
-    
-    .premium-submit-btn:hover i {
-      transform: translateX(5px);
-    }
-    
-    /* Contact Info Mega Card */
-    .contact-info-mega {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-    
-    .info-card {
-      background-color: var(--light);
-      border-radius: 15px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .info-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-    }
-    
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    }
-    
-    .info-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
+    .terms-content h3 {
+      font-size: 1.6rem;
+      margin: 40px 0 20px;
       color: var(--secondary);
-      display: flex;
-      align-items: center;
     }
     
-    .info-card h3 i {
-      margin-right: 15px;
-      color: var(--primary);
-      font-size: 1.8rem;
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary-light);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    /* Sales Team Styles */
-    .sales-team-card {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-      transition: all 0.3s ease;
-    }
-    
-    .sales-team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    
-    .sales-team-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--primary-light);
-      margin-right: 30px;
-      flex-shrink: 0;
-    }
-    
-    .sales-team-info h4 {
-      font-size: 1.4rem;
-      color: var(--secondary);
-      margin-bottom: 5px;
-    }
-    
-    .sales-team-info .title {
-      color: var(--primary);
-      font-weight: 500;
-      margin-bottom: 10px;
-      display: block;
-    }
-    
-    .sales-team-contact {
-      display: flex;
-      gap: 15px;
-      margin-top: 15px;
-    }
-    
-    .sales-team-contact a {
-      color: var(--dark);
-      transition: color 0.3s;
-    }
-    
-    .sales-team-contact a:hover {
-      color: var(--primary);
-    }
-    
-    /* Client Logos */
-    .client-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 60px 0;
-    }
-    
-    .client-logo {
-      max-width: 150px;
-      max-height: 60px;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s ease;
-    }
-    
-    .client-logo:hover {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-    
-    /* Enterprise Card */
-    .enterprise-card {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      color: white;
-      padding: 50px;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-      margin-top: 60px;
-    }
-    
-    .enterprise-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-      background-size: 30px 30px;
-      opacity: 0.3;
-    }
-    
-    .enterprise-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .enterprise-content h2 {
-      font-size: 2.5rem;
+    .terms-content p {
       margin-bottom: 20px;
+      line-height: 1.8;
     }
     
-    .enterprise-content p {
+    .terms-content ul {
       margin-bottom: 30px;
-      opacity: 0.9;
-      font-size: 1.1rem;
+      padding-left: 20px;
     }
     
-    /* Testimonials Section */
-    .testimonials-section {
-      margin-top: 100px;
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      padding: 80px 0;
-      color: white;
+    .terms-content li {
+      margin-bottom: 10px;
       position: relative;
-      overflow: hidden;
+      padding-left: 25px;
     }
     
-    .testimonials-section::before {
+    .terms-content li::before {
       content: '';
       position: absolute;
-      top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-      background-size: 30px 30px;
-      opacity: 0.3;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary);
+      border-radius: 50%;
     }
     
-    .testimonials-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 30px;
-      position: relative;
-      z-index: 1;
+    .terms-content a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s;
     }
     
-    .testimonials-header {
-      text-align: center;
+    .terms-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .terms-section {
       margin-bottom: 50px;
     }
     
-    .testimonials-header h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+    /* Terms Summary Card */
+    .terms-summary-card {
+      background-color: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 30px;
+      border-radius: 8px;
+      margin: 40px 0;
     }
     
-    .testimonials-header p {
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.9;
-      font-size: 1.1rem;
+    .terms-summary-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
     }
     
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+    /* Terms Table */
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
     
-    .testimonial-card {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+    .terms-table th {
+      background-color: var(--secondary);
+      color: white;
+      text-align: left;
+      padding: 15px;
+    }
+    
+    .terms-table td {
+      padding: 15px;
+      border-bottom: 1px solid var(--grey-dark);
+    }
+    
+    .terms-table tr:nth-child(even) {
+      background-color: var(--grey);
+    }
+    
+    .terms-table tr:hover {
+      background-color: var(--primary-light);
+    }
+    
+    /* Terms Update Section */
+    .terms-update {
+      background-color: var(--lighter);
       border-radius: 15px;
       padding: 30px;
-      transition: all 0.5s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 60px;
+      border: 1px solid var(--grey-dark);
     }
     
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      background-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-    
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    
-    .testimonial-text::before,
-    .testimonial-text::after {
-      content: '"';
-      font-size: 3rem;
-      color: rgba(255, 255, 255, 0.2);
-      position: absolute;
-    }
-    
-    .testimonial-text::before {
-      top: -15px;
-      left: -10px;
-    }
-    
-    .testimonial-text::after {
-      bottom: -35px;
-      right: -10px;
-    }
-    
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      margin-top: 30px;
-    }
-    
-    .author-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .author-info h4 {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-    
-    .author-info p {
-      opacity: 0.8;
-      font-size: 0.9rem;
-    }
-    
-    /* CTA Section */
-    .cta-section {
-      margin-top: 80px;
-      text-align: center;
-    }
-    
-    .cta-card {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: 20px;
-      padding: 60px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(255, 125, 6, 0.3);
-    }
-    
-    .cta-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      transform: rotate(30deg);
-    }
-    
-    .cta-card h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    
-    .cta-card p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 1.1rem;
-      opacity: 0.9;
-      position: relative;
-    }
-    
-    .cta-btn {
-      background-color: white;
+    .terms-update h3 {
       color: var(--primary);
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-    
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: 0.5s;
-    }
-    
-    .cta-btn:hover::before {
-      left: 100%;
-    }
-    
-    .cta-btn i {
-      margin-left: 10px;
-      transition: transform 0.3s;
-    }
-    
-    .cta-btn:hover i {
-      transform: translateX(5px);
+      margin-bottom: 15px;
     }
     
     /* Chatbot Styles */
@@ -1416,12 +967,8 @@
 
     /* Responsive Design */
     @media (max-width: 1200px) {
-      .contact-mega-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .sales-hero h1 {
-        font-size: 3rem;
+      .terms-content {
+        padding: 50px;
       }
     }
     
@@ -1434,49 +981,28 @@
         display: block;
       }
       
-      .sales-hero {
-        padding: 8rem 0 4rem;
-      }
-      
-      .sales-hero h1 {
+      .terms-hero h1 {
         font-size: 2.5rem;
       }
       
-      .sales-hero p {
+      .terms-hero p {
         font-size: 1.1rem;
       }
       
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+      .terms-content {
+        padding: 40px;
       }
       
-      .contact-card,
-      .info-card {
-        padding: 30px;
+      .terms-content h2 {
+        font-size: 2rem;
       }
       
-      .form-row {
-        flex-direction: column;
-        gap: 0;
+      .terms-content h3 {
+        font-size: 1.4rem;
       }
       
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .sales-team-card {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .sales-team-photo {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-      
-      .sales-team-contact {
-        justify-content: center;
       }
     }
     
@@ -1485,61 +1011,42 @@
         padding: 0 20px;
       }
       
-      .premium-container {
+      .terms-container {
         padding: 0 20px 60px;
       }
       
-      .sales-hero h1 {
+      .terms-hero h1 {
         font-size: 2.2rem;
       }
       
-      .contact-card h2,
-      .info-card h3 {
+      .terms-content {
+        padding: 30px;
+      }
+      
+      .terms-content h2 {
         font-size: 1.8rem;
       }
       
-      .testimonials-section {
-        padding: 60px 0;
-      }
-      
-      .cta-card {
-        padding: 40px 20px;
-      }
-      
-      .cta-card h2 {
-        font-size: 2rem;
-      }
-      
-      .features-header h2,
-      .testimonials-header h2 {
-        font-size: 2rem;
-      }
-
-      .client-logos {
-        gap: 20px;
-      }
-      
-      .client-logo {
-        max-width: 120px;
+      .terms-content h3 {
+        font-size: 1.3rem;
       }
     }
     
     @media (max-width: 576px) {
-      .sales-hero {
+      .terms-hero {
         padding: 7rem 0 3rem;
       }
       
-      .sales-hero h1 {
+      .terms-hero h1 {
         font-size: 1.8rem;
       }
       
-      .contact-card h2,
-      .info-card h3 {
+      .terms-content {
+        padding: 25px;
+      }
+      
+      .terms-content h2 {
         font-size: 1.5rem;
-      }
-      
-      .cta-card h2 {
-        font-size: 1.8rem;
       }
       
       .footer-grid {
@@ -1598,163 +1105,215 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Sales Hero Section -->
-    <section class="sales-hero">
-      <div class="premium-hero-content animate__animated animate__fadeIn">
-        <h1>Connect With Our Sales Team</h1>
-        <p>Our experts are ready to help you find the perfect Annita solutions for your business needs.</p>
-        <div class="hero-buttons">
-          <a href="#contact-form" class="hero-btn hero-btn-primary">Contact Sales <i class="fas fa-arrow-right"></i></a>
-          <a href="#team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
-        </div>
+    <!-- Terms Hero Section -->
+    <section class="terms-hero">
+      <div class="terms-hero-content animate__animated animate__fadeIn">
+        <h1>Terms of Service</h1>
+        <p>Understand the rules and guidelines for using Annita's platform and services.</p>
       </div>
     </section>
 
-    <div class="premium-container">
-      <!-- Contact Mega Grid -->
-      <div class="contact-mega-grid">
-        <!-- Contact Card -->
-        <div class="contact-card animate__animated animate__fadeInLeft" id="contact-form">
-          <h2>Sales Inquiry Form</h2>
-          <form class="premium-form" id="premiumSalesForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-name">Full Name</label>
-                <input type="text" id="sales-name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-email">Business Email</label>
-                <input type="email" id="sales-email" class="form-control" required>
-              </div>
-            </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-phone">Phone Number</label>
-                <input type="tel" id="sales-phone" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-company">Company Name</label>
-                <input type="text" id="sales-company" class="form-control" required>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-title">Job Title</label>
-                <select id="sales-title" class="form-control" required>
-                  <option value="" disabled selected>Select your position</option>
-                  <option value="owner">Owner/Founder</option>
-                  <option value="ceo">CEO/President</option>
-                  <option value="cfo">CFO/Finance Director</option>
-                  <option value="cio">CIO/IT Director</option>
-                  <option value="manager">Department Manager</option>
-                  <option value="other">Other</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-industry">Industry</label>
-              <select id="sales-industry" class="form-control" required>
-                <option value="" disabled selected>Select your industry</option>
-                <option value="finance">Banking & Financial Services</option>
-                <option value="retail">Retail & E-commerce</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="technology">Technology</option>
-                <option value="education">Education</option>
-                <option value="government">Government</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-needs">How Can We Help?</label>
-              <textarea id="sales-needs" class="form-control" placeholder="Tell us about your business needs and challenges" required></textarea>
-            </div>
-            
-            <button type="submit" class="premium-submit-btn">Submit Inquiry <i class="fas fa-paper-plane"></i></button>
-          </form>
+    <div class="terms-container">
+      <div class="terms-content animate__animated animate__fadeInUp">
+        <!-- Summary Card -->
+        <div class="terms-summary-card">
+          <h4>Key Points Summary</h4>
+          <p>These Terms of Service govern your use of Annita's platform. By using our services, you agree to these terms:</p>
+          <ul>
+            <li>You must be at least 16 years old to use our services</li>
+            <li>You are responsible for maintaining the confidentiality of your account</li>
+            <li>We may modify or discontinue services at any time</li>
+            <li>Prohibited activities include illegal content, fraud, and unauthorized access</li>
+            <li>Our liability is limited as outlined in these terms</li>
+          </ul>
         </div>
-        
-        <!-- Sales Team Info Card -->
-        <div class="contact-info-mega" id="team">
-          <!-- Sales Team Card -->
-          <div class="info-card animate__animated animate__fadeInRight">
-            <h3><i class="fas fa-users"></i>Meet Our Sales Team</h3>
-            <p>Our dedicated sales executives are ready to understand your business needs and recommend the perfect Annita solutions.</p>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>Sarah Johnson</h4>
-                <span class="title">Senior Sales Director</span>
-                <p>Specializing in enterprise solutions with 10+ years experience helping businesses scale across Africa.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231775057227"><i class="fas fa-phone-alt"></i> +231 77 505 7227</a>
-                  <a href="mailto:sarah@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="David Kamara" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>David Kamara</h4>
-                <span class="title">Business Development Manager</span>
-                <p>Expert in mid-market solutions with focus on retail and financial services sectors.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231886213748"><i class="fas fa-phone-alt"></i> +231 886 213 748</a>
-                  <a href="mailto:david@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-              </div>
-            </div>
-          </div>
+
+        <!-- Introduction -->
+        <div class="terms-section">
+          <h2>1. Introduction</h2>
+          <p>Welcome to Annita Technologies ("Annita," "we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of our website, mobile applications, products, and services (collectively, the "Services").</p>
+          <p>By accessing or using our Services, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you may not access or use our Services.</p>
+          <p>These Terms apply to all visitors, users, and others who access or use the Services. Additional terms may apply to specific services, which will be presented to you when you access those services.</p>
+        </div>
+
+        <!-- Eligibility -->
+        <div class="terms-section">
+          <h2>2. Eligibility</h2>
+          <p>To use our Services, you must:</p>
+          <ul>
+            <li>Be at least 16 years of age (or the age of legal majority in your jurisdiction)</li>
+            <li>Have the legal capacity to enter into a binding contract</li>
+            <li>Not be barred from receiving services under applicable law</li>
+            <li>Comply with these Terms and all applicable laws and regulations</li>
+          </ul>
+          <p>If you are using our Services on behalf of a business or other entity, you represent and warrant that you have the authority to bind that entity to these Terms and that you are agreeing to these Terms on behalf of that entity.</p>
+        </div>
+
+        <!-- Account Registration -->
+        <div class="terms-section">
+          <h2>3. Account Registration</h2>
+          <p>To access certain features of our Services, you may be required to create an account. When creating an account, you agree to:</p>
+          <ul>
+            <li>Provide accurate, current, and complete information</li>
+            <li>Maintain and promptly update your account information</li>
+            <li>Maintain the security of your account credentials</li>
+            <li>Be responsible for all activities that occur under your account</li>
+            <li>Immediately notify us of any unauthorized use of your account</li>
+          </ul>
+          <p>We reserve the right to suspend or terminate your account if any information provided during registration or thereafter proves to be inaccurate, false, or misleading.</p>
+        </div>
+
+        <!-- Use of Services -->
+        <div class="terms-section">
+          <h2>4. Use of Services</h2>
+          <h3>4.1 Permitted Use</h3>
+          <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable license to access and use our Services for your personal or internal business purposes.</p>
           
-          <!-- Support Card -->
-          <div class="info-card animate__animated animate__fadeInRight animate__delay-1s">
-            <h3><i class="fas fa-headset"></i>Sales Support</h3>
-            <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i>
-              <div class="contact-detail-content">
-                <h4>Sales Hotline</h4>
-                <p>Liberia: <a href="tel:+231775057227">+231 77 505 7227</a></p>
-                <p>International: <a href="tel:+231886213748">+231 886 213 748</a></p>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div class="contact-detail-content">
-                <h4>Email Sales</h4>
-                <p><a href="mailto:sales@annita.com">sales@an-nita.com</a></p>
-              </div>
-            </div>
-            <div class="contact-detail">
-              <i class="fas fa-clock"></i>
-              <div class="contact-detail-content">
-                <h4>Business Hours</h4>
-                <p>Monday-Friday: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
-              </div>
-            </div>
-          </div>
+          <h3>4.2 Prohibited Activities</h3>
+          <p>You agree not to engage in any of the following prohibited activities:</p>
+          <ul>
+            <li>Copying, distributing, or disclosing any part of the Services in any medium</li>
+            <li>Using any automated system to access the Services in a manner that sends more request messages than a human could reasonably produce</li>
+            <li>Transmitting spam, chain letters, or other unsolicited communications</li>
+            <li>Attempting to interfere with, compromise the system integrity or security, or decipher any transmissions to or from the servers running the Services</li>
+            <li>Taking any action that imposes an unreasonable load on our infrastructure</li>
+            <li>Uploading invalid data, viruses, worms, or other software agents</li>
+            <li>Collecting or harvesting any personally identifiable information from the Services</li>
+            <li>Using the Services for any illegal purpose or in violation of any laws</li>
+            <li>Bypassing measures we may use to prevent or restrict access to the Services</li>
+            <li>Using the Services to compete with us or to develop a competing product or service</li>
+          </ul>
         </div>
-      </div>
-      
-      <!-- Enterprise Solutions Section -->
-      <div class="enterprise-card">
-        <div class="enterprise-content">
-          <h2>Enterprise Solutions</h2>
-          <p>For large organizations with complex needs, our enterprise team delivers custom solutions with dedicated support, security, and scalability.</p>
-          <a href="#contact-form" class="hero-btn hero-btn-secondary">Contact Enterprise Sales</a>
+
+        <!-- Payments and Fees -->
+        <div class="terms-section">
+          <h2>5. Payments and Fees</h2>
+          <h3>5.1 Service Fees</h3>
+          <p>Certain Services may require payment of fees. You agree to pay all applicable fees as described in the Services when you sign up for them. All fees are non-refundable except as expressly stated in these Terms.</p>
+          
+          <h3>5.2 Payment Methods</h3>
+          <p>We accept various payment methods as indicated when you sign up for paid Services. You authorize us to charge your chosen payment method for all applicable fees.</p>
+          
+          <h3>5.3 Taxes</h3>
+          <p>You are responsible for all applicable taxes, and we will charge tax when required to do so.</p>
+          
+          <h3>5.4 Price Changes</h3>
+          <p>We may change our prices at any time. When applicable, we will give you advance notice of these changes. Continued use of the Services after the price change goes into effect constitutes your agreement to pay the changed amount.</p>
+          
+          <h3>5.5 Refunds</h3>
+          <p>Except as required by law or as otherwise specifically permitted in these Terms or in our refund policy, all payments are non-refundable and we do not provide refunds or credits for any partial use of the Services.</p>
         </div>
-      </div>
-      
-      <!-- CTA Section -->
-      <div class="cta-section">
-        <div class="cta-card">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>Contact our sales team today to discuss how Annita can help your business grow and thrive in the digital economy.</p>
-          <a href="#contact-form" class="cta-btn">Contact Sales Now <i class="fas fa-arrow-right"></i></a>
+
+        <!-- Intellectual Property -->
+        <div class="terms-section">
+          <h2>6. Intellectual Property</h2>
+          <h3>6.1 Our Content</h3>
+          <p>The Services and all materials therein or transferred thereby, including all intellectual property rights therein, are the exclusive property of Annita and its licensors. All trademarks, service marks, and trade names are proprietary to Annita or other respective owners.</p>
+          
+          <h3>6.2 Your Content</h3>
+          <p>You retain ownership of any content you submit, post, or display on or through the Services ("Your Content"). By submitting Your Content, you grant us a worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform Your Content in connection with the Services.</p>
+          
+          <h3>6.3 Feedback</h3>
+          <p>If you provide us with any feedback or suggestions regarding the Services, you grant us an unlimited, irrevocable, perpetual, royalty-free license to use such feedback for any purpose without any obligation to you.</p>
+        </div>
+
+        <!-- Privacy -->
+        <div class="terms-section">
+          <h2>7. Privacy</h2>
+          <p>Your privacy is important to us. Our Privacy Policy explains how we collect, use, and disclose your information when you use our Services. By using our Services, you agree to our collection, use, and disclosure of your information as described in our Privacy Policy.</p>
+        </div>
+
+        <!-- Termination -->
+        <div class="terms-section">
+          <h2>8. Termination</h2>
+          <h3>8.1 By You</h3>
+          <p>You may stop using our Services at any time. Certain paid Services may have specific termination procedures outlined in their respective terms.</p>
+          
+          <h3>8.2 By Us</h3>
+          <p>We may terminate or suspend your access to the Services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms.</p>
+          
+          <h3>8.3 Effect of Termination</h3>
+          <p>Upon termination, your right to use the Services will immediately cease. All provisions of these Terms which by their nature should survive termination shall survive termination, including ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+        </div>
+
+        <!-- Disclaimers -->
+        <div class="terms-section">
+          <h2>9. Disclaimers</h2>
+          <p>YOUR USE OF THE SERVICES IS AT YOUR SOLE RISK. THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. ANNITA EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+          
+          <p>ANNITA MAKES NO WARRANTY THAT (I) THE SERVICES WILL MEET YOUR REQUIREMENTS, (II) THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, (III) THE RESULTS THAT MAY BE OBTAINED FROM THE USE OF THE SERVICES WILL BE ACCURATE OR RELIABLE, OR (IV) THE QUALITY OF ANY PRODUCTS, SERVICES, INFORMATION, OR OTHER MATERIAL PURCHASED OR OBTAINED BY YOU THROUGH THE SERVICES WILL MEET YOUR EXPECTATIONS.</p>
+          
+          <p>ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICES IS DONE AT YOUR OWN DISCRETION AND RISK, AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.</p>
+          
+          <p>NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM ANNITA OR THROUGH OR FROM THE SERVICES SHALL CREATE ANY WARRANTY NOT EXPRESSLY STATED IN THE TERMS.</p>
+        </div>
+
+        <!-- Limitation of Liability -->
+        <div class="terms-section">
+          <h2>10. Limitation of Liability</h2>
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL ANNITA, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, RESULTING FROM (I) YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICES; (II) ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE SERVICES; (III) ANY CONTENT OBTAINED FROM THE SERVICES; OR (IV) UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), OR ANY OTHER LEGAL THEORY, WHETHER OR NOT WE HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGE, AND EVEN IF A REMEDY SET FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.</p>
+          
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ANNITA'S TOTAL CUMULATIVE LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATING TO THE SERVICES OR THESE TERMS, WHETHER IN CONTRACT, TORT, OR OTHERWISE, SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID TO ANNITA FOR THE SERVICES IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM, OR (B) ONE HUNDRED U.S. DOLLARS (US$100).</p>
+        </div>
+
+        <!-- Indemnification -->
+        <div class="terms-section">
+          <h2>11. Indemnification</h2>
+          <p>You agree to defend, indemnify, and hold harmless Annita and its subsidiaries, agents, licensors, managers, and other affiliated companies, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees) arising from: (i) your use of and access to the Services; (ii) your violation of any term of these Terms; (iii) your violation of any third-party right, including without limitation any right of privacy or intellectual property rights; (iv) your violation of any applicable law, rule, or regulation; (v) any claim that Your Content caused damage to a third party; or (vi) any other party's access and use of the Services with your unique username, password, or other appropriate security code.</p>
+        </div>
+
+        <!-- Governing Law -->
+        <div class="terms-section">
+          <h2>12. Governing Law</h2>
+          <p>These Terms shall be governed and construed in accordance with the laws of Liberia, without regard to its conflict of law provisions. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Monrovia, Liberia.</p>
+          
+          <p>We operate the Services from our offices in Liberia, and we make no representation that materials included in the Services are appropriate or available for use in other locations. Those who choose to access the Services from other locations do so on their own initiative and are responsible for compliance with local laws, if and to the extent local laws are applicable.</p>
+        </div>
+
+        <!-- Changes to Terms -->
+        <div class="terms-section">
+          <h2>13. Changes to Terms</h2>
+          <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+          
+          <p>By continuing to access or use our Services after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you must stop using the Services.</p>
+        </div>
+
+        <!-- Miscellaneous -->
+        <div class="terms-section">
+          <h2>14. Miscellaneous</h2>
+          <h3>14.1 Entire Agreement</h3>
+          <p>These Terms constitute the entire agreement between you and us regarding our Services and supersede and replace any prior agreements we might have between us regarding the Services.</p>
+          
+          <h3>14.2 Severability</h3>
+          <p>If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+          
+          <h3>14.3 No Waiver</h3>
+          <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights.</p>
+          
+          <h3>14.4 Assignment</h3>
+          <p>You may not assign or transfer these Terms, by operation of law or otherwise, without our prior written consent. Any attempt by you to assign or transfer these Terms without such consent will be null and void. We may freely assign or transfer these Terms without restriction.</p>
+          
+          <h3>14.5 Force Majeure</h3>
+          <p>We shall not be liable for any failure to perform our obligations hereunder where such failure results from any cause beyond our reasonable control, including, without limitation, mechanical, electronic, or communications failure or degradation.</p>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="terms-section">
+          <h2>15. Contact Us</h2>
+          <p>If you have any questions about these Terms, please contact us:</p>
+          
+          <ul>
+            <li>By email: <a href="mailto:legal@an-nita.com">legal@an-nita.com</a></li>
+            <li>By visiting this page on our website: <a href="https://www.an-nita.com/contact">www.an-nita.com/contact</a></li>
+            <li>By mail: Annita Technologies, 123 Digital Plaza, Monrovia, Liberia</li>
+            <li>By phone: +231 77 505 7227 (Legal Department)</li>
+          </ul>
+        </div>
+
+        <!-- Terms Update Notice -->
+        <div class="terms-update">
+          <h3>Last Updated: April 12, 2025</h3>
+          <p>These Terms of Service are effective as of the date above and replace all previous versions.</p>
         </div>
       </div>
     </div>
@@ -2013,39 +1572,6 @@
         }
       });
 
-      // Sales Form Submission
-      const salesForm = document.getElementById('premiumSalesForm');
-      
-      salesForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('sales-name').value;
-        const email = document.getElementById('sales-email').value;
-        const phone = document.getElementById('sales-phone').value;
-        const company = document.getElementById('sales-company').value;
-        const title = document.getElementById('sales-title').value;
-        const industry = document.getElementById('sales-industry').value;
-        const needs = document.getElementById('sales-needs').value;
-        
-        // Here you would typically send the form data to your server
-        console.log('Sales form submitted:', { 
-          name, email, phone, company, title, industry, needs
-        });
-        
-        // Show success message with animation
-        const submitBtn = salesForm.querySelector('.premium-submit-btn');
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent';
-        submitBtn.style.backgroundColor = 'var(--success)';
-        
-        // Reset form after delay
-        setTimeout(() => {
-          salesForm.reset();
-          submitBtn.innerHTML = 'Submit Inquiry <i class="fas fa-paper-plane"></i>';
-          submitBtn.style.backgroundColor = '';
-        }, 3000);
-      });
-
       // Header Scroll Effect
       window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
@@ -2058,7 +1584,7 @@
 
       // Create Floating Particles
       function createParticles() {
-        const hero = document.querySelector('.sales-hero');
+        const hero = document.querySelector('.terms-hero');
         const particleCount = 20;
         
         for (let i = 0; i < particleCount; i++) {

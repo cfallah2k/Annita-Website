@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Contact Sales - Annita Insights</title>
+  <title>Press - Annita Insights</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -361,9 +361,9 @@
       margin-top: 80px; /* Offset for fixed header */
     }
 
-    /* Sales Hero Section */
-    .sales-hero {
-      background: linear-gradient(135deg, rgba(108, 29, 58, 0.9) 0%, rgba(0, 26, 87, 0.9) 100%), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    /* Press Hero Section */
+    .press-hero {
+      background: linear-gradient(135deg, rgba(255, 125, 6, 0.9) 0%, rgba(108, 29, 58, 0.9) 100%), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -375,19 +375,19 @@
       margin-bottom: 3rem;
     }
     
-    .sales-hero::before {
+    .press-hero::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 20% 50%, rgba(255, 125, 6, 0.2) 0%, transparent 30%),
-                  radial-gradient(circle at 80% 70%, rgba(255, 194, 0, 0.2) 0%, transparent 30%);
+      background: radial-gradient(circle at 20% 50%, rgba(255, 194, 0, 0.2) 0%, transparent 30%),
+                  radial-gradient(circle at 80% 70%, rgba(0, 194, 255, 0.2) 0%, transparent 30%);
       pointer-events: none;
     }
     
-    .sales-hero-content {
+    .press-hero-content {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 30px;
@@ -395,121 +395,48 @@
       z-index: 1;
     }
     
-    .sales-hero h1 {
+    .press-hero h1 {
       font-size: 3.5rem;
       margin-bottom: 1.5rem;
       line-height: 1.2;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     }
     
-    .sales-hero p {
+    .press-hero p {
       font-size: 1.3rem;
       opacity: 0.9;
       margin-bottom: 2.5rem;
       text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     }
     
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    
-    .hero-btn {
-      padding: 15px 30px;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 180px;
-    }
-    
-    .hero-btn-primary {
-      background-color: var(--primary);
-      color: white;
-      box-shadow: 0 5px 20px rgba(255, 125, 6, 0.4);
-    }
-    
-    .hero-btn-primary:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 125, 6, 0.5);
-    }
-    
-    .hero-btn-secondary {
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-    
-    .hero-btn-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-3px);
-    }
-    
-    .hero-btn i {
-      margin-left: 8px;
-      transition: transform 0.3s;
-    }
-    
-    .hero-btn:hover i {
-      transform: translateX(5px);
-    }
-    
-    /* Floating Particles */
-    .particle {
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.6);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    /* Premium Container */
-    .premium-container {
-      max-width: 1400px;
+    /* Press Container */
+    .press-container {
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 30px 80px;
     }
     
-    /* Contact Mega Grid */
-    .contact-mega-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 50px;
-    }
-    
-    /* Contact Card */
-    .contact-card {
+    /* Press Content */
+    .press-content {
       background-color: var(--light);
       border-radius: 20px;
-      padding: 50px;
+      padding: 60px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
       position: relative;
       overflow: hidden;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
     
-    .contact-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
-    }
-    
-    .contact-card::before {
+    .press-content::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 5px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: linear-gradient(90deg, var(--primary), var(--accent));
     }
     
-    .contact-card h2 {
+    .press-content h2 {
       font-size: 2.2rem;
       margin-bottom: 30px;
       color: var(--secondary);
@@ -517,7 +444,7 @@
       padding-bottom: 15px;
     }
     
-    .contact-card h2::after {
+    .press-content h2::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -527,484 +454,219 @@
       background-color: var(--primary);
     }
     
-    /* Premium Form */
-    .premium-form .form-group {
-      margin-bottom: 25px;
-      position: relative;
-    }
-    
-    .premium-form label {
-      display: block;
-      margin-bottom: 10px;
-      font-weight: 500;
-      color: var(--darker);
-    }
-    
-    .premium-form .form-control {
-      width: 100%;
-      padding: 15px 20px;
-      border: 1px solid var(--grey-dark);
-      border-radius: 10px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      background-color: var(--lighter);
-    }
-    
-    .premium-form .form-control:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
-    }
-    
-    .premium-form textarea.form-control {
-      min-height: 180px;
-      resize: vertical;
-    }
-    
-    .premium-form select.form-control {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 20px center;
-      background-size: 16px;
-    }
-    
-    .form-row {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .form-row .form-group {
-      flex: 1;
-    }
-    
-    /* Submit Button */
-    .premium-submit-btn {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: white;
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      box-shadow: 0 5px 20px rgba(255, 125, 6, 0.3);
-    }
-    
-    .premium-submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 125, 6, 0.4);
-    }
-    
-    .premium-submit-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: 0.5s;
-    }
-    
-    .premium-submit-btn:hover::before {
-      left: 100%;
-    }
-    
-    .premium-submit-btn i {
-      margin-left: 10px;
-      transition: transform 0.3s;
-    }
-    
-    .premium-submit-btn:hover i {
-      transform: translateX(5px);
-    }
-    
-    /* Contact Info Mega Card */
-    .contact-info-mega {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-    
-    .info-card {
-      background-color: var(--light);
-      border-radius: 15px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .info-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-    }
-    
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    }
-    
-    .info-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
+    .press-content h3 {
+      font-size: 1.6rem;
+      margin: 40px 0 20px;
       color: var(--secondary);
-      display: flex;
-      align-items: center;
     }
     
-    .info-card h3 i {
-      margin-right: 15px;
-      color: var(--primary);
-      font-size: 1.8rem;
-      width: 50px;
-      height: 50px;
-      background-color: var(--primary-light);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .press-content p {
+      margin-bottom: 20px;
+      line-height: 1.8;
     }
     
-    /* Sales Team Styles */
-    .sales-team-card {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    .press-content ul {
       margin-bottom: 30px;
-      transition: all 0.3s ease;
+      padding-left: 20px;
     }
     
-    .sales-team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    .press-content li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
     }
     
-    .sales-team-photo {
-      width: 120px;
-      height: 120px;
+    .press-content li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary);
       border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--primary-light);
+    }
+    
+    .press-content a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .press-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .press-section {
+      margin-bottom: 50px;
+    }
+    
+    /* Press Resources */
+    .press-resources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .press-card {
+      background-color: var(--lighter);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--grey-dark);
+    }
+    
+    .press-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    
+    .press-card-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .press-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    /* Press Releases */
+    .press-releases {
+      margin: 40px 0;
+    }
+    
+    .press-release {
+      border-bottom: 1px solid var(--grey-dark);
+      padding: 30px 0;
+    }
+    
+    .press-release:last-child {
+      border-bottom: none;
+    }
+    
+    .press-release-date {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .press-release-title {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+    
+    .press-release-summary {
+      margin-bottom: 15px;
+    }
+    
+    /* Media Coverage */
+    .media-coverage {
+      margin: 40px 0;
+    }
+    
+    .media-item {
+      display: flex;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--grey-dark);
+    }
+    
+    .media-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
       margin-right: 30px;
       flex-shrink: 0;
     }
     
-    .sales-team-info h4 {
-      font-size: 1.4rem;
-      color: var(--secondary);
+    .media-content {
+      flex: 1;
+    }
+    
+    .media-source {
+      font-weight: 600;
+      color: var(--primary);
       margin-bottom: 5px;
     }
     
-    .sales-team-info .title {
-      color: var(--primary);
-      font-weight: 500;
+    .media-date {
+      color: #666;
+      font-size: 0.9rem;
       margin-bottom: 10px;
-      display: block;
     }
     
-    .sales-team-contact {
-      display: flex;
-      gap: 15px;
-      margin-top: 15px;
+    .media-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
     }
     
-    .sales-team-contact a {
-      color: var(--dark);
-      transition: color 0.3s;
-    }
-    
-    .sales-team-contact a:hover {
-      color: var(--primary);
-    }
-    
-    /* Client Logos */
-    .client-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin: 60px 0;
-    }
-    
-    .client-logo {
-      max-width: 150px;
-      max-height: 60px;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s ease;
-    }
-    
-    .client-logo:hover {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-    
-    /* Enterprise Card */
-    .enterprise-card {
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      color: white;
-      padding: 50px;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
+    /* Press Contact */
+    .press-contact {
+      background-color: var(--primary-light);
+      border-radius: 15px;
+      padding: 40px;
       margin-top: 60px;
     }
     
-    .enterprise-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-      background-size: 30px 30px;
-      opacity: 0.3;
-    }
-    
-    .enterprise-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .enterprise-content h2 {
-      font-size: 2.5rem;
+    .press-contact h3 {
+      color: var(--primary);
       margin-bottom: 20px;
     }
     
-    .enterprise-content p {
-      margin-bottom: 30px;
-      opacity: 0.9;
-      font-size: 1.1rem;
-    }
-    
-    /* Testimonials Section */
-    .testimonials-section {
-      margin-top: 100px;
-      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--secondary) 100%);
-      padding: 80px 0;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .testimonials-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-      background-size: 30px 30px;
-      opacity: 0.3;
-    }
-    
-    .testimonials-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 30px;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    
-    .testimonials-header h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    
-    .testimonials-header p {
-      max-width: 700px;
-      margin: 0 auto;
-      opacity: 0.9;
-      font-size: 1.1rem;
-    }
-    
-    .testimonials-grid {
+    .contact-details {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
     
-    .testimonial-card {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 30px;
-      transition: all 0.5s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .contact-item {
+      margin-bottom: 15px;
     }
     
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      background-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-    
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    
-    .testimonial-text::before,
-    .testimonial-text::after {
-      content: '"';
-      font-size: 3rem;
-      color: rgba(255, 255, 255, 0.2);
-      position: absolute;
-    }
-    
-    .testimonial-text::before {
-      top: -15px;
-      left: -10px;
-    }
-    
-    .testimonial-text::after {
-      bottom: -35px;
-      right: -10px;
-    }
-    
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      margin-top: 30px;
-    }
-    
-    .author-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-      border: 3px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .author-info h4 {
-      font-size: 1.2rem;
+    .contact-label {
+      font-weight: 600;
       margin-bottom: 5px;
     }
     
-    .author-info p {
-      opacity: 0.8;
-      font-size: 0.9rem;
-    }
-    
-    /* CTA Section */
-    .cta-section {
-      margin-top: 80px;
+    /* Press Kit Download */
+    .press-kit {
+      background-color: var(--lighter);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid var(--grey-dark);
       text-align: center;
     }
     
-    .cta-card {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: 20px;
-      padding: 60px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(255, 125, 6, 0.3);
-    }
-    
-    .cta-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      transform: rotate(30deg);
-    }
-    
-    .cta-card h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    
-    .cta-card p {
-      max-width: 700px;
-      margin: 0 auto 30px;
-      font-size: 1.1rem;
-      opacity: 0.9;
-      position: relative;
-    }
-    
-    .cta-btn {
-      background-color: white;
+    .press-kit h3 {
       color: var(--primary);
-      border: none;
-      padding: 18px 35px;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 220px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
     
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    .press-kit p {
+      margin-bottom: 25px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      transition: 0.5s;
+    /* Press Update Section */
+    .press-update {
+      background-color: var(--lighter);
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 60px;
+      border: 1px solid var(--grey-dark);
     }
     
-    .cta-btn:hover::before {
-      left: 100%;
-    }
-    
-    .cta-btn i {
-      margin-left: 10px;
-      transition: transform 0.3s;
-    }
-    
-    .cta-btn:hover i {
-      transform: translateX(5px);
+    .press-update h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
     }
     
     /* Chatbot Styles */
@@ -1416,12 +1078,8 @@
 
     /* Responsive Design */
     @media (max-width: 1200px) {
-      .contact-mega-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .sales-hero h1 {
-        font-size: 3rem;
+      .press-content {
+        padding: 50px;
       }
     }
     
@@ -1434,49 +1092,37 @@
         display: block;
       }
       
-      .sales-hero {
-        padding: 8rem 0 4rem;
-      }
-      
-      .sales-hero h1 {
+      .press-hero h1 {
         font-size: 2.5rem;
       }
       
-      .sales-hero p {
+      .press-hero p {
         font-size: 1.1rem;
       }
       
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
+      .press-content {
+        padding: 40px;
       }
       
-      .contact-card,
-      .info-card {
-        padding: 30px;
+      .press-content h2 {
+        font-size: 2rem;
       }
       
-      .form-row {
-        flex-direction: column;
-        gap: 0;
+      .press-content h3 {
+        font-size: 1.4rem;
       }
       
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .sales-team-card {
+      
+      .media-item {
         flex-direction: column;
-        text-align: center;
       }
       
-      .sales-team-photo {
+      .media-logo {
         margin-right: 0;
         margin-bottom: 20px;
-      }
-      
-      .sales-team-contact {
-        justify-content: center;
       }
     }
     
@@ -1485,61 +1131,42 @@
         padding: 0 20px;
       }
       
-      .premium-container {
+      .press-container {
         padding: 0 20px 60px;
       }
       
-      .sales-hero h1 {
+      .press-hero h1 {
         font-size: 2.2rem;
       }
       
-      .contact-card h2,
-      .info-card h3 {
+      .press-content {
+        padding: 30px;
+      }
+      
+      .press-content h2 {
         font-size: 1.8rem;
       }
       
-      .testimonials-section {
-        padding: 60px 0;
-      }
-      
-      .cta-card {
-        padding: 40px 20px;
-      }
-      
-      .cta-card h2 {
-        font-size: 2rem;
-      }
-      
-      .features-header h2,
-      .testimonials-header h2 {
-        font-size: 2rem;
-      }
-
-      .client-logos {
-        gap: 20px;
-      }
-      
-      .client-logo {
-        max-width: 120px;
+      .press-content h3 {
+        font-size: 1.3rem;
       }
     }
     
     @media (max-width: 576px) {
-      .sales-hero {
+      .press-hero {
         padding: 7rem 0 3rem;
       }
       
-      .sales-hero h1 {
+      .press-hero h1 {
         font-size: 1.8rem;
       }
       
-      .contact-card h2,
-      .info-card h3 {
+      .press-content {
+        padding: 25px;
+      }
+      
+      .press-content h2 {
         font-size: 1.5rem;
-      }
-      
-      .cta-card h2 {
-        font-size: 1.8rem;
       }
       
       .footer-grid {
@@ -1549,6 +1176,10 @@
       .footer-bottom {
         flex-direction: column;
         gap: 10px;
+      }
+      
+      .press-resources {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1598,163 +1229,233 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Sales Hero Section -->
-    <section class="sales-hero">
-      <div class="premium-hero-content animate__animated animate__fadeIn">
-        <h1>Connect With Our Sales Team</h1>
-        <p>Our experts are ready to help you find the perfect Annita solutions for your business needs.</p>
-        <div class="hero-buttons">
-          <a href="#contact-form" class="hero-btn hero-btn-primary">Contact Sales <i class="fas fa-arrow-right"></i></a>
-          <a href="#team" class="hero-btn hero-btn-secondary">Meet Our Team</a>
-        </div>
+    <!-- Press Hero Section -->
+    <section class="press-hero">
+      <div class="press-hero-content animate__animated animate__fadeIn">
+        <h1>Press Center</h1>
+        <p>News, media resources, and information for journalists covering Annita Technologies</p>
       </div>
     </section>
 
-    <div class="premium-container">
-      <!-- Contact Mega Grid -->
-      <div class="contact-mega-grid">
-        <!-- Contact Card -->
-        <div class="contact-card animate__animated animate__fadeInLeft" id="contact-form">
-          <h2>Sales Inquiry Form</h2>
-          <form class="premium-form" id="premiumSalesForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-name">Full Name</label>
-                <input type="text" id="sales-name" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-email">Business Email</label>
-                <input type="email" id="sales-email" class="form-control" required>
-              </div>
+    <div class="press-container">
+      <div class="press-content animate__animated animate__fadeInUp">
+        <!-- Press Resources Grid -->
+        <div class="press-resources">
+          <div class="press-card">
+            <div class="press-card-icon">
+              <i class="fas fa-newspaper"></i>
             </div>
-            
-            <div class="form-row">
-              <div class="form-group">
-                <label for="sales-phone">Phone Number</label>
-                <input type="tel" id="sales-phone" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <label for="sales-company">Company Name</label>
-                <input type="text" id="sales-company" class="form-control" required>
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-title">Job Title</label>
-                <select id="sales-title" class="form-control" required>
-                  <option value="" disabled selected>Select your position</option>
-                  <option value="owner">Owner/Founder</option>
-                  <option value="ceo">CEO/President</option>
-                  <option value="cfo">CFO/Finance Director</option>
-                  <option value="cio">CIO/IT Director</option>
-                  <option value="manager">Department Manager</option>
-                  <option value="other">Other</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-industry">Industry</label>
-              <select id="sales-industry" class="form-control" required>
-                <option value="" disabled selected>Select your industry</option>
-                <option value="finance">Banking & Financial Services</option>
-                <option value="retail">Retail & E-commerce</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="manufacturing">Manufacturing</option>
-                <option value="technology">Technology</option>
-                <option value="education">Education</option>
-                <option value="government">Government</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="sales-needs">How Can We Help?</label>
-              <textarea id="sales-needs" class="form-control" placeholder="Tell us about your business needs and challenges" required></textarea>
-            </div>
-            
-            <button type="submit" class="premium-submit-btn">Submit Inquiry <i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-        
-        <!-- Sales Team Info Card -->
-        <div class="contact-info-mega" id="team">
-          <!-- Sales Team Card -->
-          <div class="info-card animate__animated animate__fadeInRight">
-            <h3><i class="fas fa-users"></i>Meet Our Sales Team</h3>
-            <p>Our dedicated sales executives are ready to understand your business needs and recommend the perfect Annita solutions.</p>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>Sarah Johnson</h4>
-                <span class="title">Senior Sales Director</span>
-                <p>Specializing in enterprise solutions with 10+ years experience helping businesses scale across Africa.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231775057227"><i class="fas fa-phone-alt"></i> +231 77 505 7227</a>
-                  <a href="mailto:sarah@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="sales-team-card">
-              <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="David Kamara" class="sales-team-photo">
-              <div class="sales-team-info">
-                <h4>David Kamara</h4>
-                <span class="title">Business Development Manager</span>
-                <p>Expert in mid-market solutions with focus on retail and financial services sectors.</p>
-                <div class="sales-team-contact">
-                  <a href="tel:+231886213748"><i class="fas fa-phone-alt"></i> +231 886 213 748</a>
-                  <a href="mailto:david@an-nita.com"><i class="fas fa-envelope"></i> Email</a>
-                </div>
-              </div>
-            </div>
+            <h4>Press Releases</h4>
+            <p>Read our latest announcements, product launches, and company news.</p>
+            <a href="#press-releases" class="btn btn-outline" style="margin-top: 15px;">View Releases</a>
           </div>
           
-          <!-- Support Card -->
-          <div class="info-card animate__animated animate__fadeInRight animate__delay-1s">
-            <h3><i class="fas fa-headset"></i>Sales Support</h3>
-            <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i>
-              <div class="contact-detail-content">
-                <h4>Sales Hotline</h4>
-                <p>Liberia: <a href="tel:+231775057227">+231 77 505 7227</a></p>
-                <p>International: <a href="tel:+231886213748">+231 886 213 748</a></p>
+          <div class="press-card">
+            <div class="press-card-icon">
+              <i class="fas fa-image"></i>
+            </div>
+            <h4>Media Assets</h4>
+            <p>Download high-resolution logos, product images, and executive photos.</p>
+            <a href="#media-assets" class="btn btn-outline" style="margin-top: 15px;">Download Assets</a>
+          </div>
+          
+          <div class="press-card">
+            <div class="press-card-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h4>Executive Bios</h4>
+            <p>Learn about our leadership team and their backgrounds.</p>
+            <a href="#executive-bios" class="btn btn-outline" style="margin-top: 15px;">View Bios</a>
+          </div>
+        </div>
+
+        <!-- About Annita -->
+        <div class="press-section">
+          <h2>About Annita Technologies</h2>
+          <p>Annita Technologies is Africa's first all-in-one digital platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience. Founded in 2020 and headquartered in Monrovia, Liberia, Annita has rapidly grown to serve customers across West Africa with its suite of digital services.</p>
+          <p>Our mission is to bridge the digital divide in Africa by providing accessible, affordable, and secure technology solutions that drive economic growth and improve quality of life.</p>
+          
+          <h3>Key Facts</h3>
+          <ul>
+            <li><strong>Founded:</strong> 2020</li>
+            <li><strong>Headquarters:</strong> Monrovia, Liberia</li>
+            <li><strong>Employees:</strong> 250+ across 5 countries</li>
+            <li><strong>Customers:</strong> 500,000+ active users</li>
+            <li><strong>Services:</strong> Digital payments, e-commerce, cloud services, AI solutions</li>
+          </ul>
+        </div>
+
+        <!-- Press Releases -->
+        <div class="press-section" id="press-releases">
+          <h2>Press Releases</h2>
+          <div class="press-releases">
+            <div class="press-release">
+              <div class="press-release-date">April 5, 2025</div>
+              <h3 class="press-release-title">Annita Technologies Launches AI-Powered Business Solutions for SMEs</h3>
+              <p class="press-release-summary">Annita announces new suite of AI tools designed specifically for small and medium enterprises in West Africa, helping them automate operations and gain data insights.</p>
+              <a href="#" class="btn btn-outline">Read More</a>
+            </div>
+            
+            <div class="press-release">
+              <div class="press-release-date">March 18, 2025</div>
+              <h3 class="press-release-title">Annita Secures $25M Series B Funding to Expand Across Africa</h3>
+              <p class="press-release-summary">Investment led by Pan-African Ventures will fuel expansion into 3 new countries and development of next-generation payment infrastructure.</p>
+              <a href="#" class="btn btn-outline">Read More</a>
+            </div>
+            
+            <div class="press-release">
+              <div class="press-release-date">February 2, 2025</div>
+              <h3 class="press-release-title">Annita Named "Most Innovative Tech Company" at Africa Digital Awards</h3>
+              <p class="press-release-summary">Company recognized for its groundbreaking work in financial inclusion and digital transformation across the region.</p>
+              <a href="#" class="btn btn-outline">Read More</a>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">View All Press Releases</a>
+        </div>
+
+        <!-- Media Coverage -->
+        <div class="press-section">
+          <h2>Media Coverage</h2>
+          <div class="media-coverage">
+            <div class="media-item">
+              <img src="https://via.placeholder.com/100x100?text=Tech+Africa" alt="Tech Africa" class="media-logo">
+              <div class="media-content">
+                <div class="media-source">Tech Africa</div>
+                <div class="media-date">March 30, 2025</div>
+                <h4 class="media-title">How Annita is Revolutionizing Digital Payments in West Africa</h4>
+                <p>Feature story on Annita's innovative approach to solving payment challenges in the region...</p>
+                <a href="#">Read Article</a>
               </div>
             </div>
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div class="contact-detail-content">
-                <h4>Email Sales</h4>
-                <p><a href="mailto:sales@annita.com">sales@an-nita.com</a></p>
+            
+            <div class="media-item">
+              <img src="https://via.placeholder.com/100x100?text=Business+Daily" alt="Business Daily" class="media-logo">
+              <div class="media-content">
+                <div class="media-source">Business Daily</div>
+                <div class="media-date">March 22, 2025</div>
+                <h4 class="media-title">Annita's CEO on Building a Pan-African Tech Giant</h4>
+                <p>Exclusive interview with Annita's founder about the company's growth strategy and vision...</p>
+                <a href="#">Read Article</a>
               </div>
             </div>
-            <div class="contact-detail">
-              <i class="fas fa-clock"></i>
-              <div class="contact-detail-content">
-                <h4>Business Hours</h4>
-                <p>Monday-Friday: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
+            
+            <div class="media-item">
+              <img src="https://via.placeholder.com/100x100?text=Digital+Frontier" alt="Digital Frontier" class="media-logo">
+              <div class="media-content">
+                <div class="media-source">Digital Frontier</div>
+                <div class="media-date">February 15, 2025</div>
+                <h4 class="media-title">Annita's New AI Features Set to Transform Small Business Operations</h4>
+                <p>Analysis of how Annita's latest product updates are helping small businesses compete...</p>
+                <a href="#">Read Article</a>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary">View All Media Coverage</a>
+        </div>
+
+        <!-- Press Kit -->
+        <div class="press-section" id="media-assets">
+          <h2>Press Kit</h2>
+          <div class="press-kit">
+            <h3>Download Our Complete Press Kit</h3>
+            <p>Our press kit contains everything you need to write about Annita, including company background, executive bios, high-resolution logos, product images, and fact sheets.</p>
+            <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Press Kit (ZIP, 45MB)</a>
+          </div>
+          
+          <h3 style="margin-top: 40px;">Media Assets</h3>
+          <div class="press-resources">
+            <div class="press-card">
+              <div class="press-card-icon">
+                <i class="fas fa-camera"></i>
+              </div>
+              <h4>Logo Pack</h4>
+              <p>High-resolution Annita logos in PNG, SVG, and EPS formats.</p>
+              <a href="#" class="btn btn-outline" style="margin-top: 15px;">Download</a>
+            </div>
+            
+            <div class="press-card">
+              <div class="press-card-icon">
+                <i class="fas fa-portrait"></i>
+              </div>
+              <h4>Executive Photos</h4>
+              <p>Professional headshots of Annita's leadership team.</p>
+              <a href="#" class="btn btn-outline" style="margin-top: 15px;">Download</a>
+            </div>
+            
+            <div class="press-card">
+              <div class="press-card-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h4>Product Images</h4>
+              <p>Screenshots and marketing images of our products.</p>
+              <a href="#" class="btn btn-outline" style="margin-top: 15px;">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Bios -->
+        <div class="press-section" id="executive-bios">
+          <h2>Executive Team</h2>
+          <div class="press-resources">
+            <div class="press-card">
+              <div class="press-card-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <h4>David Mensah</h4>
+              <p>Founder & CEO</p>
+              <a href="#" class="btn btn-outline" style="margin-top: 15px;">View Bio</a>
+            </div>
+            
+            <div class="press-card">
+              <div class="press-card-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <h4>Amina Johnson</h4>
+              <p>Chief Technology Officer</p>
+              <a href="#" class="btn btn-outline" style="margin-top: 15px;">View Bio</a>
+            </div>
+            
+            <div class="press-card">
+              <div class="press-card-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <h4>Kwame Ofori</h4>
+              <p>Chief Financial Officer</p>
+              <a href="#" class="btn btn-outline" style="margin-top: 15px;">View Bio</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Press Contact -->
+        <div class="press-section">
+          <h2>Press Contact</h2>
+          <div class="press-contact">
+            <h3>Media Inquiries</h3>
+            <p>For interview requests, press information, or media assets, please contact our communications team:</p>
+            
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-label">Press Email</div>
+                <div><a href="mailto:press@an-nita.com">press@an-nita.com</a></div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-label">Phone</div>
+                <div>+231 77 505 7227 (Press Line)</div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-label">Address</div>
+                <div>Annita Technologies<br>123 Digital Plaza<br>Monrovia, Liberia</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Enterprise Solutions Section -->
-      <div class="enterprise-card">
-        <div class="enterprise-content">
-          <h2>Enterprise Solutions</h2>
-          <p>For large organizations with complex needs, our enterprise team delivers custom solutions with dedicated support, security, and scalability.</p>
-          <a href="#contact-form" class="hero-btn hero-btn-secondary">Contact Enterprise Sales</a>
-        </div>
-      </div>
-      
-      <!-- CTA Section -->
-      <div class="cta-section">
-        <div class="cta-card">
-          <h2>Ready to Transform Your Business?</h2>
-          <p>Contact our sales team today to discuss how Annita can help your business grow and thrive in the digital economy.</p>
-          <a href="#contact-form" class="cta-btn">Contact Sales Now <i class="fas fa-arrow-right"></i></a>
+
+        <!-- Press Update Notice -->
+        <div class="press-update">
+          <h3>Last Updated: April 12, 2025</h3>
+          <p>This press center is regularly updated with the latest news and information about Annita Technologies.</p>
         </div>
       </div>
     </div>
@@ -2013,39 +1714,6 @@
         }
       });
 
-      // Sales Form Submission
-      const salesForm = document.getElementById('premiumSalesForm');
-      
-      salesForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('sales-name').value;
-        const email = document.getElementById('sales-email').value;
-        const phone = document.getElementById('sales-phone').value;
-        const company = document.getElementById('sales-company').value;
-        const title = document.getElementById('sales-title').value;
-        const industry = document.getElementById('sales-industry').value;
-        const needs = document.getElementById('sales-needs').value;
-        
-        // Here you would typically send the form data to your server
-        console.log('Sales form submitted:', { 
-          name, email, phone, company, title, industry, needs
-        });
-        
-        // Show success message with animation
-        const submitBtn = salesForm.querySelector('.premium-submit-btn');
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent';
-        submitBtn.style.backgroundColor = 'var(--success)';
-        
-        // Reset form after delay
-        setTimeout(() => {
-          salesForm.reset();
-          submitBtn.innerHTML = 'Submit Inquiry <i class="fas fa-paper-plane"></i>';
-          submitBtn.style.backgroundColor = '';
-        }, 3000);
-      });
-
       // Header Scroll Effect
       window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
@@ -2058,7 +1726,7 @@
 
       // Create Floating Particles
       function createParticles() {
-        const hero = document.querySelector('.sales-hero');
+        const hero = document.querySelector('.press-hero');
         const particleCount = 20;
         
         for (let i = 0; i < particleCount; i++) {

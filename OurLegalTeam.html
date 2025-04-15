@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Legal Team | Annita - Africa's Digital Revolution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #FF7D06;
+            --primary-light: rgba(255, 125, 6, 0.1);
+            --primary-dark: #e06d00;
+            --secondary: #6C1D3A;
+            --accent: #FFC200;
+            --dark: #111111;
+            --darker: #0a0a0a;
+            --light: #FFFFFF;
+            --lighter: #fafafa;
+            --grey: #F5F5F5;
+            --grey-dark: #e0e0e0;
+            --blue-dark: #2c3e50;
+            --blue-light: #00c2ff;
+            --legal-gold: #f1c40f;
+            --legal-green: #27ae60;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #17a2b8;
+            --vh: 1vh;
+            --section-padding: 80px;
+            --header-height: 80px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+        
+        h1 { font-size: 56px; }
+        h2 { font-size: 48px; }
+        h3 { font-size: 36px; }
+        h4 { font-size: 28px; }
+        h5 { font-size: 22px; }
+        h6 { font-size: 18px; }
+        
+        p {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        ul {
+            list-style: none;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            height: 70px;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .header-container {
+            height: 70px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-image {
+            width: 36px;
+            height: 36px;
+        }
+
+        .logo-text {
+            font-family: 'Zen Dots', cursive;
+            font-weight: 400;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-text {
+            font-size: 22px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 125, 6, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 125, 6, 0.4);
+        }
+
+        .btn-legal {
+            background: linear-gradient(135deg, var(--blue-dark), var(--legal-green));
+            color: var(--light);
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-legal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            z-index: 1002;
+        }
+        
+        .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--dark);
+            position: absolute;
+            left: 5px;
+            border-radius: 3px;
+            transition: all 0.4s;
+        }
+        
+        .hamburger-icon {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .hamburger-icon:before {
+            top: -8px;
+        }
+        
+        .hamburger-icon:after {
+            top: 8px;
+        }
+        
+        .hamburger-menu.active .hamburger-icon {
+            background-color: transparent;
+        }
+        
+        .hamburger-menu.active .hamburger-icon:before {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .hamburger-menu.active .hamburger-icon:after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80%;
+            max-width: 320px;
+            height: 100%;
+            height: calc(var(--vh, 1vh) * 100);
+            background-color: white;
+            z-index: 1001;
+            transform: translateX(-100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+            padding: 100px 30px 30px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+            width: 100%;
+        }
+        
+        .mobile-menu li {
+            margin-bottom: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease;
+        }
+        
+        .mobile-menu.active li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Staggered animation for menu items */
+        .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+        .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+        .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+        .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+        .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+        .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+        
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+        }
+        
+        .mobile-menu a i {
+            margin-right: 15px;
+            width: 24px;
+            text-align: center;
+            color: var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu a:hover i {
+            transform: scale(1.2);
+        }
+        
+        .mobile-menu .btn {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Main Content */
+        main {
+            flex: 1;
+            width: 100%;
+            background-color: var(--light);
+            margin-top: var(--header-height);
+        }
+
+        /* Legal Hero Section */
+        .legal-hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(108, 29, 58, 0.9) 100%), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .legal-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 125, 6, 0.2) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 194, 0, 0.2) 0%, transparent 30%);
+            pointer-events: none;
+        }
+        
+        .legal-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .legal-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            color: var(--light);
+        }
+        
+        .legal-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .hero-btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 180px;
+        }
+        
+        .hero-btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 125, 6, 0.4);
+        }
+        
+        .hero-btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 125, 6, 0.5);
+        }
+        
+        .hero-btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .hero-btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .hero-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .hero-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Legal Mega Grid */
+        .legal-mega-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            padding: var(--section-padding) 0;
+        }
+        
+        /* Legal Card */
+        .legal-card {
+            background-color: var(--light);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .legal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+        }
+        
+        .legal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue-dark), var(--legal-gold));
+        }
+        
+        .legal-card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .legal-card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        /* Legal Form */
+        .legal-form .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .legal-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--darker);
+        }
+        
+        .legal-form .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid var(--grey-dark);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--lighter);
+        }
+        
+        .legal-form .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
+        }
+        
+        .legal-form textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        .legal-form select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* File Upload */
+        .file-upload {
+            padding: 20px;
+            border: 2px dashed var(--grey-dark);
+            border-radius: 10px;
+            background-color: var(--grey);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary);
+            background-color: rgba(255,125,6,0.05);
+        }
+        
+        .file-upload input[type="file"] {
+            width: 100%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-upload label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .file-upload i {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .file-upload small {
+            color: var(--dark);
+            font-size: 13px;
+        }
+        
+        .file-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .file-preview-item {
+            background-color: var(--grey);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .file-preview-item i {
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Submit Button */
+        .legal-submit-btn {
+            background: linear-gradient(135deg, var(--blue-dark), var(--legal-green));
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 220px;
+            box-shadow: 0 5px 20px rgba(44, 62, 80, 0.3);
+        }
+        
+        .legal-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+        }
+        
+        .legal-submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .legal-submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        .legal-submit-btn i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .legal-submit-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Legal Info Mega Card */
+        .legal-info-mega {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .info-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--blue-dark), var(--legal-gold));
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-card h3 i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .legal-detail {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .legal-detail i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .legal-detail-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .legal-detail-content p, 
+        .legal-detail-content a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .legal-detail-content a:hover {
+            color: var(--primary);
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: var(--section-padding) 0;
+            background-color: var(--grey);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--blue-dark), var(--legal-gold));
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .team-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .team-tab {
+            padding: 14px 28px;
+            background-color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            font-size: 16px;
+        }
+        
+        .team-tab.active {
+            background: linear-gradient(to right, var(--blue-dark), var(--legal-gold));
+            color: white;
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+        }
+        
+        .team-tab:not(.active):hover {
+            background-color: var(--grey-dark);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+            display: none;
+        }
+        
+        .team-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .team-card:hover .team-image {
+            transform: scale(1.05);
+        }
+        
+        .team-content {
+            padding: 30px;
+        }
+        
+        .team-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            background-color: var(--legal-gold);
+            color: var(--dark);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .team-title {
+            font-size: 24px;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .team-position {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-bio {
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .team-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-dark);
+            transition: all 0.3s;
+        }
+        
+        .team-social a:hover {
+            background-color: var(--blue-dark);
+            color: white;
+        }
+        
+        /* Expertise Section */
+        .expertise-section {
+            padding: var(--section-padding) 0;
+            background-color: var(--light);
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .expertise-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expertise-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--blue-dark), var(--legal-gold));
+            transition: all 0.3s;
+        }
+        
+        .expertise-card:hover::after {
+            height: 8px;
+        }
+        
+        .expertise-icon {
+            font-size: 50px;
+            color: var(--blue-dark);
+            margin-bottom: 25px;
+        }
+        
+        .expertise-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .expertise-list {
+            list-style-type: none;
+        }
+        
+        .expertise-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+            color: var(--dark);
+        }
+        
+        .expertise-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--legal-green);
+        }
+        
+        /* Compliance Section */
+        .compliance-section {
+            padding: var(--section-padding) 0;
+            background-color: var(--grey);
+        }
+        
+        .compliance-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .badge-item {
+            width: 180px;
+            height: 180px;
+            background-color: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+            padding: 20px;
+        }
+        
+        .badge-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .badge-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .badge-item:hover .badge-image {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        /* CTA Section */
+        .legal-cta {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, var(--blue-dark), var(--legal-green));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .legal-cta::before,
+        .legal-cta::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .legal-cta::before {
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .legal-cta::after {
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .legal-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .legal-cta h2 {
+            font-size: 48px;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .legal-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .legal-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: var(--blue-dark);
+            font-weight: 600;
+        }
+        
+        .btn-white:hover {
+            background-color: var(--grey);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .footer-logo-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-logo-group .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-tagline {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo-group .footer-social {
+            margin-top: 0;
+        }
+        
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-button i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--secondary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        .chatbot-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--dark);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent var(--dark);
+        }
+
+        .chatbot-button:hover .chatbot-tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 80px;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-container.open .chatbot-window {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .chat-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            background-color: #e5e5ea;
+            color: black;
+            border-bottom-left-radius: 5px;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            border-bottom-right-radius: 5px;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .send-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .legal-mega-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legal-hero h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links,
+            .nav-buttons {
+                display: none;
+            }
+            
+            .hamburger-menu {
+                display: block;
+            }
+            
+            .legal-hero {
+                padding: 8rem 0 4rem;
+            }
+            
+            .legal-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .legal-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .legal-card,
+            .info-card {
+                padding: 30px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            
+            .legal-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .legal-card h2,
+            .info-card h3 {
+                font-size: 1.8rem;
+            }
+            
+            .team-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .team-tab {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .compliance-badges {
+                gap: 20px;
+            }
+
+            .badge-item {
+                width: 160px;
+                height: 160px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .legal-hero {
+                padding: 7rem 0 3rem;
+            }
+            
+            .legal-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .legal-card h2,
+            .info-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .badge-item {
+                width: 140px;
+                height: 140px;
+            }
+
+            .chatbot-window {
+                width: 100%;
+                height: 70vh;
+                right: 0;
+                bottom: 70px;
+                border-radius: 15px 15px 0 0;
+            }
+
+            .chatbot-button {
+                width: 50px;
+                height: 50px;
+            }
+
+            .chatbot-button i {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 10px;
+            }
+
+            .logo-text {
+                font-size: 20px;
+            }
+
+            .legal-hero h1 {
+                font-size: 1.6rem;
+                line-height: 1.4;
+            }
+
+            .legal-hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .legal-mega-grid {
+                gap: 20px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+                <span class="logo-text">Annita</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="personalpage.html">Personal</a></li>
+                    <li><a href="Businesspage.html">Business</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="legalteam.html">CSR</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-outline">Log In</a>
+                <a href="signuppage.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="hamburger-menu">
+                <span class="hamburger-icon"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="personalpage.html"><i class="fas fa-user"></i>Personal</a></li>
+            <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li>
+            <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+            <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+            <li><a href="csrpage.html"><i class="fas fa-envelope"></i>CSR</a></li>
+            <li><a href="login.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
+            <li><a href="signuppage.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+        </ul>
+    </div>
+    <div class="menu-overlay"></div>
+
+    <main>
+        <!-- Legal Hero Section -->
+        <section class="legal-hero">
+            <div class="legal-hero-content animate__animated animate__fadeIn">
+                <h1>Excellence in Legal Counsel</h1>
+                <p>Annita's world-class legal team ensures compliance, protects your rights, and navigates the complex regulatory landscape to support Africa's digital revolution with integrity and expertise.</p>
+                <div class="hero-buttons">
+                    <a href="#team" class="hero-btn hero-btn-primary">Meet Our Team <i class="fas fa-arrow-right"></i></a>
+                    <a href="#consultation" class="hero-btn hero-btn-secondary">Schedule Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Legal Mega Grid -->
+            <div class="legal-mega-grid">
+                <!-- Legal Card -->
+                <div class="legal-card animate__animated animate__fadeInLeft" id="consultation">
+                    <h2>Legal Consultation Request</h2>
+                    <form class="legal-form" id="legalConsultationForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" id="company" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Select a subject</option>
+                                <option value="consultation">Schedule Legal Consultation</option>
+                                <option value="complaint">File a Complaint</option>
+                                <option value="data-privacy">Data Privacy Inquiry</option>
+                                <option value="compliance">Compliance Question</option>
+                                <option value="contracts">Contract Review Request</option>
+                                <option value="other">Other Legal Matter</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Consultation Date (if applicable)</label>
+                            <input type="date" id="preferredDate" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" class="form-control" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group file-upload">
+                            <input type="file" id="attachments" multiple>
+                            <label for="attachments">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Click to upload files or drag and drop</span>
+                                <small>Max file size: 5MB (PDF, DOC, JPG, PNG)</small>
+                            </label>
+                            <div class="file-preview" id="filePreview"></div>
+                        </div>
+                        
+                        <button type="submit" class="legal-submit-btn">Submit Request <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                
+                <!-- Legal Info Mega Card -->
+                <div class="legal-info-mega">
+                    <!-- Support Card -->
+                    <div class="info-card animate__animated animate__fadeInRight">
+                        <h3><i class="fas fa-headset"></i>Legal Support</h3>
+                        <div class="legal-detail">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="legal-detail-content">
+                                <h4>Legal Hotline</h4>
+                                <p>Liberia: <a href="tel:+231775057227">+231 77 505 7227</a></p>
+                                <p>International: <a href="tel:+231886213748">+231 886 213 748</a></p>
+                            </div>
+                        </div>
+                        <div class="legal-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div class="legal-detail-content">
+                                <h4>Email Support</h4>
+                                <p><a href="mailto:legal@annita.com">legal@an-nita.com</a></p>
+                                <p><a href="mailto:compliance@annita.com">compliance@an-nita.com</a></p>
+                            </div>
+                        </div>
+                        <div class="legal-detail">
+                            <i class="fas fa-clock"></i>
+                            <div class="legal-detail-content">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p>Saturday: 9:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Office Card -->
+                    <div class="info-card animate__animated animate__fadeInRight animate__delay-1s">
+                        <h3><i class="fas fa-building"></i>Our Legal Offices</h3>
+                        <div class="legal-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="legal-detail-content">
+                                <h4>Monrovia, Liberia (HQ)</h4>
+                                <p>Silver Beach Road, Duazon</p>
+                                <a href="#">Get Directions</a>
+                            </div>
+                        </div>
+                        <div class="legal-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="legal-detail-content">
+                                <h4>Pending..</h4>
+                                <p>Pending..</p>
+                                <a href="#">Get Directions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Section -->
+            <section class="team-section" id="team">
+                <div class="section-header">
+                    <h2>Meet Our Legal Team</h2>
+                    <p>Seasoned professionals with deep expertise in African and international digital law</p>
+                </div>
+                
+                <div class="team-tabs">
+                    <button class="team-tab active" data-tab="leadership">Leadership</button>
+                    <button class="team-tab" data-tab="corporate">Corporate</button>
+                    <button class="team-tab" data-tab="compliance">Compliance</button>
+                    <button class="team-tab" data-tab="ip">Intellectual Property</button>
+                    <button class="team-tab" data-tab="dispute">Dispute Resolution</button>
+                </div>
+                
+                <div class="team-grid">
+                    <!-- Leadership Team -->
+                    <div class="team-card active" data-tab="leadership">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Ngozi Okonjo" class="team-image" loading="lazy">
+                        <div class="team-content">
+                            <span class="team-badge">Chief Legal Officer</span>
+                            <h3 class="team-title">Ngozi Okonjo</h3>
+                            <p class="team-position">LLB, LLM (Harvard), JD (Stanford)</p>
+                            <p class="team-bio">With 25 years of experience spanning three continents, Ngozi leads our global legal strategy. Former General Counsel at two Fortune 500 companies, she specializes in cross-border transactions and digital transformation legal frameworks.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card active" data-tab="leadership">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Amara Diallo" class="team-image" loading="lazy">
+                        <div class="team-content">
+                            <span class="team-badge">Deputy General Counsel</span>
+                            <h3 class="team-title">Amara Diallo</h3>
+                            <p class="team-position">LLB (UCT), MBA (INSEAD)</p>
+                            <p class="team-bio">Amara oversees our regional legal teams across Africa, with particular expertise in fintech regulation and digital financial services. She previously served as legal advisor to the Central Bank of West Africa.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card active" data-tab="leadership">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Kwame Osei" class="team-image" loading="lazy">
+                        <div class="team-content">
+                            <span class="team-badge">Head of Regulatory Affairs</span>
+                            <h3 class="team-title">Kwame Osei</h3>
+                            <p class="team-position">LLB (Ghana), LLM (Georgetown)</p>
+                            <p class="team-bio">Kwame leads our engagement with regulators across Africa, ensuring compliance while advocating for innovation-friendly policies. He chairs the African Digital Policy Forum and has drafted key legislation in 8 countries.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Corporate Team -->
+                    <div class="team-card" data-tab="corporate">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Fatima Bello" class="team-image" loading="lazy">
+                        <div class="team-content">
+                            <span class="team-badge">Director, Corporate Law</span>
+                            <h3 class="team-title">Fatima Bello</h3>
+                            <p class="team-position">LLB (Lagos), MBA (LBS)</p>
+                            <p class="team-bio">Fatima specializes in mergers, acquisitions, and corporate restructuring across African markets. She has led legal due diligence for over $2B in transactions involving African tech companies.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Compliance Team -->
+                    <div class="team-card" data-tab="compliance">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Amina Sow" class="team-image" loading="lazy">
+                        <div class="team-content">
+                            <span class="team-badge">Chief Compliance Officer</span>
+                            <h3 class="team-title">Amina Sow</h3>
+                            <p class="team-position">LLB (Dakar), MSc Compliance (NYU)</p>
+                            <p class="team-bio">Amina built our award-winning compliance program, recognized as industry-leading by regulators across Africa. She specializes in anti-money laundering and financial regulations.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- IP Team -->
+                    <div class="team-card" data-tab="ip">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Lerato Moloi" class="team-image" loading="lazy">
+                        <div class="team-content">
+                            <span class="team-badge">Head of Intellectual Property</span>
+                            <h3 class="team-title">Lerato Moloi</h3>
+                            <p class="team-position">LLB (UCT), Patent Attorney</p>
+                            <p class="team-bio">Lerato manages our global IP portfolio and has successfully defended Annita's innovations in 27 jurisdictions. She specializes in software patents and digital copyright.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fas fa-file-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Expertise Section -->
+            <section class="expertise-section">
+                <div class="section-header">
+                    <h2>Our Legal Expertise</h2>
+                    <p>Comprehensive legal services tailored to Africa's digital transformation</p>
+                </div>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="expertise-title">Technology & Digital Law</h3>
+                        <ul class="expertise-list">
+                            <li>Data privacy & protection compliance</li>
+                            <li>Cloud computing & SaaS agreements</li>
+                            <li>AI & machine learning regulations</li>
+                            <li>Blockchain & cryptocurrency frameworks</li>
+                            <li>Software licensing & IP protection</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="expertise-title">Corporate & Commercial</h3>
+                        <ul class="expertise-list">
+                            <li>Mergers & acquisitions across Africa</li>
+                            <li>Joint ventures & strategic partnerships</li>
+                            <li>Corporate governance & compliance</li>
+                            <li>Commercial contracts & negotiations</li>
+                            <li>Regulatory approvals & licensing</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3 class="expertise-title">Financial Services Regulation</h3>
+                        <ul class="expertise-list">
+                            <li>Digital payments & mobile money licensing</li>
+                            <li>Fintech regulatory compliance</li>
+                            <li>Anti-money laundering (AML) frameworks</li>
+                            <li>Cross-border financial regulations</li>
+                            <li>Banking & financial partnerships</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="expertise-title">Data Protection & Privacy</h3>
+                        <ul class="expertise-list">
+                            <li>GDPR compliance for African operations</li>
+                            <li>Data localization & cross-border transfers</li>
+                            <li>Privacy policies & consent management</li>
+                            <li>Data breach response planning</li>
+                            <li>Employee data protection</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3 class="expertise-title">Intellectual Property</h3>
+                        <ul class="expertise-list">
+                            <li>Patent & trademark registration</li>
+                            <li>Copyright protection for digital content</li>
+                            <li>Trade secret protection strategies</li>
+                            <li>IP licensing & technology transfer</li>
+                            <li>Domain name disputes</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="expertise-title">Regulatory Compliance</h3>
+                        <ul class="expertise-list">
+                            <li>Telecommunications regulations</li>
+                            <li>Digital taxation frameworks</li>
+                            <li>Consumer protection laws</li>
+                            <li>Content moderation & platform liability</li>
+                            <li>Competition & antitrust compliance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Compliance Section -->
+            <section class="compliance-section">
+                <div class="section-header">
+                    <h2>Our Compliance Framework</h2>
+                    <p>Recognized excellence in regulatory compliance and certifications</p>
+                </div>
+                
+                <div class="compliance-badges">
+                    <div class="badge-item">
+                        <img src="https://www.iso.org/files/live/sites/isoorg/files/about%20us/member%20bodies/iso_member_body_logo/logo_afnor.jpg" alt="ISO 27001 Certified" class="badge-image">
+                    </div>
+                    <div class="badge-item">
+                        <img src="https://www.bsigroup.com/Content/images/BSI_logo_horizontal_RGB.png" alt="BSI Certified" class="badge-image">
+                    </div>
+                    <div class="badge-item">
+                        <img src="https://www.pcisecuritystandards.org/images/PCI_DSS_Logo.png" alt="PCI DSS Compliant" class="badge-image">
+                    </div>
+                    <div class="badge-item">
+                        <img src="https://www.soc2.com/wp-content/uploads/2020/08/soc2-logo.png" alt="SOC 2 Type II" class="badge-image">
+                    </div>
+                    <div class="badge-item">
+                        <img src="https://www.gdpr.org/wp-content/uploads/2018/04/gdpr-logo.png" alt="GDPR Compliant" class="badge-image">
+                    </div>
+                    <div class="badge-item">
+                        <img src="https://www.africa-privacy.org/wp-content/uploads/2020/06/APF-Logo.png" alt="Africa Privacy Framework" class="badge-image">
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download Our Compliance Report
+                    </a>
+                </div>
+            </section>
+            
+            <!-- CTA Section -->
+            <section class="legal-cta">
+                <div class="legal-cta-content">
+                    <h2>Need Expert Legal Counsel?</h2>
+                    <p>Our team is ready to help you navigate Africa's complex legal landscape and protect your digital business</p>
+                    <div class="legal-cta-buttons">
+                        <a href="contactus.html" class="btn btn-white">
+                            <i class="fas fa-envelope"></i>
+                            Contact Our Team
+                        </a>
+                        <a href="#consultation" class="btn btn-legal">
+                            <i class="fas fa-calendar-alt"></i>
+                            Schedule Consultation
+                        </a>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-phone-alt"></i>
+                            Emergency Legal Support
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo-group">
+                        <a href="index.html" class="logo">
+                            <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+                            <span class="logo-text">Annita</span>
+                        </a>
+                        <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">AnnitaPay</a></li>
+                        <li><a href="#">AnnitaMarket</a></li>
+                        <li><a href="#">AnnitaConnect</a></li>
+                        <li><a href="#">AnnitaAI</a></li>
+                        <li><a href="#">AnnitaAds</a></li>
+                        <li><a href="#">AnnitaCloud</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Developers</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="careerpage.html">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="blogpage.html">Blog</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="#">GDPR</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+                <div class="footer-links-horizontal">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Sitemap</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+        <div class="chatbot-button">
+            <i class="fas fa-comments"></i>
+            <div class="notification-badge">1</div>
+            <div class="chatbot-tooltip">Need legal help? Ask Annita AI</div>
+        </div>
+        <div class="chatbot-window">
+            <div class="chat-header">
+                <h3>Annita Legal Assistant</h3>
+                <button class="close-chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages">
+                <div class="message bot-message">
+                    Hello! I'm Annita AI. How can I help you with our legal services today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message...">
+                <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Enhanced Mobile Menu Toggle with Premium Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.menu-overlay');
+            const body = document.body;
+            
+            // Toggle menu function
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                overlay.classList.toggle('active');
+                body.classList.toggle('no-scroll');
+                
+                if (mobileMenu.classList.contains('active')) {
+                    // Disable scrolling when menu is open
+                    body.style.overflow = 'hidden';
+                    // Add iOS inertia scrolling to menu
+                    mobileMenu.style.webkitOverflowScrolling = 'touch';
+                } else {
+                    // Re-enable scrolling
+                    body.style.overflow = '';
+                    // Remove iOS inertia when menu is closed
+                    mobileMenu.style.webkitOverflowScrolling = '';
+                }
+            }
+            
+            // Hamburger click event
+            hamburger.addEventListener('click', toggleMenu);
+            
+            // Overlay click event
+            overlay.addEventListener('click', toggleMenu);
+            
+            // Close menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Only prevent default for anchor links (same page navigation)
+                    if (link.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        toggleMenu();
+                        setTimeout(() => {
+                            const target = document.querySelector(link.getAttribute('href'));
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }, 500);
+                    } else {
+                        // For all other links, just close the menu
+                        // The browser will handle the navigation normally
+                        toggleMenu();
+                    }
+                });
+            });
+            
+            // Handle iOS viewport height changes
+            function handleViewportHeight() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            // Initial call
+            handleViewportHeight();
+            
+            // Listen for resize events
+            window.addEventListener('resize', handleViewportHeight);
+            window.addEventListener('orientationchange', handleViewportHeight);
+            
+            // Header Scroll Effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Team Tab Functionality
+            const tabBtns = document.querySelectorAll('.team-tab');
+            const tabContents = document.querySelectorAll('.team-card');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = btn.getAttribute('data-tab');
+                    document.querySelectorAll(`.team-card[data-tab="${tabId}"]`).forEach(card => {
+                        card.classList.add('active');
+                    });
+                });
+            });
+
+            // File Upload Preview
+            const fileInput = document.getElementById('attachments');
+            const filePreview = document.getElementById('filePreview');
+            
+            fileInput.addEventListener('change', function() {
+                filePreview.innerHTML = '';
+                
+                if (this.files.length > 0) {
+                    for (let i = 0; i < this.files.length; i++) {
+                        const file = this.files[i];
+                        const fileItem = document.createElement('div');
+                        fileItem.className = 'file-preview-item';
+                        fileItem.innerHTML = `
+                            <span>${file.name}</span>
+                            <i class="fas fa-times" data-index="${i}"></i>
+                        `;
+                        filePreview.appendChild(fileItem);
+                    }
+                }
+            });
+            
+            // Remove file from preview
+            filePreview.addEventListener('click', function(e) {
+                if (e.target.classList.contains('fa-times')) {
+                    const index = e.target.getAttribute('data-index');
+                    const files = Array.from(fileInput.files);
+                    files.splice(index, 1);
+                    
+                    // Create new DataTransfer to update files
+                    const dataTransfer = new DataTransfer();
+                    files.forEach(file => dataTransfer.items.add(file));
+                    fileInput.files = dataTransfer.files;
+                    
+                    // Trigger change event to update preview
+                    const event = new Event('change');
+                    fileInput.dispatchEvent(event);
+                }
+            });
+
+            // Form Submission
+            const contactForm = document.getElementById('legalConsultationForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Here you would typically send the form data to your server
+                console.log('Legal form submitted:', { name, email, phone, subject, message });
+                
+                // Show success message with animation
+                const submitBtn = contactForm.querySelector('.legal-submit-btn');
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Request Sent';
+                submitBtn.style.background = 'var(--success)';
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    contactForm.reset();
+                    filePreview.innerHTML = '';
+                    submitBtn.innerHTML = 'Submit Request <i class="fas fa-paper-plane"></i>';
+                    submitBtn.style.background = 'linear-gradient(135deg, var(--blue-dark), var(--legal-green))';
+                }, 3000);
+            });
+
+            // Chatbot functionality
+            const chatbotButton = document.querySelector('.chatbot-button');
+            const chatbotContainer = document.querySelector('.chatbot-container');
+            const closeChat = document.querySelector('.close-chat');
+            const chatInput = document.querySelector('.chat-input input');
+            const sendButton = document.querySelector('.send-button');
+            const chatMessages = document.querySelector('.chat-messages');
+
+            // Toggle chat window
+            chatbotButton.addEventListener('click', function() {
+                chatbotContainer.classList.toggle('open');
+                // Remove notification badge when chat is opened
+                document.querySelector('.notification-badge').style.display = 'none';
+            });
+
+            // Close chat window
+            closeChat.addEventListener('click', function() {
+                chatbotContainer.classList.remove('open');
+            });
+
+            // Send message function
+            function sendMessage() {
+                const messageText = chatInput.value.trim();
+                if (messageText) {
+                    // Add user message
+                    const userMessage = document.createElement('div');
+                    userMessage.className = 'message user-message';
+                    userMessage.textContent = messageText;
+                    chatMessages.appendChild(userMessage);
+
+                    // Clear input
+                    chatInput.value = '';
+
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    // Simulate bot response after a delay
+                    setTimeout(() => {
+                        const botMessage = document.createElement('div');
+                        botMessage.className = 'message bot-message';
+                        
+                        // Simple responses based on keywords
+                        if (messageText.toLowerCase().includes('help') || messageText.toLowerCase().includes('support')) {
+                            botMessage.textContent = "For legal inquiries, you can email us at legal@annita.com or visit our contact page to schedule a consultation with our legal team.";
+                        } else if (messageText.toLowerCase().includes('privacy') || messageText.toLowerCase().includes('data')) {
+                            botMessage.textContent = "You can find our privacy policy at annita.com/privacy. For specific questions about data protection, our Data Protection Officer can be reached at dpo@annita.com.";
+                        } else if (messageText.toLowerCase().includes('terms') || messageText.toLowerCase().includes('conditions')) {
+                            botMessage.textContent = "Our terms of service are available at annita.com/terms. Would you like me to direct you to a specific section?";
+                        } else if (messageText.toLowerCase().includes('contact') || messageText.toLowerCase().includes('lawyer')) {
+                            botMessage.textContent = "Our legal team can be reached at legal@annita.com or +254 700 123 456 for urgent matters. Would you like me to connect you now?";
+                        } else {
+                            botMessage.textContent = "Thank you for your message. Our legal team will get back to you shortly. Is there anything else I can help with?";
+                        }
+                        
+                        chatMessages.appendChild(botMessage);
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1000);
+                }
+            }
+
+            // Send message on button click
+            sendButton.addEventListener('click', sendMessage);
+
+            // Send message on Enter key
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Animate elements when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate__animated');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        const animationClass = element.classList[1];
+                        element.classList.add(animationClass);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on page load
+        });
+    </script>
+</body>
+</html>
