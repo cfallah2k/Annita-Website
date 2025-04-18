@@ -4,291 +4,355 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report an Issue - Annita</title>
+    <meta name="description" content="Report any issues you're experiencing with Annita's services. Our team will promptly address your concerns.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
     <style>
-        /* Reusing styles from the provided file [cite: 1] */
+        /* ============ BASE STYLES ============ */
         :root {
-            --primary: #FF7D06; /* [cite: 1] */
-            --secondary: #6C1D3A; /* [cite: 2] */
-            --accent: #FFC200; /* [cite: 2] */
-            --dark: #111111; /* [cite: 2] */
-            --light: #FFFFFF; /* [cite: 2] */
-            --grey: #F5F5F5; /* [cite: 2] */
-            --border-color: #e2e8f0; /* [cite: 2] */
-            --error: #ff3b30; /* [cite: 3] */
-            --success: #34c759; /* [cite: 3] */
-            --warning: #ff9500; /* [cite: 3] */
+            --primary: #FF7D06;
+            --primary-hover: #E67000;
+            --secondary: #6C1D3A;
+            --accent: #FFC200;
+            --dark: #111111;
+            --light: #FFFFFF;
+            --grey: #F5F5F5;
+            --border-color: #e2e8f0;
+            --error: #ff3b30;
+            --success: #34c759;
+            --warning: #ff9500;
+            --text-muted: #555;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
         }
 
         * {
-            margin: 0; /* [cite: 3] */
-            padding: 0; /* [cite: 4] */
-            box-sizing: border-box; /* [cite: 4] */
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* [cite: 4] */
-        }
-
-        body {
-            background-color: var(--light); /* [cite: 5] */
-            color: var(--dark); /* [cite: 6] */
-            line-height: 1.6; /* [cite: 6] */
-            width: 100%; /* [cite: 6] */
-            min-height: 100vh; /* [cite: 6] */
-            margin: 0; /* [cite: 6] */
-            padding: 0; /* [cite: 6] */
-            overflow-x: hidden; /* [cite: 6] */
-            display: flex;
-            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         html {
-            overflow-x: hidden; /* [cite: 7] */
-            width: 100%; /* [cite: 8] */
+            font-size: 16px;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
 
-        /* Header Styles */
-        header {
-            background-color: var(--light); /* [cite: 8] */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* [cite: 9] */
-            position: fixed; /* [cite: 9] */
-            width: 100%; /* [cite: 9] */
-            top: 0; /* [cite: 9] */
-            z-index: 1000; /* [cite: 9] */
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
 
-        .header-container {
-            display: flex; /* [cite: 10] */
-            justify-content: space-between; /* [cite: 11] */
-            align-items: center; /* [cite: 11] */
-            height: 80px; /* [cite: 11] */
-            max-width: 1200px; /* [cite: 11] */
-            margin: 0 auto; /* [cite: 11] */
-            padding: 0 20px; /* [cite: 11] */
+        /* ============ TYPOGRAPHY ============ */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--secondary);
         }
 
-        .logo {
-            display: flex; /* [cite: 12] */
-            align-items: center; /* [cite: 13] */
-            font-size: 24px; /* [cite: 13] */
-            font-weight: 700; /* [cite: 13] */
-            text-decoration: none; /* [cite: 13] */
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.5rem; }
         }
 
-        .logo-image {
-            width: 40px; /* [cite: 13] */
-            height: 40px; /* [cite: 14] */
-            border-radius: 50%; /* [cite: 14] */
-            object-fit: cover; /* [cite: 14] */
-            margin-right: 10px; /* [cite: 14] */
-            border: 2px solid var(--primary); /* [cite: 14] */
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
         }
 
-        .logo-text {
-            font-family: 'Zen Dots', cursive; /* [cite: 15] */
-            font-weight: 400; /* [cite: 16] */
-            color: var(--primary); /* [cite: 16] */
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
         }
 
-        nav ul {
-            display: flex; /* [cite: 16] */
-            list-style: none; /* [cite: 17] */
-        }
+        /* ============ UTILITY CLASSES ============ */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-muted { color: var(--text-muted); }
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
 
-        nav ul li {
-            margin-left: 30px; /* [cite: 17] */
-        }
-
-        nav ul li a {
-            text-decoration: none; /* [cite: 18] */
-            color: var(--dark); /* [cite: 19] */
-            font-weight: 500; /* [cite: 19] */
-            transition: color 0.3s; /* [cite: 19] */
-        }
-
-        nav ul li a:hover {
-            color: var(--primary); /* [cite: 19] */
-        }
-
-        .nav-buttons {
-            display: flex; /* [cite: 20] */
-            align-items: center; /* [cite: 21] */
-            gap: 15px; /* [cite: 21] */
-        }
-
+        /* ============ BUTTONS ============ */
         .btn {
-            padding: 10px 20px; /* [cite: 21] */
-            border-radius: 8px; /* [cite: 22] */
-            font-weight: 600; /* [cite: 22] */
-            text-decoration: none; /* [cite: 22] */
-            transition: all 0.3s; /* [cite: 22] */
-            display: inline-block; /* [cite: 22] */
-        }
-
-        .btn-outline {
-            border: 2px solid var(--primary); /* [cite: 23] */
-            color: var(--primary); /* [cite: 24] */
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary); /* [cite: 24] */
-            color: white; /* [cite: 25] */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            gap: 0.5rem;
+            white-space: nowrap;
         }
 
         .btn-primary {
-            background-color: var(--primary); /* [cite: 25] */
-            color: white; /* [cite: 26] */
+            background-color: var(--primary);
+            color: white;
         }
 
         .btn-primary:hover {
-            background-color: #e67000; /* [cite: 26] */
-            transform: translateY(-2px); /* [cite: 27] */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* [cite: 27] */
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
         }
 
-        /* Hamburger Menu */
+        .btn-outline {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-block {
+            display: flex;
+            width: 100%;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            background-color: var(--light);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 0.75rem;
+            border: 2px solid var(--primary);
+        }
+
+        .logo-text {
+            font-family: 'Zen Dots', cursive;
+            font-weight: 400;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* ============ MOBILE MENU ============ */
         .hamburger-menu {
-            display: none; /* [cite: 29] */
-            cursor: pointer; /* [cite: 30] */
-            width: 40px; /* [cite: 30] */
-            height: 40px; /* [cite: 30] */
-            position: relative; /* [cite: 30] */
-            z-index: 1002; /* [cite: 30] */
-        }
-        /* ... other hamburger styles from... */
-         .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after { /* [cite: 31] */
-            content: ''; /* [cite: 31] */
-            display: block; /* [cite: 32] */
-            width: 30px; /* [cite: 32] */
-            height: 3px; /* [cite: 32] */
-            background-color: var(--dark); /* [cite: 32] */
-            position: absolute; /* [cite: 32] */
-            left: 5px; /* [cite: 32] */
-            border-radius: 3px; /* [cite: 32] */
-            transition: all 0.4s; /* [cite: 32] */
-        }
-        .hamburger-icon { /* [cite: 33] */
-            top: 50%; /* [cite: 33] */
-            transform: translateY(-50%); /* [cite: 34] */
-        }
-        .hamburger-icon:before { /* [cite: 34] */
-            top: -8px; /* [cite: 34] */
-        }
-        .hamburger-icon:after { /* [cite: 35] */
-            top: 8px; /* [cite: 36] */
-        }
-        .hamburger-menu.active .hamburger-icon { /* [cite: 36] */
-            background-color: transparent; /* [cite: 36] */
-        }
-        .hamburger-menu.active .hamburger-icon:before { /* [cite: 37] */
-            transform: translateY(8px) rotate(45deg); /* [cite: 37] */
-        }
-        .hamburger-menu.active .hamburger-icon:after { /* [cite: 38] */
-            transform: translateY(-8px) rotate(-45deg); /* [cite: 39] */
+            display: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            z-index: 1002;
         }
 
+        .hamburger-icon, 
+        .hamburger-icon:before, 
+        .hamburger-icon:after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--dark);
+            position: absolute;
+            left: 5px;
+            border-radius: 3px;
+            transition: var(--transition);
+        }
 
-        /* Mobile Menu */
+        .hamburger-icon {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger-icon:before {
+            top: -8px;
+        }
+
+        .hamburger-icon:after {
+            top: 8px;
+        }
+
+        .hamburger-menu.active .hamburger-icon {
+            background-color: transparent;
+        }
+
+        .hamburger-menu.active .hamburger-icon:before {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger-menu.active .hamburger-icon:after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
         .mobile-menu {
-            position: fixed; /* [cite: 39] */
-            top: 0; /* [cite: 40] */
-            left: 0; /* [cite: 40] */
-            width: 80%; /* [cite: 40] */
-            max-width: 320px; /* [cite: 40] */
-            height: 100%; /* [cite: 40] */
-            height: calc(var(--vh, 1vh) * 100); /* [cite: 40] */
-            background-color: white; /* [cite: 40] */
-            z-index: 1001; /* [cite: 40] */
-            transform: translateX(-100%); /* [cite: 41] */
-            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0); /* [cite: 41] */
-            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1); /* [cite: 41] */
-            padding: 100px 30px 30px; /* [cite: 42] */
-            overflow-y: auto; /* [cite: 42] */
-            -webkit-overflow-scrolling: touch; /* [cite: 42] */
-        }
-        /* ... other mobile menu styles from... */
-        .mobile-menu.active { /* [cite: 42] */
-            transform: translateX(0); /* [cite: 43] */
-        }
-        .mobile-menu ul { /* [cite: 43] */
-            list-style: none; /* [cite: 43] */
-            width: 100%; /* [cite: 44] */
-        }
-        .mobile-menu li { /* [cite: 44] */
-            margin-bottom: 15px; /* [cite: 44] */
-            opacity: 0; /* [cite: 45] */
-            transform: translateX(-20px); /* [cite: 45] */
-            transition: all 0.4s ease; /* [cite: 45] */
-        }
-        .mobile-menu.active li { /* [cite: 45] */
-            opacity: 1; /* [cite: 45] */
-            transform: translateX(0); /* [cite: 46] */
-        }
-        /* Staggered animation for menu items */
-        .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; /* [cite: 46] */ }
-        .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; /* [cite: 47] */ }
-        .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; /* [cite: 48] */ }
-        .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; /* [cite: 49] */ }
-        .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; /* [cite: 50] */ }
-        .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; /* [cite: 51] */ }
-        .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; /* [cite: 52] */ }
-        .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; /* [cite: 53] */ }
-        .mobile-menu a { /* [cite: 54] */
-            text-decoration: none; /* [cite: 54] */
-            color: var(--dark); /* [cite: 55] */
-            font-size: 18px; /* [cite: 55] */
-            font-weight: 500; /* [cite: 55] */
-            transition: all 0.3s; /* [cite: 55] */
-            display: flex; /* [cite: 55] */
-            align-items: center; /* [cite: 55] */
-            padding: 8px 0; /* [cite: 55] */
-        }
-        .mobile-menu a i { /* [cite: 56] */
-            margin-right: 15px; /* [cite: 56] */
-            width: 24px; /* [cite: 57] */
-            text-align: center; /* [cite: 57] */
-            color: var(--primary); /* [cite: 57] */
-            transition: all 0.3s; /* [cite: 57] */
-        }
-        .mobile-menu a:hover { /* [cite: 57] */
-            color: var(--primary); /* [cite: 58] */
-        }
-        .mobile-menu a:hover i { /* [cite: 58] */
-            transform: scale(1.2); /* [cite: 59] */
-        }
-        .mobile-menu .btn { /* [cite: 59] */
-            width: 100%; /* [cite: 59] */
-            text-align: center; /* [cite: 60] */
-            margin: 10px 0; /* [cite: 60] */
-            padding: 12px 20px; /* [cite: 60] */
-            display: flex; /* [cite: 60] */
-            align-items: center; /* [cite: 60] */
-            justify-content: center; /* [cite: 60] */
-            gap: 10px; /* [cite: 60] */
-        }
-        /* Menu Overlay */
-        .menu-overlay { /* [cite: 61] */
-            position: fixed; /* [cite: 61] */
-            top: 0; /* [cite: 62] */
-            left: 0; /* [cite: 62] */
-            width: 100%; /* [cite: 62] */
-            height: 100%; /* [cite: 62] */
-            background-color: rgba(0, 0, 0, 0.5); /* [cite: 62] */
-            z-index: 1000; /* [cite: 62] */
-            opacity: 0; /* [cite: 62] */
-            visibility: hidden; /* [cite: 62] */
-            transition: all 0.3s ease; /* [cite: 63] */
-        }
-        .menu-overlay.active { /* [cite: 63] */
-            opacity: 1; /* [cite: 63] */
-            visibility: visible; /* [cite: 64] */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: white;
+            z-index: 1001;
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+            padding: 6rem 2rem 2rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
 
-        /* Report Issue Section */
+        .mobile-menu ul {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-menu li {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mobile-menu.active li:nth-child(1) { transition-delay: 0.15s; }
+        .mobile-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu.active li:nth-child(3) { transition-delay: 0.25s; }
+        .mobile-menu.active li:nth-child(4) { transition-delay: 0.3s; }
+        .mobile-menu.active li:nth-child(5) { transition-delay: 0.35s; }
+        .mobile-menu.active li:nth-child(6) { transition-delay: 0.4s; }
+        .mobile-menu.active li:nth-child(7) { transition-delay: 0.45s; }
+        .mobile-menu.active li:nth-child(8) { transition-delay: 0.5s; }
+
+        .mobile-menu a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+        }
+
+        .mobile-menu a i {
+            margin-right: 1rem;
+            width: 24px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu a:hover i {
+            transform: scale(1.1);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ============ MAIN CONTENT ============ */
+        main {
+            flex: 1;
+            padding-top: 80px; /* Offset for fixed header */
+            width: 100%;
+        }
+
+        /* ============ REPORT ISSUE SECTION ============ */
         .report-issue-section {
-            padding: 120px 20px 60px; /* Adjusted padding */
-            background-color: var(--light); /* [cite: 65] */
-            flex-grow: 1; /* Make section grow to fill space */
+            padding: 4rem 1.5rem;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -296,397 +360,568 @@
         }
 
         .report-issue-container {
-            width: 100%; /* [cite: 66] */
-            max-width: 800px; /* Adjusted max-width */
-            margin: 0 auto; /* [cite: 67] */
-            background-color: var(--light); /* [cite: 67] */
-            padding: 3rem; /* [cite: 67] */
-            border-radius: 10px; /* [cite: 67] */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* [cite: 68] */
-            border: 1px solid var(--border-color); /* [cite: 68] */
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--light);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
         }
 
         .report-issue-title {
-            font-size: 2.2rem; /* Adjusted size */
-            color: var(--secondary); /* [cite: 88] */
-            margin-bottom: 1rem; /* [cite: 88] */
-            font-weight: 700; /* [cite: 88] */
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
 
         .report-issue-subtitle {
-            color: #555; /* [cite: 89] */
-            margin-bottom: 2.5rem; /* [cite: 90] */
-            font-size: 1.1rem; /* [cite: 90] */
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
             text-align: center;
         }
 
         .report-issue-form {
-            display: flex; /* [cite: 90] */
-            flex-direction: column; /* [cite: 91] */
-            gap: 1.5rem; /* [cite: 91] */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .form-group {
-            position: relative; /* [cite: 91] */
+            position: relative;
         }
 
         .form-group label {
-            display: block; /* [cite: 92] */
-            margin-bottom: 0.5rem; /* [cite: 93] */
-            font-weight: 500; /* [cite: 93] */
-            color: var(--secondary); /* [cite: 93] */
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
         }
 
-        .report-issue-form input[type="text"],
-        .report-issue-form input[type="email"],
-        .report-issue-form select,
-        .report-issue-form textarea {
-            width: 100%; /* [cite: 93] */
-            padding: 1rem 1.2rem; /* [cite: 94] */
-            border: 1px solid var(--border-color); /* [cite: 94] */
-            border-radius: 8px; /* [cite: 94] */
-            font-size: 1rem; /* [cite: 94] */
-            outline: none; /* [cite: 94] */
-            transition: all 0.3s; /* [cite: 94] */
-            background-color: var(--grey); /* [cite: 94] */
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+            background-color: var(--grey);
+            font-family: inherit;
         }
 
-        .report-issue-form input[type="text"]:focus,
-        .report-issue-form input[type="email"]:focus,
-        .report-issue-form select:focus,
-        .report-issue-form textarea:focus {
-            border-color: var(--primary); /* [cite: 95] */
-            box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2); /* [cite: 96] */
-            background-color: var(--light); /* [cite: 96] */
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 125, 6, 0.2);
+            background-color: var(--light);
         }
 
-         .report-issue-form textarea {
+        textarea.form-control {
             min-height: 150px;
             resize: vertical;
-         }
+        }
 
-        /* Basic file input styling */
-        .report-issue-form input[type="file"] {
-            width: 100%; /* [cite: 93] */
-            padding: 0.8rem 1rem; /* [cite: 94] */
-            border: 1px dashed var(--border-color); /* [cite: 94] */
-            border-radius: 8px; /* [cite: 94] */
-            font-size: 0.95rem; /* [cite: 94] */
-            outline: none; /* [cite: 94] */
-            transition: all 0.3s; /* [cite: 94] */
-            background-color: var(--grey); /* [cite: 94] */
+        .file-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            background-color: var(--grey);
             cursor: pointer;
+            transition: var(--transition);
         }
 
-        .report-issue-form input[type="file"]:hover {
-             border-color: var(--primary); /* [cite: 95] */
-             background-color: #eee;
+        .file-input:hover {
+            border-color: var(--primary);
+            background-color: #eee;
         }
 
-        .report-issue-form button[type="submit"] {
-            background: linear-gradient(90deg, var(--secondary), var(--primary)); /* [cite: 103] */
-            color: var(--light); /* [cite: 104] */
-            padding: 1.2rem; /* [cite: 104] */
-            border: none; /* [cite: 104] */
-            border-radius: 8px; /* [cite: 104] */
-            font-weight: 600; /* [cite: 104] */
-            cursor: pointer; /* [cite: 104] */
-            transition: all 0.3s; /* [cite: 104] */
-            margin-top: 1rem; /* [cite: 104] */
-            width: 100%; /* [cite: 104] */
-            font-size: 1.1rem; /* [cite: 105] */
-            text-transform: uppercase; /* [cite: 105] */
-            letter-spacing: 0.5px; /* [cite: 105] */
+        .form-help-text {
+            display: block;
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
-        .report-issue-form button[type="submit"]:hover {
-            background: linear-gradient(90deg, var(--primary), var(--secondary)); /* [cite: 105] */
-            transform: translateY(-2px); /* [cite: 106] */
-            box-shadow: 0 5px 15px rgba(108, 29, 58, 0.2); /* [cite: 106] */
+        .submit-btn {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            color: var(--light);
+            padding: 1.2rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
         }
 
-        /* Footer */
+        .submit-btn:hover {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 29, 58, 0.2);
+        }
+
+        /* ============ FOOTER ============ */
         footer {
-            background-color: var(--dark); /* [cite: 165] */
-            color: white; /* [cite: 166] */
-            padding: 60px 20px 20px; /* [cite: 166] */
-            margin-top: auto; /* Push footer to bottom */
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 1.5rem 2rem;
         }
 
         .footer-container {
-            max-width: 1200px; /* [cite: 166] */
-            margin: 0 auto; /* [cite: 167] */
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* ... other footer styles from... */
-        .footer-grid { /* [cite: 167] */
-            display: grid; /* [cite: 167] */
-            grid-template-columns: repeat(4, 1fr); /* [cite: 168] */
-            gap: 40px; /* [cite: 168] */
-            margin-bottom: 40px; /* [cite: 168] */
-        }
-        .footer-column h3 { /* [cite: 168] */
-            font-size: 18px; /* [cite: 168] */
-            margin-bottom: 20px; /* [cite: 169] */
-            color: var(--primary); /* [cite: 169] */
-        }
-        .footer-column ul { /* [cite: 169] */
-            list-style: none; /* [cite: 169] */
-        }
-        .footer-column li { /* [cite: 170] */
-            margin-bottom: 15px; /* [cite: 170] */
-        }
-        .footer-column a { /* [cite: 171] */
-            color: #aaa; /* [cite: 171] */
-            text-decoration: none; /* [cite: 172] */
-            transition: color 0.3s; /* [cite: 172] */
-        }
-        .footer-column a:hover { /* [cite: 172] */
-            color: var(--primary); /* [cite: 172] */
-        }
-        .footer-social { /* [cite: 173] */
-            display: flex; /* [cite: 173] */
-            gap: 15px; /* [cite: 174] */
-        }
-        .footer-social a { /* [cite: 174] */
-            width: 40px; /* [cite: 174] */
-            height: 40px; /* [cite: 175] */
-            border-radius: 50%; /* [cite: 175] */
-            background-color: rgba(255,255,255,0.1); /* [cite: 175] */
-            display: flex; /* [cite: 175] */
-            align-items: center; /* [cite: 175] */
-            justify-content: center; /* [cite: 175] */
-            color: white; /* [cite: 175] */
-            transition: background-color 0.3s; /* [cite: 175] */
-        }
-        .footer-social a:hover { /* [cite: 176] */
-            background-color: var(--primary); /* [cite: 176] */
-        }
-        .footer-bottom { /* [cite: 177] */
-            display: flex; /* [cite: 177] */
-            justify-content: space-between; /* [cite: 178] */
-            align-items: center; /* [cite: 178] */
-            padding-top: 20px; /* [cite: 178] */
-            border-top: 1px solid rgba(255,255,255,0.1); /* [cite: 178] */
-            color: #aaa; /* [cite: 178] */
-            font-size: 14px; /* [cite: 178] */
-        }
-        .footer-logo-group { /* [cite: 179] */
-            display: flex; /* [cite: 179] */
-            flex-direction: column; /* [cite: 180] */
-            gap: 15px; /* [cite: 180] */
-        }
-        .footer-logo-group .logo { /* [cite: 180] */
-            display: flex; /* [cite: 180] */
-            align-items: center; /* [cite: 181] */
-            margin-bottom: 10px; /* [cite: 181] */
-        }
-        .footer-tagline { /* [cite: 181] */
-            color: #aaa; /* [cite: 181] */
-            font-size: 0.9rem; /* [cite: 182] */
-            line-height: 1.5; /* [cite: 182] */
-            margin-bottom: 15px; /* [cite: 182] */
-        }
-        .footer-logo-group .footer-social { /* [cite: 182] */
-            margin-top: 0; /* [cite: 182] */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
 
+        .footer-column h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1.25rem;
+            color: var(--primary);
+        }
 
-        /* Responsive adjustments */
-        @media (max-width: 900px) {
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-logo-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-logo-group .logo {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links-horizontal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links-horizontal a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links-horizontal a:hover {
+            color: var(--primary);
+        }
+
+        /* ============ RESPONSIVE ADJUSTMENTS ============ */
+        @media (max-width: 992px) {
             .report-issue-container {
-                padding: 2rem;
+                padding: 2.5rem;
             }
-             .footer-grid { /* [cite: 232] */
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* [cite: 232] */
-                gap: 2rem; /* [cite: 233] */
+            
+            .footer-grid {
+                gap: 2rem;
             }
         }
 
         @media (max-width: 768px) {
             .nav-links, .nav-buttons {
-                display: none; /* [cite: 233] */
+                display: none;
             }
+            
             .hamburger-menu {
-                display: block; /* [cite: 234] */
+                display: block;
             }
+            
             .report-issue-section {
-                padding: 100px 15px 40px; /* Adjust padding */
+                padding: 3rem 1rem;
             }
+            
+            .report-issue-container {
+                padding: 2rem;
+            }
+            
+            .report-issue-title {
+                font-size: 1.8rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .footer-links-horizontal {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+            
             .report-issue-container {
                 padding: 1.5rem;
             }
+            
             .report-issue-title {
-                font-size: 1.8rem; /* [cite: 237] */
+                font-size: 1.6rem;
             }
-             .footer-grid { /* [cite: 238] */
-                padding: 0 1.5rem; /* [cite: 238] */
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
-            .footer-bottom { /* [cite: 239] */
-                padding-left: 1.5rem; /* [cite: 239] */
-                padding-right: 1.5rem; /* [cite: 240] */
+            
+            .footer-column {
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-social {
+                justify-content: center;
             }
         }
-         @media (max-width: 480px) {
-             .footer-grid { /* [cite: 248] */
-                grid-template-columns: 1fr; /* [cite: 248] */
-            }
-            .footer-bottom { /* [cite: 249] */
-                flex-direction: column; /* [cite: 249] */
-                gap: 10px; /* [cite: 250] */
-            }
-         }
-
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="header-container">
             <a href="index.html" class="logo">
-                <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo"> <span class="logo-text">Annita</span> </a>
+                <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+                <span class="logo-text">Annita</span>
+            </a>
+            
             <nav>
-                <ul class="nav-links"> <li><a href="index.html">Home</a></li> <li><a href="personalpage.html">Personal</a></li> <li><a href="Businesspage.html">Business</a></li> <li><a href="aboutus.html">About Us</a></li> <li><a href="contactus.html">Contact Us</a></li> <li><a href="csrpage.html">CSR</a></li> <li><a href="report-issue.html">Report Issue</a></li> </ul>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="personalpage.html">Personal</a></li>
+                    <li><a href="Businesspage.html">Business</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="csrpage.html">CSR</a></li>
+                </ul>
             </nav>
-            <div class="nav-buttons"> <a href="login.html" class="btn btn-outline">Log In</a> <a href="signuppage.html" class="btn btn-primary">Sign Up</a> </div>
-            <div class="hamburger-menu"> <span class="hamburger-icon"></span> </div>
+            
+            <div class="nav-buttons">
+                <a href="loginpage.html" class="btn btn-outline">Log In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            
+            <div class="hamburger-menu">
+                <span class="hamburger-icon"></span>
+            </div>
         </div>
     </header>
 
-    <div class="mobile-menu"> <ul>
-            <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li> <li><a href="personalpage.html"><i class="fas fa-user"></i>Personal</a></li> <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li> <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li> <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li> <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li> <li><a href="report-issue.html"><i class="fas fa-exclamation-triangle"></i>Report Issue</a></li> <li><a href="login.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li> <li><a href="signuppage.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li> </ul>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="personalpage.html"><i class="fas fa-user"></i> Personal</a></li>
+            <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i> Business</a></li>
+            <li><a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i> CSR</a></li>
+            <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
+            <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+        </ul>
     </div>
-    <div class="menu-overlay"></div> <section class="report-issue-section">
-        <div class="report-issue-container">
-            <h2 class="report-issue-title">Report an Issue</h2>
-            <p class="report-issue-subtitle">Experiencing problems? Let us know the details, and our team will look into it.</p>
+    
+    <div class="menu-overlay"></div>
 
-            <form class="report-issue-form" action="#" method="POST">
-                 <div class="form-group">
-                    <label for="name">Your Name (Optional)</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name">
-                </div>
+    <!-- Main Content -->
+    <main>
+        <section class="report-issue-section">
+            <div class="report-issue-container">
+                <h1 class="report-issue-title">Report an Issue</h1>
+                <p class="report-issue-subtitle">Experiencing problems with our services? Let us know the details, and our support team will promptly address your concerns.</p>
 
-                <div class="form-group">
-                    <label for="email">Your Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email address so we can follow up">
-                </div>
+                <form class="report-issue-form" id="issueForm" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name (Optional)</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name">
+                    </div>
 
-                <div class="form-group">
-                    <label for="issue-type">Type of Issue</label>
-                    <select id="issue-type" name="issue-type" required>
-                        <option value="" disabled selected>Select the category of your issue</option>
-                        <option value="bug">Bug / Technical Problem</option>
-                        <option value="payment">Payment / Transaction Issue</option>
-                        <option value="account">Account Access / Login Problem</option>
-                        <option value="feature-request">Feature Request / Suggestion</option>
-                        <option value="content">Content Problem (e.g., incorrect info)</option>
-                        <option value="security">Security Concern</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="text-primary">*</span></label>
+                        <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email address">
+                    </div>
 
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required placeholder="Briefly summarize the issue">
-                </div>
+                    <div class="form-group">
+                        <label for="issue-type">Type of Issue <span class="text-primary">*</span></label>
+                        <select id="issue-type" name="issue-type" class="form-control" required>
+                            <option value="" disabled selected>Select issue category</option>
+                            <option value="bug">Bug / Technical Problem</option>
+                            <option value="payment">Payment / Transaction Issue</option>
+                            <option value="account">Account Access Problem</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="content">Incorrect Information</option>
+                            <option value="security">Security Concern</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="description">Detailed Description</label>
-                    <textarea id="description" name="description" required placeholder="Please provide as much detail as possible. Include steps to reproduce the issue if applicable."></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="subject">Subject <span class="text-primary">*</span></label>
+                        <input type="text" id="subject" name="subject" class="form-control" required placeholder="Brief summary of the issue">
+                    </div>
 
-                 <div class="form-group">
-                    <label for="attachment">Attach Screenshot/File (Optional)</label>
-                    <input type="file" id="attachment" name="attachment" accept="image/*, .pdf, .doc, .docx, .txt">
-                    <small style="display: block; margin-top: 5px; color: #555;">Max file size: 5MB. Allowed types: JPG, PNG, PDF, DOC, TXT.</small>
-                 </div>
+                    <div class="form-group">
+                        <label for="description">Detailed Description <span class="text-primary">*</span></label>
+                        <textarea id="description" name="description" class="form-control" required placeholder="Please describe the issue in detail. Include steps to reproduce if applicable."></textarea>
+                    </div>
 
-                <button type="submit">Submit Report</button>
-            </form>
-        </div>
-    </section>
+                    <div class="form-group">
+                        <label for="attachment">Attachments (Optional)</label>
+                        <input type="file" id="attachment" name="attachment" class="file-input" accept="image/*, .pdf, .doc, .docx, .txt">
+                        <span class="form-help-text">Max file size: 5MB. Supported formats: JPG, PNG, PDF, DOC, TXT.</span>
+                    </div>
 
-    <footer> <div class="footer-container"> <div class="footer-grid"> <div class="footer-column"> <div class="footer-logo-group"> <a href="index.html" class="logo"> <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo"> <span class="logo-text">Annita</span> </a>
-                        <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p> <div class="footer-social"> <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a> <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a> <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a> </div>
+                    <button type="submit" class="submit-btn">Submit Report</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo-group">
+                        <a href="index.html" class="logo">
+                            <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+                            <span class="logo-text">Annita</span>
+                        </a>
+                        <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/share/15vfTCB6zA/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="tel:+231775057227" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/annita__official_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/annita-official/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-column"> <h3>Products</h3> <ul>
-                        <li><a href="#">AnnitaPay</a></li> <li><a href="#">AnnitaMarket</a></li> <li><a href="#">AnnitaConnect</a></li> <li><a href="#">AnnitaAI</a></li> <li><a href="#">AnnitaAds</a></li> <li><a href="#">AnnitaCloud</a></li> </ul>
+                
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="comingsoonpage.html">AnnitaPay</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Market</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Connect</a></li>
+                        <li><a href="comingsoonpage.html">Annita-AI</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Ads</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Cloud</a></li>
+                        <li><a href="comingsoonpage.html">Annita-ERP-System</a></li>
+                    </ul>
                 </div>
-                <div class="footer-column"> <h3>Resources</h3> <ul>
-                        <li><a href="#">Help Center</a></li> <li><a href="#">Community</a></li> <li><a href="#">Tutorials</a></li> <li><a href="#">Webinars</a></li> <li><a href="#">Developers</a></li> <li><a href="#">API Documentation</a></li> </ul>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="helpcenterpage.html">Help Center</a></li>
+                        <li><a href="comingsoonpage.html">Community</a></li>
+                        <li><a href="comingsoonpage.html">Tutorials</a></li>
+                        <li><a href="404errorpage.html">Webinars</a></li>
+                        <li><a href="comingsoonpage.html">Developers</a></li>
+                        <li><a href="comingsoonpage.html">API Documentation</a></li>
+                        <li><a href="comingsoonpage.html">Agents Network</a></li>
+                    </ul>
                 </div>
-                 <div class="footer-column"> <h3>Company</h3> <ul>
-                        <li><a href="aboutus.html">About Us</a></li> <li><a href="careerpage.html">Careers</a></li> <li><a href="#">Press</a></li> <li><a href="blogpage.html">Our Blog</a></li> <li><a href="#">Partners</a></li> <li><a href="contactus.html">Contact Us</a></li> </ul>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="careerpage.html">Careers</a></li>
+                        <li><a href="presspage.html">Our Press</a></li>
+                        <li><a href="blogpage.html">Our Blog</a></li>
+                        <li><a href="Ourawardspage.html">Our Awards</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="referralpage.html">Referral Program</a></li>
+                    </ul>
                 </div>
-                <div class="footer-column"> <h3>Legal</h3> <ul>
-                        <li><a href="#">Privacy Policy</a></li> <li><a href="#">Terms of Service</a></li> <li><a href="#">Security</a></li> <li><a href="cookie-policy.html">Cookie Policy</a></li> <li><a href="#">GDPR</a></li> <li><a href="#">Compliance</a></li> </ul>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofservicepage.html">Terms of Service</a></li>
+                        <li><a href="securitypage.html">Security</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="ReportanIssue.html">Report an Issue</a></li>
+                        <li><a href="OurLegalTeam.html">Our Legal Team</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom"> <div>© 2025 Annita Technologies. All rights reserved.</div> <div class="footer-links-horizontal"> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Sitemap</a> <a href="#">Accessibility</a> <a href="#">Legal</a> </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2025 Annita LLC. All rights reserved.</div>
+                <div class="footer-links-horizontal">
+                    <a href="privacypolicy.html">Privacy</a>
+                    <a href="termsofservicepage.html">Terms</a>
+                    <a href="comingsoonpage.html">Sitemap</a>
+                    <a href="comingsoonpage.html">Accessibility</a>
+                    <a href="ReportanIssue.html">Report Issue</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Reused Mobile Menu Toggle Script from [cite: 1]
-        const hamburger = document.querySelector('.hamburger-menu'); /* [cite: 480] */
-        const mobileMenu = document.querySelector('.mobile-menu'); /* [cite: 481] */
-        const overlay = document.querySelector('.menu-overlay'); /* [cite: 481] */
-        const body = document.body; /* [cite: 481] */
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const overlay = document.querySelector('.menu-overlay');
+        const body = document.body;
 
-        function toggleMenu() { /* [cite: 482] */
-            hamburger.classList.toggle('active'); /* [cite: 482] */
-            mobileMenu.classList.toggle('active'); /* [cite: 483] */
-            overlay.classList.toggle('active'); /* [cite: 483] */
-            // body.classList.toggle('no-scroll'); /* [cite: 483] */ // Removed to allow main content scroll
-
-            if (mobileMenu.classList.contains('active')) { /* [cite: 483] */
-                 body.style.overflow = 'hidden'; /* [cite: 483] */ // Prevent body scroll only when menu is active
-                 mobileMenu.style.webkitOverflowScrolling = 'touch'; /* [cite: 484] */
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            if (mobileMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
             } else {
-                body.style.overflow = ''; /* [cite: 485] */
-                mobileMenu.style.webkitOverflowScrolling = ''; /* [cite: 486] */
+                body.style.overflow = '';
             }
         }
 
-        hamburger.addEventListener('click', toggleMenu); /* [cite: 487] */
-        overlay.addEventListener('click', toggleMenu); /* [cite: 488] */
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
 
-        const mobileLinks = mobileMenu.querySelectorAll('a'); /* [cite: 489] */
-        mobileLinks.forEach(link => { /* [cite: 489] */
-            link.addEventListener('click', function(e) { /* [cite: 490] */
-                 // Close menu for all link clicks on this simple page
-                toggleMenu(); /* [cite: 492, 493] */
-                 // Allow default navigation
-            });
+        // Close mobile menu when clicking on links
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
         });
 
         // Handle iOS viewport height changes
-        function handleViewportHeight() { /* [cite: 494] */
-            let vh = window.innerHeight * 0.01; /* [cite: 494] */
-            document.documentElement.style.setProperty('--vh', `${vh}px`); /* [cite: 495] */
+        function handleViewportHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
         }
 
-        handleViewportHeight(); /* [cite: 495] */
-        window.addEventListener('resize', handleViewportHeight); /* [cite: 496] */
-        window.addEventListener('orientationchange', handleViewportHeight); /* [cite: 496] */
+        handleViewportHeight();
+        window.addEventListener('resize', handleViewportHeight);
+        window.addEventListener('orientationchange', handleViewportHeight);
 
-        // You might want to add JavaScript here to handle form submission (e.g., using AJAX or formspree.io)
-        // Example: Basic form validation feedback
-        const form = document.querySelector('.report-issue-form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                // Add actual submission logic here (e.g., send data to server)
-                // For now, just prevent default and log
+        // Form Submission Handling
+        const issueForm = document.getElementById('issueForm');
+        if (issueForm) {
+            issueForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                console.log('Form submitted (implement actual submission logic)');
-                alert('Thank you for your report! We will look into the issue.');
-                form.reset(); // Optional: reset form after submission
+                
+                // Form validation
+                const email = document.getElementById('email').value;
+                const issueType = document.getElementById('issue-type').value;
+                const subject = document.getElementById('subject').value;
+                const description = document.getElementById('description').value;
+                
+                if (!email || !issueType || !subject || !description) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Simulate form submission
+                console.log('Form submitted with:', {
+                    name: document.getElementById('name').value,
+                    email: email,
+                    issueType: issueType,
+                    subject: subject,
+                    description: description,
+                    attachment: document.getElementById('attachment').files[0]?.name || 'None'
+                });
+                
+                // Show success message
+                alert('Thank you for your report! Our team will review it and get back to you soon.');
+                issueForm.reset();
+                
+                // In a real implementation, you would send the form data to your server here
+                // Example using fetch:
+                /*
+                const formData = new FormData(issueForm);
+                fetch('/api/report-issue', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Thank you for your report!');
+                    issueForm.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your report. Please try again.');
+                });
+                */
             });
         }
-
     </script>
 </body>
 </html>

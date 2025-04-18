@@ -813,35 +813,208 @@
       color: var(--primary);
     }
 
-    /* Back to Top Button */
-    .back-to-top {
+    /* Chatbot Widget */
+    .chatbot-container {
       position: fixed;
       bottom: 30px;
       right: 30px;
-      width: 50px;
-      height: 50px;
+      z-index: 999;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .chatbot-button {
+      width: 60px;
+      height: 60px;
       background-color: var(--primary);
-      color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 99;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .chatbot-button:hover {
+      transform: scale(1.1);
+      background-color: var(--secondary);
+    }
+
+    .chatbot-button i {
+      color: white;
+      font-size: 24px;
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--accent);
+      color: var(--dark);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .chatbot-tooltip {
+      position: absolute;
+      right: 70px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--dark);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      white-space: nowrap;
       opacity: 0;
       visibility: hidden;
       transition: var(--transition);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      pointer-events: none;
     }
 
-    .back-to-top.active {
+    .chatbot-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent var(--dark);
+    }
+
+    .chatbot-button:hover .chatbot-tooltip {
+      opacity: 1;
+      visibility: visible;
+      right: 80px;
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      max-width: 90vw;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transform: scale(0.5);
+      opacity: 0;
+      visibility: hidden;
+      transform-origin: bottom right;
+      transition: var(--transition);
+    }
+
+    .chatbot-container.open .chatbot-window {
+      transform: scale(1);
       opacity: 1;
       visibility: visible;
     }
 
-    .back-to-top:hover {
+    .chat-header {
+      background-color: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header h3 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close-chat:hover {
+      transform: rotate(90deg);
+    }
+
+    .chat-messages {
+      height: 300px;
+      padding: 20px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      border-radius: 18px;
+      max-width: 80%;
+      line-height: 1.4;
+      font-size: 14px;
+      position: relative;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .bot-message {
+      background-color: white;
+      border-top-left-radius: 5px;
+      color: var(--dark);
+      align-self: flex-start;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .user-message {
+      background-color: var(--primary);
+      color: white;
+      border-top-right-radius: 5px;
+      margin-left: auto;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      background-color: white;
+      border-top: 1px solid #eee;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+    }
+
+    .chat-input input:focus {
+      border-color: var(--primary);
+    }
+
+    .send-button {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .send-button:hover {
       background-color: var(--secondary);
-      transform: translateY(-5px);
+      transform: scale(1.05);
     }
 
     /* Responsive Design */
@@ -917,6 +1090,15 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+
+      .chatbot-container {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .chatbot-window {
+        width: 320px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -941,11 +1123,8 @@
         overflow-x: auto;
       }
 
-      .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
+      .chatbot-window {
+        width: 280px;
       }
     }
 
@@ -986,7 +1165,7 @@
         </ul>
       </nav>
       <div class="nav-buttons">
-        <a href="loginpage.html" class="btn btn-outline">Log In</a>
+        <a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Log In</a>
         <a href="signup.html" class="btn btn-primary">Sign Up</a>
       </div>
       <div class="hamburger-menu">
@@ -1003,8 +1182,8 @@
       <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
       <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
       <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact</a></li>
-      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
-      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+      <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
+      <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a></li>
     </ul>
   </div>
   <div class="menu-overlay"></div>
@@ -1069,11 +1248,10 @@
           </label>
         </div>
         
-        <!-- Change this in the policy-buttons section -->
-<div class="policy-buttons">
-  <button class="btn btn-outline" id="reject-all">Reject All Optional</button>
-  <button class="btn btn-primary" id="save-settings">Save Preferences</button>
-</div>
+        <div class="policy-buttons">
+          <button class="btn btn-outline" id="reject-all">Reject All Optional</button>
+          <button class="btn btn-primary" id="save-settings">Save Preferences</button>
+        </div>
       </section>
 
       <!-- Policy Content -->
@@ -1173,6 +1351,8 @@
           <li><strong>Facebook Pixel:</strong> For measuring the effectiveness of our Facebook ads</li>
           <li><strong>Hotjar:</strong> For understanding user behavior through heatmaps and recordings</li>
           <li><strong>Google Ads:</strong> For serving targeted advertisements</li>
+          <li><strong>LinkedIn Insight Tag:</strong> For tracking conversions from LinkedIn ads</li>
+          <li><strong>Twitter Pixel:</strong> For measuring the effectiveness of our Twitter campaigns</li>
         </ul>
         
         <h3>Managing Cookies</h3>
@@ -1186,6 +1366,7 @@
           <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
           <li><a href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
           <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+          <li><a href="https://help.opera.com/en/latest/web-preferences/#cookies" target="_blank" rel="noopener noreferrer">Opera</a></li>
         </ul>
         
         <h3>Do Not Track Signals</h3>
@@ -1199,12 +1380,12 @@
         <h3>Contact Us</h3>
         <p>If you have any questions about our use of cookies or this Cookie Policy, please contact our Data Protection Officer at:</p>
         
-        <p><strong>Email:</strong> <a href="mailto:privacy@annita.com">privacy@annita.com</a><br>
-        <strong>Address:</strong> Data Protection Officer, Annita Technologies, 123 Innovation Drive, Lagos, Nigeria</p>
+        <p><strong>Email:</strong> <a href="privacy@an-nita.com">privacy@an-nita.com</a><br>
+        <strong>Address:</strong> Data Protection Officer, Annita LLC, Duazon, Silver Beach Road, Monrovia, Liberia</p>
         
         <p>We aim to respond to all legitimate requests within one month. Occasionally it may take us longer if your request is particularly complex or you have made several requests. In this case, we will notify you and keep you updated.</p>
         
-        <p><strong>Last updated:</strong> April 8, 2025</p>
+        <p><strong>Last updated:</strong> April 16, 2025</p>
       </section>
     </div>
   </main>
@@ -1222,7 +1403,7 @@
             <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
             <div class="footer-social">
               <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="+231 77 505 7227"><i class="fab fa-whatsapp"></i></a>
               <a href="https://www.instagram.com/annita__official_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
               <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
               <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
@@ -1283,7 +1464,7 @@
       </div>
       
       <div class="footer-bottom">
-        <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+        <div>&copy; 2025 Annita LLC. All rights reserved.</div>
         <div class="footer-links-horizontal">
           <a href="privacypolicy.html">Privacy</a>
           <a href="termsofservicepage.html">Terms</a>
@@ -1295,9 +1476,28 @@
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <div class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
+  <!-- Chatbot Widget -->
+  <div class="chatbot-container">
+    <div class="chatbot-button">
+      <i class="fas fa-bell"></i>
+      <div class="notification-badge">1</div>
+      <div class="chatbot-tooltip">Ask Annita AI?</div>
+    </div>
+    <div class="chatbot-window">
+      <div class="chat-header">
+        <h3>Annita AI Assistant</h3>
+        <button class="close-chat"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-messages">
+        <div class="message bot-message">
+          Hello! I'm Annita AI. How can I help you today? I can answer questions about our services, policies, or help you navigate our platform.
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message...">
+        <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
   </div>
 
   <!-- Cookie Notification Banner -->
@@ -1330,22 +1530,94 @@
         this.classList.remove('active');
       });
 
-      // Back to Top Button
-      const backToTopButton = document.querySelector('.back-to-top');
-      
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.add('active');
-        } else {
-          backToTopButton.classList.remove('active');
-        }
+      // Chatbot functionality
+      const chatbotButton = document.querySelector('.chatbot-button');
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      const closeChat = document.querySelector('.close-chat');
+      const chatInput = document.querySelector('.chat-input input');
+      const sendButton = document.querySelector('.send-button');
+      const chatMessages = document.querySelector('.chat-messages');
+
+      // Toggle chat window
+      chatbotButton.addEventListener('click', function() {
+        chatbotContainer.classList.toggle('open');
+        // Remove notification badge when chat is opened
+        document.querySelector('.notification-badge').style.display = 'none';
       });
-      
-      backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
+
+      // Close chat window
+      closeChat.addEventListener('click', function() {
+        chatbotContainer.classList.remove('open');
+      });
+
+      // Sample responses for the chatbot
+      const botResponses = {
+        "hello": "Hello there! How can I assist you today?",
+        "hi": "Hi! Welcome to Annita. What can I help you with?",
+        "help": "I can help with questions about our services, policies, or account information. What do you need help with?",
+        "cookies": "Our cookie policy explains how we use cookies to enhance your experience. You can manage your cookie preferences in the settings panel on this page.",
+        "privacy": "You can find our full privacy policy at <a href='privacypolicy.html'>this link</a>. It explains how we collect, use, and protect your data.",
+        "contact": "You can reach our support team at support@an-nita.com or through our <a href='contactus.html'>contact page</a>.",
+        "services": "Annita offers a range of services including digital payments, e-commerce solutions, cloud services, and AI tools. Which service are you interested in?",
+        "default": "I'm sorry, I didn't understand that. Could you rephrase your question? I can help with information about our services, policies, or account support."
+      };
+
+      // Send message function
+      function sendMessage() {
+        const messageText = chatInput.value.trim();
+        if (messageText) {
+          // Add user message
+          const userMessage = document.createElement('div');
+          userMessage.className = 'message user-message';
+          userMessage.textContent = messageText;
+          chatMessages.appendChild(userMessage);
+
+          // Clear input
+          chatInput.value = '';
+
+          // Scroll to bottom
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          // Simulate bot response after a delay
+          setTimeout(() => {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            
+            // Check for keywords in the message
+            const lowerCaseMessage = messageText.toLowerCase();
+            let response = botResponses.default;
+            
+            if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi')) {
+              response = botResponses.hello;
+            } else if (lowerCaseMessage.includes('help')) {
+              response = botResponses.help;
+            } else if (lowerCaseMessage.includes('cookie') || lowerCaseMessage.includes('cookies')) {
+              response = botResponses.cookies;
+            } else if (lowerCaseMessage.includes('privacy') || lowerCaseMessage.includes('data')) {
+              response = botResponses.privacy;
+            } else if (lowerCaseMessage.includes('contact') || lowerCaseMessage.includes('support')) {
+              response = botResponses.contact;
+            } else if (lowerCaseMessage.includes('service') || lowerCaseMessage.includes('product')) {
+              response = botResponses.services;
+            }
+            
+            botMessage.innerHTML = response;
+            chatMessages.appendChild(botMessage);
+            
+            // Scroll to bottom again after bot response
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+        }
+      }
+
+      // Send message on button click
+      sendButton.addEventListener('click', sendMessage);
+
+      // Send message on Enter key
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
       });
 
       // Cookie Settings Functionality
@@ -1501,6 +1773,27 @@
         localStorage.setItem('cookieConsent', 'given');
         cookieBanner.classList.remove('active');
       }
+
+      // Back to Top Button
+      const backToTop = document.createElement('div');
+      backToTop.className = 'back-to-top';
+      backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+      document.body.appendChild(backToTop);
+
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('active');
+        } else {
+          backToTop.classList.remove('active');
+        }
+      });
+
+      backToTop.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
     });
 
     // Add fadeOut animation
@@ -1509,6 +1802,36 @@
       @keyframes fadeOut {
         from { opacity: 1; transform: translateX(-50%) translateY(0); }
         to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      }
+      
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .back-to-top:hover {
+        background-color: var(--secondary);
+        transform: translateY(-5px);
       }
     `;
     document.head.appendChild(style);

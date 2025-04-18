@@ -191,6 +191,12 @@
             text-decoration: none;
             transition: var(--transition);
             display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn-outline {
@@ -217,6 +223,18 @@
             box-shadow: var(--shadow-md);
         }
         
+        .btn-white {
+            background-color: white;
+            color: var(--secondary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-white:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
         .btn-csr {
             background: linear-gradient(135deg, var(--csr-green), var(--csr-blue));
             color: var(--light);
@@ -228,6 +246,35 @@
         .btn-csr:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+        }
+        
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .btn-link:hover {
+            color: var(--secondary);
+        }
+        
+        .btn-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Button with icon */
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         /* Hamburger Menu */
@@ -1451,6 +1498,59 @@
             flex-wrap: wrap;
         }
         
+        /* Enhanced CTA Buttons */
+        .cta-button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .cta-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
+            border-radius: var(--border-radius-md);
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-dark);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cta-button i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .cta-button h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .cta-button p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-medium);
+        }
+        
+        .cta-button .btn {
+            width: 100%;
+            max-width: 200px;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -1747,7 +1847,29 @@
         }
 
         /* Responsive styling */
+        @media (max-width: 1200px) {
+            :root {
+                --section-padding: 100px;
+            }
+            
+            h1 { font-size: 48px; }
+            h2 { font-size: 40px; }
+            h3 { font-size: 32px; }
+            
+            .csr-hero {
+                padding: 150px 0 100px;
+            }
+            
+            .csr-hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+        
         @media (max-width: 1024px) {
+            :root {
+                --section-padding: 90px;
+            }
+            
             .csr-hero h1 {
                 font-size: 3rem;
             }
@@ -1759,9 +1881,18 @@
             .section-header h2 {
                 font-size: 2.2rem;
             }
+            
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         @media (max-width: 768px) {
+            :root {
+                --section-padding: 80px;
+                --header-height: 70px;
+            }
+            
             .nav-links, .nav-buttons {
                 display: none;
             }
@@ -1771,7 +1902,7 @@
             }
             
             .csr-hero {
-                padding: 150px 0 80px;
+                padding: 130px 0 80px;
             }
             
             .csr-hero h1 {
@@ -1815,11 +1946,28 @@
                 width: 300px;
                 height: 450px;
             }
+            
+            /* CTA Button Group */
+            .cta-button-group {
+                grid-template-columns: 1fr;
+            }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
+            :root {
+                --section-padding: 60px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            h1 { font-size: 36px; }
+            h2 { font-size: 32px; }
+            h3 { font-size: 28px; }
+            
             .csr-hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .impact-grid {
@@ -1860,6 +2008,33 @@
             .footer-bottom {
                 flex-direction: column;
                 gap: 10px;
+                text-align: center;
+            }
+            
+            .footer-links-horizontal {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .csr-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .csr-hero p {
+                font-size: 1rem;
+            }
+            
+            .focus-card, .news-card, .employee-card {
+                min-width: 100%;
+            }
+            
+            .partner-item {
+                height: 100px;
+                padding: 20px;
             }
         }
     </style>
@@ -2448,113 +2623,122 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Enhanced CTA Section -->
     <section class="csr-cta" id="cta">
         <div class="container csr-cta-content">
             <h2>Join Us in Building a Better Africa</h2>
             <p>Whether through partnerships, volunteering, or supporting our initiatives, you can help us create lasting positive change across the continent.</p>
-            <div class="csr-cta-buttons">
-                <a href="contactus.html" class="btn btn-white">
+            
+            <div class="cta-button-group">
+                <div class="cta-button">
                     <i class="fas fa-handshake"></i>
-                    Partner With Us
-                </a>
-                <a href="#" class="btn btn-csr">
+                    <h3>Partner With Us</h3>
+                    <p>Collaborate with Annita to amplify your social impact through strategic partnerships.</p>
+                    <a href="contactus.html" class="btn btn-primary">Explore Partnerships</a>
+                </div>
+                
+                <div class="cta-button">
                     <i class="fas fa-hands-helping"></i>
-                    Volunteer Opportunities
-                </a>
-                <a href="#" class="btn btn-primary">
+                    <h3>Volunteer Opportunities</h3>
+                    <p>Join our team of changemakers through skills-based volunteering and community programs.</p>
+                    <a href="#" class="btn btn-csr">View Opportunities</a>
+                </div>
+                
+                <div class="cta-button">
                     <i class="fas fa-donate"></i>
-                    Make a Donation
-                </a>
+                    <h3>Make a Donation</h3>
+                    <p>Support our initiatives with a financial contribution to help scale our impact.</p>
+                    <a href="#" class="btn btn-primary">Donate Now</a>
+                </div>
             </div>
         </div>
     </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-grid">
-        <div class="footer-column">
-          <div class="footer-logo-group">
-            <a href="index.html" class="logo">
-              <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
-              <span class="logo-text">Annita</span>
-            </a>
-            <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
-            <div class="footer-social">
-              <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/annita__official_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo-group">
+                        <a href="index.html" class="logo">
+                            <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+                            <span class="logo-text">Annita</span>
+                        </a>
+                        <p class="footer-tagline">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/share/15vfTCB6zA/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="+231 77 505 7227"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/annita__official_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="comingsoonpage.html">AnnitaPay</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Market</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Connect</a></li>
+                        <li><a href="comingsoonpage.html">Annita-AI</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Ads</a></li>
+                        <li><a href="comingsoonpage.html">Annita-Cloud</a></li>
+                        <li><a href="comingsoonpage.html">Annita-ERP-System</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="helpcenterpage.html">Help Center</a></li>
+                        <li><a href="comingsoonpage.html">Community</a></li>
+                        <li><a href="comingsoonpage.html">Tutorials</a></li>
+                        <li><a href="404errorpage.html">Webinars</a></li>
+                        <li><a href="comingsoonpage.html">Developers</a></li>
+                        <li><a href="comingsoonpage.html">API Documentation</a></li>
+                        <li><a href="comingsoonpage.html">Agents Network</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="careerpage.html">Careers</a></li>
+                        <li><a href="presspage.html">Our Press</a></li>
+                        <li><a href="blogpage.html">Our Blog</a></li>
+                        <li><a href="Ourawardspage.html">Our Awards</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="referralpage.html">Referral Program</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofservicepage.html">Terms of Service</a></li>
+                        <li><a href="securitypage.html">Security</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="ReportanIssue.html">Report an Issue</a></li>
+                        <li><a href="OurLegalTeam.html">Our Legal Team</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+                <div class="footer-links-horizontal">
+                    <a href="privacypolicy.html">Privacy</a>
+                    <a href="termsofservicepage.html">Terms</a>
+                    <a href="comingsoonpage.html">Sitemap</a>
+                    <a href="comingsoonpage.html">Accessibility</a>
+                    <a href="ReportanIssue.html">Report an Issue</a>
+                </div>
+            </div>
         </div>
-        
-        <div class="footer-column">
-          <h3>Products</h3>
-          <ul>
-            <li><a href="comingsoonpage.html">AnnitaPay</a></li>
-            <li><a href="comingsoonpage.html">Annita-Market</a></li>
-            <li><a href="comingsoonpage.html">Annita-Connect</a></li>
-            <li><a href="comingsoonpage.html">Annita-AI</a></li>
-            <li><a href="comingsoonpage.html">Annita-Ads</a></li>
-            <li><a href="comingsoonpage.html">Annita-Cloud</a></li>
-            <li><a href="comingsoonpage.html">Annita-ERP-System</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-column">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="helpcenterpage.html">Help Center</a></li>
-            <li><a href="comingsoonpage.html">Community</a></li>
-            <li><a href="comingsoonpage.html">Tutorials</a></li>
-            <li><a href="404errorpage.html">Webinars</a></li>
-            <li><a href="comingsoonpage.html">Developers</a></li>
-            <li><a href="comingsoonpage.html">API Documentation</a></li>
-            <li><a href="comingsoonpage.html">Agents Network</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-column">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="careerpage.html">Careers</a></li>
-            <li><a href="presspage.html">Our Press</a></li>
-            <li><a href="blogpage.html">Our Blog</a></li>
-            <li><a href="Ourawardspage.html">Our Awards</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="referralpage.html">Referral Program</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="privacypolicy.html">Privacy Policy</a></li>
-            <li><a href="termsofservicepage.html">Terms of Service</a></li>
-            <li><a href="securitypage.html">Security</a></li>
-            <li><a href="cookies.html">Cookie Policy</a></li>
-            <li><a href="ReportanIssue.html">Report an Issue</a></li>
-            <li><a href="OurLegalTeam.html">Our Legal Team</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
-        <div class="footer-links-horizontal">
-          <a href="privacypolicy.html">Privacy</a>
-          <a href="termsofservicepage.html">Terms</a>
-          <a href="comingsoonpage.html">Sitemap</a>
-          <a href="comingsoonpage.html">Accessibility</a>
-          <a href="ReportanIssue.html">Report an Issue</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
     <!-- Chatbot Widget -->
     <div class="chatbot-container">
@@ -2782,16 +2966,15 @@
             });
         }
       
-      // Set initial state for animated elements
-      document.querySelectorAll('.value-card, .objective-card, .impact-card, .focus-card, .employee-card, .sustainability-card, .news-card, .gallery-item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      });
-      
-      window.addEventListener('scroll', animateOnScroll);
-      window.addEventListener('load', animateOnScroll);
-    });
-  </script>
+        // Set initial state for animated elements
+        document.querySelectorAll('.value-card, .objective-card, .impact-card, .focus-card, .employee-card, .sustainability-card, .news-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
 </body>
 </html>

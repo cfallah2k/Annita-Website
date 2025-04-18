@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Your existing CSS styles remain unchanged */
     :root {
       --primary: #FF7D06;
       --secondary: #6C1D3A;
@@ -16,11 +15,13 @@
       --light: #FFFFFF;
       --grey: #F5F5F5;
     }
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--dark);
@@ -29,6 +30,7 @@
       flex-direction: column;
       min-height: 100vh;
     }
+    
     /* Header with Hamburger Menu */
     header {
       background-color: var(--light);
@@ -38,6 +40,7 @@
       top: 0;
       z-index: 1000;
     }
+    
     .header-container {
       display: flex;
       justify-content: space-between;
@@ -47,6 +50,7 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+    
     .logo {
       display: flex;
       align-items: center;
@@ -54,6 +58,7 @@
       font-weight: 700;
       text-decoration: none;
     }
+
     .logo-image {
       width: 40px;
       height: 40px;
@@ -62,42 +67,51 @@
       margin-right: 10px;
       border: 2px solid var(--primary);
     }
+
     .logo-text {
       font-family: 'Zen Dots', cursive;
       font-weight: 400;
       color: var(--primary);
     }
+    
     .nav-links {
       display: flex;
       list-style: none;
     }
+    
     .nav-links li {
       margin-left: 30px;
     }
+    
     .nav-links a {
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
     }
+    
     .nav-buttons {
       display: flex;
       align-items: center;
       gap: 15px;
     }
+    
     .btn {
       padding: 10px 20px;
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
     }
+    
     .btn-outline {
       border: 2px solid var(--primary);
       color: var(--primary);
     }
+    
     .btn-primary {
       background-color: var(--primary);
       color: white;
     }
+    
     /* Hamburger Menu */
     .hamburger-menu {
       display: none;
@@ -107,6 +121,7 @@
       position: relative;
       z-index: 1002;
     }
+    
     .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
       content: '';
       display: block;
@@ -118,25 +133,32 @@
       border-radius: 3px;
       transition: all 0.4s;
     }
+    
     .hamburger-icon {
       top: 50%;
       transform: translateY(-50%);
     }
+    
     .hamburger-icon:before {
       top: -8px;
     }
+    
     .hamburger-icon:after {
       top: 8px;
     }
+    
     .hamburger-menu.active .hamburger-icon {
       background-color: transparent;
     }
+    
     .hamburger-menu.active .hamburger-icon:before {
       transform: translateY(8px) rotate(45deg);
     }
+    
     .hamburger-menu.active .hamburger-icon:after {
       transform: translateY(-8px) rotate(-45deg);
     }
+    
     .mobile-menu {
       position: fixed;
       top: 0;
@@ -152,16 +174,20 @@
       padding: 100px 30px 30px;
       overflow-y: auto;
     }
+    
     .mobile-menu.active {
       transform: translateX(0);
     }
+    
     .mobile-menu ul {
       list-style: none;
       width: 100%;
     }
+    
     .mobile-menu li {
       margin-bottom: 15px;
     }
+    
     .mobile-menu a {
       text-decoration: none;
       color: var(--dark);
@@ -171,12 +197,14 @@
       align-items: center;
       padding: 8px 0;
     }
+    
     .mobile-menu a i {
       margin-right: 15px;
       width: 24px;
       text-align: center;
       color: var(--primary);
     }
+    
     .menu-overlay {
       position: fixed;
       top: 0;
@@ -189,10 +217,12 @@
       visibility: hidden;
       transition: all 0.3s;
     }
+    
     .menu-overlay.active {
       opacity: 1;
       visibility: visible;
     }
+    
     /* Main Content */
     main {
       flex: 1;
@@ -201,57 +231,66 @@
       margin-top: 80px; /* Offset for fixed header */
     }
     .login-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: calc(100vh - 80px - 200px); /* Fills the space between header and footer */
-      width: 100vw; /* Full horizontal width */
-      padding: 40px 0;
-      margin: 0;
-    }
-    .login-container {
-      width: 100%;
-      max-width: 1200px;
-      background-color: var(--light);
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      padding: 60px;
-      margin: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px - 200px); /* Fills the space between header and footer */
+  width: 100vw; /* Full horizontal width */
+  padding: 40px 0;
+  margin: 0;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: var(--light);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 60px;
+  margin: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+
     .login-image {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
+    
     .login-image img {
       width: 100%;
       max-width: 500px;
       border-radius: 15px;
       transition: all 0.3s ease;
     }
+    
     .login-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
+    
     .login-header {
       text-align: center;
       margin-bottom: 30px;
     }
+    
     .login-header h1 {
       font-size: 32px;
       color: var(--secondary);
       margin-bottom: 10px;
     }
+    
     /* Account Type Dropdown */
     .account-type-dropdown {
       position: relative;
       margin-bottom: 25px;
     }
+    
     .dropdown-toggle {
       width: 100%;
       padding: 15px 20px;
@@ -263,13 +302,16 @@
       justify-content: space-between;
       cursor: pointer;
     }
+    
     .dropdown-toggle:hover {
       border-color: var(--primary);
     }
+    
     .selected-account {
       display: flex;
       align-items: center;
     }
+    
     .account-icon {
       width: 40px;
       height: 40px;
@@ -282,6 +324,7 @@
       color: var(--primary);
       font-size: 18px;
     }
+    
     .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -296,35 +339,43 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
+    
     .dropdown-menu.show {
       max-height: 500px;
     }
+    
     .account-option {
       padding: 15px 20px;
       display: flex;
       align-items: center;
       cursor: pointer;
     }
+    
     .account-option:hover {
       background-color: rgba(255,125,6,0.05);
     }
+    
     .account-info h4 {
       font-size: 16px;
       margin-bottom: 5px;
     }
+    
     .account-info p {
       font-size: 14px;
       color: #666;
     }
+    
     /* Login Form */
     .form-group {
       margin-bottom: 25px;
     }
+    
     .form-group label {
       display: block;
       margin-bottom: 10px;
       font-weight: 500;
     }
+    
     .form-group input {
       width: 100%;
       padding: 15px 20px;
@@ -332,32 +383,38 @@
       border-radius: 10px;
       font-size: 16px;
     }
+    
     .form-group input:focus {
       border-color: var(--primary);
       outline: none;
       box-shadow: 0 0 0 3px rgba(255,125,6,0.2);
     }
+    
     .remember-forgot {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 25px;
     }
+    
     .remember-me {
       display: flex;
       align-items: center;
     }
+    
     .remember-me input {
       margin-right: 10px;
       width: 18px;
       height: 18px;
       accent-color: var(--primary);
     }
+    
     .forgot-password a {
       color: var(--primary);
       text-decoration: none;
       font-size: 14px;
     }
+    
     .login-btn {
       width: 100%;
       padding: 16px;
@@ -371,19 +428,23 @@
       margin-bottom: 25px;
       transition: all 0.3s;
     }
+    
     .login-btn:hover {
       opacity: 0.9;
       transform: translateY(-2px);
     }
+    
     .social-login {
       text-align: center;
       margin-bottom: 25px;
     }
+    
     .social-login p {
       color: #666;
       margin-bottom: 20px;
       position: relative;
     }
+    
     .social-login p::before,
     .social-login p::after {
       content: "";
@@ -393,17 +454,21 @@
       height: 1px;
       background-color: #eee;
     }
+    
     .social-login p::before {
       left: 0;
     }
+    
     .social-login p::after {
       right: 0;
     }
+    
     .social-buttons {
       display: flex;
       justify-content: center;
       gap: 20px;
     }
+    
     .social-btn {
       width: 50px;
       height: 50px;
@@ -415,68 +480,84 @@
       font-size: 20px;
       transition: all 0.3s;
     }
+    
     .social-btn:hover {
       transform: translateY(-3px);
     }
+    
     .social-btn.google {
       background-color: #DB4437;
     }
+    
     .social-btn.facebook {
       background-color: #4267B2;
     }
+    
     .social-btn.apple {
       background-color: #000000;
     }
+    
     .register-link {
       text-align: center;
       color: #666;
       font-size: 15px;
     }
+    
     .register-link a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
     }
+    
     /* Footer */
     footer {
       background-color: var(--dark);
       color: white;
       padding: 60px 20px 20px;
     }
+    
     .footer-container {
       max-width: 1200px;
       margin: 0 auto;
     }
+    
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 40px;
       margin-bottom: 40px;
     }
+    
     .footer-column h3 {
       font-size: 18px;
       margin-bottom: 20px;
       color: var(--primary);
     }
+    
     .footer-column ul {
       list-style: none;
     }
+    
     .footer-column li {
       margin-bottom: 15px;
     }
+    
     .footer-column a {
       color: #aaa;
       text-decoration: none;
       transition: color 0.3s;
     }
+    
     .footer-column a:hover {
       color: var(--primary);
     }
+    
     .footer-social {
       display: flex;
       gap: 15px;
       margin-top: 20px;
     }
+    
     .footer-social a {
       width: 40px;
       height: 40px;
@@ -488,9 +569,11 @@
       color: white;
       transition: background-color 0.3s;
     }
+    
     .footer-social a:hover {
       background-color: var(--primary);
     }
+    
     .footer-bottom {
       display: flex;
       justify-content: space-between;
@@ -500,6 +583,7 @@
       color: #aaa;
       font-size: 14px;
     }
+    
     /* Responsive */
     @media (max-width: 1024px) {
       .login-container {
@@ -507,37 +591,46 @@
         max-width: 800px;
         padding: 40px;
       }
+      
       .login-image {
         display: none;
       }
+      
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
+    
     @media (max-width: 768px) {
       .nav-links, .nav-buttons {
         display: none;
       }
+      
       .hamburger-menu {
         display: block;
       }
+      
       .login-container {
         padding: 30px 20px;
         margin: 0 10px;
       }
+      
       .footer-grid {
         grid-template-columns: 1fr;
       }
+      
       .footer-bottom {
         flex-direction: column;
         text-align: center;
         gap: 10px;
       }
+
       /* Mobile-specific image styling */
       .login-image {
         display: flex;
         margin-bottom: 30px;
       }
+      
       .login-image img {
         width: 200px;
         height: 200px;
@@ -548,11 +641,13 @@
         transform: scale(1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
+      
       .login-image img:hover {
         transform: scale(1.05);
         box-shadow: 0 15px 40px rgba(0,0,0,0.3);
       }
     }
+
     @media (max-width: 480px) {
       .login-image img {
         width: 150px;
@@ -588,6 +683,7 @@
       </div>
     </div>
   </header>
+
   <!-- Mobile Menu -->
   <div class="mobile-menu">
     <ul>
@@ -602,6 +698,7 @@
     </ul>
   </div>
   <div class="menu-overlay"></div>
+
   <!-- Main Content -->
   <main>
     <section class="login-section">
@@ -614,6 +711,7 @@
             <h1>Login to Your Account</h1>
             <p>Select your account type to continue</p>
           </div>
+          
           <!-- Account Type Dropdown -->
           <div class="account-type-dropdown">
             <div class="dropdown-toggle" id="dropdownToggle">
@@ -628,6 +726,7 @@
               </div>
               <i class="fas fa-chevron-down"></i>
             </div>
+            
             <div class="dropdown-menu" id="dropdownMenu">
               <!-- Personal -->
               <div class="account-option" data-value="personal">
@@ -639,6 +738,7 @@
                   <p>Individual user</p>
                 </div>
               </div>
+              
               <!-- Freelancer/Sole Trader -->
               <div class="account-option" data-value="freelancer">
                 <div class="account-icon">
@@ -649,6 +749,7 @@
                   <p>Independent professionals</p>
                 </div>
               </div>
+              
               <!-- Startup -->
               <div class="account-option" data-value="startup">
                 <div class="account-icon">
@@ -659,6 +760,7 @@
                   <p>New business ventures</p>
                 </div>
               </div>
+              
               <!-- SME -->
               <div class="account-option" data-value="sme">
                 <div class="account-icon">
@@ -669,6 +771,7 @@
                   <p>Established small businesses</p>
                 </div>
               </div>
+              
               <!-- Enterprise -->
               <div class="account-option" data-value="enterprise">
                 <div class="account-icon">
@@ -679,6 +782,7 @@
                   <p>Large corporations</p>
                 </div>
               </div>
+              
               <!-- Non-Profit -->
               <div class="account-option" data-value="nonprofit">
                 <div class="account-icon">
@@ -689,6 +793,7 @@
                   <p>Charities and NGOs</p>
                 </div>
               </div>
+              
               <!-- Religious -->
               <div class="account-option" data-value="religious">
                 <div class="account-icon">
@@ -701,16 +806,19 @@
               </div>
             </div>
           </div>
+          
           <!-- Login Form -->
           <form class="login-form">
             <div class="form-group">
               <label for="email">Email Address</label>
               <input type="email" id="email" placeholder="Enter your email" required>
             </div>
+            
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" id="password" placeholder="Enter your password" required>
             </div>
+            
             <div class="remember-forgot">
               <div class="remember-me">
                 <input type="checkbox" id="remember">
@@ -720,8 +828,10 @@
                 <a href="forgot-password.html">Forgot password?</a>
               </div>
             </div>
+            
             <button type="submit" class="login-btn">Login</button>
           </form>
+          
           <div class="social-login">
             <p>Or login with</p>
             <div class="social-buttons">
@@ -736,6 +846,7 @@
               </a>
             </div>
           </div>
+          
           <div class="register-link">
             Don't have an account? <a href="signup.html">Sign up now</a>
           </div>
@@ -743,181 +854,148 @@
       </div>
     </section>
   </main>
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-grid">
-        <div class="footer-column">
-          <div class="footer-logo-group">
-            <a href="index.html" class="logo">
-              <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
-              <span class="logo-text">Annita</span>
-            </a>
-            <p class="footer-tagline" style="margin-top: 15px;">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
-            <div class="footer-social">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
-            </div>
+
+ <!-- Footer -->
+ <footer>
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <div class="footer-logo-group">
+          <a href="index.html" class="logo">
+            <img src="/images/Annita's Logo.jpg" class="logo-image" alt="Annita Logo">
+            <span class="logo-text">Annita</span>
+          </a>
+          <p class="footer-tagline" style="margin-top: 15px;">Africa's first all-in-one platform, empowering businesses and individuals with innovative solutions, connectivity, and convenience.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/annita_"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
-        <div class="footer-column">
-          <h3>Products</h3>
-          <ul>
-            <li><a href="#">AnnitaPay</a></li>
-            <li><a href="#">AnnitaMarket</a></li>
-            <li><a href="#">AnnitaConnect</a></li>
-            <li><a href="#">AnnitaAI</a></li>
-            <li><a href="#">AnnitaAds</a></li>
-            <li><a href="#">AnnitaCloud</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">Tutorials</a></li>
-            <li><a href="#">Webinars</a></li>
-            <li><a href="#">Developers</a></li>
-            <li><a href="#">API Documentation</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="careerpage.html">Careers</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="blogpage.html">Our Blog</a></li>
-            <li><a href="#">Partners</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Security</a></li>
-            <li><a href="cookie-policy.html">Cookie Policy</a></li>
-            <li><a href="#">GDPR</a></li>
-            <li><a href="#">Compliance</a></li>
-          </ul>
-        </div>
       </div>
-      <div class="footer-bottom">
-        <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
-        <div class="footer-links-horizontal">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Sitemap</a>
-          <a href="#">Accessibility</a>
-          <a href="#">Legal</a>
-        </div>
+      
+      <div class="footer-column">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="#">AnnitaPay</a></li>
+          <li><a href="#">AnnitaMarket</a></li>
+          <li><a href="#">AnnitaConnect</a></li>
+          <li><a href="#">AnnitaAI</a></li>
+          <li><a href="#">AnnitaAds</a></li>
+          <li><a href="#">AnnitaCloud</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="#">Webinars</a></li>
+          <li><a href="#">Developers</a></li>
+          <li><a href="#">API Documentation</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="careerpage.html">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="blogpage.html">Our Blog</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="#">GDPR</a></li>
+          <li><a href="#">Compliance</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-  <!-- Firebase Initialization and Authentication Logic -->
-  <script type="module">
-    // Import Firebase modules
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+    
+    <div class="footer-bottom">
+      <div>&copy; 2025 Annita Technologies. All rights reserved.</div>
+      <div class="footer-links-horizontal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyBwVtJ8qhlF_bgUhPKDUvXSjNOzVwka1yo",
-      authDomain: "annita-website.firebaseapp.com",
-      projectId: "annita-website",
-      storageBucket: "annita-website.firebasestorage.app",
-      messagingSenderId: "637202898545",
-      appId: "1:637202898545:web:e0ab4ef5609729876bc5d0",
-      measurementId: "G-1XN6N868Q6"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-
-    // Check if user is already logged in
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log("User is logged in:", user.email);
-        window.location.href = "/dashboard.html"; // Redirect to dashboard or homepage
-      } else {
-        console.log("No user is logged in.");
-      }
-    });
-
-    // DOMContentLoaded Event Listener
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile Menu Toggle
       const hamburger = document.querySelector('.hamburger-menu');
       const mobileMenu = document.querySelector('.mobile-menu');
       const overlay = document.querySelector('.menu-overlay');
+      
       hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
         mobileMenu.classList.toggle('active');
         overlay.classList.toggle('active');
       });
+      
       overlay.addEventListener('click', function() {
         hamburger.classList.remove('active');
         mobileMenu.classList.remove('active');
         this.classList.remove('active');
       });
-
+      
       // Account Type Dropdown
       const dropdownToggle = document.getElementById('dropdownToggle');
       const dropdownMenu = document.getElementById('dropdownMenu');
       const accountOptions = document.querySelectorAll('.account-option');
+      
       dropdownToggle.addEventListener('click', function() {
         dropdownMenu.classList.toggle('show');
       });
+      
       accountOptions.forEach(option => {
         option.addEventListener('click', function() {
           const selectedValue = this.getAttribute('data-value');
           const selectedIcon = this.querySelector('.account-icon').innerHTML;
           const selectedTitle = this.querySelector('h4').textContent;
           const selectedDesc = this.querySelector('p').textContent;
+          
           dropdownToggle.querySelector('.account-icon').innerHTML = selectedIcon;
           dropdownToggle.querySelector('h4').textContent = selectedTitle;
           dropdownToggle.querySelector('p').textContent = selectedDesc;
           dropdownMenu.classList.remove('show');
         });
       });
+      
       document.addEventListener('click', function(event) {
         if (!dropdownToggle.contains(event.target)) {
           dropdownMenu.classList.remove('show');
         }
       });
-
-      // Login Form Submission with Firebase Authentication
+      
+      // Form Submission
       const loginForm = document.querySelector('.login-form');
-      loginForm.addEventListener('submit', async function(e) {
+      loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-
-        // Get form values
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-
-        try {
-          // Authenticate user with Firebase
-          const userCredential = await signInWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user;
-
-          // Log success and redirect or show a message
-          console.log("User logged in:", user.email);
-          alert(`Login successful for ${user.email}`);
-          window.location.href = "Annita-Dashboard.html"; // Redirect to dashboard or homepage
-        } catch (error) {
-          // Handle errors (e.g., invalid credentials)
-          console.error("Error during login:", error.message);
-          alert("Login failed: " + error.message);
-        }
+        const accountType = dropdownToggle.querySelector('h4').textContent;
+        
+        console.log('Login attempt:', { email, password, accountType });
+        alert(`Login attempt detected for ${accountType} with email: ${email}`);
       });
     });
   </script>
