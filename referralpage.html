@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; img-src 'self' data: https://randomuser.me; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'">
-  <title>Premium Referral Program - Annita Insights</title>
+  <title>Annita Referral Program</title>
   
   <!-- Preload critical resources -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" as="style">
@@ -206,24 +206,26 @@
       box-shadow: var(--shadow-md);
     }
     
-    /* Hamburger Menu */
+    /* Hamburger Menu - Improved for Mobile */
     .hamburger-menu {
       display: none;
       cursor: pointer;
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       position: relative;
       z-index: 1002;
       background-color: transparent;
       border: none;
-      padding: 12px;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
     }
     
     .hamburger-icon, .hamburger-icon:before, .hamburger-icon:after {
       content: '';
       display: block;
-      width: 28px;
-      height: 3px;
+      width: 24px;
+      height: 2px;
       background-color: var(--dark);
       position: absolute;
       left: 10px;
@@ -340,13 +342,9 @@
       margin-top: 80px; /* Offset for fixed header */
     }
 
-    /* Referral Hero Section - Redesigned */
+    /* Referral Hero Section - Redesigned with Improved Mobile View */
     .referral-hero {
-      background-color: var(--dark);
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%),
-        linear-gradient(135deg, var(--dark) 0%, #222 100%);
+      background: linear-gradient(135deg, var(--dark) 0%, #222 100%);
       padding: 8rem 0 4rem;
       color: var(--light);
       text-align: center;
@@ -379,10 +377,8 @@
       margin-bottom: 1.5rem;
       line-height: 1.2;
       font-weight: 700;
-      background: linear-gradient(90deg, var(--light) 0%, var(--primary-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: none;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
       position: relative;
       display: inline-block;
     }
@@ -406,7 +402,7 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
     }
 
     .hero-stats {
@@ -471,7 +467,7 @@
     .particle {
       position: absolute;
       border-radius: 50%;
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(255,255,255,0.15);
       animation: float-particle linear infinite;
       z-index: 0;
     }
@@ -860,110 +856,102 @@
       }
     }
 
-/* Enhanced Responsive Copy and Share Buttons */
-.btn-copy {
-  background: linear-gradient(135deg, var(--blue-dark) 0%, #00308F 100%);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius-md);
-  padding: 0.5rem 1rem; /* More responsive padding */
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-flex; /* Better for responsive sizing */
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem; /* Smaller gap for mobile */
-  font-weight: 600;
-  min-width: auto; /* Remove fixed min-width */
-  width: auto; /* Let content determine width */
-  position: relative;
-  overflow: hidden;
-  font-size: clamp(0.875rem, 2vw, 1rem); /* Responsive font size */
-  white-space: nowrap; /* Prevent text wrapping */
-}
+    /* Enhanced Responsive Copy and Share Buttons */
+    .btn-copy {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, #00308F 100%);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius-md);
+      padding: 0.75rem 1.25rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      width: auto;
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+      white-space: nowrap;
+      min-height: 56px;
+    }
 
-.btn-copy::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-  transform: rotate(45deg);
-  transition: var(--transition);
-}
+    .btn-copy::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: rotate(45deg);
+      transition: var(--transition);
+    }
 
-.btn-copy:hover::after {
-  left: 100%;
-}
+    .btn-copy:hover::after {
+      left: 100%;
+    }
 
-.btn-copy:hover {
-  background: linear-gradient(135deg, #000d3a 0%, #00257A 100%);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
+    .btn-copy:hover {
+      background: linear-gradient(135deg, #000d3a 0%, #00257A 100%);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
 
-.btn-share {
-  background-color: var(--light);
-  color: var(--blue-dark);
-  border: 2px solid var(--blue-dark);
-  border-radius: var(--border-radius-md);
-  padding: 0.5rem 1rem; /* Matching padding with copy button */
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  min-width: auto;
-  width: auto;
-  position: relative;
-  overflow: hidden;
-  font-size: clamp(0.875rem, 2vw, 1rem);
-  white-space: nowrap;
-}
+    .btn-share {
+      background-color: var(--light);
+      color: var(--blue-dark);
+      border: 2px solid var(--blue-dark);
+      border-radius: var(--border-radius-md);
+      padding: 0.75rem 1.25rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      width: auto;
+      position: relative;
+      overflow: hidden;
+      font-size: 1rem;
+      white-space: nowrap;
+      min-height: 56px;
+    }
 
-.btn-share::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 26, 87, 0.1), transparent);
-  transition: var(--transition);
-}
+    .btn-share::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 26, 87, 0.1), transparent);
+      transition: var(--transition);
+    }
 
-.btn-share:hover::before {
-  left: 100%;
-}
+    .btn-share:hover::before {
+      left: 100%;
+    }
 
-.btn-share:hover {
-  background-color: var(--blue-dark);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-/* Optional: Media query for very small devices */
-@media (max-width: 480px) {
-  .btn-copy, .btn-share {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8125rem;
-    gap: 0.25rem;
-  }
-}
+    .btn-share:hover {
+      background-color: var(--blue-dark);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
 
     /* Mobile-specific button styles */
     @media (max-width: 768px) {
       .btn-copy, .btn-share {
-        padding: var(--spacing-md) var(--spacing-lg);
-        height: 60px;
-        font-size: 1.1rem;
-        min-width: 100%;
-        border-radius: var(--border-radius-lg);
+        padding: 0.75rem;
+        height: auto;
+        font-size: 0.95rem;
+        min-width: 0;
+        width: 100%;
+        justify-content: center;
       }
 
       .btn-copy {
@@ -978,10 +966,6 @@
 
       .btn-share:hover {
         background-color: #00257A;
-      }
-
-      .btn-copy i, .btn-share i {
-        font-size: 1.3rem;
       }
     }
 
@@ -2368,9 +2352,14 @@
         font-size: 1rem;
       }
 
+      .hero-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+
       .stat-item {
-        min-width: 120px;
-        padding: var(--spacing-sm);
+        min-width: 100%;
+        padding: var(--spacing-md);
       }
 
       .stat-number {
@@ -2539,10 +2528,11 @@
           <li><a href="#">Business</a></li>
           <li><a href="aboutus.html">About Us</a></li>
           <li><a href="contactus.html">Contact</a></li>
+          <li><a href="contactus.html">CSR</a></li>
         </ul>
       </nav>
       <div class="nav-buttons">
-        <a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Log In</a>
+        <a href="loginpage.html" class="btn btn-outline"><i class=></i> Log In</a>
         <a href="signup.html" class="btn btn-primary">Sign Up</a>
       </div>
       <button class="hamburger-menu" aria-label="Toggle menu" aria-expanded="false">
@@ -2558,7 +2548,8 @@
       <li><a href="#"><i class="fas fa-user"></i>Personal</a></li>
       <li><a href="#"><i class="fas fa-briefcase"></i>Business</a></li>
       <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
-      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+      <li><a href="contactus.html"><i class="fas fa-envelope"></i>CSR</a></li>
       <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i> Log In</a></li>
       <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a></li>
     </ul>
@@ -2568,23 +2559,23 @@
   <!-- Main Content -->
   <main>
     <!-- Referral Hero Section - Redesigned -->
-    <section class="referral-hero">
+    <section class="referral-hero" style="background-image: url('/images/referral-hero-bg.jpg'); background-size: cover; background-position: center;">
       <div class="referral-hero-content">
-        <h1>Premium Referral Program</h1>
-        <p>Invite friends to Annita and earn amazing rewards when they sign up and complete qualifying activities. Start sharing today and unlock exclusive benefits!</p>
+        <h1 style="color: white;">Premium Referral Program</h1>
+        <p style="color: white;">Invite friends to our platform and earn amazing rewards when they sign up and complete qualifying activities. Start sharing today and unlock exclusive benefits!</p>
         
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-number">$50K+</div>
-            <div class="stat-label">Earned by Users</div>
+            <div class="stat-number" style="color: white;">$50K+</div>
+            <div class="stat-label" style="color: white;">Earned by Users</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">50K+</div>
-            <div class="stat-label">Successful Referrals</div>
+            <div class="stat-number" style="color: white;">50K+</div>
+            <div class="stat-label" style="color: white;">Successful Referrals</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">1:3</div>
-            <div class="stat-label">Conversion Rate</div>
+            <div class="stat-number" style="color: white;">1:3</div>
+            <div class="stat-label" style="color: white;">Conversion Rate</div>
           </div>
         </div>
       </div>
@@ -3143,13 +3134,13 @@
   <!-- Chatbot Widget -->
   <div class="chatbot-container">
     <button class="chatbot-button" aria-label="Open chatbot">
-      <i class="fas fa-comment-dots"></i>
+      <i class="fas fa-bell"></i>
       <div class="notification-badge">1</div>
-      <div class="chatbot-tooltip">Ask Annita AI?</div>
+      <div class="chatbot-tooltip">Ask Annita A.I?</div>
     </button>
     <div class="chatbot-window">
       <div class="chat-header">
-        <h3>Annita AI Assistant</h3>
+        <h3>Annita A.I</h3>
         <button class="close-chat" aria-label="Close chatbot"><i class="fas fa-times"></i></button>
       </div>
       <div class="chat-messages">
@@ -3185,15 +3176,10 @@
         <i class="fas fa-trophy"></i>
       </div>
       <h3>Congratulations!</h3>
-      <p>You've unlocked the Silver Tier in our referral program. You'll now earn $5 for each successful referral!</p>
-      <button class="btn btn-primary" style="padding: 12px 30px;">View Your Rewards</button>
+      <p>You've unlocked the Starter Tier in our referral program. You'll now earn $2 for each successful referral!</p>
+      <button class="btn btn-primary" style="padding: 12px 30px;">Accept</button>
     </div>
   </div>
-
-  <!-- Back to Top Button -->
-  <button class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -3555,24 +3541,6 @@
       
       closeReward.addEventListener('click', function() {
         rewardUnlock.classList.remove('active');
-      });
-
-      // Back to Top Button
-      const backToTopButton = document.querySelector('.back-to-top');
-      
-      window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-          backToTopButton.classList.add('active');
-        } else {
-          backToTopButton.classList.remove('active');
-        }
-      });
-      
-      backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
       });
 
       // Create floating particles for hero section

@@ -2295,10 +2295,11 @@
                         const file = this.files[i];
                         const fileItem = document.createElement('div');
                         fileItem.className = 'file-preview-item';
-                        fileItem.innerHTML = `
-                            <span>${file.name}</span>
-                            <i class="fas fa-times" data-index="${i}"></i>
-                        `;
+fileItem.innerHTML = `
+    <i class="fas fa-file-alt"></i>
+    <span>${file.name}</span>
+    <i class="fas fa-times" data-index="${i}"></i>
+`;
                         filePreview.appendChild(fileItem);
                     }
                 }

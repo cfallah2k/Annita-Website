@@ -6,17 +6,27 @@
   <title>Annita - Africa's First All-in-One Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     :root {
       --primary: #FF7D06;
+      --primary-light: rgba(255, 125, 6, 0.1);
+      --primary-dark: #e06d00;
       --secondary: #6C1D3A;
       --accent: #FFC200;
       --dark: #111111;
+      --darker: #0a0a0a;
       --light: #FFFFFF;
+      --lighter: #fafafa;
       --grey: #F5F5F5;
-      --vh: 1vh; /* For mobile viewport height fix */
+      --grey-dark: #e0e0e0;
       --blue-dark: #001a57;
       --blue-light: #00c2ff;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --info: #17a2b8;
+      --vh: 1vh;
     }
     
     * {
@@ -28,11 +38,12 @@
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--dark);
-      overflow-x: hidden;
       background-color: var(--light);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
     
     .container {
@@ -50,6 +61,12 @@
       width: 100%;
       top: 0;
       z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      height: 70px;
     }
     
     .header-container {
@@ -57,9 +74,14 @@
       justify-content: space-between;
       align-items: center;
       height: 80px;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 30px;
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled .header-container {
+      height: 70px;
     }
     
     .logo {
@@ -77,31 +99,59 @@
       object-fit: cover;
       margin-right: 10px;
       border: 2px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled .logo-image {
+      width: 36px;
+      height: 36px;
     }
 
     .logo-text {
       font-family: 'Zen Dots', cursive;
       font-weight: 400;
       color: var(--primary);
+      transition: all 0.3s ease;
     }
     
-    nav ul {
+    header.scrolled .logo-text {
+      font-size: 22px;
+    }
+    
+    .nav-links {
       display: flex;
       list-style: none;
     }
     
-    nav ul li {
+    .nav-links li {
       margin-left: 30px;
+      position: relative;
     }
     
-    nav ul li a {
+    .nav-links a {
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
       transition: color 0.3s;
+      position: relative;
     }
     
-    nav ul li a:hover {
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .nav-links a:hover {
       color: var(--primary);
     }
     
@@ -116,8 +166,7 @@
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s;
-      display: inline-block;
+      transition: all 0.3s ease;
     }
     
     .btn-outline {
@@ -136,9 +185,9 @@
     }
     
     .btn-primary:hover {
-      background-color: #e67000;
+      background-color: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(255, 125, 6, 0.3);
     }
     
     /* Hamburger Menu */
@@ -289,7 +338,7 @@
       z-index: 1000;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
     }
     
     .menu-overlay.active {
@@ -297,6 +346,27 @@
       visibility: visible;
     }
     
+    /* Mobile Menu Buttons */
+    @media (max-width: 768px) {
+      .nav-buttons {
+        display: none !important;
+      }
+      
+      .mobile-menu .nav-buttons {
+        display: flex !important;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+      }
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      width: 100%;
+      margin-top: 80px; /* Offset for fixed header */
+    }
+
     /* Hero Section */
     .hero {
       padding-top: 150px;
@@ -304,6 +374,10 @@
       position: relative;
       overflow: hidden;
       background: linear-gradient(135deg, var(--light) 0%, var(--grey) 100%);
+    }
+    
+    header.scrolled + .hero {
+      padding-top: 130px;
     }
     
     .hero-content {
@@ -321,6 +395,7 @@
       line-height: 1.2;
       margin-bottom: 20px;
       color: var(--secondary);
+      animation: fadeInUp 0.8s ease-out;
     }
     
     .hero-text p {
@@ -328,6 +403,8 @@
       line-height: 1.6;
       color: #555;
       margin-bottom: 30px;
+      animation: fadeInUp 0.8s ease-out 0.2s forwards;
+      opacity: 0;
     }
     
     .hero-text span {
@@ -338,17 +415,26 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.4s forwards;
+      opacity: 0;
     }
     
     .hero-image {
       width: 45%;
       position: relative;
+      animation: fadeIn 1s ease-out 0.3s forwards;
+      opacity: 0;
     }
     
     .hero-image img {
       width: 100%;
       border-radius: 20px;
       box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+    }
+    
+    .hero-image:hover img {
+      transform: scale(1.02);
     }
     
     .hero-badge {
@@ -362,6 +448,7 @@
       border-radius: 30px;
       font-weight: 600;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      animation: pulse 2s infinite;
     }
     
     /* Services Section */
@@ -379,6 +466,19 @@
       font-size: 36px;
       color: var(--secondary);
       margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
     }
     
     .section-header p {
@@ -400,11 +500,30 @@
       padding: 30px;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
     }
     
     .service-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .service-card:hover::before {
+      transform: scaleX(1);
     }
     
     .service-icon {
@@ -418,6 +537,12 @@
       font-size: 30px;
       color: white;
       margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      transform: rotate(10deg) scale(1.1);
+      background-color: var(--secondary);
     }
     
     .service-card h3 {
@@ -451,6 +576,17 @@
       font-size: 36px;
       color: var(--secondary);
       margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .features-content h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: -10px;
+      left: 0;
     }
     
     .feature-item {
@@ -471,6 +607,13 @@
       color: var(--dark);
       margin-right: 20px;
       flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-item:hover .feature-icon {
+      background-color: var(--primary);
+      color: white;
+      transform: rotate(15deg);
     }
     
     .feature-text h3 {
@@ -486,12 +629,18 @@
     
     .features-image {
       width: 50%;
+      position: relative;
     }
     
     .features-image img {
       width: 100%;
       border-radius: 20px;
       box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+    }
+    
+    .features-image:hover img {
+      transform: scale(1.03);
     }
     
     /* Testimonials Section */
@@ -506,6 +655,21 @@
       margin-top: 50px;
       overflow-x: auto;
       padding-bottom: 20px;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .testimonial-cards::-webkit-scrollbar {
+      height: 8px;
+    }
+    
+    .testimonial-cards::-webkit-scrollbar-track {
+      background: var(--grey);
+      border-radius: 10px;
+    }
+    
+    .testimonial-cards::-webkit-scrollbar-thumb {
+      background-color: var(--primary);
+      border-radius: 10px;
     }
     
     .testimonial-card {
@@ -514,6 +678,13 @@
       border-radius: 15px;
       padding: 30px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
     
     .testimonial-header {
@@ -529,12 +700,18 @@
       background-color: #ddd;
       overflow: hidden;
       margin-right: 15px;
+      flex-shrink: 0;
     }
     
     .testimonial-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .testimonial-avatar:hover img {
+      transform: scale(1.1);
     }
     
     .testimonial-info h4 {
@@ -552,6 +729,19 @@
       font-style: italic;
       line-height: 1.6;
       color: #555;
+      position: relative;
+      padding-left: 20px;
+    }
+    
+    .testimonial-content::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -10px;
+      font-size: 40px;
+      color: var(--primary);
+      opacity: 0.3;
+      font-family: serif;
     }
     
     .testimonial-rating {
@@ -566,11 +756,37 @@
       padding: 100px 0;
       color: white;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+    }
+    
+    .cta::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(255, 194, 0, 0.05);
+      border-radius: 50%;
     }
     
     .cta h2 {
       font-size: 36px;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
     }
     
     .cta p {
@@ -579,22 +795,16 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      position: relative;
+      z-index: 1;
     }
     
     .cta-buttons {
       display: flex;
       justify-content: center;
       gap: 20px;
-    }
-    
-    .btn-secondary {
-      background-color: white;
-      color: var(--secondary);
-    }
-    
-    .btn-secondary:hover {
-      background-color: var(--accent);
-      color: var(--dark);
+      position: relative;
+      z-index: 1;
     }
     
     /* Trusted By Section */
@@ -706,6 +916,17 @@
       font-size: 36px;
       color: var(--secondary);
       margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .download-content h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: -10px;
+      left: 0;
     }
     
     .download-content p {
@@ -739,6 +960,11 @@
       max-width: 100%;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+    }
+    
+    .download-image:hover img {
+      transform: scale(1.03);
     }
     
     /* FAQs Section */
@@ -807,6 +1033,198 @@
       padding: 20px;
     }
     
+    /* Cookie Notification Popup */
+    .cookie-notification-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: cookieNotificationFadeIn 0.3s forwards;
+      max-width: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+    
+    .cookie-notification-popup p {
+      margin: 0;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    
+    .cookie-notification-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0 0 0 10px;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+    
+    .cookie-notification-close:hover {
+      transform: scale(1.2);
+    }
+    
+    @keyframes cookieNotificationFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes cookieNotificationFadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(20px); }
+    }
+    
+    /* Cookie Notification Banner */
+    .cookie-notification {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--dark);
+      color: white;
+      padding: 20px;
+      z-index: 999;
+      transform: translateY(100%);
+      transition: transform 0.5s ease-out;
+      box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cookie-notification.active {
+      transform: translateY(0);
+    }
+    
+    .cookie-notification-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .cookie-notification p {
+      flex: 1;
+      min-width: 300px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .cookie-notification-buttons {
+      display: flex;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    
+    .cookie-notification .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    
+    .cookie-notification .btn-outline {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+    
+    .cookie-notification .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateX(-50%) translateY(0); }
+      to { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    }
+    
+    /* Reward Unlock Modal Styles */
+    .reward-unlock {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .reward-unlock.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .reward-unlock-content {
+      background-color: white;
+      border-radius: 15px;
+      padding: 40px;
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    
+    .reward-unlock.active .reward-unlock-content {
+      transform: translateY(0);
+    }
+    
+    .reward-unlock-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #777;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    
+    .reward-unlock-close:hover {
+      color: var(--primary);
+    }
+    
+    .reward-unlock-icon {
+      width: 80px;
+      height: 80px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 36px;
+      color: var(--secondary);
+    }
+    
+    .reward-unlock h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: var(--secondary);
+    }
+    
+    .reward-unlock p {
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
     /* Chatbot Styles */
     .chatbot-container {
       position: fixed;
@@ -1005,118 +1423,6 @@
       }
     }
 
-    /* Cookie Notification Popup */
-    .cookie-notification-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
-      color: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-      z-index: 1000;
-      animation: cookieNotificationFadeIn 0.3s forwards;
-      max-width: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .cookie-notification-popup p {
-      margin: 0;
-      font-size: 0.95rem;
-      flex: 1;
-    }
-
-    .cookie-notification-close {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0 0 0 10px;
-      line-height: 1;
-      transition: transform 0.2s;
-    }
-
-    .cookie-notification-close:hover {
-      transform: scale(1.2);
-    }
-
-    @keyframes cookieNotificationFadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes cookieNotificationFadeOut {
-      from { opacity: 1; transform: translateY(0); }
-      to { opacity: 0; transform: translateY(20px); }
-    }
-
-    /* Cookie Notification Banner */
-    .cookie-notification {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: var(--dark);
-      color: white;
-      padding: 20px;
-      z-index: 999;
-      transform: translateY(100%);
-      transition: transform 0.5s ease-out;
-      box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .cookie-notification.active {
-      transform: translateY(0);
-    }
-
-    .cookie-notification-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .cookie-notification p {
-      flex: 1;
-      min-width: 300px;
-      margin-bottom: 0;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .cookie-notification-buttons {
-      display: flex;
-      gap: 15px;
-      flex-shrink: 0;
-    }
-
-    .cookie-notification .btn {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-
-    .cookie-notification .btn-outline {
-      border-color: rgba(255, 255, 255, 0.3);
-      color: white;
-    }
-
-    .cookie-notification .btn-outline:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    @keyframes fadeOut {
-      from { opacity: 1; transform: translateX(-50%) translateY(0); }
-      to { opacity: 0; transform: translateX(-50%) translateY(20px); }
-    }
-
     /* Footer */
     footer {
       background-color: var(--dark);
@@ -1125,7 +1431,7 @@
     }
 
     .footer-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -1214,18 +1520,123 @@
       margin-top: 0;
     }
 
-    /* Responsive Footer */
-    @media (max-width: 768px) {
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .signup-mega-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .signup-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .account-types {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+      
+      .plans {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      
+      .payment-method-buttons {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger-menu {
+        display: block;
+      }
+      
+      .signup-hero {
+        padding: 8rem 0 4rem;
+      }
+      
+      .signup-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .signup-hero p {
+        font-size: 1.1rem;
+      }
+      
+      .signup-card,
+      .info-card {
+        padding: 30px;
+      }
+      
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .footer-logo-group {
-        margin-bottom: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 20px;
+      }
+      
+      .signup-container {
+        padding: 0 20px 60px;
+      }
+      
+      .signup-card h2,
+      .info-card h3 {
+        font-size: 1.8rem;
+      }
+      
+      .features-header h2 {
+        font-size: 2rem;
+      }
+      
+      .cta-card {
+        padding: 40px 20px;
+      }
+      
+      .cta-card h2 {
+        font-size: 2rem;
+      }
+      
+      .account-types {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+      
+      .plans {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .billing-options {
+        flex-direction: column;
+        gap: 10px;
       }
     }
-
-    @media (max-width: 480px) {
+    
+    @media (max-width: 576px) {
+      .signup-hero {
+        padding: 7rem 0 3rem;
+      }
+      
+      .signup-hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .signup-card h2,
+      .info-card h3 {
+        font-size: 1.5rem;
+      }
+      
+      .cta-card h2 {
+        font-size: 1.8rem;
+      }
+      
       .footer-grid {
         grid-template-columns: 1fr;
       }
@@ -1234,7 +1645,49 @@
         flex-direction: column;
         gap: 10px;
       }
+      
+      .account-types {
+        grid-template-columns: 1fr;
+      }
+      
+      .transaction-content {
+        padding: 30px 20px;
+      }
+      
+      .transaction-content h3 {
+        font-size: 1.5rem;
+      }
     }
+    /* Fix for Why Join section */
+.premium-features {
+  margin-top: 80px;
+  padding: 0 30px; /* Add horizontal padding */
+  max-width: 1400px; /* Match container width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Fix for CTA section */
+.cta-section {
+  margin-top: 80px;
+  padding: 0 30px; /* Add horizontal padding */
+  max-width: 1400px; /* Match container width */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px; /* Add bottom margin */
+}
+
+/* Adjust the cta-card padding for smaller screens */
+@media (max-width: 768px) {
+  .cta-card {
+    padding: 40px 20px;
+  }
+}
+
+/* Ensure features grid doesn't overflow */
+.features-grid {
+  padding: 0 15px; /* Add some padding */
+}
 
     /* Responsive Styles */
     @media (max-width: 991px) {
@@ -1360,11 +1813,34 @@
         min-width: 120px;
         text-align: center;
       }
+
+      /* Reward modal adjustments */
+      .reward-unlock-content {
+        padding: 30px 20px;
+      }
+      
+      .reward-unlock h3 {
+        font-size: 20px;
+      }
+      
+      .reward-unlock p {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .testimonial-card {
+        min-width: 280px;
+      }
     }
 
     /* iOS and Android specific adjustments */
     @supports (-webkit-touch-callout: none) {
-      /* iOS specific styles */
       .mobile-menu {
         padding-top: max(100px, constant(safe-area-inset-top));
         padding-top: max(100px, env(safe-area-inset-top));
@@ -1374,9 +1850,51 @@
     }
 
     @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) {
-      /* Safari and Chrome specific styles */
       .mobile-menu {
         -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      .cookie-notification,
+      .reward-unlock,
+      .mobile-menu,
+      .menu-overlay {
+        display: none !important;
+      }
+
+      body {
+        background-color: white;
+        color: black;
+      }
+
+      .hero, .services, .features, .testimonials, .cta, .trusted-by, .download-app, .faqs {
+        padding: 40px 0;
+      }
+
+      .section-header h2::after,
+      .features-content h2::after,
+      .download-content h2::after,
+      .footer-column h3::after {
+        background-color: black;
+      }
+
+      .btn {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .footer-column a::after {
+        display: none;
+      }
+
+      .footer-social {
+        display: none;
       }
     }
   </style>
@@ -1512,6 +2030,28 @@
           </div>
           <h3>Annita Business Training & Mentorship</h3>
           <p>Access expert-led training programs and mentorship to grow your business skills and entrepreneurial capabilities.</p>
+        </div>
+        <!-- New Services Added Here -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3>Annita Cloud</h3>
+          <p>Secure cloud storage and computing solutions for businesses of all sizes, with scalable infrastructure across Africa.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>Annita ERP System</h3>
+          <p>Comprehensive enterprise resource planning solution to integrate and manage all your business processes in one platform.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3>Annita Venture Capital</h3>
+          <p>Fueling Africa's most innovative startups with strategic investments, mentorship, and access to our pan-African business network to accelerate growth and market expansion.</p>
         </div>
       </div>
     </div>
@@ -1723,7 +2263,7 @@
             <i class="fas fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
-            Annita is Africa's first all-in-one digital platform that combines e-commerce, fintech, AI, social networking, marketing, logistics, and lifestyle services. It's designed to empower businesses and individuals with innovative solutions, connectivity, and convenience across the continent.
+            Annita is Africa's first all-in-one digital platform combining e-commerce, fintech, AI, social networking, marketing, logistics, and lifestyle services! We're here to empower businesses and individuals across Africa with innovative solutions.
           </div>
         </div>
         <div class="faq-item">
@@ -1773,7 +2313,7 @@
         <p>Join thousands of businesses and individuals across Africa who are already experiencing the power of our all-in-one platform.</p>
         <div class="cta-buttons">
           <a href="signup.html" class="btn btn-primary">Create Account</a>
-          <a href="contactsales.html" class="btn btn-secondary">Contact Sales</a>
+            <a href="contactsales.html" class="btn btn-outline">Contact Sales</a>
         </div>
       </div>
     </section>
@@ -1794,11 +2334,10 @@
               <a href="+231 77 505 7227"><i class="fab fa-whatsapp"></i></a>
               <a href="https://www.instagram.com/annita__official_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
               <a href="https://www.linkedin.com/company/annita-official/"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://youtube.com/@annita_official?si=5Q2020FqwEV_zBkq"><i class="fab fa-youtube"></i></a>
+              <a href="https://twitter.com/Annita_Official"><i class="fab fa-twitter"></i></a>
             </div>
           </div>
         </div>
-        
         <div class="footer-column">
           <h3>Products</h3>
           <ul>
@@ -1809,67 +2348,68 @@
             <li><a href="comingsoonpage.html">Annita-Ads</a></li>
             <li><a href="comingsoonpage.html">Annita-Cloud</a></li>
             <li><a href="comingsoonpage.html">Annita-ERP-System</a></li>
+            <li><a href="comingsoonpage.html">Annita Logistics</a></li>
+            <li><a href="comingsoonpage.html">Annita Lifestyle Services</a></li>
+            <li><a href="comingsoonpage.html">Annita Opportunities Search</a></li>
+            <li><a href="comingsoonpage.html">Annita Business Training & Mentorship</a></li>
+            <li><a href="comingsoonpage.html">Annita Venture Capital</a></li>
           </ul>
         </div>
-        
         <div class="footer-column">
           <h3>Resources</h3>
           <ul>
             <li><a href="helpcenterpage.html">Help Center</a></li>
             <li><a href="comingsoonpage.html">Community</a></li>
             <li><a href="comingsoonpage.html">Tutorials</a></li>
-            <li><a href="404errorpage.html">Webinars</a></li>
+            <li><a href="comingsoonpage.html">Webinars</a></li>
             <li><a href="comingsoonpage.html">Developers</a></li>
             <li><a href="comingsoonpage.html">API Documentation</a></li>
-            <li><a href="comingsoonpage.html">Agents Network</a></li>
+            <li><a href="AgentsNetwork.html">Agents Network</a></li>
           </ul>
         </div>
-        
-        <div class="footer-column">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li><a href="careerpage.html">Careers</a></li>
-            <li><a href="presspage.html">Our Press</a></li>
-            <li><a href="blogpage.html">Our Blog</a></li>
-            <li><a href="Ourawardspage.html">Our Awards</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="referralpage.html">Referral Program</a></li>
-          </ul>
-        </div>
-        
         <div class="footer-column">
           <h3>Legal</h3>
           <ul>
-            <li><a href="privacypolicy.html">Privacy Policy</a></li>
-            <li><a href="termsofservicepage.html">Terms of Service</a></li>
-            <li><a href="securitypage.html">Security</a></li>
-            <li><a href="cookies.html">Cookie Policy</a></li>
-            <li><a href="ReportanIssue.html">Report an Issue</a></li>
-            <li><a href="OurLegalTeam.html">Our Legal Team</a></li>
+            <li><a href="helpcenter.html">Privacy Policy</a></li>
+            <li><a href="contactus.html">Terms of Service</a></li>
+            <li><a href="faqs.html">Security</a></li>
+            <li><a href="security.html">Cookie Policy</a></li>
+            <li><a href="legal.html">Report an Issue</a></li>
+            <li><a href="status.html">Our Legal Team</a></li>
           </ul>
         </div>
       </div>
-      
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="helpcenter.html">Help Center</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="legal.html">Legal</a></li>
+          <li><a href="status.html">System Status</a></li>
+        </ul>
+      </div>
+    </div>
       <div class="footer-bottom">
-        <div>&copy; 2025 Annita LLC. All rights reserved.</div>
-        <div class="footer-links-horizontal">
-          <a href="privacypolicy.html">Privacy</a>
-          <a href="termsofservicepage.html">Terms</a>
-          <a href="comingsoonpage.html">Sitemap</a>
-          <a href="comingsoonpage.html">Accessibility</a>
-          <a href="ReportanIssue.html">Report an Issue</a>
+        <div class="copyright">
+          &copy; <span id="year"></span> Annita LLC. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="privacypolicy.html">Privacy Policy</a>
+          <a href="termsofservicepage.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Chatbot Widget -->
+  <!-- Chatbot -->
   <div class="chatbot-container">
     <div class="chatbot-button">
-      <i class="fa fa-bell"></i>
-      <div class="notification-badge">1</div>
-      <div class="chatbot-tooltip">Ask Annita AI?</div>
+      <i class="fas fa-bell"></i>
+      <span class="notification-badge">1</span>
+      <span class="chatbot-tooltip">Ask Annita AI?</span>
     </div>
     <div class="chatbot-window">
       <div class="chat-header">
@@ -1888,297 +2428,189 @@
     </div>
   </div>
 
-  <!-- Cookie Notification Banner -->
-  <div class="cookie-notification" id="cookie-banner">
+  <!-- Cookie Notification -->
+  <div class="cookie-notification">
     <div class="cookie-notification-container">
-      <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies. <a href="cookies.html" style="color: var(--primary);">Learn more</a></p>
+      <p>We use cookies to enhance your experience on our platform. By continuing to browse, you agree to our use of cookies.</p>
       <div class="cookie-notification-buttons">
-        <button class="btn btn-outline" id="cookie-reject">Reject</button>
-        <button class="btn btn-primary" id="cookie-accept">Accept</button>
+        <button class="btn btn-primary accept-cookies">Accept</button>
+        <button class="btn btn-outline manage-cookies">Manage Preferences</button>
       </div>
     </div>
   </div>
 
+  <!-- Reward Unlock Modal -->
+  <div class="reward-unlock">
+    <div class="reward-unlock-content">
+      <button class="reward-unlock-close"><i class="fas fa-times"></i></button>
+      <div class="reward-unlock-icon">
+        <i class="fas fa-gift"></i>
+      </div>
+      <h3>Welcome to Annita!</h3>
+      <p>We’re excited to have you here. You’re now part of Africa’s first all-in-one platform built to empower and elevate.
+        Loving it so far? Missing something? Tell us—your feedback helps us grow with you.</p>
+      <a href="https://forms.gle/ojFMZXEPauuxM4XS9" class="btn btn-primary">Your Voice. Our Future.</a>
+    </div>
+  </div>
+
   <script>
-    // Enhanced Mobile Menu Toggle with Premium Animations
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburger = document.querySelector('.hamburger-menu');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const overlay = document.querySelector('.menu-overlay');
-      const body = document.body;
-      
-      // Toggle menu function
-      function toggleMenu() {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        overlay.classList.toggle('active');
-        body.classList.toggle('no-scroll');
-        
-        if (mobileMenu.classList.contains('active')) {
-          // Disable scrolling when menu is open
-          body.style.overflow = 'hidden';
-          // Add iOS inertia scrolling to menu
-          mobileMenu.style.webkitOverflowScrolling = 'touch';
-        } else {
-          // Re-enable scrolling
-          body.style.overflow = '';
-          // Remove iOS inertia when menu is closed
-          mobileMenu.style.webkitOverflowScrolling = '';
-        }
-      }
-      
-      // Hamburger click event
-      hamburger.addEventListener('click', toggleMenu);
-      
-      // Overlay click event
-      overlay.addEventListener('click', toggleMenu);
-      
-// Close menu when clicking on a link
-const mobileLinks = mobileMenu.querySelectorAll('a');
-mobileLinks.forEach(link => {
-  link.addEventListener('click', function(e) {
-    // Only prevent default for anchor links (same page navigation)
-    if (link.getAttribute('href').startsWith('#')) {
-      e.preventDefault();
-      toggleMenu();
-      setTimeout(() => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 500);
-    } else {
-      // For all other links, just close the menu
-      // The browser will handle the navigation normally
-      toggleMenu();
-    }
-  });
-});
-      
-      // Handle iOS viewport height changes
-      function handleViewportHeight() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-      }
-      
-      // Initial call
-      handleViewportHeight();
-      
-      // Listen for resize events
-      window.addEventListener('resize', handleViewportHeight);
-      window.addEventListener('orientationchange', handleViewportHeight);
-      
-      // Prevent body scroll when menu is open
-      document.addEventListener('touchmove', function(e) {
-        if (mobileMenu.classList.contains('active')) {
-          e.preventDefault();
-        }
-      }, { passive: false });
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      // Chatbot functionality
-      const chatbotButton = document.querySelector('.chatbot-button');
-      const chatbotContainer = document.querySelector('.chatbot-container');
-      const closeChat = document.querySelector('.close-chat');
-      const chatInput = document.querySelector('.chat-input input');
-      const sendButton = document.querySelector('.send-button');
-      const chatMessages = document.querySelector('.chat-messages');
+    // Mobile menu toggle
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
 
-      // Toggle chat window
-      chatbotButton.addEventListener('click', function() {
-        chatbotContainer.classList.toggle('open');
-        // Remove notification badge when chat is opened
-        document.querySelector('.notification-badge').style.display = 'none';
-      });
+    hamburgerMenu.addEventListener('click', () => {
+      hamburgerMenu.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+    });
 
-      // Close chat window
-      closeChat.addEventListener('click', function() {
-        chatbotContainer.classList.remove('open');
-      });
+    menuOverlay.addEventListener('click', () => {
+      hamburgerMenu.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+    });
 
-      // Send message function
-      function sendMessage() {
-        const messageText = chatInput.value.trim();
-        if (messageText) {
-          // Add user message
-          const userMessage = document.createElement('div');
-          userMessage.className = 'message user-message';
-          userMessage.textContent = messageText;
-          chatMessages.appendChild(userMessage);
-
-          // Clear input
-          chatInput.value = '';
-
-          // Scroll to bottom
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-
-          // Simulate bot response after a delay
-          setTimeout(() => {
-            const botMessage = document.createElement('div');
-            botMessage.className = 'message bot-message';
-            botMessage.textContent = "Thanks for your message! Our team will get back to you soon with more information.";
-            chatMessages.appendChild(botMessage);
-            
-            // Scroll to bottom again after bot response
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-          }, 1000);
-        }
-      }
-
-      // Send message on button click
-      sendButton.addEventListener('click', sendMessage);
-
-      // Send message on Enter key
-      chatInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          sendMessage();
-        }
-      });
-
-      // FAQ accordion functionality
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-          // Close all other items
-          faqItems.forEach(otherItem => {
-            if (otherItem !== item) {
-              otherItem.classList.remove('active');
-            }
-          });
-          
-          // Toggle current item
-          item.classList.toggle('active');
-        });
-      });
-
-      // Cookie Preferences Notification
-      if (localStorage.getItem('cookiePrefsSaved')) {
-        showCookieNotification('Your cookie preferences have been updated successfully!');
-        localStorage.removeItem('cookiePrefsSaved');
-      }
-
-      function showCookieNotification(message) {
-        const notification = document.createElement('div');
-        notification.className = 'cookie-notification-popup';
-        notification.innerHTML = `
-          <p>${message}</p>
-          <button class="cookie-notification-close">&times;</button>
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Close button functionality
-        notification.querySelector('.cookie-notification-close').addEventListener('click', function() {
-          notification.style.animation = 'cookieNotificationFadeOut 0.3s forwards';
-          setTimeout(() => notification.remove(), 300);
-        });
-        
-        // Auto-close after 5 seconds
-        setTimeout(() => {
-          notification.style.animation = 'cookieNotificationFadeOut 0.3s forwards';
-          setTimeout(() => notification.remove(), 300);
-        }, 5000);
-      }
-
-      // Cookie Settings Functionality
-      const cookieBanner = document.getElementById('cookie-banner');
-      const cookieAccept = document.getElementById('cookie-accept');
-      const cookieReject = document.getElementById('cookie-reject');
-
-      // Check if cookie preferences are already set
-      function checkCookiePreferences() {
-        const consentGiven = localStorage.getItem('cookieConsent');
-        
-        if (!consentGiven) {
-          // Show banner if no consent given yet
-          setTimeout(() => {
-            cookieBanner.classList.add('active');
-          }, 1000);
-        }
-      }
-
-      // Accept all cookies
-      function acceptAllCookies() {
-        const preferences = {
-          performance: true,
-          functional: true,
-          targeting: true
-        };
-        
-        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-        localStorage.setItem('cookieConsent', 'given');
-        
-        // Update cookies based on preferences
-        updateCookies();
-      }
-
-      // Reject all optional cookies
-      function rejectOptionalCookies() {
-        const preferences = {
-          performance: false,
-          functional: false,
-          targeting: false
-        };
-        
-        localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
-        localStorage.setItem('cookieConsent', 'given');
-        
-        // Update cookies based on preferences
-        updateCookies();
-      }
-
-      // Update cookies based on preferences
-      function updateCookies() {
-        const preferences = JSON.parse(localStorage.getItem('cookiePreferences')) || {
-          performance: true,
-          functional: true,
-          targeting: false
-        };
-        
-        // In a real implementation, you would set or remove cookies based on preferences
-        console.log('Updating cookies based on preferences:', preferences);
-        
-        // Example: Google Analytics
-        if (!preferences.performance) {
-          console.log('Disabling performance cookies (e.g., Google Analytics)');
-          // window['ga-disable-UA-XXXXX-Y'] = true;
-        } else {
-          // window['ga-disable-UA-XXXXX-Y'] = false;
-        }
-        
-        // Example: Facebook Pixel
-        if (!preferences.targeting) {
-          console.log('Disabling targeting cookies (e.g., Facebook Pixel)');
-          // fbq('optOut');
-        } else {
-          // fbq('optIn');
-        }
-      }
-
-      // Event Listeners
-      if (cookieAccept) {
-        cookieAccept.addEventListener('click', function() {
-          acceptAllCookies();
-          cookieBanner.classList.remove('active');
-        });
-      }
-
-      if (cookieReject) {
-        cookieReject.addEventListener('click', function() {
-          rejectOptionalCookies();
-          cookieBanner.classList.remove('active');
-        });
-      }
-
-      // Initialize
-      checkCookiePreferences();
-
-      // If coming from cookie banner link, hide the banner
-      if (window.location.hash === '#cookie-policy') {
-        localStorage.setItem('cookieConsent', 'given');
-        if (cookieBanner) cookieBanner.classList.remove('active');
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        document.querySelector('header').classList.add('scrolled');
+      } else {
+        document.querySelector('header').classList.remove('scrolled');
       }
     });
+
+    // FAQ accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+    // Chatbot toggle
+    const chatbotButton = document.querySelector('.chatbot-button');
+    const chatbotContainer = document.querySelector('.chatbot-container');
+    const closeChat = document.querySelector('.close-chat');
+
+    chatbotButton.addEventListener('click', () => {
+      chatbotContainer.classList.toggle('open');
+    });
+
+    closeChat.addEventListener('click', () => {
+      chatbotContainer.classList.remove('open');
+    });
+
+    // Cookie notification
+    const cookieNotification = document.querySelector('.cookie-notification');
+    const acceptCookies = document.querySelector('.accept-cookies');
+    const manageCookies = document.querySelector('.manage-cookies');
+
+    if (!localStorage.getItem('cookiesAccepted')) {
+      setTimeout(() => {
+        cookieNotification.classList.add('active');
+      }, 2000);
+    }
+
+    acceptCookies.addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true');
+      cookieNotification.classList.remove('active');
+    });
+
+    manageCookies.addEventListener('click', () => {
+      // Here you would typically open a more detailed cookie preferences modal
+      alert('Cookie preferences would be shown here in a production environment.');
+    });
+
+    // Reward popup - show after 30 seconds
+    setTimeout(() => {
+      if (!sessionStorage.getItem('rewardShown')) {
+        document.querySelector('.reward-unlock').classList.add('active');
+        sessionStorage.setItem('rewardShown', 'true');
+      }
+    }, 30000);
+
+    // Close reward popup
+    document.querySelector('.reward-unlock-close').addEventListener('click', () => {
+      document.querySelector('.reward-unlock').classList.remove('active');
+    });
+
+    // Simple chatbot functionality
+    const chatInput = document.querySelector('.chat-input input');
+    const sendButton = document.querySelector('.send-button');
+    const chatMessages = document.querySelector('.chat-messages');
+
+    function addMessage(text, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message');
+      messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+      messageDiv.textContent = text;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function handleUserMessage() {
+      const message = chatInput.value.trim();
+      if (message) {
+        addMessage(message, true);
+        chatInput.value = '';
+        
+        // Simple bot responses
+        setTimeout(() => {
+          const responses = [
+            "I can help you with account setup, payments, and more. What specifically do you need help with?",
+            "Thanks for your message! Our support team can assist you further if needed.",
+            "That's a great question! Let me connect you with the right resources.",
+            "I'm still learning, but I'll do my best to help. Could you clarify your question?"
+          ];
+          addMessage(responses[Math.floor(Math.random() * responses.length)]);
+        }, 1000);
+      }
+    }
+
+    sendButton.addEventListener('click', handleUserMessage);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleUserMessage();
+    });
+
+    // Service card animations
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+      card.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    // Testimonial scroll animation
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    testimonialCards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'all 0.5s ease';
+      observer.observe(card);
+    });
+
+    // Set vh unit for mobile browsers
+    function setVhUnit() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    window.addEventListener('resize', setVhUnit);
+    setVhUnit();
   </script>
 </body>
 </html>
