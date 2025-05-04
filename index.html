@@ -1,12 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Annita - Africa's First All-in-One Platform</title>
+  <meta name="description" content="Annita - Africa's First All-in-One Digital Platform combining e-commerce, Fintech, AI, Social Networking, Marketing, Logistics, and Lifestyle services.">
+  <meta name="keywords" content="African digital platform, e-commerce Africa, fintech Africa, business platform Africa, digital solutions Africa">
+  <meta name="author" content="Annita LLC">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://an-nita.com/">
+  <meta property="og:title" content="Annita - Africa's First All-in-One Digital Platform">
+  <meta property="og:description" content="Empowering businesses and individuals across Africa with innovative digital solutions.">
+  <meta property="og:image" content="https://an-nita.com/images/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://an-nita.com/">
+  <meta property="twitter:title" content="Annita - Africa's First All-in-One Digital Platform">
+  <meta property="twitter:description" content="Empowering businesses and individuals across Africa with innovative digital solutions.">
+  <meta property="twitter:image" content="https://an-nita.com/images/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/Annita's Logo.jpg" sizes="32x32">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  
+  <!-- Preconnect to important domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style">
+  <link rel="preload" href="/images/Annita's Logo.jpg" as="image">
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Dots&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  
+  <!-- Schema.org markup for Google -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Annita",
+      "url": "https://an-nita.com",
+      "logo": "https://an-nita.com/images/Annita's Logo.jpg",
+      "description": "Africa's First All-in-One Digital Platform combining e-commerce, Fintech, AI, Social Networking, Marketing, Logistics, and Lifestyle services.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Business District",
+        "addressLocality": "Monrovia",
+        "addressRegion": "Montserrado",
+        "postalCode": "1000",
+        "addressCountry": "Liberia"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+231 77 505 7227",
+        "contactType": "customer service",
+        "email": "support@annita.com",
+        "areaServed": "Africa"
+      },
+      "sameAs": [
+        "https://www.facebook.com/share/15vfTCB6zA/",
+        "https://www.instagram.com/annita__official_",
+        "https://www.linkedin.com/company/annita-official/",
+        "https://twitter.com/Annita_Official"
+      ]
+    }
+  </script>
+
   <style>
     :root {
       --primary: #FF7D06;
@@ -27,6 +95,26 @@
       --danger: #dc3545;
       --info: #17a2b8;
       --vh: 1vh;
+      
+      /* Light mode colors (default) */
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --card-bg: #F5F5F5;
+      --header-bg: #ffffff;
+      --footer-bg: #111111;
+      --border-color: rgba(0,0,0,0.1);
+      --shadow-color: rgba(0,0,0,0.1);
+    }
+    
+    /* Dark mode colors */
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --card-bg: #1e1e1e;
+      --header-bg: #1a1a1a;
+      --footer-bg: #0a0a0a;
+      --border-color: rgba(255,255,255,0.1);
+      --shadow-color: rgba(0,0,0,0.3);
     }
     
     * {
@@ -37,15 +125,67 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      color: var(--dark);
-      background-color: var(--light);
+      color: var(--text-color);
+      background-color: var(--bg-color);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       line-height: 1.6;
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     
+    /* Page Loader */
+    .page-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    
+    .page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .loader-logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    .loader-progress {
+      width: 200px;
+      height: 4px;
+      background-color: var(--border-color);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .loader-progress-bar {
+      height: 100%;
+      width: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .loader-text {
+      font-size: 14px;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+    
+    /* Container */
     .container {
       width: 100%;
       max-width: 1200px;
@@ -55,8 +195,8 @@
     
     /* Header Styles */
     header {
-      background-color: var(--light);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 10px var(--shadow-color);
       position: fixed;
       width: 100%;
       top: 0;
@@ -65,7 +205,7 @@
     }
     
     header.scrolled {
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 20px var(--shadow-color);
       height: 70px;
     }
     
@@ -130,7 +270,7 @@
     
     .nav-links a {
       text-decoration: none;
-      color: var(--dark);
+      color: var(--text-color);
       font-weight: 500;
       transition: color 0.3s;
       position: relative;
@@ -167,6 +307,8 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
     
     .btn-outline {
@@ -190,6 +332,119 @@
       box-shadow: 0 5px 15px rgba(255, 125, 6, 0.3);
     }
     
+    /* Button click animation */
+    .btn:active {
+      transform: scale(0.95);
+    }
+    
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+    }
+    
+    .btn:focus:not(:active)::after {
+      animation: ripple 0.6s ease-out;
+    }
+    
+    /* Premium Theme Toggle */
+    .theme-toggle-container {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+    
+    .theme-toggle-label {
+      margin-right: 10px;
+      font-size: 14px;
+      color: var(--text-color);
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .theme-toggle {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+    
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--card-bg);
+      transition: .4s;
+      border-radius: 34px;
+      box-shadow: 0 2px 5px var(--shadow-color);
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: var(--primary);
+      transition: .4s;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    
+    .theme-toggle input:checked + .toggle-slider {
+      background-color: var(--card-bg);
+    }
+    
+    .theme-toggle input:checked + .toggle-slider:before {
+      transform: translateX(30px);
+      background-color: var(--accent);
+    }
+    
+    .theme-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: var(--text-color);
+      transition: all 0.3s;
+    }
+    
+    .sun-icon {
+      left: 8px;
+      opacity: 0.8;
+    }
+    
+    .moon-icon {
+      right: 8px;
+      opacity: 0.6;
+    }
+    
+    .theme-toggle input:checked ~ .sun-icon {
+      opacity: 0.6;
+    }
+    
+    .theme-toggle input:checked ~ .moon-icon {
+      opacity: 0.8;
+    }
+    
     /* Hamburger Menu */
     .hamburger-menu {
       display: none;
@@ -205,7 +460,7 @@
       display: block;
       width: 30px;
       height: 3px;
-      background-color: var(--dark);
+      background-color: var(--text-color);
       position: absolute;
       left: 5px;
       border-radius: 3px;
@@ -246,11 +501,11 @@
       max-width: 320px;
       height: 100%;
       height: calc(var(--vh, 1vh) * 100);
-      background-color: white;
+      background-color: var(--header-bg);
       z-index: 1001;
       transform: translateX(-100%);
       transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 4px 0 20px var(--shadow-color);
       padding: 100px 30px 30px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
@@ -291,7 +546,7 @@
     
     .mobile-menu a {
       text-decoration: none;
-      color: var(--dark);
+      color: var(--text-color);
       font-size: 18px;
       font-weight: 500;
       transition: all 0.3s;
@@ -373,7 +628,7 @@
       padding-bottom: 100px;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, var(--light) 0%, var(--grey) 100%);
+      background: linear-gradient(135deg, var(--bg-color) 0%, var(--card-bg) 100%);
     }
     
     header.scrolled + .hero {
@@ -401,7 +656,7 @@
     .hero-text p {
       font-size: 18px;
       line-height: 1.6;
-      color: #555;
+      color: var(--text-color);
       margin-bottom: 30px;
       animation: fadeInUp 0.8s ease-out 0.2s forwards;
       opacity: 0;
@@ -429,7 +684,7 @@
     .hero-image img {
       width: 100%;
       border-radius: 20px;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 30px var(--shadow-color);
       transition: transform 0.5s ease;
     }
     
@@ -447,14 +702,14 @@
       padding: 10px 20px;
       border-radius: 30px;
       font-weight: 600;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px var(--shadow-color);
       animation: pulse 2s infinite;
     }
     
     /* Services Section */
     .services {
       padding: 100px 0;
-      background-color: var(--light);
+      background-color: var(--bg-color);
     }
     
     .section-header {
@@ -483,7 +738,7 @@
     
     .section-header p {
       font-size: 18px;
-      color: #555;
+      color: var(--text-color);
       max-width: 700px;
       margin: 0 auto;
     }
@@ -495,13 +750,14 @@
     }
     
     .service-card {
-      background-color: var(--grey);
+      background-color: var(--card-bg);
       border-radius: 15px;
       padding: 30px;
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      border: 1px solid var(--border-color);
     }
     
     .service-card::before {
@@ -519,7 +775,7 @@
     
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px var(--shadow-color);
     }
     
     .service-card:hover::before {
@@ -552,14 +808,14 @@
     }
     
     .service-card p {
-      color: #555;
+      color: var(--text-color);
       line-height: 1.6;
     }
     
     /* Features Section */
     .features {
       padding: 100px 0;
-      background-color: var(--grey);
+      background-color: var(--card-bg);
     }
     
     .features-container {
@@ -623,7 +879,7 @@
     }
     
     .feature-text p {
-      color: #555;
+      color: var(--text-color);
       line-height: 1.6;
     }
     
@@ -635,7 +891,7 @@
     .features-image img {
       width: 100%;
       border-radius: 20px;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 30px var(--shadow-color);
       transition: transform 0.5s ease;
     }
     
@@ -643,113 +899,169 @@
       transform: scale(1.03);
     }
     
-    /* Testimonials Section */
-    .testimonials {
-      padding: 100px 0;
-      background-color: var(--light);
-    }
-    
-    .testimonial-cards {
-      display: flex;
-      gap: 30px;
-      margin-top: 50px;
-      overflow-x: auto;
-      padding-bottom: 20px;
-      scroll-snap-type: x mandatory;
-    }
-    
-    .testimonial-cards::-webkit-scrollbar {
-      height: 8px;
-    }
-    
-    .testimonial-cards::-webkit-scrollbar-track {
-      background: var(--grey);
-      border-radius: 10px;
-    }
-    
-    .testimonial-cards::-webkit-scrollbar-thumb {
-      background-color: var(--primary);
-      border-radius: 10px;
-    }
-    
-    .testimonial-card {
-      min-width: 350px;
-      background-color: var(--grey);
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      scroll-snap-align: start;
-      transition: transform 0.3s ease;
-    }
-    
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    
-    .testimonial-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    
-    .testimonial-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-color: #ddd;
-      overflow: hidden;
-      margin-right: 15px;
-      flex-shrink: 0;
-    }
-    
-    .testimonial-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .testimonial-avatar:hover img {
-      transform: scale(1.1);
-    }
-    
-    .testimonial-info h4 {
-      font-size: 18px;
-      margin-bottom: 5px;
-      color: var(--secondary);
-    }
-    
-    .testimonial-info p {
-      font-size: 14px;
-      color: #777;
-    }
-    
-    .testimonial-content {
-      font-style: italic;
-      line-height: 1.6;
-      color: #555;
-      position: relative;
-      padding-left: 20px;
-    }
-    
-    .testimonial-content::before {
-      content: '"';
-      position: absolute;
-      left: 0;
-      top: -10px;
-      font-size: 40px;
-      color: var(--primary);
-      opacity: 0.3;
-      font-family: serif;
-    }
-    
-    .testimonial-rating {
-      margin-top: 20px;
-      color: var(--accent);
-      font-size: 18px;
-    }
-    
+/* Testimonials Section */
+.testimonials {
+  padding: 80px 0;
+  background-color: var(--bg-color);
+  position: relative;
+}
+
+.testimonial-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.testimonial-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  border: 1px solid var(--border-color);
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Video Testimonial Styles */
+.video-testimonial .testimonial-media {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-testimonial .testimonial-media iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Image Testimonial Styles */
+.testimonial-media:not(.video-testimonial .testimonial-media) {
+  height: 280px;
+  position: relative;
+}
+
+.testimonial-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+  border: 2px solid var(--primary);
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-info h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: var(--secondary);
+}
+
+.testimonial-info p {
+  font-size: 14px;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.testimonial-text {
+  margin-bottom: 5px;
+  color: var(--text-color);
+  line-height: 1.6;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.testimonial-rating {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.testimonial-date {
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.7;
+  text-align: right;
+}
+
+/* Dot Navigation */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 8px;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  background-color: var(--primary);
+  transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .testimonial-slide {
+    min-width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .testimonial-slide {
+    min-width: 33.333%;
+  }
+}
     /* CTA Section */
     .cta {
       background-color: var(--secondary);
@@ -810,15 +1122,15 @@
     /* Trusted By Section */
     .trusted-by {
       padding: 80px 0;
-      background-color: var(--light);
+      background-color: var(--bg-color);
       text-align: center;
-      border-top: 1px solid rgba(0,0,0,0.05);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
     
     .trusted-by h3 {
       font-size: 16px;
-      color: #777;
+      color: var(--text-color);
       margin-bottom: 60px;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -834,7 +1146,7 @@
       top: 50%;
       width: 40px;
       height: 1px;
-      background-color: rgba(0,0,0,0.1);
+      background-color: var(--border-color);
     }
     
     .trusted-by h3:before {
@@ -899,7 +1211,7 @@
     /* Download App Section Styles */
     .download-app {
       padding: 100px 0;
-      background-color: var(--light);
+      background-color: var(--bg-color);
     }
     
     .download-container {
@@ -931,7 +1243,7 @@
     
     .download-content p {
       font-size: 18px;
-      color: #555;
+      color: var(--text-color);
       margin-bottom: 30px;
       line-height: 1.6;
     }
@@ -959,7 +1271,7 @@
     .download-image img {
       max-width: 100%;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px var(--shadow-color);
       transition: transform 0.5s ease;
     }
     
@@ -970,7 +1282,7 @@
     /* FAQs Section */
     .faqs {
       padding: 80px 0;
-      background-color: var(--light);
+      background-color: var(--bg-color);
     }
     
     .faq-container {
@@ -982,17 +1294,18 @@
       margin-bottom: 20px;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px var(--shadow-color);
       transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
     }
     
     .faq-item:hover {
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 16px var(--shadow-color);
     }
     
     .faq-question {
       padding: 20px;
-      background-color: var(--grey);
+      background-color: var(--card-bg);
       color: var(--secondary);
       font-weight: 600;
       font-size: 18px;
@@ -1004,7 +1317,7 @@
     }
     
     .faq-question:hover {
-      background-color: #e0e0e0;
+      background-color: var(--border-color);
     }
     
     .faq-question i {
@@ -1015,7 +1328,7 @@
       padding: 0 20px;
       max-height: 0;
       overflow: hidden;
-      background-color: white;
+      background-color: var(--bg-color);
       transition: max-height 0.3s ease, padding 0.3s ease;
     }
     
@@ -1042,7 +1355,7 @@
       color: white;
       padding: 15px 20px;
       border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 20px var(--shadow-color);
       z-index: 1000;
       animation: cookieNotificationFadeIn 0.3s forwards;
       max-width: 350px;
@@ -1168,14 +1481,14 @@
     }
     
     .reward-unlock-content {
-      background-color: white;
+      background-color: var(--bg-color);
       border-radius: 15px;
       padding: 40px;
       text-align: center;
       max-width: 450px;
       width: 90%;
       position: relative;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px var(--shadow-color);
       transform: translateY(20px);
       transition: transform 0.3s ease;
     }
@@ -1220,17 +1533,19 @@
     }
     
     .reward-unlock p {
-      color: #555;
+      color: var(--text-color);
       margin-bottom: 25px;
       line-height: 1.6;
     }
 
-    /* Chatbot Styles */
-    .chatbot-container {
+    /* Enhanced Chatbot Styles */
+  /* Enhanced Chatbot Styles */
+  .chatbot-container {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
+      bottom: 20px;
+      right: 20px;
       z-index: 999;
+      font-family: 'Poppins', sans-serif;
     }
 
     .chatbot-button {
@@ -1242,18 +1557,25 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px var(--shadow-color);
       position: relative;
       transition: all 0.3s ease;
+      border: none;
     }
 
     .chatbot-button:hover {
       transform: scale(1.1);
+      background-color: var(--primary-dark);
     }
 
     .chatbot-button i {
       color: white;
       font-size: 24px;
+      transition: transform 0.3s;
+    }
+
+    .chatbot-button:hover i {
+      transform: scale(1.1);
     }
 
     .notification-badge {
@@ -1270,7 +1592,7 @@
       justify-content: center;
       font-size: 12px;
       font-weight: bold;
-      animation: pulse 2s infinite;
+      animation: pulse 1.5s infinite;
     }
 
     .chatbot-tooltip {
@@ -1280,13 +1602,14 @@
       transform: translateY(-50%);
       background-color: var(--dark);
       color: white;
-      padding: 8px 12px;
+      padding: 8px 15px;
       border-radius: 8px;
       font-size: 14px;
       white-space: nowrap;
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
+      pointer-events: none;
     }
 
     .chatbot-tooltip::after {
@@ -1303,7 +1626,7 @@
     .chatbot-button:hover .chatbot-tooltip {
       opacity: 1;
       visibility: visible;
-      right: 80px;
+      right: 75px;
     }
 
     .chatbot-window {
@@ -1311,16 +1634,19 @@
       bottom: 80px;
       right: 0;
       width: 350px;
+      max-width: 90vw;
       height: 500px;
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-height: 80vh;
+      background-color: var(--bg-color);
+      border-radius: 15px 15px 0 0;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
       overflow: hidden;
       display: none;
       flex-direction: column;
       transform: translateY(20px);
       opacity: 0;
       transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
     }
 
     .chatbot-container.open .chatbot-window {
@@ -1336,42 +1662,67 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .chat-header h3 {
       margin: 0;
-      font-size: 18px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-header-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
     }
 
     .close-chat {
       background: none;
       border: none;
       color: white;
-      font-size: 20px;
+      font-size: 18px;
       cursor: pointer;
+      padding: 5px;
+      transition: transform 0.2s;
+    }
+
+    .close-chat:hover {
+      transform: scale(1.2);
     }
 
     .chat-messages {
       flex: 1;
-      padding: 20px;
+      padding: 15px;
       overflow-y: auto;
-      background-color: #f9f9f9;
+      background-color: var(--card-bg);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .message {
-      margin-bottom: 15px;
       max-width: 80%;
-      padding: 10px 15px;
+      padding: 12px 15px;
       border-radius: 18px;
       font-size: 14px;
       line-height: 1.4;
+      position: relative;
+      animation: fadeIn 0.3s ease-out;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
     .bot-message {
-      background-color: #e5e5ea;
-      color: black;
+      background-color: var(--border-color);
+      color: var(--text-color);
       border-bottom-left-radius: 5px;
       align-self: flex-start;
+      margin-right: auto;
     }
 
     .user-message {
@@ -1381,34 +1732,308 @@
       margin-left: auto;
     }
 
-    .chat-input {
-      display: flex;
-      padding: 15px;
-      background-color: white;
-      border-top: 1px solid #eee;
+    .message-time {
+      display: block;
+      font-size: 10px;
+      opacity: 0.7;
+      margin-top: 5px;
+      text-align: right;
     }
 
-    .chat-input input {
-      flex: 1;
+    .quick-reply-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quick-reply-btn {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-color);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .quick-reply-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .typing-indicator {
+      display: none;
+      align-items: center;
+      gap: 5px;
       padding: 10px 15px;
-      border: 1px solid #ddd;
+      background-color: var(--border-color);
+      border-radius: 18px;
+      align-self: flex-start;
+      margin-bottom: 5px;
+      width: fit-content;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      animation: typingAnimation 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typingAnimation {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+
+    .chat-input-container {
+      padding: 12px;
+      background-color: var(--bg-color);
+      border-top: 1px solid var(--border-color);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .chat-input-area {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-input-field {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
       border-radius: 30px;
       outline: none;
       font-size: 14px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .chat-input-field:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+
+    .chat-action-btn {
+      background: none;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-color);
+      opacity: 0.7;
+      transition: all 0.3s;
+    }
+
+    .chat-action-btn:hover {
+      background-color: var(--border-color);
+      opacity: 1;
     }
 
     .send-button {
       background-color: var(--primary);
       color: white;
       border: none;
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      margin-left: 10px;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .send-button:hover {
+      background-color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    .send-button:active {
+      transform: scale(0.95);
+    }
+
+    .attachment-preview-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .attachment-preview-container.active {
+      max-height: 60px;
+      padding: 8px 15px;
+    }
+
+    .attachment-preview {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      background-color: var(--bg-color);
+      border-radius: 8px;
+      border: 1px dashed var(--border-color);
+    }
+
+    .attachment-icon {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+
+    .attachment-name {
+      flex: 1;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text-color);
+    }
+
+    .remove-attachment {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 12px;
+      padding: 4px;
+    }
+
+    .recording-indicator {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background-color: rgba(220, 53, 69, 0.1);
+      border-radius: 8px;
+      margin-top: 8px;
+      color: var(--danger);
+      font-size: 12px;
+    }
+
+    .recording-indicator.active {
+      display: flex;
+    }
+
+    .recording-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--danger);
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .stop-recording-btn {
+      background: none;
+      border: none;
+      color: var(--danger);
+      font-weight: bold;
+      cursor: pointer;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .stop-recording-btn:hover {
+      background-color: rgba(220, 53, 69, 0.2);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .chatbot-window {
+        width: 100vw;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+      }
+      
+      .chatbot-container.open .chatbot-window {
+        transform: none;
+      }
+      
+      .chatbot-button {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+      }
+      
+      .chatbot-button i {
+        font-size: 20px;
+      }
+      
+      .notification-badge {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    /* Offline notification */
+    .offline-notification {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      background-color: var(--danger);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      z-index: 998;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      animation: slideInUp 0.3s ease-out;
+    }
+
+    .offline-notification i {
+      font-size: 20px;
+    }
+
+    .offline-notification.active {
+      display: flex;
+    }
+
+    @keyframes slideInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     @keyframes pulse {
@@ -1423,9 +2048,56 @@
       }
     }
 
+    /* Loading spinner */
+    .loading-spinner {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-spinner.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--primary);
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Button ripple effect */
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 1;
+      }
+      20% {
+        transform: scale(25, 25);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: scale(40, 40);
+      }
+    }
+
     /* Footer */
     footer {
-      background-color: var(--dark);
+      background-color: var(--footer-bg);
       color: white;
       padding: 60px 20px 20px;
     }
@@ -1826,6 +2498,21 @@
       .reward-unlock p {
         font-size: 15px;
       }
+      
+      /* Video testimonials grid */
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      /* Chatbot adjustments */
+      .chatbot-window {
+        width: 320px;
+        height: 450px;
+      }
+      
+      .agent-list {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1836,6 +2523,11 @@
 
       .testimonial-card {
         min-width: 280px;
+      }
+      
+      .chatbot-window {
+        width: 300px;
+        right: -20px;
       }
     }
 
@@ -1860,7 +2552,8 @@
       .cookie-notification,
       .reward-unlock,
       .mobile-menu,
-      .menu-overlay {
+      .menu-overlay,
+      .chatbot-container {
         display: none !important;
       }
 
@@ -1900,6 +2593,26 @@
   </style>
 </head>
 <body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <img src="/images/Annita's Logo.jpg" alt="Annita Logo" class="loader-logo">
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+    <div class="loader-text">Loading Annita Platform...</div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Offline Notification -->
+  <div class="offline-notification">
+    <i class="fas fa-wifi-slash"></i>
+    <span>You are currently offline. Some features may not be available.</span>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="header-container">
@@ -1914,10 +2627,16 @@
           <li><a href="Businesspage.html">Business</a></li>
           <li><a href="aboutus.html">About Us</a></li>
           <li><a href="contactus.html">Contact Us</a></li>
-          <li><a href="csrpage.html">CSR</a></li>
+          <li><a href="comingsoonpage.html">CSR</a></li>
         </ul>
       </nav>
       <div class="nav-buttons">
+        <label class="theme-toggle">
+          <input type="checkbox" id="theme-toggle">
+          <span class="toggle-slider"></span>
+          <i class="fas fa-sun sun"></i>
+          <i class="fas fa-moon moon"></i>
+        </label>
         <a href="loginpage.html" class="btn btn-outline">Log In</a>
         <a href="signup.html" class="btn btn-primary">Sign Up</a>
       </div>
@@ -1935,7 +2654,15 @@
       <li><a href="Businesspage.html"><i class="fas fa-briefcase"></i>Business</a></li>
       <li><a href="aboutus.html"><i class="fas fa-info-circle"></i>About Us</a></li>
       <li><a href="contactus.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
-      <li><a href="csrpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+      <li><a href="comingsoonpage.html"><i class="fas fa-hands-helping"></i>CSR</a></li>
+      <li>
+        <label class="theme-toggle">
+          <input type="checkbox" id="mobile-theme-toggle">
+          <span class="toggle-slider"></span>
+          <i class="fas fa-sun sun"></i>
+          <i class="fas fa-moon moon"></i>
+        </label>
+      </li>
       <li><a href="loginpage.html" class="btn btn-outline"><i class="fas fa-sign-in-alt"></i>Log In</a></li>
       <li><a href="signup.html" class="btn btn-primary"><i class="fas fa-user-plus"></i>Sign Up</a></li>
     </ul>
@@ -2174,76 +2901,327 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
   <section id="testimonials" class="testimonials">
     <div class="container">
       <div class="section-header">
-        <h2>What Our Users Say</h2>
-        <p>Discover how Annita is transforming businesses and lives across Africa.</p>
+        <h2>Annita Updates & Testimonials</h2>
+        <p>Stay updated with the latest news, messages from our CEO, brand ambassadors, and customer reviews as Annita continues to transform businesses and lives across Africa.</p>
       </div>
-      <div class="testimonial-cards">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/WhatsApp Image 2025-04-12 at 08.35.30_4ca287ad.jpg" alt="User Avatar">
-            </div>
-            <div class="testimonial-info">
-              <h4>Bobby Cole</h4>
-              <p>Small Business Owner, Liberia</p>
+      
+      <div class="testimonial-slider">
+        <div class="testimonial-track">
+          <!-- Testimonial Card 1 (Video) -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card video-testimonial">
+              <div class="testimonial-media">
+                <iframe src="https://www.youtube.com/embed/sWYX99FiL4c" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+              </div>
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                  <img src="/images/ourbrandambassador.jpeg" alt="Siah Fallah">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Siah Fallah</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Brand Ambassador,Annita</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    <strong>Annita Store LLC</strong> is now simply <strong>Annita</strong>—a simpler name with the same bold mission. As <strong>Africa’s first all-in-one platform</strong>, we empower <strong>MSMEs</strong> through <strong>e-commerce</strong>, <strong>fintech</strong>, <strong>AI</strong>, and more—creating a <strong>unified digital experience</strong> across the continent.
+                  </p>
+                  
+                </div>
+                <div class="testimonial-date">November 19, 2024</div>
+              </div>
             </div>
           </div>
-          <div class="testimonial-content">
-            "Annita has revolutionized how I run my business. From payments to logistics, everything is now managed in one place. My sales have increased by 40% since I joined the platform!"
+          
+          <!-- Testimonial Card 2 (Text) -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/ceo-fallah.jpg" alt="Christopher O. Fallah">
+                  </div>
+                  <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                    <h4 style="margin: 0;">Christopher O. Fallah</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #666;">Founder_CEO,Annita</p>
+                  </div>
+                  
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    I’m proud to announce that Annita has joined <strong>MANSA</strong>, Africa’s leading <strong>due diligence platform</strong>, initiated by <strong>Afreximbank</strong>. This milestone reinforces our commitment to <strong>transparency</strong> and <strong>trust</strong> in <strong>cross-border trade</strong> and <strong>investment</strong>.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    By meeting MANSA’s high standards, Annita strengthens its role in empowering <strong>MSMEs</strong> and businesses across Africa, helping shape a thriving <strong>digital economy</strong>.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    This is more than just a milestone—it’s a statement of intent. Annita is leading Africa’s <strong>economic transformation</strong> with a new, <strong>inclusive</strong>, and <strong>sustainable digital future</strong>.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    <a href="https://www.linkedin.com/posts/an-nita_annita-joins-the-mansa-platform-strengthening-activity-7303127097294635008-Ki0o?utm_source=share&utm_medium=member_desktop&rcm=ACoAABhKSEwBd5rmgdIxnBiVKcdCGU4BbjiWPyg" target="_blank">View the post on LinkedIn</a>
+                  </p>
+                </div>
+                <div class="testimonial-date">March 5, 2025</div>
+              </div>
+            </div>
           </div>
-          <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+          
+          <!-- Testimonial Card 3 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/WhatsApp Image 2025-04-12 at 08.35.30_4ca287ad.jpg" alt="Bobby Cole">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Bobby Cole</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Small Business Owner, Liberia</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    I joined <strong>Annita</strong> in <strong>January 2022</strong>, and by <strong>April</strong>, my <strong>sales</strong> had increased by <strong>40%</strong>. Before <strong>Annita</strong>, I was juggling multiple <strong>platforms</strong> just to handle <strong>payments</strong>, <strong>logistics</strong>, and <strong>customer engagement</strong>. It was stressful, time-consuming, and difficult to <strong>scale</strong>.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    Since switching to <strong>Annita</strong>, everything I need is <strong>combined</strong> in one place—<strong>payment processing</strong>, <strong>order management</strong>, <strong>delivery tracking</strong>, and even <strong>marketing tools</strong>. It has made running my <strong>business</strong> smoother, more efficient, and far more <strong>profitable</strong>. I’m now reaching more <strong>customers</strong> and making better <strong>decisions</strong>, all thanks to the powerful tools <strong>Annita</strong> provides.
+                  </p>
+                </div>
+                <div class="testimonial-date">August 24, 2023</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Card 4 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/ceo-fallah.jpg" alt="Christopher O. Fallah">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Christopher O. Fallah</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Founder_CEO,Annita</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    On <strong>August 30, 2024</strong>, Annita was awarded <strong>1st place</strong> in the national category of the <strong>Orange Social Venture Prize</strong>. I was honored to represent our team and vision on this remarkable stage.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    A heartfelt thank you to our <strong>dedicated team</strong> for their unwavering commitment, and to <strong>Orange</strong> and the <strong>Orange Digital Center</strong> for this incredible opportunity. This win fuels our mission to drive <strong>innovation</strong> and empower <strong>MSMEs</strong> across Africa. 
+                    We see this recognition not just as an award, but as a clear signal that the work we’re doing matters and is shaping a more inclusive digital future.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    <a href="https://www.linkedin.com/posts/christopherofallah_annita-orange-social-venture-prize-activity-7110123456789012345" target="_blank">View the post on LinkedIn</a>
+                  </p>
+                  
+                </div>
+                <div class="testimonial-date">August 30, 2024</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Card 5 (Video) -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card video-testimonial">
+              <div class="testimonial-media">
+                <iframe src="Pending....." frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+              </div>
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/....." alt=".........">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Pending.....</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Pending.....</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  "Pending......"
+                </div>
+                <div class="testimonial-date">March ...., 2025</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Card 6 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/images.jpg" alt="Kwame Mensah">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Kwame Mensah</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Job Seeker, Ghana</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                  Annita’s <strong>Opportunities Search</strong> has been a game-changer for me. I’ve found <strong>job opportunities</strong>, <strong>grants</strong>, <strong>funding</strong>, and <strong>business partnerships</strong> across Africa all in one place. The platform is incredibly <strong>easy to use</strong>, saving me time and connecting me with the right resources to grow my business and career.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                  The <strong>comprehensive search filters</strong> make it simple to find exactly what I need, whether it's financial support or new collaborations. Annita has streamlined my process, making it more efficient and impactful. I can now focus on growing my business rather than wasting time on unnecessary searches.
+                  </p>
+                  
+                </div>
+                <div class="testimonial-date">March 10, 2024</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Card 7 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/ceo-fallah.jpg" alt="Christopher O. Fallah">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Christopher O. Fallah</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Founder_CEO,Annita</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    I'm proud to share that <strong>Annita Store LLC(Currently Name Annita) </strong> has been selected as one of the <strong>50 innovative businesses</strong> for the <strong>Enterprise African Network (EAN) Fellowship</strong>, focusing on sectors like <strong>Agriculture</strong>, <strong>Manufacturing</strong>, <strong>ICT</strong>, and <strong>Creative Industries</strong>.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    As <strong>CEO/Founder</strong>, I’m honored to represent Annita at the <strong>third AU MSME Forum</strong> in <strong>Windhoek, Namibia</strong>, from <strong>September 9-13, 2024</strong>.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    <a href="https://www.linkedin.com/posts/an-nita_annita-annita-award-winning-social-entrepreneur-activity-7303127097294635008-Ki0o?utm_source=share&utm_medium=member_desktop&rcm=ACoAABhKSEwBd5rmgdIxnBiVKcdCGU4BbjiWPyg" target="_blank">View the post on LinkedIn</a>
+                  </p>
+                  
+                </div>
+                <div class="testimonial-date">September 27, 2024</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Card 8 (Video) -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card video-testimonial">
+              <div class="testimonial-media">
+                <iframe src="Pending...." frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+              </div>
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/........." alt=".........">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Pending....</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Pending.......</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  "Pending.........."
+                </div>
+                <div class="testimonial-date">February ...., 2025</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Card 9 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/ceo-fallah.jpg" alt="Christopher O. Fallah">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Christopher O. Fallah</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Founder_CEO,Annita</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    As the CEO of Annita, I’m thrilled to announce that our upcoming product, <strong>AnnitaPay</strong>, will soon be Africa’s first truly self-sufficient, fully integrated <strong>payment gateway</strong> and <strong>e-wallet</strong> platform. <strong>AnnitaPay</strong> is set to revolutionize how businesses and individuals across the continent make <strong>online</strong> and <strong>offline</strong> payments, from major cities to the most remote rural villages.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    We’re creating a <strong>secure</strong>, <strong>transparent</strong>, and <strong>efficient</strong> solution with <strong>AnnitaPay</strong>, empowering businesses of all sizes to thrive. Stay tuned as we prepare to bridge the gap for underserved communities and unlock Africa’s <strong>digital economy</strong>.
+                  </p>
+                  
+                </div>
+                <div class="testimonial-date">January 01, 2025</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial Card 10 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="testimonial-header">
+                  <div class="testimonial-avatar">
+                    <img src="/images/Loveteefarm.jpg" alt="Lovetee's Homelike Farms">
+                  </div>
+                  <div class="testimonial-info">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2;">
+                      <h4 style="margin: 0;">Lovetee's Homelike Farms</h4>
+                      <p style="margin: 0; font-size: 0.9rem; color: #666;">Small Business, Liberia</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial-text">
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                  Since I joined Annita’s <strong>e-commerce platform</strong>, my sales have grown significantly. The <strong>markup-based model</strong> is perfect for my business—it’s transparent, and I only pay a reasonable fee when I make a sale, which helps me keep my costs down. The <strong>easy-to-use interface</strong> has made managing my online store a breeze, and the <strong>global reach</strong> has connected me with customers I never thought possible.
+                  </p>
+                  <p style="font-size: 0.95rem; text-align: left; max-width: 600px; margin: auto;">
+                    What I love most is how <strong>affordable</strong> it is for small businesses like mine. The <strong>5-15% markup</strong> gives me peace of mind, knowing that I’m only paying for what I use.
+                  </p>
+                  
+                </div>
+                <div class="testimonial-date">June 15, 2023</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/1591393071336.jpg" alt="User Avatar">
-            </div>
-            <div class="testimonial-info">
-              <h4>Amara Diallo</h4>
-              <p>Tech Entrepreneur, Senegal</p>
-            </div>
-          </div>
-          <div class="testimonial-content">
-            "The AI and marketing tools on Annita have helped me target the right customers across multiple African countries. The platform's analytics provide invaluable insights for my business decisions."
-          </div> 
-          <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="testimonial-avatar">
-              <img src="/images/images.jpg" alt="User Avatar">
-            </div>
-            <div class="testimonial-info">
-              <h4>Kwame Mensah</h4>
-              <p>Digital Creator, Ghana</p>
-            </div>
-          </div>
-          <div class="testimonial-content">
-            "As a content creator, the social networking features of Annita have allowed me to build a community and monetize my work effectively. The integrated fintech solutions make getting paid a breeze."
-          </div>
-          <div class="testimonial-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-          </div>
+        
+        <div class="slider-dots">
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
+          <div class="slider-dot active"></div>
         </div>
       </div>
     </div>
@@ -2349,10 +3327,6 @@
             <li><a href="comingsoonpage.html">Annita-Cloud</a></li>
             <li><a href="comingsoonpage.html">Annita-ERP-System</a></li>
             <li><a href="comingsoonpage.html">Annita Logistics</a></li>
-            <li><a href="comingsoonpage.html">Annita Lifestyle Services</a></li>
-            <li><a href="comingsoonpage.html">Annita Opportunities Search</a></li>
-            <li><a href="comingsoonpage.html">Annita Business Training & Mentorship</a></li>
-            <li><a href="comingsoonpage.html">Annita Venture Capital</a></li>
           </ul>
         </div>
         <div class="footer-column">
@@ -2368,62 +3342,103 @@
           </ul>
         </div>
         <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="careerpage.html">Careers</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="presspage.html">Our Press</a></li>
+            <li><a href="blogpage.html">Our Blog</a></li>
+            <li><a href="Ourawardspage.html">Our Awards</a></li>
+            <li><a href="referralpage.html">Referral Program</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
           <h3>Legal</h3>
           <ul>
-            <li><a href="helpcenter.html">Privacy Policy</a></li>
-            <li><a href="contactus.html">Terms of Service</a></li>
-            <li><a href="faqs.html">Security</a></li>
-            <li><a href="security.html">Cookie Policy</a></li>
-            <li><a href="legal.html">Report an Issue</a></li>
-            <li><a href="status.html">Our Legal Team</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="termsofservicepage.html">Terms of Service</a></li>
+            <li><a href="securitypage.html">Security</a></li>
+            <li><a href="cookies.html">Cookie Policy</a></li>
+            <li><a href="ReportanIssue.html">Report an Issue</a></li>
+            <li><a href="OurLegalTeam.html">Our Legal Team</a></li>
           </ul>
         </div>
       </div>
-      <div class="footer-column">
-        <h3>Support</h3>
-        <ul>
-          <li><a href="helpcenter.html">Help Center</a></li>
-          <li><a href="contactus.html">Contact Us</a></li>
-          <li><a href="faqs.html">FAQs</a></li>
-          <li><a href="security.html">Security</a></li>
-          <li><a href="legal.html">Legal</a></li>
-          <li><a href="status.html">System Status</a></li>
-        </ul>
-      </div>
-    </div>
       <div class="footer-bottom">
         <div class="copyright">
-          &copy; <span id="year"></span> Annita LLC. All rights reserved.
+          &copy; <span id="current-year"></span> Annita LLC. All rights reserved.
         </div>
         <div class="footer-links">
-          <a href="privacypolicy.html">Privacy Policy</a>
           <a href="termsofservicepage.html">Terms of Service</a>
+          <a href="privacypolicy.html">Privacy Policy</a>
           <a href="cookies.html">Cookie Policy</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Chatbot -->
+  <!-- Chatbot Container -->
   <div class="chatbot-container">
     <div class="chatbot-button">
       <i class="fas fa-bell"></i>
-      <span class="notification-badge">1</span>
-      <span class="chatbot-tooltip">Ask Annita AI?</span>
+      <div class="notification-badge">1</div>
+      <div class="chatbot-tooltip">Need help? Chat with Annita AI!</div>
     </div>
     <div class="chatbot-window">
       <div class="chat-header">
-        <h3>Annita AI</h3>
+        <h3><img src="/images/Annita's Logo.jpg" class="chat-header-avatar" alt="Annita AI"> Annita AI</h3>
         <button class="close-chat"><i class="fas fa-times"></i></button>
       </div>
       <div class="chat-messages">
         <div class="message bot-message">
-          Hello! I'm Annita AI. How can I help you today?
+          Hello! I'm Annita AI, your digital assistant. How can I help you today?
+          <span class="message-time">Just now</span>
+        </div>
+        <div class="message bot-message">
+          Here are some quick options to get started:
+          <div class="quick-reply-container">
+            <button class="quick-reply-btn">Account Help</button>
+            <button class="quick-reply-btn">Payment Issues</button>
+            <button class="quick-reply-btn">Marketplace</button>
+            <button class="quick-reply-btn">Technical Support</button>
+          </div>
+          <span class="message-time">Just now</span>
         </div>
       </div>
-      <div class="chat-input">
-        <input type="text" placeholder="Type your message...">
-        <button class="send-button"><i class="fas fa-paper-plane"></i></button>
+      
+      <div class="attachment-preview-container">
+        <div class="attachment-preview">
+          <i class="fas fa-file-alt attachment-icon"></i>
+          <span class="attachment-name">document.pdf</span>
+          <button class="remove-attachment"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+      
+      <div class="chat-input-container">
+        <div class="chat-input-area">
+          <button class="chat-action-btn attach-btn" title="Attach file">
+            <i class="fas fa-paperclip"></i>
+            <input type="file" class="file-input" style="display: none;">
+          </button>
+          <input type="text" placeholder="Type your message..." class="chat-input-field">
+          <button class="chat-action-btn record-btn" title="Record voice message">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <button class="send-button" title="Send message">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <div class="recording-indicator">
+          <div class="recording-dot"></div>
+          <span>Recording...</span>
+          <button class="stop-recording-btn">Stop</button>
+        </div>
+        <div class="typing-indicator">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -2431,7 +3446,7 @@
   <!-- Cookie Notification -->
   <div class="cookie-notification">
     <div class="cookie-notification-container">
-      <p>We use cookies to enhance your experience on our platform. By continuing to browse, you agree to our use of cookies.</p>
+      <p>We use cookies to enhance your experience on our website. By continuing to browse, you agree to our use of cookies.</p>
       <div class="cookie-notification-buttons">
         <button class="btn btn-primary accept-cookies">Accept</button>
         <button class="btn btn-outline manage-cookies">Manage Preferences</button>
@@ -2439,52 +3454,112 @@
     </div>
   </div>
 
-  <!-- Reward Unlock Modal -->
-  <div class="reward-unlock">
-    <div class="reward-unlock-content">
-      <button class="reward-unlock-close"><i class="fas fa-times"></i></button>
-      <div class="reward-unlock-icon">
-        <i class="fas fa-gift"></i>
-      </div>
-      <h3>Welcome to Annita!</h3>
-      <p>We’re excited to have you here. You’re now part of Africa’s first all-in-one platform built to empower and elevate.
-        Loving it so far? Missing something? Tell us—your feedback helps us grow with you.</p>
-      <a href="https://forms.gle/ojFMZXEPauuxM4XS9" class="btn btn-primary">Your Voice. Our Future.</a>
+<!-- Reward Unlock Modal -->
+<div class="reward-unlock">
+  <div class="reward-unlock-content">
+    <button class="reward-unlock-close"><i class="fa fa-times-circle"></i></button>
+    <div class="reward-unlock-icon">
+      <img src="/images/Annita's Logo.jpg" alt="Annita Logo" style="width: 80px; height: 80px; border-radius: 50%;">
     </div>
+    <h3>Welcome to Annita!</h3>
+    
+    <div style="margin-top: 20px;">
+      <p>
+        We're excited to have you here. You're now part of Africa's first all-in-one platform built to empower and elevate.
+        <br><br>
+        Loving it so far? <br><br>Missing something? <br><br> Tell us—your feedback helps us grow with you.
+      </p>
+    </div>
+    
+    <a href="https://forms.gle/ojFMZXEPauuxM4XS9" class="btn btn-primary">Your Voice. Our Future.</a>
   </div>
+</div>
 
-  <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
+<script>
+  // Wait for DOM to be fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    // Cookie notification
+    // Page loader simulation
+    const pageLoader = document.querySelector('.page-loader');
+    const progressBar = document.querySelector('.loader-progress-bar');
+    
+    // Simulate loading progress
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.random() * 10;
+      progressBar.style.width = `${Math.min(progress, 100)}%`;
+      
+      if (progress >= 100) {
+        clearInterval(interval);
+        pageLoader.classList.add('hidden');
+        
+        // Remove loader from DOM after animation completes
+        setTimeout(() => {
+          pageLoader.remove();
+        }, 500);
+      }
+    }, 200);
+    
+    // Header scroll effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
     // Mobile menu toggle
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const mobileMenu = document.querySelector('.mobile-menu');
     const menuOverlay = document.querySelector('.menu-overlay');
-
+    
     hamburgerMenu.addEventListener('click', () => {
       hamburgerMenu.classList.toggle('active');
       mobileMenu.classList.toggle('active');
       menuOverlay.classList.toggle('active');
       document.body.classList.toggle('no-scroll');
     });
-
+    
     menuOverlay.addEventListener('click', () => {
       hamburgerMenu.classList.remove('active');
       mobileMenu.classList.remove('active');
       menuOverlay.classList.remove('active');
       document.body.classList.remove('no-scroll');
     });
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        document.querySelector('header').classList.add('scrolled');
+    
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    
+    function setTheme(isDark) {
+      if (isDark) {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
       } else {
-        document.querySelector('header').classList.remove('scrolled');
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
       }
+    }
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      themeToggle.checked = true;
+      mobileThemeToggle.checked = true;
+      setTheme(true);
+    }
+    
+    themeToggle.addEventListener('change', (e) => {
+      setTheme(e.target.checked);
     });
-
+    
+    mobileThemeToggle.addEventListener('change', (e) => {
+      setTheme(e.target.checked);
+      themeToggle.checked = e.target.checked;
+    });
+    
     // FAQ accordion
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
@@ -2493,19 +3568,525 @@
         item.classList.toggle('active');
       });
     });
+    
+    // Testimonial slider
+    const testimonialTrack = document.querySelector('.testimonial-track');
+    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    let currentSlide = 0;
+    const slideCount = testimonialSlides.length;
+    
+    function goToSlide(index) {
+      testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+      currentSlide = index;
+    }
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+      });
+    });
+    
+    // Auto-advance slides
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slideCount;
+      goToSlide(currentSlide);
+    }, 100000);
+    
+    // Initialize first dot as active
+    dots[0].classList.add('active');
+    
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Reward popup (shows after 30 seconds)
+    setTimeout(() => {
+      const rewardPopup = document.querySelector('.reward-unlock');
+      rewardPopup.classList.add('active');
+      
+      const closeReward = document.querySelector('.reward-unlock-close');
+      closeReward.addEventListener('click', () => {
+        rewardPopup.classList.remove('active');
+      });
+    }, 30000);
 
-    // Chatbot toggle
-    const chatbotButton = document.querySelector('.chatbot-button');
+    // =============================================
+    // Enhanced Chatbot Functionality with Q&A Database
+    // =============================================
     const chatbotContainer = document.querySelector('.chatbot-container');
+    const chatbotButton = document.querySelector('.chatbot-button');
+    const chatbotWindow = document.querySelector('.chatbot-window');
     const closeChat = document.querySelector('.close-chat');
+    const chatMessages = document.querySelector('.chat-messages');
+    const chatInput = document.querySelector('.chat-input-field');
+    const sendButton = document.querySelector('.send-button');
+    const attachButton = document.querySelector('.attach-btn');
+    const fileInput = document.querySelector('.file-input');
+    const attachmentPreview = document.querySelector('.attachment-preview');
+    const attachmentContainer = document.querySelector('.attachment-preview-container');
+    const removeAttachment = document.querySelector('.remove-attachment');
+    const recordButton = document.querySelector('.record-btn');
+    const recordingIndicator = document.querySelector('.recording-indicator');
+    const stopRecordingBtn = document.querySelector('.stop-recording-btn');
+    const typingIndicator = document.querySelector('.typing-indicator');
+    const quickReplyBtns = document.querySelectorAll('.quick-reply-btn');
 
-    chatbotButton.addEventListener('click', () => {
-      chatbotContainer.classList.toggle('open');
-    });
+    // Toggle chatbot window
+    if (chatbotButton && chatbotContainer) {
+      chatbotButton.addEventListener('click', function() {
+        chatbotContainer.classList.toggle('open');
+        console.log("Chatbot toggled!"); // Debugging
+      });
+    } else {
+      console.error("Chatbot button or container not found!");
+    }
 
-    closeChat.addEventListener('click', () => {
-      chatbotContainer.classList.remove('open');
-    });
+    // Close chat
+    if (closeChat) {
+      closeChat.addEventListener('click', function() {
+        chatbotContainer.classList.remove('open');
+      });
+    }
+
+    // Send message on Enter key
+    if (chatInput) {
+      chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && chatInput.value.trim()) {
+          sendMessage();
+        }
+      });
+    }
+
+    // Send message on button click
+    if (sendButton) {
+      sendButton.addEventListener('click', function() {
+        if (chatInput.value.trim()) {
+          sendMessage();
+        }
+      });
+    }
+
+    // Quick reply buttons
+    if (quickReplyBtns) {
+      quickReplyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const message = this.textContent;
+          addMessage(message, true);
+          simulateTyping();
+          setTimeout(() => {
+            generateBotResponse(message);
+          }, 1000);
+        });
+      });
+    }
+
+    // File attachment
+    if (attachButton && fileInput) {
+      attachButton.addEventListener('click', function() {
+        fileInput.click();
+      });
+
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files.length > 0) {
+          const file = e.target.files[0];
+          const fileName = file.name.length > 20 ? 
+            file.name.substring(0, 17) + '...' + file.name.split('.').pop() : 
+            file.name;
+          attachmentPreview.querySelector('.attachment-name').textContent = fileName;
+          attachmentContainer.classList.add('active');
+        }
+      });
+    }
+
+    if (removeAttachment) {
+      removeAttachment.addEventListener('click', function() {
+        fileInput.value = '';
+        attachmentContainer.classList.remove('active');
+      });
+    }
+
+    // Voice recording (simulated)
+    let recordingTimeout;
+    if (recordButton) {
+      recordButton.addEventListener('mousedown', startRecording);
+      recordButton.addEventListener('mouseup', stopRecording);
+      recordButton.addEventListener('mouseleave', stopRecording);
+    }
+
+    if (stopRecordingBtn) {
+      stopRecordingBtn.addEventListener('click', stopRecording);
+    }
+
+    function startRecording() {
+      recordingIndicator.classList.add('active');
+      recordingTimeout = setTimeout(() => {
+        addBotMessage("Recording time limit reached (2 minutes max).");
+        stopRecording();
+      }, 120000); // 2 minute limit
+    }
+
+    function stopRecording() {
+      if (recordingIndicator.classList.contains('active')) {
+        clearTimeout(recordingTimeout);
+        recordingIndicator.classList.remove('active');
+        simulateTyping();
+        setTimeout(() => {
+          addBotMessage("I've received your voice message. How can I help with this?");
+        }, 1500);
+      }
+    }
+
+    // Core messaging functions
+    function sendMessage() {
+      const message = chatInput.value.trim();
+      if (message) {
+        addMessage(message, true);
+        chatInput.value = '';
+        simulateTyping();
+        setTimeout(() => {
+          generateBotResponse(message);
+        }, 1000 + Math.random() * 2000);
+      }
+    }
+
+    function addMessage(text, isUser) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', isUser ? 'user-message' : 'bot-message');
+      
+      const messageContent = document.createElement('div');
+      messageContent.textContent = text;
+      
+      const timeSpan = document.createElement('span');
+      timeSpan.classList.add('message-time');
+      timeSpan.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      
+      messageDiv.appendChild(messageContent);
+      messageDiv.appendChild(timeSpan);
+      chatMessages.appendChild(messageDiv);
+      
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addBotMessage(text) {
+      addMessage(text, false);
+    }
+
+    function simulateTyping() {
+      typingIndicator.style.display = 'flex';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Your comprehensive Q&A database
+    const qaDatabase = {
+     // General Questions (20)
+    "what is annita": "Annita is Africa's first all-in-one digital platform combining e-commerce, fintech, AI, social networking, marketing, logistics, and lifestyle services to empower businesses and individuals across the continent.",
+        "how does annita work": "Annita integrates multiple services into a single platform, allowing users to manage their business operations, financial transactions, social networking, and more from one place with seamless connectivity between all features.",
+        "is annita free to use": "Annita offers both free and premium services. Basic accounts are free, while advanced features and business tools are available through subscription plans tailored to different needs.",
+        "how secure is annita": "Annita uses bank-level encryption, multi-factor authentication, and advanced security protocols to protect all user data and transactions, complying with international security standards.",
+        "what countries does annita operate in": "Annita currently operates in 15 African countries including Nigeria, Kenya, South Africa, Ghana, and Liberia, with plans to expand across the entire continent.",
+        "how do i contact annita support": "You can contact support 24/7 through our in-app chat, email at support@annita.com, or phone at +231 77 505 7227. Our AI assistant can also help with many common questions.",
+        "what languages does annita support": "Annita currently supports English, French, Swahili, and Portuguese, with more African languages being added regularly.",
+        "how do i delete my annita account": "You can deactivate your account in the settings menu. For full deletion, please contact our support team to verify your identity and process the request.",
+        "what are annita's business hours": "Our digital services are available 24/7. Customer support is available around the clock via chat, with phone support from 8AM to 8PM in your local timezone.",
+        "does annita have an affiliate program": "Yes! Our affiliate program allows you to earn commissions by referring new users to Annita. You can sign up through your account dashboard.",
+        "how does annita make money": "Annita generates revenue through premium subscriptions, transaction fees, advertising, and enterprise solutions, allowing us to keep many basic services free for users.",
+        "what is annita's refund policy": "Refund policies vary by service. Generally, digital goods are non-refundable, while marketplace purchases may be eligible for returns within 14 days if conditions are met.",
+        "how do i report a problem": "You can report issues directly through the 'Help' section in your account, or by contacting our support team via chat, email, or phone.",
+        "what are annita's terms of service": "Our Terms of Service outline the rules for using our platform. You can review them at any time on our website under the Legal section.",
+        "how do i update my account information": "You can update your personal information, payment methods, and preferences in the 'Account Settings' section of your profile.",
+        "does annita offer api access": "Yes, we provide API access for developers to integrate Annita services into their applications. Documentation is available in our Developer Portal.",
+        "what browsers support annita": "Annita works best on Chrome, Firefox, Safari, and Edge. We recommend using the latest version of your browser for optimal performance.",
+        "how do i change my password": "You can change your password in Account Settings. If you've forgotten your password, use the 'Forgot Password' link on the login page.",
+        "does annita have a mobile app": "Yes! Annita has mobile apps for both iOS and Android devices, available for download from the App Store and Google Play.",
+        "how do i verify my account": "Account verification requires submitting a valid ID and proof of address through our secure portal. This helps us maintain platform security.",
+
+        // AnnitaPay Questions (15)
+        "what is annitapay": "AnnitaPay is our integrated financial service that allows users to send, receive, and manage money, make payments, access credit, and invest - all within the Annita ecosystem.",
+        "how do i add money to annitapay": "You can fund your AnnitaPay wallet via bank transfer, mobile money, debit/credit card, or by depositing cash at any of our agent locations across Africa.",
+        "are there fees for annitapay": "Basic transactions between Annita users are free. Some services like instant transfers, currency exchange, and merchant payments may have small fees.",
+        "is annitapay safe": "Absolutely. AnnitaPay uses the same security standards as major banks, including encryption, fraud monitoring, and transaction verification to keep your money safe.",
+        "how do i send money with annitapay": "To send money, go to the AnnitaPay section, select 'Send Money', enter the recipient's details and amount, then confirm the transaction with your secure PIN.",
+        "what currencies does annitapay support": "AnnitaPay supports all major African currencies including NGN, KES, ZAR, GHS, and XOF, with real-time conversion rates for cross-border transactions.",
+        "how do i withdraw from annitapay": "You can withdraw funds to your linked bank account, mobile money wallet, or collect cash from any AnnitaPay agent location across our network.",
+        "can i get a loan through annitapay": "Yes, eligible users can access short-term loans and business financing through AnnitaPay Credit, with amounts based on your transaction history and creditworthiness.",
+        "how do i pay bills with annitapay": "The Bill Pay feature lets you easily pay utilities, TV subscriptions, internet, and other services directly from your AnnitaPay balance.",
+        "what is the annitapay transaction limit": "Limits vary by account verification level. Basic accounts can transact up to $500 daily, while fully verified accounts have limits up to $10,000 daily.",
+        "how long do annitapay transfers take": "Transfers between Annita users are instant. Bank transfers typically complete within 1 business day, depending on the recipient bank.",
+        "can i use annitapay for my business": "Yes! AnnitaPay for Business offers specialized features like bulk payments, invoicing, and payment links to help businesses manage their finances efficiently.",
+        "how do i dispute an annitapay transaction": "You can dispute unauthorized or incorrect transactions by contacting support within 30 days. We'll investigate and resolve the issue promptly.",
+        "does annitapay support cryptocurrency": "Yes, AnnitaPay allows users to buy, sell, and hold select cryptocurrencies as part of our digital asset services.",
+        "how do i set up recurring payments": "In the AnnitaPay section, select 'Scheduled Payments' to set up automatic recurring transfers for bills, subscriptions, or regular payments.",
+
+        // Annita Market Questions (15)
+        "how does annita market work": "Annita Market is our e-commerce platform where buyers can discover products from sellers across Africa, with secure payments and logistics handled through our integrated systems.",
+        "how do i sell on annita market": "To sell, create a seller account, list your products with descriptions and images, set your prices, and manage orders through your seller dashboard.",
+        "what fees does annita market charge": "Sellers pay a small commission (5-15%) on successful sales, depending on product category and subscription level. There are no listing fees for basic accounts.",
+        "how do payments work for sellers": "Buyer payments are held securely in escrow until order delivery is confirmed, then released to your AnnitaPay account minus any applicable fees.",
+        "what can i sell on annita market": "You can sell physical goods, digital products, and services that comply with our marketplace policies (no prohibited or restricted items).",
+        "how does shipping work on annita market": "Sellers can use Annita Logistics for integrated shipping solutions or arrange their own delivery. Shipping costs are set by the seller or calculated automatically.",
+        "what is annita's return policy": "Buyers may return items within 14 days of receipt if they don't match the description. Sellers set their specific return policies for their stores.",
+        "how do i track my order": "All orders come with tracking information that you can monitor in your account. You'll also receive notifications at key stages of delivery.",
+        "how do i contact a seller": "You can message sellers directly through the marketplace messaging system before or after making a purchase.",
+        "what buyer protections does annita offer": "We offer secure payments, money-back guarantees for undelivered or misrepresented goods, and dispute resolution services.",
+        "can i sell internationally on annita": "Yes! Annita supports cross-border trade within Africa, handling currency conversion and customs documentation where required.",
+        "how do promotions work on annita market": "Sellers can create discounts and promotions for their products. Annita also runs platform-wide sales events that sellers can opt into.",
+        "what are annita market's prohibited items": "Prohibited items include illegal goods, weapons, counterfeit items, and products that violate intellectual property rights.",
+        "how do reviews work on annita market": "After receiving an order, buyers can leave ratings and reviews to help other shoppers make informed decisions.",
+        "can i sell services on annita market": "Yes, service providers can list their offerings in the Services category, with options for fixed-price packages or custom quotes.",
+
+        // Annita AI Questions (15)
+        "what is annita ai": "Annita AI is our artificial intelligence system that provides business insights, automates tasks, optimizes marketing, and helps users make data-driven decisions.",
+        "how can annita ai help my business": "Our AI can analyze your sales data, predict trends, optimize pricing, automate customer service, and provide personalized recommendations to grow your business.",
+        "is annita ai included in my subscription": "Basic AI tools are available to all users, while advanced analytics and automation features require a Business or Enterprise subscription.",
+        "how does annita ai protect my data": "All data processed by Annita AI is encrypted and anonymized. We never share your proprietary information with third parties.",
+        "can annita ai help with marketing": "Yes! Our AI can analyze your audience, optimize ad targeting, suggest content strategies, and automate campaign management for better results.",
+        "does annita ai work with social media": "Annita AI integrates with Annita Connect (our social network) and can also analyze and optimize your presence on external platforms.",
+        "how accurate is annita ai's predictions": "Our AI achieves 85-95% accuracy for most predictive analytics, with continuous learning that improves results over time as it processes more data.",
+        "can i train annita ai for my specific needs": "Enterprise customers can customize AI models for their specific industry and use cases through our specialized training programs.",
+        "what languages does annita ai understand": "Annita AI currently processes English, French, and Portuguese, with more African languages being added regularly.",
+        "how does annita ai handle customer service": "Our AI chatbots can handle common inquiries 24/7, with seamless handoff to human agents when needed for complex issues.",
+        "can annita ai help with inventory management": "Yes, our AI can predict demand, suggest optimal stock levels, and even automate reordering for integrated suppliers.",
+        "does annita ai offer financial advice": "Annita AI can provide general financial insights and trends, but always consult a qualified professional for personalized financial advice.",
+        "how do i access annita ai tools": "AI features are integrated throughout the platform. Look for the AI icon or visit the AI Hub in your dashboard to explore available tools.",
+        "can annita ai create content": "Our AI can assist with generating product descriptions, marketing copy, and basic content, always requiring human review before publishing.",
+        "how often is annita ai updated": "We continuously improve our AI models with weekly updates, ensuring you always have access to cutting-edge capabilities.",
+
+        // Annita Logistics Questions (15)
+        "what is annita logistics": "Annita Logistics is our integrated shipping and fulfillment service that helps businesses manage inventory, process orders, and deliver products across Africa.",
+        "how much does annita logistics cost": "Pricing depends on package size, weight, destination, and service level. You can get instant quotes through our logistics calculator.",
+        "how fast is annita logistics delivery": "Delivery times vary by location: 1-2 days within cities, 3-5 days for domestic shipments, and 5-10 days for cross-border deliveries in Africa.",
+        "how do i track my annita logistics shipment": "Every shipment comes with a tracking number that you can monitor in real-time through your Annita account or our mobile app.",
+        "what areas does annita logistics cover": "We currently serve all major cities in our 15 operating countries, with expanding coverage to smaller towns and rural areas.",
+        "can i schedule a pickup with annita logistics": "Yes, sellers can schedule pickups for their packages through the logistics dashboard, with options for one-time or recurring pickups.",
+        "what packaging does annita logistics provide": "We offer standard packaging options, or you can use your own packaging as long as it meets our size and durability requirements.",
+        "how do i handle returns with annita logistics": "Our reverse logistics service makes returns easy. Initiate a return through your order details and we'll coordinate pickup and delivery.",
+        "does annita logistics offer cold chain shipping": "Yes, we provide temperature-controlled shipping for perishable goods with specialized vehicles and storage facilities.",
+        "what are annita logistics' business solutions": "We offer customized logistics solutions for businesses including warehousing, inventory management, and fulfillment services.",
+        "how do i become an annita logistics driver": "You can apply to join our driver network through the Careers section of our website. Requirements vary by location.",
+        "what are annita logistics' operating hours": "Our hubs operate 7 days a week, with extended hours during peak seasons to ensure timely deliveries.",
+        "how does annita logistics handle customs": "For cross-border shipments, we handle all customs documentation and clearance, with duties calculated upfront for transparent pricing.",
+        "what is annita logistics' damage policy": "We insure all shipments against damage or loss. Claims must be filed within 7 days of delivery with supporting documentation.",
+        "can i get bulk discounts with annita logistics": "Yes, high-volume shippers qualify for discounted rates. Contact our sales team to discuss your specific needs and volume.",
+
+        // Annita Connect Questions (10)
+        "what is annita connect": "Annita Connect is our professional and social networking platform designed to help African businesses and individuals connect, collaborate, and grow together.",
+        "how is annita connect different": "Unlike generic social networks, Annita Connect integrates directly with our business tools, marketplace, and payment systems for seamless professional networking.",
+        "can i join annita connect without other services": "Yes, you can use Annita Connect as a standalone social network, though integration with other Annita services enhances its value.",
+        "how do groups work on annita connect": "You can join or create groups based on industries, interests, or locations to connect with like-minded professionals across Africa.",
+        "can i advertise on annita connect": "Yes, our targeted advertising platform lets you reach specific demographics, industries, or interest groups within the Annita community.",
+        "how does messaging work on annita connect": "You can send direct messages to connections or participate in group chats. All messages are encrypted for privacy.",
+        "what are annita connect events": "We host virtual and in-person events including webinars, conferences, and networking meetups to help members connect and learn.",
+        "can i share my products on annita connect": "Yes! You can showcase your marketplace products or services to your network with direct links to purchase or inquire.",
+        "how do recommendations work on annita connect": "Members can give and receive professional recommendations that appear on profiles, helping establish credibility and trust.",
+        "is annita connect available on mobile": "Yes, Annita Connect is fully accessible through our mobile apps with all the features of the desktop version.",
+
+        // Annita Ads Questions (10)
+        "what is annita ads": "Annita Ads is our targeted advertising platform that helps businesses reach potential customers across our ecosystem of services.",
+        "how do i create an annita ad": "You can create ads through the Ads Manager in your account, choosing your audience, budget, and creative elements like images or video.",
+        "what targeting options does annita ads offer": "Target by location, demographics, interests, purchase behavior, and even Annita service usage for highly relevant audience targeting.",
+        "how much does annita ads cost": "You set your own budget with options for cost-per-click or cost-per-impression pricing. Minimum daily budgets start at $5.",
+        "how do i measure my ad performance": "Our dashboard provides detailed analytics on impressions, clicks, conversions, and ROI, with recommendations to optimize your campaigns.",
+        "can i advertise my marketplace products": "Yes! Marketplace sellers can promote individual products or their entire store with special shopping ad formats.",
+        "does annita ads offer retargeting": "Yes, you can retarget visitors who viewed your products or interacted with your business but didn't complete a purchase.",
+        "what ad formats does annita support": "We support image ads, video ads, carousel ads, collection ads, and lead generation ads for different marketing goals.",
+        "how do payments work for annita ads": "You can pay for ads using your AnnitaPay balance or link a credit/debit card. Invoices are available for business accounts.",
+        "can i schedule my annita ads": "Yes, our ad scheduler lets you plan campaigns in advance and set specific run dates and times for optimal audience reach.",
+
+        // Technical Support Questions (10)
+        "i can't log in to my account": "First try resetting your password. If that doesn't work, clear your browser cache or try a different browser. Still having trouble? Contact our support team for assistance.",
+        "the app isn't working properly": "Try updating to the latest version of the app. If issues persist, uninstall and reinstall the app. For ongoing problems, please report the specific issue to our tech team.",
+        "i'm not receiving verification emails": "Check your spam folder first. If you don't see our emails, try adding support@annita.com to your contacts and request a new verification email.",
+        "how do i update my app": "Visit the App Store or Google Play and check for updates. Enable automatic updates to always have the latest version with bug fixes and new features.",
+        "my transaction isn't going through": "First check your payment method details and ensure you have sufficient funds. If the problem continues, contact support with the transaction details for investigation.",
+        "the website is loading slowly": "This could be due to your internet connection or high traffic on our servers. Try refreshing the page or coming back later. Persistent slowness should be reported to our team.",
+        "i'm seeing an error message": "Note down the exact error code and message, then check our Help Center for solutions. If unresolved, contact support with this information.",
+        "how do i enable two-factor authentication": "In your Account Security settings, you can enable 2FA and choose between SMS, authenticator app, or email verification methods.",
+        "my account was hacked": "Immediately contact our security team through the emergency support line. We'll secure your account and investigate any unauthorized activity.",
+        "how do i recover deleted data": "Some deleted information can be restored within 30 days. Contact our support team with details of what was deleted and when for recovery options.",
+
+        // Account Management Questions (10)
+        "how do i upgrade my account": "Visit the Subscriptions section in your account to view available plans and upgrade options tailored to your needs.",
+        "can i have multiple annita accounts": "You may have one personal account and separate business accounts if needed, but creating duplicate personal accounts violates our terms.",
+        "how do i change my email address": "In Account Settings, select 'Change Email' and follow the verification process to update your account's email address.",
+        "what are the account verification levels": "We have Basic (email/phone verified), Verified (ID confirmed), and Premium (enhanced due diligence) levels with increasing features and limits.",
+        "how do i merge duplicate accounts": "Contact our support team for help merging accounts. You'll need to verify ownership of all accounts involved in the merge.",
+        "can i transfer my account to someone else": "Account ownership cannot be transferred. The new user should create their own account, and you can share relevant data as needed.",
+        "how do i download my data": "In Privacy Settings, you can request a copy of your data. We'll compile it and make it available for download within 30 days.",
+        "what happens to my account if i'm inactive": "After 12 months of inactivity, we may deactivate your account. You'll receive email warnings before this happens.",
+        "how do i set up a business account": "Select 'Create Business Account' during signup or in your profile settings. You'll need to provide business registration details.",
+        "can i restrict my child's account": "Yes, our Family Accounts feature lets parents create and manage restricted accounts for children under 16 with appropriate controls.",
+
+        // Payment and Billing Questions (10)
+        "when will i get paid for my sales": "Marketplace sales are deposited to your AnnitaPay account 1-3 business days after buyer confirms receipt, minus any applicable fees.",
+        "how do i view my transaction history": "Your complete transaction history is available in the AnnitaPay section, with options to filter by date, amount, or transaction type.",
+        "why was my payment method declined": "Common reasons include insufficient funds, expired cards, or bank restrictions. Verify your details or try an alternative payment method.",
+        "how do i dispute a charge": "In your transaction history, select the disputed charge and choose 'Report Issue'. Our team will investigate and respond within 5 business days.",
+        "what subscription plans are available": "We offer Free, Basic ($9.99/mo), Professional ($29.99/mo), and Enterprise (custom pricing) plans with progressively more features.",
+        "how do i cancel my subscription": "You can downgrade or cancel in the Subscriptions section. Cancellations take effect at the end of your current billing period.",
+        "do you offer annual billing discounts": "Yes! Annual plans save you 15-20% compared to monthly billing, with the option to switch anytime.",
+        "can i get an invoice for my payment": "Yes, all payments generate invoices that you can access and download from your Billing History section.",
+        "how do i update my billing information": "In the Payment Methods section, you can add, remove, or update your credit cards, bank accounts, or other payment options.",
+        "what payment methods can i use": "We accept major credit/debit cards, bank transfers, mobile money, and in some regions, cash payments through our agent network.",
+
+        // Privacy and Security Questions (10)
+        "how does annita protect my privacy": "We adhere to strict data protection standards, only collecting necessary information and never selling your data to third parties.",
+        "can i make my profile private": "Yes, in Privacy Settings you can control what information is visible to others and limit who can contact you.",
+        "how do i report a security concern": "Please immediately email security@annita.com with details of any security vulnerabilities or suspicious activity you encounter.",
+        "does annita share my data with third parties": "We only share data with trusted service providers necessary to deliver our services, under strict confidentiality agreements.",
+        "how do i know my messages are secure": "All private messages are encrypted in transit and at rest, with strict access controls to protect your communications.",
+        "can i download all my data": "Yes, under GDPR and similar regulations, you can request a complete copy of your data through the Privacy section in your account.",
+        "how do i control personalized ads": "In Account Settings, you can adjust your ad preferences or opt out of personalized advertising while still seeing generic ads.",
+        "what should i do if i suspect fraud": "Immediately change your password, enable 2FA if not already active, and contact our security team through the emergency support line.",
+        "how long does annita keep my data": "We retain account data while your account is active and for legally required periods after closure, typically 3-7 years for financial records.",
+        "can i use annita anonymously": "Some browsing features are available without an account, but to transact or access most services, we require verified identity information."
+    };
+    // Enhanced response generation using Q&A database
+    function generateBotResponse(userMessage) {
+      typingIndicator.style.display = 'none';
+      
+      const normalizedMessage = userMessage.toLowerCase().trim();
+      
+      // Try to find an exact match first
+      if (qaDatabase[normalizedMessage]) {
+        addBotMessage(qaDatabase[normalizedMessage]);
+        return;
+      }
+      
+      // If no exact match, look for partial matches
+      let bestMatch = null;
+      let bestMatchScore = 0;
+      
+      for (const question in qaDatabase) {
+        const score = calculateMatchScore(normalizedMessage, question);
+        if (score > bestMatchScore) {
+          bestMatchScore = score;
+          bestMatch = question;
+        }
+      }
+      
+      if (bestMatch && bestMatchScore >= 2) {
+        addBotMessage(qaDatabase[bestMatch]);
+      } else {
+        const defaultResponses = [
+          "I'm not sure I understand. Could you rephrase your question?",
+          "That's an interesting question. Let me connect you with a specialist who can help.",
+          "I'm still learning about Annita's services. Could you ask your question differently?",
+          "I don't have an answer for that right now. Try asking about one of our services like AnnitaPay or Annita Market."
+        ];
+        const randomResponse = defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        addBotMessage(randomResponse);
+      }
+      
+      setTimeout(() => {
+        addFollowUpQuestions(normalizedMessage);
+      }, 500);
+    }
+
+    function calculateMatchScore(input, question) {
+      const inputWords = input.split(/\s+/);
+      const questionWords = question.split(/\s+/);
+      
+      let score = 0;
+      for (const word of inputWords) {
+        if (questionWords.includes(word)) {
+          score++;
+        }
+      }
+      return score;
+    }
+
+    function addFollowUpQuestions(userMessage) {
+      const followUpMap = {
+        "annitapay": [
+          "How do I send money with AnnitaPay?",
+          "What are the AnnitaPay fees?",
+          "Can I get a loan through AnnitaPay?"
+        ],
+        "market": [
+          "How do I sell on Annita Market?",
+          "What are the marketplace fees?",
+          "How does shipping work?"
+        ],
+        "logistics": [
+          "How much does Annita Logistics cost?",
+          "How fast is delivery?",
+          "How do I track my shipment?"
+        ],
+        "ai": [
+          "How can Annita AI help my business?",
+          "Is Annita AI included in my subscription?",
+          "How accurate are the predictions?"
+        ],
+        "connect": [
+          "How is Annita Connect different?",
+          "Can I advertise on Annita Connect?",
+          "How do groups work?"
+        ],
+        "ads": [
+          "How do I create an Annita Ad?",
+          "What targeting options are available?",
+          "How much does advertising cost?"
+        ]
+      };
+      
+      let category = null;
+      if (userMessage.includes('pay') || userMessage.includes('money')) {
+        category = "annitapay";
+      } else if (userMessage.includes('market') || userMessage.includes('sell') || userMessage.includes('buy')) {
+        category = "market";
+      } else if (userMessage.includes('logistics') || userMessage.includes('shipping') || userMessage.includes('delivery')) {
+        category = "logistics";
+      } else if (userMessage.includes('ai') || userMessage.includes('artificial intelligence')) {
+        category = "ai";
+      } else if (userMessage.includes('connect') || userMessage.includes('social') || userMessage.includes('network')) {
+        category = "connect";
+      } else if (userMessage.includes('ads') || userMessage.includes('advertising') || userMessage.includes('marketing')) {
+        category = "ads";
+      }
+      
+      if (category && followUpMap[category]) {
+        const quickReplyContainer = document.createElement('div');
+        quickReplyContainer.classList.add('quick-reply-container');
+        
+        followUpMap[category].forEach(text => {
+          const btn = document.createElement('button');
+          btn.classList.add('quick-reply-btn');
+          btn.textContent = text;
+          btn.addEventListener('click', function() {
+            addMessage(text, true);
+            simulateTyping();
+            setTimeout(() => {
+              generateBotResponse(text);
+            }, 1000);
+          });
+          quickReplyContainer.appendChild(btn);
+        });
+        
+        const botMessage = document.createElement('div');
+        botMessage.classList.add('message', 'bot-message');
+        botMessage.innerHTML = 'You might want to ask:';
+        botMessage.appendChild(quickReplyContainer);
+        
+        const timeSpan = document.createElement('span');
+        timeSpan.classList.add('message-time');
+        timeSpan.textContent = 'Just now';
+        botMessage.appendChild(timeSpan);
+        
+        chatMessages.appendChild(botMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    }
+
+    // Initialize with a welcome message if first visit
+    if (!sessionStorage.getItem('chatbotGreeted')) {
+      setTimeout(() => {
+        addBotMessage("Welcome to Annita! I'm here to help you with any questions about our services. How can I assist you today?");
+        sessionStorage.setItem('chatbotGreeted', 'true');
+      }, 3000);
+    }
 
     // Cookie notification
     const cookieNotification = document.querySelector('.cookie-notification');
@@ -2524,93 +4105,38 @@
     });
 
     manageCookies.addEventListener('click', () => {
-      // Here you would typically open a more detailed cookie preferences modal
-      alert('Cookie preferences would be shown here in a production environment.');
+      alert('Cookie preferences would be shown here. For now, click "Accept" to dismiss this notification.');
     });
 
-    // Reward popup - show after 30 seconds
-    setTimeout(() => {
-      if (!sessionStorage.getItem('rewardShown')) {
-        document.querySelector('.reward-unlock').classList.add('active');
-        sessionStorage.setItem('rewardShown', 'true');
+    // Offline detection
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    function updateOnlineStatus() {
+      const offlineNotification = document.querySelector('.offline-notification');
+      if (!navigator.onLine) {
+        offlineNotification.classList.add('active');
+      } else {
+        offlineNotification.classList.remove('active');
       }
-    }, 30000);
-
-    // Close reward popup
-    document.querySelector('.reward-unlock-close').addEventListener('click', () => {
-      document.querySelector('.reward-unlock').classList.remove('active');
-    });
-
-    // Simple chatbot functionality
-    const chatInput = document.querySelector('.chat-input input');
-    const sendButton = document.querySelector('.send-button');
-    const chatMessages = document.querySelector('.chat-messages');
-
-    function addMessage(text, isUser = false) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message');
-      messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-      messageDiv.textContent = text;
-      chatMessages.appendChild(messageDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    function handleUserMessage() {
-      const message = chatInput.value.trim();
-      if (message) {
-        addMessage(message, true);
-        chatInput.value = '';
-        
-        // Simple bot responses
+    // Check initial status
+    updateOnlineStatus();
+
+    // Loading spinner for page transitions
+    const loadingSpinner = document.querySelector('.loading-spinner');
+    
+    document.querySelectorAll('a[href="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadingSpinner.classList.add('active');
         setTimeout(() => {
-          const responses = [
-            "I can help you with account setup, payments, and more. What specifically do you need help with?",
-            "Thanks for your message! Our support team can assist you further if needed.",
-            "That's a great question! Let me connect you with the right resources.",
-            "I'm still learning, but I'll do my best to help. Could you clarify your question?"
-          ];
-          addMessage(responses[Math.floor(Math.random() * responses.length)]);
-        }, 1000);
-      }
-    }
-
-    sendButton.addEventListener('click', handleUserMessage);
-    chatInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') handleUserMessage();
-    });
-
-    // Service card animations
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach((card, index) => {
-      card.style.transitionDelay = `${index * 0.1}s`;
-    });
-
-    // Testimonial scroll animation
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
+          loadingSpinner.classList.remove('active');
+        }, 2000);
       });
-    }, { threshold: 0.1 });
-
-    testimonialCards.forEach(card => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = 'all 0.5s ease';
-      observer.observe(card);
     });
-
-    // Set vh unit for mobile browsers
-    function setVhUnit() {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-
-    window.addEventListener('resize', setVhUnit);
-    setVhUnit();
-  </script>
+  });
+</script>
 </body>
 </html>
