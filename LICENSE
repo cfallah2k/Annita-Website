@@ -1,21 +1,43 @@
-MIT License
+Copyright (c) 2025 Annita. All rights reserved.
+Website: https://an-nita.com
+Contact: info@an-nita.com
 
-Copyright (c) 2025 Christopher O. Fallah
+This software and all associated files (the “Software”) are the exclusive property of Annita, Africa’s first all-in-one digital platform. All rights are reserved unless explicitly stated otherwise in writing by Annita.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is granted solely to contributors who are directly involved in enhancing the Annita platform, and only for the purpose of improving, maintaining, or developing the Annita Website and its ecosystem. Any other use of this Software is strictly prohibited.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Permitted Use
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- You may view and analyze the source code for the sole purpose of contributing improvements to the Annita Website.
+- You may submit pull requests, bug fixes, performance enhancements, or other contributions **only if** such contributions are intended to be incorporated into the official Annita platform.
+- You may use this Software in development environments strictly related to Annita product evolution.
+
+Prohibited Use
+
+- You may **not** use this Software or any part of it in any product or service that is not directly owned or operated by Annita.
+- You may **not** copy, modify, sublicense, redistribute, or publish this Software in any form outside of this repository without prior written permission.
+- You may **not** create derivative works for commercial, academic, or personal projects outside the Annita ecosystem.
+- You may **not** use this Software to build competing platforms or services.
+
+Ownership
+
+All contributions, suggestions, and improvements submitted to this repository automatically become the intellectual property of Annita upon merge or implementation, without the need for further authorization or compensation, unless otherwise agreed in writing.
+
+By submitting a contribution, you affirm that:
+- You own the rights to your contribution and it does not infringe on any third-party rights.
+- You grant Annita a perpetual, irrevocable, worldwide license to use, adapt, and incorporate your contribution into the platform.
+
+Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DAMAGES ARISING FROM THE USE OR MISUSE OF THIS SOFTWARE.
+
+Contact
+
+For licensing inquiries, partnership opportunities, or contribution discussions, please contact:
+
+📧 info@an-nita.com  
+🌐 https://an-nita.com
+
+---
+
+This is proprietary software. Unauthorized use is strictly prohibited.
